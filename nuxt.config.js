@@ -1,61 +1,88 @@
+import { head } from './config'
+
+import messagesEn from './locales/en.json'
+import messagesRu from './locales/ru.json'
+
 export default {
   mode: 'universal',
-  /*
-   ** Headers of the page
-   */
-  head: {
-    title: process.env.npm_package_name || '',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
-      }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  },
-  /*
-   ** Customize the progress-bar color
-   */
+  store: true,
+  head,
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
   css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [],
-  /*
-   ** Nuxt.js dev-modules
-   */
+  plugins: [
+    '~/plugins/i18n.js',
+    { src: '~plugins/v-body-scroll-lock.js', ssr: false }
+  ],
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
-  /*
-   ** Nuxt.js modules
-   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/style-resources',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'en',
+            name: 'En'
+          },
+          {
+            code: 'ru',
+            name: 'Ru'
+          }
+        ],
+        defaultLocale: 'en',
+        vueI18n: {
+          fallbackLocale: 'en',
+          messages: {
+            ru: messagesRu,
+            en: messagesEn
+          }
+        }
+      }
+    ]
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
+  styleResources: {
+    scss: [
+      'assets/scss/core/normalize.scss',
+      'assets/scss/core/vars.scss',
+      'assets/scss/core/mixins.scss',
+      'assets/scss/core/fonts.scss',
+      'assets/scss/core/common.scss',
+      'assets/scss/core/grid.scss'
+    ]
+  },
   axios: {},
-  /*
-   ** Build configuration
-   */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
+    filenames: {
+      chunk: '[name].js'
+    },
+    extend(config, { isDev, isClient }) {
+      if (isDev && isClient) {
+        config.devtool = '#source-map'
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
+        })
+      }
+
+      // SVG Loader
+      config.module.rules
+        .filter(r => r.test.toString().includes('svg'))
+        .forEach((r) => {
+          r.test = /\.(png|jpe?g|gif)$/
+        })
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'vue-svg-loader'
+      })
+    }
   }
 }

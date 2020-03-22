@@ -9,15 +9,15 @@ module.exports = {
   },
   extends: [
     '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    "eslint:recommended",
   ],
-  plugins: [
-    'prettier'
-  ],
-  // add your custom rules here
   rules: {
+    "no-console": 0,
+    "require-await": 0,
+    "object-shorthand": 0,
+    "unicorn/prefer-includes": 0,
+    "curly": 0,
+    "space-before-function-paren": 0,
+    "vue/no-v-html": 0
   }
 }
