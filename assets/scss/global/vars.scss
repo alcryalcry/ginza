@@ -1,0 +1,64 @@
+$fontBase: 'Lato', Arial, sans-serif;
+
+
+$white: #ffffff;
+$black: #202124;
+$border:#D9D9D6;
+$gray: #5f6368;
+$green: red;
+
+
+
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$t: .2s $easeOutCubic;
+
+
+
+
+
+
+
+$mobile: 'screen and (max-width: 767px)';
+$tablet: 'screen and (min-width: 768px) and (max-width: 1024px)';
+$mobile-tablet: 'screen and (max-width: 1024px)';
+$tablet-desktop: 'screen and (min-width: 768px)';
+$desktop: 'screen and (min-width: 1025px)';
+
+
+
+$headerHeight: 8rem;
+
+
+$colCount: 12;
+$colGapDesktop: 1rem;
+$colGapTablet: 1rem;
+
+$containerWidth: 100rem;
+$containerMinWidth: 84rem;
+$containerBigWidth: 124rem;
+$containerWidthTablet: 76.8rem;
+
+$sectionOffsetVertical: 8rem;
+$sectionOffsetHorizontal: 3rem;
+$sectionOffsetHorizontalTablet: 4rem;
+$sectionOffsetVerticalTablet: 6rem;
+$sectionOffsetVerticalMobile: 4rem;
+$sectionOffsetHorizontalMobile: 2rem;
+
+
+
+$zLayerHide: -1;
+$zLayerBack: 0;
+$zLayerContent: 1;
+$zLayerDecor1: 2;
+$zLayerDecor2: 3;
+$zLayerDecor3: 4;
+$zLayerNav: 5; 
+$zLayerOverlay: 6;
+$zLayerPopups: 7;
+$zLayerSticky: 9;
+$zLayerTop: 10; 
+$zLayerBurger: 11; 
+$zLayerMenuOpened: 120; 
+$zLayerMenuOpenedBurgerBtn: 121; 
+$zLayerMenuOpenedBurgerBtn2: 122;

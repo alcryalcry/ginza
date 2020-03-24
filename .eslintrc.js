@@ -18,6 +18,7 @@ module.exports = {
     "unicorn/prefer-includes": 0,
     "curly": 0,
     "space-before-function-paren": 0,
-    "vue/no-v-html": 0
+    "vue/no-v-html": 0,
+    "vue/singleline-html-element-content-newline": 0
   }
 }

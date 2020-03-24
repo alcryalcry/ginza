@@ -5,10 +5,16 @@
 </template>
 
 <script>
-
+import { mapMutations } from 'vuex'
 import { debounce } from 'throttle-debounce'
 
 export default {
+  watch: {
+    $route() {
+      this.CLOSE_MENU()
+      this.CLOSE_POPUP()
+    }
+  },
   mounted() {
     window.addEventListener('resize', debounce(250, () => {
       this.handleResize()
@@ -19,6 +25,10 @@ export default {
     window.removeEventListener('resize', this.handleResize, false)
   },
   methods: {
+    ...mapMutations({
+      CLOSE_MENU: 'popup/CLOSE_MENU',
+      CLOSE_POPUP: 'popup/CLOSE_POPUP'
+    }),
     handleResize() {
       const m = 768
       const t = 1024

@@ -1,4 +1,7 @@
 {
+  "header": {
+    "menu_name": "Меню" 
+  },
   "feedback": {
     "placeholder_name": "Ваше имя"
   }

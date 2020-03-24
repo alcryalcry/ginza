@@ -1,23 +1,4 @@
-<template>
-  <div class="container">
-    <h1>fdskjfsdlkf</h1>
-  </div>
-</template>
-
 <script>
-export default {
-  components: {
-  }
-}
+import page from '~/pages/_lang/index'
+export default page
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-</style>

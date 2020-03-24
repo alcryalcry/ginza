@@ -23,15 +23,6 @@ html {
   @media (min-width: 1025px)  and (max-width: 1360px) {
     font-size: calc(8px + 2 * (100vw - 1024px) / 335);
   }
-
-  // popup bugfix in iOS
-  &.isScrollLocked {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-  }
 }
 
 body {
@@ -39,15 +30,12 @@ body {
   height: 100%;
   font-size: 1.6rem;
   overflow-x: hidden;
+}
 
-  &.isScrollLocked {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
-  }
+main,
+#__nuxt,
+#__layout {
+  height: 100%;
 }
 
 .page {
@@ -58,43 +46,9 @@ body {
   min-height: 100%;
 }
 
-.main {
-  position: relative;
-  flex: auto;
-}
-
-.section {
-  &--black {
-    background: $black;
-  }
-
-  &--gray {
-    background: $gray;
-  }
-
-  &--lightgray {
-    background: $lightgray;
-  }
-}
-
-.container {
+.section--first {
   @include desktop {
-    max-width: $containerWidth;
-    margin: 0 auto;
-    padding: $sectionOffsetVertical $sectionOffsetHorizontal;
-  }
-
-  @include tablet {
-    padding: $sectionOffsetVerticalTablet $sectionOffsetHorizontalTablet;
-  }
-
-  @include mobile {
-    padding: $sectionOffsetVerticalMobile $sectionOffsetHorizontalMobile;
-  }
-
-  &.no-ptb {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: $headerHeight;
   }
 }
 
@@ -124,42 +78,6 @@ a {
   display: none !important;
 }
 
-.preloader {
-  &::before {
-    content: '';
-    position: absolute;
-    top: calc(50% - 3.5rem);
-    left: calc(50% - 3.5rem);
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    background-color: transparent;
-    border: 3px solid transparent;
-    border-top-color: $gray;
-    border-left-color: $gray;
-    pointer-events: none;
-    -webkit-animation: 1s spin linear infinite;
-    animation: 1s spin linear infinite;
-  }
-  .isReady & {
-    &::before {
-      content: none;
-    }
-  }
-}
-
-
-@keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
 
 .fade-enter-active,
 .fade-leave-active {
@@ -170,22 +88,4 @@ a {
 .fade-leave-to {
   opacity: 0;
   transition: none;
-}
-
-
-
-.notes-enter-active,
-.notes-leave-active {
-  transform-origin: top left;
-  transition: opacity $t, transform $t;
-}
-
-.notes-leave-to {
-  opacity: 0;
-  transform: scale(0);
-}
-
-.notes-enter {
-  opacity: 0;
-  transform: translateY(1rem);
 }

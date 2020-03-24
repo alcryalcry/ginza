@@ -7,19 +7,35 @@ export default {
   mode: 'universal',
   store: true,
   head,
+  server: {
+    port: 8080
+  },
   loading: { color: '#fff' },
-  css: [],
+  css: [
+    '~assets/scss/app.scss'
+    // 'assets/scss/core/normalize.scss',
+    // 'assets/scss/core/fonts.scss',
+    // 'assets/scss/core/common.scss',
+    // 'assets/scss/core/grid.scss'
+  ],
+  styleResources: {
+    scss: [
+      'assets/scss/global/mixins.scss',
+      'assets/scss/global/vars.scss'
+    ]
+  },
   plugins: [
     '~/plugins/i18n.js',
+    { src: '~/plugins/utils.js' },
     { src: '~plugins/v-body-scroll-lock.js', ssr: false }
   ],
   buildModules: [
+    '@nuxtjs/style-resources',
     '@nuxtjs/eslint-module'
   ],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources',
     [
       'nuxt-i18n',
       {
@@ -33,9 +49,9 @@ export default {
             name: 'Ru'
           }
         ],
-        defaultLocale: 'en',
+        defaultLocale: 'ru',
         vueI18n: {
-          fallbackLocale: 'en',
+          fallbackLocale: 'ru',
           messages: {
             ru: messagesRu,
             en: messagesEn
@@ -44,16 +60,6 @@ export default {
       }
     ]
   ],
-  styleResources: {
-    scss: [
-      'assets/scss/core/normalize.scss',
-      'assets/scss/core/vars.scss',
-      'assets/scss/core/mixins.scss',
-      'assets/scss/core/fonts.scss',
-      'assets/scss/core/common.scss',
-      'assets/scss/core/grid.scss'
-    ]
-  },
   axios: {},
   build: {
     filenames: {
@@ -84,5 +90,8 @@ export default {
         loader: 'vue-svg-loader'
       })
     }
+  },
+  env: {
+    // appEnv: process.env.APP_ENV
   }
 }
