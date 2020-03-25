@@ -3,6 +3,8 @@ import { head } from './config'
 import messagesEn from './locales/en.json'
 import messagesRu from './locales/ru.json'
 
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   store: true,
@@ -13,8 +15,10 @@ export default {
   loading: { color: '#fff' },
   css: [
     '~assets/scss/app.scss'
-    // 'assets/scss/core/normalize.scss',
+
     // 'assets/scss/core/fonts.scss',
+    // 'assets/scss/core/GUI.scss',
+    // 'assets/scss/core/normalize.scss',
     // 'assets/scss/core/common.scss',
     // 'assets/scss/core/grid.scss'
   ],
@@ -34,8 +38,8 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
     [
       'nuxt-i18n',
       {
@@ -92,6 +96,7 @@ export default {
     }
   },
   env: {
-    // appEnv: process.env.APP_ENV
+    apiRoot: process.env.API_ROOT,
+    appEnv: process.env.APP_ENV
   }
 }

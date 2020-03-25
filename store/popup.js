@@ -1,7 +1,7 @@
 
 export const state = () => ({
-  isPopupShow: false,
-  isMenuOpen: false
+  isMenuOpen: false,
+  isPopupShow: false
 })
 
 export const mutations = {
@@ -11,7 +11,7 @@ export const mutations = {
   CLOSE_MENU (state) {
     state.isMenuOpen = false
   },
-  TOGGLE_POPUP (state, payload) {
+  TOGGLE_POPUP (state) {
     state.isPopupShow = !state.isPopupShow
   },
   CLOSE_POPUP (state) {
@@ -20,6 +20,6 @@ export const mutations = {
 }
 
 export const getters = {
-  GET_POPUP_STATUS: state => state.isPopupShow,
-  GET_MENU_STATUS: state => state.isMenuOpen
+  GET_MENU_STATUS: state => state.isMenuOpen,
+  GET_POPUP_STATUS: state => state.isPopupShow
 }

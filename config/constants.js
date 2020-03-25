@@ -7,7 +7,8 @@ export const {
   pageDescription: PAGE_DESCRIPTION = '',
   api: {
     routes: {
-      layout: API_ROUTES_LAYOUT = 'get-layout',
+      get_header: API_ROUTES_HEADER = 'get-header',
+      get_footer: API_ROUTES_FOOTER = 'get-footer',
       post: {
         feedback: API_ROUTES_FEEDBACK = 'feedback'
       } = {},

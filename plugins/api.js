@@ -1,45 +1,58 @@
+/* eslint-disable handle-callback-err */
 import axios from '~/plugins/axios'
-import { API_ROUTES_LAYOUT } from '~/config/constants'
+import { API_ROUTES_HEADER, API_ROUTES_FOOTER } from '~/config/constants'
 
-export async function get (context, route) {
-  const routeResp = await axios.get(route, {
+export default async function (context, route) {
+  const bodyResp = await axios.get(route, {
     params: {
       lang: context.store.state.locale
     }
-  }).catch((error) => {
+  }).catch((e) => {
     if (route) {
       return context.redirect('/error', {
+        statusCode: e.response
       })
-    } else {
-      console.log(route)
     }
-    console.error(error.response)
   })
 
-  const layoutResp = await axios.get(API_ROUTES_LAYOUT, {
+  const headerResp = await axios.get(API_ROUTES_HEADER, {
     params: {
       lang: context.store.state.locale
     }
+  }).then((ss) => {
+    // console.warn(ss)
+    return ss
   }).catch((error) => {
-    console.error(error.response)
+    // console.log(error.response)
+  })
+
+  const footerResp = await axios.get(API_ROUTES_FOOTER, {
+    params: {
+      lang: context.store.state.locale
+    }
+  }).then((ss) => {
+    return ss
+  }).catch((error) => {
+    // console.log(error.response)
   })
 
   const {
-    data: routeData = {}
-  } = routeResp || {}
+    data: bodyData = {}
+  } = bodyResp || {}
 
   const {
-    data: layoutData = {}
-  } = layoutResp || {}
+    data: headerData = {}
+  } = headerResp || {}
 
   const {
-    header = {},
-    footer = {}
-  } = layoutData
+    data: footerData = {}
+  } = footerResp || {}
+
+  const pageData = bodyData
 
   return {
-    pageComponents: routeData,
-    header,
-    footer
+    pageData: pageData || {},
+    headerData: headerData || {},
+    footerData: footerData || {}
   }
 }

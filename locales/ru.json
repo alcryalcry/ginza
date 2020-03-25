@@ -1,6 +1,7 @@
 {
   "header": {
-    "menu_name": "Меню" 
+    "menu_name": "Меню",
+    "back": "Назад"
   },
   "feedback": {
     "placeholder_name": "Ваше имя"

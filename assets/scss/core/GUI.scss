@@ -1,0 +1,33 @@
+.title {
+  &--h1 {
+    font-size: 5rem;
+    line-height: 1.25;
+    font-family: $fontBase;
+    font-weight: $light;
+  }
+}
+
+.text {
+  &--13 {
+    font-size: 1.3rem;
+    line-height: 1.25;
+    font-family: $fontBase;
+  }
+}
+
+
+.link {
+  color: $black17;
+  outline: none;
+  text-decoration: none;
+  transition: color .2s ease;
+
+  &:active {
+    color: $brown;
+  }
+  @include desktop {
+    &:hover {
+      color: $brown;
+    }
+  }
+}

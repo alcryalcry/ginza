@@ -42,12 +42,6 @@ export default {
     padding: $sectionOffsetVerticalMobile $sectionOffsetHorizontalMobile;
   }
 
-  .section--first & {
-    @include desktop {
-      padding-top: $headerHeight;
-    }
-  }
-
   .section--big & {
     @include desktop {
       max-width: $containerBigWidth;

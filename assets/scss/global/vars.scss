@@ -3,8 +3,11 @@ $fontBase: 'Lato', Arial, sans-serif;
 
 $white: #ffffff;
 $black: #202124;
+$black17: #171717;
 $border:#D9D9D6;
 $gray: #5f6368;
+$brown: #B27A78;
+
 $green: red;
 
 
@@ -14,7 +17,10 @@ $t: .2s $easeOutCubic;
 
 
 
-
+$thin: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
 
 
 
@@ -26,7 +32,7 @@ $desktop: 'screen and (min-width: 1025px)';
 
 
 
-$headerHeight: 8rem;
+$headerHeight: 7rem;
 
 
 $colCount: 12;
