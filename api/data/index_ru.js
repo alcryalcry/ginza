@@ -6,6 +6,10 @@ module.exports = {
     {
       name: 'hero',
       title: 'hero title'
+    },
+    {
+      name: 'banner_love',
+      title: 'Сделано с любовью!'
     }
   ]
 }

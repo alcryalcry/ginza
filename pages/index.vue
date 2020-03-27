@@ -43,7 +43,7 @@ export default {
     if (this.components) {
       this.components.forEach((component) => {
         const componentName = this.capitalize(component.name)
-        const comp = () => import('~/components/' + componentName + '/' + componentName + '.vue')
+        const comp = () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
         this.generatedComps.push(comp)
       })
     } else {
