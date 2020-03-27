@@ -37,8 +37,8 @@ export default {
     '@nuxtjs/eslint-module'
   ],
   modules: [
-    '@nuxtjs/dotenv',
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
     [
       'nuxt-i18n',
       {
@@ -92,6 +92,25 @@ export default {
         test: /\.svg$/,
         loader: 'vue-svg-loader'
       })
+    },
+    babel: {
+      presets({ isServer }) {
+        const targets = isServer
+          ? {
+            node: 'current'
+          }
+          : {
+            ie: 11
+          }
+        return [
+          [
+            require.resolve('@nuxt/babel-preset-app'),
+            {
+              targets
+            }
+          ]
+        ]
+      }
     }
   },
   env: {

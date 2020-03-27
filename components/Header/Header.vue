@@ -10,7 +10,7 @@
               <div class="line" />
             </div>
             <span class="text text--13">
-              {{ $t('header.menu_name') }}
+              {{ $t("header.menu_name") }}
             </span>
           </button>
           <nuxt-link class="back" :to="localePath('/')">
@@ -18,7 +18,7 @@
               <iconBack />
             </div>
             <span class="text text--13">
-              {{ $t('header.back') }}
+              {{ $t("header.back") }}
             </span>
           </nuxt-link>
         </div>
@@ -42,7 +42,12 @@
       </div>
     </Section>
     <transition mode="out-in" name="header">
-      <Menu v-if="GET_MENU_STATUS" key="1" :info="model.menu" class="header-menu" />
+      <Menu
+        v-if="GET_MENU_STATUS"
+        key="1"
+        :info="model.menu"
+        class="header-menu"
+      />
     </transition>
   </header>
 </template>
@@ -158,9 +163,9 @@ export default {
       padding-left: 2.5rem;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
-        top: .75rem;
+        top: 0.75rem;
         left: 0;
         width: 1px;
         height: 1.5rem;
@@ -173,7 +178,7 @@ export default {
     display: flex;
     align-items: center;
     height: 3rem;
-    padding: .6rem;
+    padding: 0.6rem;
     line-height: 1;
   }
 
@@ -181,7 +186,7 @@ export default {
     display: flex;
     width: 3rem;
     height: 3rem;
-    padding: .6rem;
+    padding: 0.6rem;
   }
 
   .back {
@@ -195,10 +200,10 @@ export default {
       display: flex;
       width: 3rem;
       height: 3rem;
-      padding: .6rem;
+      padding: 0.6rem;
     }
     .text {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 
@@ -220,8 +225,8 @@ export default {
       }
     }
     .text {
-      margin-left: .5rem;
-      transition: color .2s ease;
+      margin-left: 0.5rem;
+      transition: color 0.2s ease;
       @include mobile {
         display: none;
       }
@@ -246,7 +251,7 @@ export default {
         transition: transform 0.3s ease, opacity 0.3s ease, color 0.2s ease;
         &:nth-child(2) {
           &:after {
-            content: '';
+            content: "";
             display: block;
             width: 100%;
             height: 1px;
@@ -297,7 +302,7 @@ export default {
 
 .header-enter-active,
 .header-leave-active {
-  transition: opacity .2s ease, transform .4s ease;
+  transition: opacity 0.2s ease, transform 0.4s ease;
 }
 
 .header-enter,

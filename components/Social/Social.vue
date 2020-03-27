@@ -23,22 +23,19 @@ export default {
   props: {
     info: {
       type: Array,
-      default: () => ([])
+      default: () => []
     }
   },
   data() {
-    return {
-    }
+    return {}
   },
   computed: {
     model() {
       return MODEL(this.info)
     }
   },
-  mounted() {
-  },
-  methods: {
-  }
+  mounted() {},
+  methods: {}
 }
 </script>
 
@@ -53,8 +50,7 @@ export default {
     flex: 0 0 auto;
     width: 3.5rem;
     height: 3.5rem;
-    padding: .5rem;
+    padding: 0.5rem;
   }
 }
-
 </style>

@@ -4,8 +4,14 @@
       <div class="row">
         <div class="col-9 col-t-8 col-m-12">
           <ul class="list">
-            <li v-for="item in model.menuList" :key="item.label" class="list-item">
-              <nuxt-link class="title--h1 link menu-link" :to="localePath(item.url)">{{ item.label }}</nuxt-link>
+            <li
+              v-for="item in model.menuList"
+              :key="item.label"
+              class="list-item"
+            >
+              <nuxt-link class="title--h1 link menu-link" :to="localePath(item.url)">
+                {{ item.label }}
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -188,7 +194,7 @@ export default {
       }
     }
 
-    & +.cities-item {
+    & + .cities-item {
       margin-top: 2rem;
     }
 
@@ -214,9 +220,8 @@ export default {
       width: 1.5rem;
       height: 1.5rem;
       opacity: 0;
-      transition: opacity .2s ease;
+      transition: opacity 0.2s ease;
     }
   }
 }
-
 </style>

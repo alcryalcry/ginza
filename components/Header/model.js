@@ -6,13 +6,10 @@ export default (info) => {
       menuList: []
     },
     cities = []
-  } = (info || {})
+  } = info || {}
 
   const citiesModel = (cities || []).map((city) => {
-    const {
-      id = null,
-      name = ''
-    } = city
+    const { id = null, name = '' } = city
     return {
       id,
       name

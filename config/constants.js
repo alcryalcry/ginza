@@ -7,13 +7,12 @@ export const {
   pageDescription: PAGE_DESCRIPTION = '',
   api: {
     routes: {
-      get_header: API_ROUTES_HEADER = 'get-header',
-      get_footer: API_ROUTES_FOOTER = 'get-footer',
-      post: {
-        feedback: API_ROUTES_FEEDBACK = 'feedback'
-      } = {},
+      layout: API_ROUTES_LAYOUT = 'get-layout/',
       pages: {
         API_ROUTES_INDEX = 'get-page/index'
+      } = {},
+      post: {
+        feedback: API_ROUTES_FEEDBACK = 'feedback'
       } = {}
     } = {}
   } = {}

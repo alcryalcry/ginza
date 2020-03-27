@@ -1,22 +1,36 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const formidable = require('express-formidable')
+const PORT = 3000
 let currentLang = 'ru'
 
 const reponseJson = name => require(`./data/${name}_${currentLang}.js`)
 // const reponseJson = name => require(`./data/${name}.js`)
 
 app.use(bodyParser.json())
-app.use(formidable())
 
 app.use(function (req, res, next) {
   currentLang = req.query.lang === 'en' ? 'en' : 'ru'
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Credentials', 'true')
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT')
-  res.header('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers')
-  // res.header('Access-Control-Allow-Methods', 'GET,POST')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+  )
+  // res.header("Access-Control-Allow-Methods", "GET,POST")
+  next()
+})
+
+app.use((req, res, next) => {
+  const {
+    headers: { host },
+    url,
+    params,
+    query,
+    body
+  } = req
+  console.log(host, url, params, query, body)
   next()
 })
 
@@ -24,11 +38,9 @@ app.get('/', (req, res) => {
   res.send('API root')
 })
 
-app.get('/get-header', (req, res) => {
-  res.send(reponseJson('header'))
-})
-app.get('/get-footer', (req, res) => {
-  res.send(reponseJson('footer'))
+app.get('/get-layout', (req, res) => {
+  console.log(req, res)
+  res.send(reponseJson('layout'))
 })
 
 app.get('/get-page/index', (req, res) => {
@@ -41,11 +53,16 @@ app.post('/feedback', (req, res) => {
   })
 })
 
-app.listen(3000, function () {
-  console.log('api listening on port 3000')
+app.listen(PORT, () => {
+  console.log(`api listening on port ${PORT}`)
 })
 
-module.exports = {
-  path: '/api',
-  handler: app
-}
+// if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
+//   // export the server middleware
+//   module.exports = {
+//     path: '/api',
+//     handler: app
+//   }
+// } else {
+//   app.listen(PORT)
+// }

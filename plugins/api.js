@@ -1,58 +1,40 @@
-/* eslint-disable handle-callback-err */
 import axios from '~/plugins/axios'
-import { API_ROUTES_HEADER, API_ROUTES_FOOTER } from '~/config/constants'
+import { API_ROUTES_LAYOUT } from '~/config/constants'
 
-export default async function (context, route) {
-  const bodyResp = await axios.get(route, {
-    params: {
-      lang: context.store.state.locale
+export default async function get(context, route) {
+  try {
+    const routeResp = await axios.get(route, {
+      params: {
+        lang: context.store.state.locale
+      }
+    })
+    const layoutResp = await axios.get(API_ROUTES_LAYOUT, {
+      params: {
+        lang: context.store.state.locale
+      }
+    })
+
+    if (!routeResp) {
+      console.error('routeResp')
     }
-  }).catch((e) => {
-    if (route) {
-      return context.redirect('/error', {
-        statusCode: e.response
-      })
+    if (!layoutResp) {
+      console.error('layoutResp')
     }
-  })
+    const { data: routeData = {} } = routeResp || {}
 
-  const headerResp = await axios.get(API_ROUTES_HEADER, {
-    params: {
-      lang: context.store.state.locale
+    const { data: layoutData = {} } = layoutResp || {}
+
+    const { header = {}, footer = {} } = layoutData
+
+    return {
+      pageComponents: routeData,
+      header,
+      footer
     }
-  }).then((ss) => {
-    // console.warn(ss)
-    return ss
-  }).catch((error) => {
-    // console.log(error.response)
-  })
-
-  const footerResp = await axios.get(API_ROUTES_FOOTER, {
-    params: {
-      lang: context.store.state.locale
-    }
-  }).then((ss) => {
-    return ss
-  }).catch((error) => {
-    // console.log(error.response)
-  })
-
-  const {
-    data: bodyData = {}
-  } = bodyResp || {}
-
-  const {
-    data: headerData = {}
-  } = headerResp || {}
-
-  const {
-    data: footerData = {}
-  } = footerResp || {}
-
-  const pageData = bodyData
-
-  return {
-    pageData: pageData || {},
-    headerData: headerData || {},
-    footerData: footerData || {}
+  } catch (error) {
+    console.error(error)
+    return context.redirect('/error5xx', {
+      statusCode: error.response ? error.response.status : '500'
+    })
   }
 }

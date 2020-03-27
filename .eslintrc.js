@@ -8,9 +8,9 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
-    '@nuxtjs',
-    "eslint:recommended",
-  ],
+    '@nuxtjs', 
+    'eslint:recommended'
+],
   rules: {
     "no-console": 0,
     "require-await": 0,
