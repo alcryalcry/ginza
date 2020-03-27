@@ -33,8 +33,7 @@ export default {
     { src: '~plugins/v-body-scroll-lock.js', ssr: false }
   ],
   buildModules: [
-    '@nuxtjs/style-resources',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/style-resources'
   ],
   modules: [
     '@nuxtjs/axios',
@@ -63,14 +62,9 @@ export default {
       }
     ]
   ],
-  axios: {},
   build: {
-    filenames: {
-      chunk: '[name].js'
-    },
-    extend(config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.devtool = '#source-map'
+    extend(config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

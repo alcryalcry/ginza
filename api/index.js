@@ -23,14 +23,13 @@ app.use(function (req, res, next) {
 })
 
 app.use((req, res, next) => {
-  const {
-    headers: { host },
-    url,
-    params,
-    query,
-    body
-  } = req
-  console.log(host, url, params, query, body)
+  // const {
+  //   headers: { host },
+  //   url,
+  //   params,
+  //   query,
+  //   body
+  // } = req
   next()
 })
 
@@ -39,7 +38,6 @@ app.get('/', (req, res) => {
 })
 
 app.get('/get-layout', (req, res) => {
-  console.log(req, res)
   res.send(reponseJson('layout'))
 })
 

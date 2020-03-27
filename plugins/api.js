@@ -32,7 +32,7 @@ export default async function get(context, route) {
       footer
     }
   } catch (error) {
-    console.error(error)
+    // console.error(error)
     return context.redirect('/error5xx', {
       statusCode: error.response ? error.response.status : '500'
     })

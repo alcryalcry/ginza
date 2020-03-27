@@ -1,13 +1,13 @@
 <template>
   <div class="page">
-    <Header :info="headerData" />
+    <Header :info="header" />
 
     <main class="page-content">
       <slot name="page-content" :value="value" />
       <slot name="popup" />
     </main>
 
-    <Footer :info="footerData" />
+    <Footer :info="footer" />
   </div>
 </template>
 
@@ -22,11 +22,11 @@ export default {
     Footer
   },
   props: {
-    headerData: {
+    header: {
       type: Object,
       default: () => ({})
     },
-    footerData: {
+    footer: {
       type: Object,
       default: () => ({})
     },
