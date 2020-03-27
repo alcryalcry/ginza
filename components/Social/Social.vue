@@ -1,6 +1,6 @@
 <template>
   <ul class="social">
-    <li v-for="item in info" :key="item.name" class="social-item">
+    <li v-for="item in model" :key="item.name" class="social-item">
       <a class="link" :href="item.url" target="_blank">
         <component :is="item.name" />
       </a>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import MODEL from './model'
 import instagram from '~/assets/svg/instagram.svg'
 import facebook from '~/assets/svg/facebook.svg'
 import tripadvisor from '~/assets/svg/tripadvisor.svg'
@@ -30,6 +31,9 @@ export default {
     }
   },
   computed: {
+    model() {
+      return MODEL(this.info)
+    }
   },
   mounted() {
   },

@@ -42,13 +42,14 @@
       </div>
     </Section>
     <transition mode="out-in" name="header">
-      <Menu v-if="GET_MENU_STATUS" key="1" :info="info.menu" class="header-menu" />
+      <Menu v-if="GET_MENU_STATUS" key="1" :info="model.menu" class="header-menu" />
     </transition>
   </header>
 </template>
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Menu from '~/components/Menu/Menu'
 import iconLogo from '~/assets/svg/logo.svg'
@@ -73,11 +74,14 @@ export default {
     ...mapGetters({
       GET_LANG: 'GET_LANG',
       GET_MENU_STATUS: 'popup/GET_MENU_STATUS'
-    })
+    }),
+    model() {
+      return MODEL(this.info)
+    }
   },
   created() {
     if (process.browser) {
-      this.UPDATE_CITIES(this.info.cities)
+      this.UPDATE_CITIES(this.model.cities)
     }
   },
   methods: {

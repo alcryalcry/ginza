@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-9 col-t-8 col-m-12">
           <ul class="list">
-            <li v-for="item in info.list" :key="item.label" class="list-item">
+            <li v-for="item in model.list" :key="item.label" class="list-item">
               <nuxt-link class="title--h1 link menu-link" :to="localePath(item.url)">{{ item.label }}</nuxt-link>
             </li>
           </ul>
@@ -30,10 +30,10 @@
             </li>
           </ul>
           <div class="menu-social">
-            <div v-if="info.phone" class="phone">
-              <a class="link" :href="`tel:${info.phone}`">{{ info.phone }}</a>
+            <div v-if="model.phone" class="phone">
+              <a class="link" :href="`tel:${model.phone}`">{{ model.phone }}</a>
             </div>
-            <Social v-if="info.social" :info="info.social" />
+            <Social v-if="model.social" :info="model.social" />
           </div>
         </div>
       </div>
@@ -43,6 +43,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import iconPlane from '~/assets/svg/plane.svg'
 import Social from '~/components/Social/Social'
@@ -68,7 +69,10 @@ export default {
     ...mapGetters({
       GET_CITIES: 'GET_CITIES',
       GET_CURRENT_CITY: 'GET_CURRENT_CITY'
-    })
+    }),
+    model() {
+      return MODEL(this.info)
+    }
   },
   mounted() {
     if (process.browser) {
