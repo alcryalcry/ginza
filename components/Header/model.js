@@ -3,7 +3,7 @@ export default (info) => {
     menu = {
       phone: '',
       social: [],
-      list: []
+      menuList: []
     },
     cities = []
   } = (info || {})

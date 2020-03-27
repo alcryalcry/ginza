@@ -3,6 +3,9 @@
     "menu_name": "Меню",
     "back": "Назад"
   },
+  "footer": {
+    "privacy": "Политика конфиденциальности"
+  },
   "feedback": {
     "placeholder_name": "Ваше имя"
   }

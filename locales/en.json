@@ -3,6 +3,9 @@
     "menu_name": "Menu",
     "back": "Back"
   },
+  "footer": {
+    "privacy": "Privacy Policy"
+  },
   "feedback": {
     "placeholder_name": "Your name"
   }

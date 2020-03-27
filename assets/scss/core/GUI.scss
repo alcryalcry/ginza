@@ -14,6 +14,14 @@
 }
 
 .text {
+  &--18 {
+    font-size: 1.8rem;
+    line-height: 1.25;
+    font-family: $fontBase;
+    @include mobile {
+      font-size: 1.6rem;
+    }
+  }
   &--13 {
     font-size: 1.3rem;
     line-height: 1.25;

@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-9 col-t-8 col-m-12">
           <ul class="list">
-            <li v-for="item in model.list" :key="item.label" class="list-item">
+            <li v-for="item in model.menuList" :key="item.label" class="list-item">
               <nuxt-link class="title--h1 link menu-link" :to="localePath(item.url)">{{ item.label }}</nuxt-link>
             </li>
           </ul>

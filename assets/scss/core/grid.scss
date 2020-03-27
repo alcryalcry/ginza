@@ -10,7 +10,7 @@ $sizeMobile: 1rem;
   @include desktop {
     margin: 0 - $sizeDesktop;
 
-    &.no-gut {
+    &.isNoGut {
       margin: 0;
     }
 
@@ -19,7 +19,7 @@ $sizeMobile: 1rem;
         flex: 0 0 (100% * $colNum / $cols);
         max-width: (100% * $colNum / $cols);
         padding: $sizeDesktop;
-        .no-gut & {
+        .isNoGut & {
           padding: 0;
         }
       }
@@ -37,7 +37,7 @@ $sizeMobile: 1rem;
   @include tablet {
     margin: 0 - $sizeTablet;
 
-    &.no-gut {
+    &.isNoGut {
       margin: 0;
     }
 
@@ -45,7 +45,7 @@ $sizeMobile: 1rem;
       .col-#{$colNum} {
         padding: 0 $sizeTablet;
 
-        .no-gut & {
+        .isNoGut & {
           padding: 0;
         }
       }
@@ -55,7 +55,7 @@ $sizeMobile: 1rem;
         max-width: (100% * $colNum / $cols);
         padding: $sizeTablet;
 
-        .no-gut & {
+        .isNoGut & {
           padding: 0;
         }
       }
@@ -64,6 +64,10 @@ $sizeMobile: 1rem;
 
   @include mobile {
     margin: 0 - $sizeMobile;
+
+    &.isNoGut {
+      margin: 0;
+    }
 
     @for $colNum from 1 to $cols {
       .col-#{$colNum} {
@@ -77,7 +81,7 @@ $sizeMobile: 1rem;
         max-width: (100% * $colNum / $cols);
         padding: $sizeMobile;
 
-        .no-gut & {
+        .isNoGut & {
           padding: 0;
         }
       }
@@ -132,19 +136,3 @@ $sizeMobile: 1rem;
     }
   }
 }
-
-
-/* for custom needs
-.col-m-12 100%
-.col-10 83.333333%
-.col-9 75%
-.col-8 66.666667%
-.col-7 58.333333%
-.col-6 50%
-.col-5 41.666667%
-.col-4 33.333333%
-.col-3 25%
-.col-2 16.666667%
-.col-1 8.3333333%
-
-*/

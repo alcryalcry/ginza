@@ -1,6 +1,7 @@
 export default (info) => {
   const {
     phone = '',
+    privacy = '',
     social = [],
     menuList = []
   } = (info || {})
@@ -17,6 +18,7 @@ export default (info) => {
   })
   return {
     phone,
+    privacy,
     social,
     menuList: listModel
   }

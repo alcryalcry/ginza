@@ -29,7 +29,7 @@ module.exports = {
         url: '#'
       }
     ],
-    list: [
+    menuList: [
       {
         label: 'О нас',
         url: '/about'

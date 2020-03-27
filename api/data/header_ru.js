@@ -29,10 +29,10 @@ module.exports = {
         url: '#'
       }
     ],
-    list: [
+    menuList: [
       {
         label: 'О нас',
-        url: '/'
+        url: '/about'
       },
       {
         label: 'Апартаменты ',
