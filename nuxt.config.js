@@ -30,7 +30,6 @@ export default {
   },
   plugins: [
     '~/plugins/i18n.js',
-    { src: '~/plugins/utils.js' },
     { src: '~plugins/v-body-scroll-lock.js', ssr: false }
   ],
   buildModules: [

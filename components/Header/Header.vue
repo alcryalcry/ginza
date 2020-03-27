@@ -33,8 +33,8 @@
               <iconSearch />
             </button>
           </div>
-          <div class="header-link">
-            <button class="header-link lang">
+          <div class="header-link m-hide">
+            <button class="lang">
               {{ GET_LANG }}
             </button>
           </div>
@@ -49,6 +49,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+import Section from '~/components/Utils/Section'
 import Menu from '~/components/Menu/Menu'
 import iconLogo from '~/assets/svg/logo.svg'
 import iconBack from '~/assets/svg/back.svg'
@@ -56,6 +57,7 @@ import iconSearch from '~/assets/svg/search.svg'
 
 export default {
   components: {
+    Section,
     iconLogo,
     iconBack,
     iconSearch,
@@ -127,6 +129,9 @@ export default {
     background: $white;
     border-bottom: 1px solid $border;
     z-index: $zLayerMenuOpenedBurgerBtn;
+    @include mobile {
+      padding: 1.5rem 0;
+    }
   }
 
   .header-menu {
@@ -137,6 +142,9 @@ export default {
     left: 0;
     background: $white;
     z-index: $zLayerMenuOpened;
+    @include mobile {
+      display: flex;
+    }
   }
 
   .header-link {
@@ -176,6 +184,9 @@ export default {
     display: flex;
     align-items: center;
     margin-left: 6rem;
+    @include mobile {
+      display: none;
+    }
     .back-link {
       display: flex;
       width: 3rem;
@@ -207,6 +218,9 @@ export default {
     .text {
       margin-left: .5rem;
       transition: color .2s ease;
+      @include mobile {
+        display: none;
+      }
     }
     .burger-button {
       position: relative;
@@ -270,6 +284,10 @@ export default {
     display: block;
     width: 11rem;
     height: 4rem;
+    @include mobile {
+      width: 8.7rem;
+      height: 3rem;
+    }
   }
 }
 

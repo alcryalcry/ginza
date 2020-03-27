@@ -42,6 +42,12 @@ export default {
     padding: $sectionOffsetVerticalMobile $sectionOffsetHorizontalMobile;
   }
 
+  .section--menu & {
+    @include mobile {
+      display: flex;
+    }
+  }
+
   .section--big & {
     @include desktop {
       max-width: $containerBigWidth;
@@ -55,9 +61,8 @@ export default {
   }
 
   .section--no-p & {
-    @include desktop {
-      padding: 0;
-    }
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
 }

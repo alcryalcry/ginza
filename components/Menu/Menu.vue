@@ -1,15 +1,15 @@
 <template>
-  <Section v-body-scroll-lock:reserveScrollBarGap="isReady" class="menu">
+  <Section v-body-scroll-lock:reserveScrollBarGap="isReady" class="menu section--menu">
     <div class="menu-content">
       <div class="row">
-        <div class="col-9">
+        <div class="col-9 col-t-8 col-m-12">
           <ul class="list">
             <li v-for="item in info.list" :key="item.label" class="list-item">
               <nuxt-link class="title--h1 link menu-link" :to="localePath(item.url)">{{ item.label }}</nuxt-link>
             </li>
           </ul>
         </div>
-        <div class="col-3 sidebar">
+        <div class="col-3 col-t-4 col-m-12 sidebar">
           <ul class="cities">
             <li
               v-for="city in GET_CITIES"
@@ -43,13 +43,15 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import Section from '~/components/Utils/Section'
 import iconPlane from '~/assets/svg/plane.svg'
 import Social from '~/components/Social/Social'
 
 export default {
   components: {
-    iconPlane,
-    Social
+    Section,
+    Social,
+    iconPlane
   },
   props: {
     info: {
@@ -90,6 +92,12 @@ export default {
 .menu {
   overflow-y: auto;
 }
+.menu-content {
+  @include mobile {
+    display: flex;
+  }
+}
+
 .list-item {
   & + .list-item {
     margin-top: 1rem;
@@ -102,6 +110,11 @@ export default {
   .menu-social {
     padding-top: 2rem;
     margin-top: auto;
+    @include mobile {
+      margin-top: 0;
+      padding-top: 4rem;
+      padding-left: 3rem;
+    }
   }
   .phone {
     display: flex;
@@ -111,6 +124,9 @@ export default {
 .menu-link {
   position: relative;
   padding-left: 4rem;
+  @include mobile {
+    padding-left: 3rem;
+  }
   &:active {
     &::before {
       opacity: 1;
@@ -132,15 +148,32 @@ export default {
     background: $brown;
     opacity: 0;
     transition: opacity .2s ease;
+    @include tablet {
+      width: 1.5rem;
+      height: 1.5rem;
+      top: 1.75rem;
+    }
+    @include mobile {
+      width: 1rem;
+      height: 1rem;
+      top: 1.25rem;
+    }
   }
 }
 
 .cities {
+  @include mobile {
+    margin-top: auto;
+  }
   .cities-item {
     position: relative;
     display: flex;
     align-items: center;
     padding-left: 3.5rem;
+    @include mobile {
+      padding-left: 3rem;
+    }
+
     &.isActive {
       .cities-btn {
         color: $black17;
