@@ -1,12 +1,11 @@
 <template>
-  <Layout :header="header" :footer="footer">
+  <Layout class="isMainPage" :header="header" :footer="footer">
     <template v-slot:page-content>
       <component
         :is="item"
         v-for="(item, index) in generatedComps"
         :key="index"
         :data="components[index]"
-        :class="`section--${components[index].mode}`"
       />
     </template>
   </Layout>

@@ -38,6 +38,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    'nuxt-lazy-load',
     [
       'nuxt-i18n',
       {

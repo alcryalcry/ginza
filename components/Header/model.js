@@ -5,6 +5,7 @@ export default (info) => {
       social: [],
       menuList: []
     },
+    prevPage = '',
     cities = []
   } = info || {}
 
@@ -17,6 +18,7 @@ export default (info) => {
   })
   return {
     menu,
+    prevPage,
     cities: citiesModel
   }
 }

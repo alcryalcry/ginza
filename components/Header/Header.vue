@@ -13,7 +13,7 @@
               {{ $t("header.menu_name") }}
             </span>
           </button>
-          <nuxt-link class="back" :to="localePath('/')">
+          <nuxt-link v-if="model.prevPage" class="back" :to="localePath(model.prevPage)">
             <div class="back-link">
               <iconBack />
             </div>
@@ -110,6 +110,39 @@ export default {
   background: $white;
   z-index: $zLayerTop;
 
+  .isMainPage & {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: transparent;
+    .header-menu {
+      top: 0;
+      padding-top: 6.5rem;
+      @include desktop {
+        padding-top: calc(7rem + 4rem);
+      }
+    }
+    .header-top {
+      border: none;
+      background: transparent;
+      @include desktop {
+        padding-top: 6rem;
+      }
+    }
+    &:not(.isOpen) {
+      .back,
+      .logo,
+      .lang,
+      .search,
+      .burger {
+        color: $white
+      }
+      .header-link + .header-link::before {
+        background: $white;
+      }
+    }
+  }
+
   &.isOpen {
     .burger {
       pointer-events: auto;
@@ -170,6 +203,7 @@ export default {
         width: 1px;
         height: 1.5rem;
         background: $gray;
+        transition: background-color .2s ease;
       }
     }
   }
@@ -180,6 +214,7 @@ export default {
     height: 3rem;
     padding: 0.6rem;
     line-height: 1;
+    transition: color .2s ease;
   }
 
   .search {
@@ -187,12 +222,14 @@ export default {
     width: 3rem;
     height: 3rem;
     padding: 0.6rem;
+    transition: color .2s ease;
   }
 
   .back {
     display: flex;
     align-items: center;
     margin-left: 6rem;
+    transition: color .2s ease;
     @include mobile {
       display: none;
     }
@@ -287,17 +324,23 @@ export default {
       justify-content: flex-end;
       flex-basis: 35%;
     }
-  }
-
-  .logo {
-    display: block;
-    width: 11rem;
-    height: 4rem;
-    @include mobile {
-      width: 8.7rem;
-      height: 3rem;
+    .logo {
+      display: block;
+      width: 11rem;
+      height: 4rem;
+      transition: color .2s ease;
+      @include desktop {
+        &:hover {
+          color: $brown;
+        }
+      }
+      @include mobile {
+        width: 8.7rem;
+        height: 3rem;
+      }
     }
   }
+
 }
 
 .header-enter-active,
