@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .section {
+  position: relative;
   &--black {
     background: $black;
   }

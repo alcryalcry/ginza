@@ -1,25 +1,21 @@
 <template>
-  <Section>
-    <div class="banner-text">
-      <div class="col">
-        <div v-if="model.title" class="title title--h2" v-html="model.title" />
-        <nuxt-link class="link link--brown link--tdu" :to="localePath(model.url)" v-html="model.linkLabel" />
-      </div>
-      <div class="description">
-        <p v-if="model.description" class="text--24" v-html="model.description" />
-      </div>
+  <div class="head-title">
+    <div class="content">
+      <div v-if="model.title" class="title title--h2" v-html="model.title" />
+      <nuxt-link class="link link--brown link--tdu" :to="localePath(model.url)" v-html="model.linkLabel" />
     </div>
-  </Section>
+    <div v-if="model.description" class="description">
+      <p class="text--24" v-html="model.description" />
+    </div>
+  </div>
 </template>
 
 <script>
 import MODEL from './model'
-import Section from '~/components/Utils/Section'
 
 export default {
-  name: 'BannerText',
+  name: 'HeadTitle',
   components: {
-    Section
   },
   props: {
     info: {
@@ -36,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner-text {
+.head-title {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -44,19 +40,23 @@ export default {
   @include mobile {
     display: block;
   }
-
-  @include desktop {
-    padding: 6rem 0 0 12rem;
+  &.isShort {
+    @include desktop {
+      padding-left: 12rem;
+    }
+    .content {
+      @include tablet {
+        padding-right: 2rem;
+      }
+      @include desktop {
+        padding-right: 4rem;
+      }
+    }
   }
 
-  .col {
+  .content {
     flex: 1 1 auto;
-    @include tablet {
-      padding-right: 2rem;
-    }
-    @include desktop {
-      padding-right: 4rem;
-    }
+    max-width: 50rem;
   }
 
   .title {

@@ -1,20 +1,16 @@
 <template>
   <div :class="model.mode">
-    <Section>
-      <HeadTitle class="isShort" :info="model" />
-    </Section>
+    <SliderFeatures :info="model" />
   </div>
 </template>
 
 <script>
-import Section from '~/components/Utils/Section'
-import HeadTitle from '~/components/HeadTitle/HeadTitle'
+import SliderFeatures from '~/components/Slider/Features/Features'
 
 export default {
-  name: 'MiddlewareBannerText',
+  name: 'MiddlewareHero',
   components: {
-    Section,
-    HeadTitle
+    SliderFeatures
   },
   props: {
     data: {

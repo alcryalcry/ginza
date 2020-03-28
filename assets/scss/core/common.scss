@@ -71,6 +71,12 @@ a {
   display: none !important;
 }
 
+.d-show {
+  @include mobile_tablet {
+    display: none !important;
+  }
+}
+
 .m-hide {
   @include mobile {
     display: none !important;
