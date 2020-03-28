@@ -42,14 +42,14 @@ export default {
   }
   &.isShort {
     @include desktop {
-      padding-left: 12rem;
+      padding-left: 8rem;
     }
     .content {
       @include tablet {
         padding-right: 2rem;
       }
       @include desktop {
-        padding-right: 4rem;
+        padding-right: 8rem;
       }
     }
   }

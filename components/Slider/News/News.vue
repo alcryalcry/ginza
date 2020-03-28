@@ -46,7 +46,7 @@ export default {
       options: {
         threshold: 10,
         slidesPerView: 'auto',
-        slidesOffsetAfter: 250,
+        // slidesOffsetAfter: 250,
         spaceBetween: 20,
         loop: false,
         navigation: {
@@ -75,6 +75,13 @@ export default {
 .slider-news {
   overflow: hidden;
   user-select: none;
+
+  .slider-pre-wrapper {
+    @include desktop {
+      padding-left: 8rem;
+      padding-right: 8rem;
+    }
+  }
 
   .head-title {
     margin-bottom: 6rem;

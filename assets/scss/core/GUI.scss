@@ -71,8 +71,28 @@
     line-height: 1.25;
     font-family: $fontBase;
   }
+  &--12 {
+    font-size: 1.2rem;
+    line-height: 1.25;
+    font-family: $fontBase;
+  }
 }
 
+.ttu {
+  text-transform: uppercase;
+}
+
+.ls1 {
+  letter-spacing: .1rem;
+}
+
+.medium {
+  font-weight: $medium;
+}
+
+.bold {
+  font-weight: $bold;
+}
 
 .link {
   color: $black17;
@@ -90,6 +110,10 @@
         border-color: transparent;
       }
     }
+  }
+
+  &.link--white {
+    color: $white;
   }
 
   &.link--brown {

@@ -3,6 +3,10 @@
     "menu_name": "Menu",
     "back": "Back"
   },
+  "slider": {
+    "prev": "Prev",
+    "next": "Next"
+  },
   "footer": {
     "privacy": "Privacy Policy"
   },

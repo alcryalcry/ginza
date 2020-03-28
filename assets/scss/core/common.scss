@@ -106,6 +106,18 @@ svg {
 }
 
 
+.list-fade-enter-active,
+.list-fade-leave-active {
+  transition: opacity .2s ease, transform .2s ease;
+}
+.list-fade-enter,
+.list-fade-leave-to {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: none;
+}
+
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity $t
