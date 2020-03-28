@@ -207,7 +207,7 @@ export default {
   .swiper-pagination {
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     .swiper-pagination-bullet {
       display: flex;
       width: 1rem;
