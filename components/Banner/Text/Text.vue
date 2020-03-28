@@ -1,11 +1,12 @@
 <template>
   <Section>
-    <div class="banner-love">
-      <div class="content">
-        <div class="logo">
-          <iconLove />
-        </div>
-        <div v-if="model.title" class="text text--18" v-html="model.title" />
+    <div class="banner-text">
+      <div class="col">
+        <div v-if="model.title" class="title title--h2" v-html="model.title" />
+        <nuxt-link class="link link--brown link--tdu" :to="localePath(model.url)" v-html="model.linkLabel" />
+      </div>
+      <div class="description">
+        <p v-if="model.description" class="text--24" v-html="model.description" />
       </div>
     </div>
   </Section>
@@ -14,13 +15,11 @@
 <script>
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
-import iconLove from '~/assets/svg/love.svg'
 
 export default {
-  name: 'BannerLove',
+  name: 'BannerText',
   components: {
-    Section,
-    iconLove
+    Section
   },
   props: {
     info: {
@@ -37,30 +36,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner-love {
+.banner-text {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  justify-content: flex-start;
+  align-items: flex-start;
 
-.content {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  text-align: center;
-}
-
-.logo {
-  width: 30rem;
-  height: 10rem;
   @include mobile {
-    width: 25rem;
-    height: 7rem;
+    display: block;
+  }
+
+  @include desktop {
+    padding: 6rem 0 0 12rem;
+  }
+
+  .col {
+    flex: 1 1 auto;
+    @include tablet {
+      padding-right: 2rem;
+    }
+    @include desktop {
+      padding-right: 4rem;
+    }
+  }
+
+  .title {
+    margin-bottom: 3rem;
+    @include mobile {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .description {
+    flex: 0 0 auto;
+    padding-top: 7rem;
+    max-width: 38rem;
+    @include tablet {
+      max-width: 34rem;
+    }
+    @include mobile {
+      display: block;
+      padding-top: 4rem;
+    }
   }
 }
-
-.text {
-  margin-top: -1rem;
-}
-
 </style>

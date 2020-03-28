@@ -24,9 +24,34 @@
       font-size: 2.6rem;
     }
   }
+  &--h2 {
+    font-size: 3.8rem;
+    line-height: 1.35;
+    font-family: $fontBase;
+    font-weight: $regular;
+    @include tablet {
+      font-size: 3.4rem;
+    }
+    @include mobile {
+      font-size: 3.2rem;
+    }
+  }
 }
 
 .text {
+  &--24 {
+    font-size: 2.4rem;
+    line-height: 1.41;
+    font-family: $fontBase;
+    @include tablet {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+    @include mobile {
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+  }
   &--18 {
     font-size: 1.8rem;
     line-height: 1.25;
@@ -38,6 +63,7 @@
   &--16 {
     font-size: 1.6rem;
     line-height: 1.25;
+    letter-spacing: .05rem;
     font-family: $fontBase;
   }
   &--13 {
@@ -52,7 +78,23 @@
   color: $black17;
   outline: none;
   text-decoration: none;
-  transition: color .2s ease;
+  transition: color .2s ease, border-color .2s ease;
+
+  &.link--tdu {
+    border-bottom: 1px solid;
+    &:active {
+      border-color: transparent;
+    }
+    @include desktop {
+      &:hover {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &.link--brown {
+    color: $brown;
+  }
 
   &:active {
     color: $brown;

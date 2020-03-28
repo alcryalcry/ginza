@@ -1,9 +1,15 @@
 export default (info) => {
   const {
-    title = ''
+    title = '',
+    description = '',
+    url = '#',
+    linkLabel = ''
   } = info || {}
 
   return {
-    title
+    title,
+    description,
+    url,
+    linkLabel
   }
 }

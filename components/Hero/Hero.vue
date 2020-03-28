@@ -87,11 +87,11 @@ export default {
     margin-bottom: 1rem;
     letter-spacing: .1rem;
     .city {
-      font-weight: $medium;
+      font-weight: $bold;
     }
     .category {
       margin-left: .75rem;
-      font-weight: $medium;
+      font-weight: $bold;
       &::before {
         content: '/';
         display: inline-block;
