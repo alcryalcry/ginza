@@ -2,8 +2,12 @@
   <div class="slider-news">
     <Section>
       <HeadTitle class="isShort" :info="model" />
-      <div v-if="model.slides.length" v-swiper:mySwiper="options" class="slider-pre-wrapper">
-        <div class="swiper-wrapper">
+      <Slider
+        v-if="model.slides.length"
+        :custom-options="customOptions"
+        class="slider-pre-wrapper"
+      >
+        <template v-slot:slides>
           <div
             v-for="slide in model.slides"
             :key="slide.id"
@@ -11,27 +15,33 @@
             class="swiper-slide"
           >
             <picture class="image">
-              <img :src="slide.image" :alt="slide.name">
+              <img :src="slide.image" :alt="slide.name" data-manual-lazy>
             </picture>
             <div v-if="slide.name" class="text text--16" v-html="slide.name" />
           </div>
-        </div>
-        <div class="navigation d-show">
-          <button type="button" class="navigation-btn swiper-button-prev" />
-          <button type="button" class="navigation-btn swiper-button-next" />
-        </div>
-      </div>
-    </Section>
+        </template>
+        <template v-slot:navigation>
+          <div class="navigation d-show">
+            <button type="button" class="navigation-btn swiper-button-prev" />
+            <button type="button" class="navigation-btn swiper-button-next" />
+          </div>
+        </template>
+      </Slider>
+    </section>
+  </div>
+  </Section>
   </div>
 </template>
 
 <script>
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
+import Slider from '~/components/Slider/Slider'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
 
 export default {
   components: {
+    Slider,
     HeadTitle,
     Section
   },
@@ -43,12 +53,8 @@ export default {
   },
   data() {
     return {
-      options: {
-        threshold: 10,
-        slidesPerView: 'auto',
-        // slidesOffsetAfter: 250,
+      customOptions: {
         spaceBetween: 20,
-        loop: false,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'

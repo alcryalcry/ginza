@@ -126,10 +126,7 @@ export default {
       width: $containerWidth;
       height: 50rem;
     }
-    @include mobile {
-      max-width: 100vw;
-    }
-    @include tablet {
+    @include mobile_tablet {
       max-width: 100vw;
     }
   }

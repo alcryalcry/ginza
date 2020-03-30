@@ -1,5 +1,5 @@
 .title {
-  &--hero {
+  &--main {
     font-size: 6rem;
     line-height: 1.25;
     font-family: $fontBase;
@@ -99,9 +99,17 @@
   outline: none;
   text-decoration: none;
   transition: color .2s ease, border-color .2s ease;
+  &:active {
+    color: $brown;
+  }
+  @include desktop {
+    &:hover {
+      color: $brown;
+    }
+  }
 
   &.link--tdu {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid currentColor;
     &:active {
       border-color: transparent;
     }
@@ -118,14 +126,5 @@
 
   &.link--brown {
     color: $brown;
-  }
-
-  &:active {
-    color: $brown;
-  }
-  @include desktop {
-    &:hover {
-      color: $brown;
-    }
   }
 }

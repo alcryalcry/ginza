@@ -8,7 +8,7 @@ $widthDesktop: 1025px;
 }
 
 @mixin mobile_tablet {
-  @media (max-width: #{$widthTablet}) {
+  @media (max-width: #{$widthDesktop - 1px}) {
     @content;
   }
 }

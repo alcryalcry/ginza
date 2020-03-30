@@ -44,7 +44,7 @@ export default {
   }
 
   .section--menu & {
-    @include mobile {
+    @include mobile_tablet {
       display: flex;
     }
   }

@@ -1,16 +1,16 @@
 <template>
   <div :class="model.mode">
-    <Hero :info="model" />
+    <SliderMain :info="model" />
   </div>
 </template>
 
 <script>
-import Hero from '~/components/Hero/Hero'
+import SliderMain from '~/components/Slider/Main/Main'
 
 export default {
-  name: 'MiddlewareHero',
+  name: 'MiddlewareSliderMain',
   components: {
-    Hero
+    SliderMain
   },
   props: {
     data: {

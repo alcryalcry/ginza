@@ -2,7 +2,7 @@
   <Section v-body-scroll-lock:reserveScrollBarGap="isReady" class="menu section--menu">
     <div class="menu-content">
       <div class="row">
-        <div class="col-9 col-t-8 col-m-12">
+        <div class="col-9 col-t-12 col-m-12">
           <ul class="list">
             <li
               v-for="item in model.menuList"
@@ -15,7 +15,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-3 col-t-4 col-m-12 sidebar">
+        <div class="col-3 col-t-12 col-m-12 sidebar">
           <ul class="cities">
             <li
               v-for="city in GET_CITIES"
@@ -103,7 +103,7 @@ export default {
   overflow-y: auto;
 }
 .menu-content {
-  @include mobile {
+  @include mobile_tablet {
     display: flex;
   }
 }
@@ -120,6 +120,11 @@ export default {
   .menu-social {
     padding-top: 2rem;
     margin-top: auto;
+    @include tablet {
+      margin-top: 0;
+      padding-top: 4rem;
+      padding-left: 4rem;
+    }
     @include mobile {
       margin-top: 0;
       padding-top: 4rem;
@@ -172,7 +177,7 @@ export default {
 }
 
 .cities {
-  @include mobile {
+  @include mobile_tablet {
     margin-top: auto;
   }
   .cities-item {
@@ -180,6 +185,9 @@ export default {
     display: flex;
     align-items: center;
     padding-left: 3.5rem;
+    @include tablet {
+      padding-left: 4rem;
+    }
     @include mobile {
       padding-left: 3rem;
     }

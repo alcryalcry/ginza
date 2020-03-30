@@ -184,7 +184,7 @@ export default {
     left: 0;
     background: $white;
     z-index: $zLayerMenuOpened;
-    @include mobile {
+    @include mobile_tablet {
       display: flex;
     }
   }

@@ -1,7 +1,11 @@
 <template>
   <div class="slider-features-big">
-    <div v-if="model.slides.length" ref="mySwiper" v-swiper:mySwiper="options" @slideChange="aaa($event)">
-      <div class="swiper-wrapper">
+    <Slider
+      v-if="model.slides.length"
+      :custom-options="customOptions"
+      @active-index="setAactiveIndex"
+    >
+      <template v-slot:slides>
         <div
           v-for="slide in model.slides"
           :key="slide.id"
@@ -9,67 +13,70 @@
           class="swiper-slide"
         >
           <picture class="image">
-            <img :src="slide.image" :alt="slide.name">
+            <img :src="slide.image" :alt="slide.name" data-manual-lazy>
           </picture>
           <Section class="section--min slider-text">
-            <div class="content" data-swiper-parallax="-400">
-              <div v-if="slide.title" class="title text--24" v-html="slide.title" />
-              <div v-if="slide.description" class="description text--16" v-html="slide.description" />
+            <div class="content">
+              <div v-if="slide.title" class="title text--24" data-swiper-parallax-y="-50" v-html="slide.title" />
+              <div v-if="slide.description" class="description text--16" data-swiper-parallax-y="-50" v-html="slide.description" />
               <nuxt-link class="link link--white link--tdu" :to="localePath(slide.url)" v-html="slide.linkLabel" />
             </div>
           </Section>
         </div>
-      </div>
-      <div class="navigation d-show">
-        <button type="button" class="navigation-btn swiper-button-prev" />
-        <button type="button" class="navigation-btn swiper-button-next" />
-      </div>
-      <Section class="section--big section--no-p">
-        <div class="row navigation-row d-show">
-          <div class="col-4">
-            <button type="button" class="navigation-btn swiper-button-prev text--12 ttu bold ls1">
-              <transition name="fade" mode="out-in">
-                <span v-if="generatedNavigation.prev.name" :key="generatedNavigation.prev.name">
+      </template>
+      <template v-slot:navigation>
+        <div class="navigation d-show">
+          <button type="button" class="navigation-btn swiper-button-prev" />
+          <button type="button" class="navigation-btn swiper-button-next" />
+        </div>
+        <Section class="section--big section--no-p">
+          <div class="row navigation-row">
+            <div class="col-4 d-show">
+              <button type="button" class="navigation-btn swiper-button-prev text--12 ttu bold ls1">
+                <span v-if="generatedNavigation.prev.name">
                   <span>{{ $t('slider.prev') }}</span>
-                  <span class="name">{{ generatedNavigation.prev.name }}</span>
+                  <transition name="fade" mode="out-in">
+                    <span :key="generatedNavigation.prev.name" class="name">{{ generatedNavigation.prev.name }}</span>
+                  </transition>
+                </span>
+              </button>
+            </div>
+            <div class="col-4 col-t-12 col-m-12 jc-c">
+              <transition name="fade" mode="out-in">
+                <span v-if="generatedNavigation.current.name" :key="generatedNavigation.current.name" class="text--12 ttu bold ls1">
+                  {{ generatedNavigation.current.name }}
                 </span>
               </transition>
-            </button>
-          </div>
-          <div class="col-4 jc-c">
-            <transition name="fade" mode="out-in">
-              <span v-if="generatedNavigation.current.name" :key="generatedNavigation.current.name" class="text--12 ttu bold ls1">
-                {{ generatedNavigation.current.name }}
-              </span>
-            </transition>
-          </div>
-          <div class="col-4 jc-fe">
-            <button type="button" class="navigation-btn swiper-button-next text--12 ttu bold ls1">
-              <transition name="fade" mode="out-in">
-                <span v-if="generatedNavigation.next.name" :key="generatedNavigation.next.name">
-                  <span class="name">{{ generatedNavigation.next.name }}</span>
+            </div>
+            <div class="col-4 jc-fe d-show">
+              <button type="button" class="navigation-btn swiper-button-next text--12 ttu bold ls1">
+                <span v-if="generatedNavigation.next.name">
+                  <transition name="fade" mode="out-in">
+                    <span :key="generatedNavigation.next.name" class="name">{{ generatedNavigation.next.name }}</span>
+                  </transition>
                   <span>{{ $t('slider.next') }}</span>
                 </span>
-              </transition>
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
-      </Section>
-      <div class="swiper-pagination" />
-    </div>
-  </div>
-  </Section>
-  </div>
+        </Section>
+      </template>
+      <template v-slot:pagination>
+        <div class="swiper-pagination" />
+      </template>
+    </Slider>
   </div>
 </template>
 
 <script>
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
+import Slider from '~/components/Slider/Slider'
 
 export default {
   components: {
-    Section
+    Section,
+    Slider
   },
   props: {
     info: {
@@ -80,15 +87,14 @@ export default {
   data() {
     return {
       activeIndex: 0,
-      options: {
-        threshold: 10,
-        slidesPerView: 'auto',
-        spaceBetween: 0,
-        loop: false,
+      customOptions: {
+        effect: 'fade',
         speed: 700,
+        loop: true,
         parallax: true,
         pagination: {
-          el: '.swiper-pagination'
+          el: '.swiper-pagination',
+          clickable: true
         },
         navigation: {
           nextEl: '.swiper-button-next',
@@ -106,21 +112,18 @@ export default {
     model() {
       return MODEL(this.info)
     },
-    swiper() {
-      return (this.$refs.mySwiper || {}).swiper || {}
-    },
     generatedNavigation() {
       return {
-        prev: this.model.slides[this.activeIndex - 1] || {},
+        prev: this.model.slides[this.activeIndex - 1] || this.model.slides[this.model.slides.length - 1],
         current: this.model.slides[this.activeIndex] || {},
-        next: this.model.slides[this.activeIndex + 1] || {}
+        next: this.model.slides[this.activeIndex + 1] || this.model.slides[0]
       }
     }
   },
   mounted() {},
   methods: {
-    aaa() {
-      this.activeIndex = this.swiper.activeIndex
+    setAactiveIndex(index) {
+      this.activeIndex = index
     }
   }
 }
@@ -130,19 +133,22 @@ export default {
 .slider-features-big {
   overflow: hidden;
   user-select: none;
+  padding-bottom: 4rem;
 
-  .swiper-wrapper {
-    display: flex;
-    align-items: center;
+  /deep/.swiper-container {
+    position: relative;
   }
 
-  .swiper-slide {
+  /deep/.swiper-slide {
     position: relative;
     flex: 1 0 auto;
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
-    min-height: 70rem;
+    min-height: 50rem;
+    @include desktop {
+      min-height: 70rem;
+    }
   }
 
   .image {
@@ -169,8 +175,10 @@ export default {
   .slider-text {
     position: relative;
     margin-top: auto;
-    padding-left: 16rem;
     z-index: 1;
+    @include desktop {
+      padding-left: 16rem;
+    }
 
     .content {
       max-width: 40rem;
@@ -191,40 +199,66 @@ export default {
     }
 
     .link {
-      &:active {
-        color: $white;
-        text-decoration-color: transparent;
-      }
-      @include desktop {
-        &:hover {
-          color: $white;
-          text-decoration-color: transparent;
-        }
-      }
+      position: relative;
+      z-index: 1;
+      // &:active {
+      //   color: $white;
+      //   text-decoration-color: transparent;
+      // }
+      // @include desktop {
+      //   &:hover {
+      //     color: $white;
+      //     text-decoration-color: transparent;
+      //   }
+      // }
     }
   }
 
-  .swiper-pagination {
+  /deep/.swiper-pagination {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    @include mobile {
+      padding-top: 2rem;
+    }
     .swiper-pagination-bullet {
-      display: flex;
-      width: 1rem;
-      height: 1rem;
-      border: 1px solid $border;
-      border-radius: 50%;
-      transition: border-color .2s ease, background-color .2s ease;
+      position: relative;
+      padding: .5rem;
+      margin: 0 .5rem;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - .5rem);
+        left: calc(50% - .5rem);
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid $border;
+        border-radius: 50%;
+        transition: border-color .2s ease, background-color .2s ease;
+      }
       &.swiper-pagination-bullet-active {
-        border-color: $brown;
-        background-color: $brown;
+        &::before {
+          border-color: $brown;
+          background-color: $brown;
+        }
       }
     }
   }
 
   .navigation-row {
     padding: 3rem 0;
+    @include tablet {
+      justify-content: center;
+    }
+    @include mobile {
+      padding: 2rem 0 1rem;
+    }
     .navigation-btn {
+      cursor: pointer;
       .name {
         color: $border
       }
@@ -254,7 +288,7 @@ export default {
     }
   }
 
-  .navigation {
+  /deep/.navigation {
     .navigation-btn {
       position: absolute;
       top: calc(50% - 4rem);

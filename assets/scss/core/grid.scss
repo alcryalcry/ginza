@@ -23,14 +23,19 @@ $sizeMobile: 1rem;
           padding: 0;
         }
       }
+    }
 
-      .col-auto {
-        -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
-        width: auto;
-        max-width: none;
-        padding: $sizeDesktop;
-      }
+    .col-auto {
+      -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: none;
+      padding: $sizeDesktop;
+    }
+    .col-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: $sizeDesktop;
     }
   }
 
@@ -60,6 +65,12 @@ $sizeMobile: 1rem;
         }
       }
     }
+
+    .col-t-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: $sizeTablet;
+    }
   }
 
   @include mobile {
@@ -69,7 +80,7 @@ $sizeMobile: 1rem;
       margin: 0;
     }
 
-    @for $colNum from 1 to $cols {
+    @for $colNum from 0 to $cols {
       .col-#{$colNum} {
         flex: 0 0 100%;
         max-width: 100%;
@@ -85,6 +96,12 @@ $sizeMobile: 1rem;
           padding: 0;
         }
       }
+    }
+
+    .col-m-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: $sizeMobile;
     }
   }
 

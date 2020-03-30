@@ -72,7 +72,10 @@ a {
 }
 
 .d-show {
-  @include mobile_tablet {
+  @include mobile {
+    display: none !important;
+  }
+  @include tablet {
     display: none !important;
   }
 }
@@ -126,5 +129,5 @@ svg {
 .fade-enter, 
 .fade-leave-to {
   opacity: 0;
-  transition: none;
+  // transition: none;
 }

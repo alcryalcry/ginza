@@ -2,8 +2,11 @@
   <div class="slider-features">
     <Section>
       <HeadTitle :info="model" />
-      <div v-if="model.slides.length" v-swiper:mySwiper="options">
-        <div class="swiper-wrapper">
+      <Slider
+        v-if="model.slides.length"
+        :custom-options="customOptions"
+      >
+        <template v-slot:slides>
           <div
             v-for="slide in model.slides"
             :key="slide.id"
@@ -11,12 +14,12 @@
             class="swiper-slide"
           >
             <picture class="image">
-              <img :src="slide.image" :alt="slide.name">
+              <img :src="slide.image" :alt="slide.name" data-manual-lazy>
             </picture>
             <div v-if="slide.name" class="text text--16" v-html="slide.name" />
           </div>
-        </div>
-      </div>
+        </template>
+      </Slider>
     </Section>
   </div>
 </template>
@@ -25,11 +28,13 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
+import Slider from '~/components/Slider/Slider'
 
 export default {
   components: {
     HeadTitle,
-    Section
+    Section,
+    Slider
   },
   props: {
     info: {
@@ -39,11 +44,8 @@ export default {
   },
   data() {
     return {
-      options: {
-        threshold: 10,
-        slidesPerView: 'auto',
+      customOptions: {
         spaceBetween: 80,
-        loop: false,
         breakpoints: {
           767: {
             spaceBetween: 40

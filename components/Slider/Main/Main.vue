@@ -1,28 +1,46 @@
 <template>
-  <div class="hero">
-    <picture class="image">
-      <img :src="model.image" :alt="model.title">
-    </picture>
-    <Section class="content section--no-p">
-      <div class="labels">
-        <div v-if="model.city" class="text--13 city" v-html="model.city" />
-        <div v-if="model.category" class="text--13 category" v-html="model.category" />
-      </div>
-      <div class="title title--hero">{{ model.title }}</div>
-      <div class="hero-link">
-        <nuxt-link class="text--16" :to="localePath(model.url)" v-html="model.linkLabel" />
-      </div>
-    </Section>
+  <div class="slider-main">
+    <Slider
+      v-if="model.slides.length"
+      :custom-options="customOptions"
+    >
+      <template v-slot:slides>
+        <div
+          v-for="slide in model.slides"
+          :key="slide.title"
+          class="swiper-slide"
+        >
+          <div class="slider-main-slide">
+            <picture class="image">
+              <img data-manual-lazy :src="slide.image" :alt="slide.title">
+            </picture>
+            <Section class="content section--no-p" data-swiper-parallax="-400">
+              <div class="labels">
+                <div v-if="slide.city" class="text--13 city" v-html="slide.city" />
+                <div v-if="slide.category" class="text--13 category" v-html="slide.category" />
+              </div>
+              <div class="title title--main">{{ slide.title }}</div>
+              <div class="slider-main-link">
+                <nuxt-link class="text--16" :to="localePath(slide.url)" v-html="slide.linkLabel" />
+              </div>
+            </Section>
+          </div>
+        </div>
+      </template>
+    </Slider>
   </div>
 </template>
 
 <script>
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
+import Slider from '~/components/Slider/Slider'
 
 export default {
+  name: 'SliderMain',
   components: {
-    Section
+    Section,
+    Slider
   },
   props: {
     info: {
@@ -30,16 +48,39 @@ export default {
       default: () => {}
     }
   },
+  data() {
+    return {
+      customOptions: {
+        autoplay: true,
+        loop: true,
+        speed: 700,
+        parallax: true,
+        breakpoints: {
+        }
+      }
+    }
+  },
   computed: {
     model() {
       return MODEL(this.info)
     }
+  },
+  mounted() {
+  },
+  methods: {
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.hero {
+/deep/.swiper-slide {
+  flex: 1 0 auto;
+  width: 100%;
+}
+.slider-main {
+  overflow: hidden;
+}
+.slider-main-slide {
   position: relative;
   display: flex;
   flex-flow: column nowrap;
@@ -49,7 +90,7 @@ export default {
     min-height: 90vh
   }
   @include mobile {
-    min-height: 90vh
+    min-height: 70vh
   }
 
   .content {
@@ -58,6 +99,9 @@ export default {
     padding: 7rem 0 14rem;
     color: white;
     z-index: 2;
+    @include mobile {
+      padding-bottom: 7rem;
+    }
   }
 
   .title {
@@ -65,7 +109,7 @@ export default {
     text-transform: uppercase;
   }
 
-  .hero-link {
+  .slider-main-link {
     a {
       display: inline-flex;
       border-bottom: 1px solid;
