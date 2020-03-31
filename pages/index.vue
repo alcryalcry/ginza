@@ -1,5 +1,5 @@
 <template>
-  <Layout class="isMainPage" :header="header" :footer="footer">
+  <Layout class="isMainPage" :is-header-main="true" :header="header" :footer="footer">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -57,4 +57,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoper></style>
+<style lang="scss" scoper>
+.isMainPage {
+  /deep/.page-content {
+    @include desktop {
+      margin-top: - $headerHeight;
+    }
+    @include tablet {
+      margin-top: - $headerHeightTablet;
+    }
+    @include mobile {
+      margin-top: - $headerHeightMobile;
+    }
+  }
+}
+</style>

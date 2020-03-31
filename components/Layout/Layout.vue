@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Header :info="header" />
+    <Header :is-main="isHeaderMain" :info="header" />
 
     <main class="page-content">
       <slot name="page-content" :value="value" />
@@ -33,6 +33,10 @@ export default {
     value: {
       type: Object,
       default: () => ({})
+    },
+    isHeaderMain: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

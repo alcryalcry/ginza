@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ isOpen: GET_MENU_STATUS }">
+  <header class="header" :class="{ isScrolled, isOpen: GET_MENU_STATUS }">
     <Section class="header-top section--big section--no-p">
       <div class="header-row">
         <div class="header-col left">
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { throttle } from 'throttle-debounce'
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
@@ -70,9 +71,18 @@ export default {
     Menu
   },
   props: {
+    isMain: {
+      type: Boolean,
+      default: false
+    },
     info: {
       type: Object,
       default: () => ({})
+    }
+  },
+  data() {
+    return {
+      isScrolled: false
     }
   },
   computed: {
@@ -89,6 +99,14 @@ export default {
       this.UPDATE_CITIES(this.model.cities)
     }
   },
+  mounted() {
+    if (process.browser) {
+      this.initEvents()
+    }
+  },
+  destroyed() {
+    this.removeEvents()
+  },
   methods: {
     ...mapMutations({
       TOGGLE_MENU: 'popup/TOGGLE_MENU',
@@ -97,7 +115,19 @@ export default {
     }),
     ...mapActions({
       UPDATE_CITIES: 'UPDATE_CITIES'
-    })
+    }),
+    initEvents () {
+      if (this.GET_MEDIA_QUERY !== 'mobile') {
+        this.scrollEvent = throttle(150, () => this.changeColor())
+        window.addEventListener('scroll', this.scrollEvent, false)
+      }
+    },
+    removeEvents () {
+      if (this.scrollEvent) { window.removeEventListener('scroll', this.scrollEvent, false) }
+    },
+    changeColor () {
+      this.isScrolled = window.pageYOffset > 15
+    }
   }
 }
 </script>
@@ -111,34 +141,52 @@ export default {
   z-index: $zLayerTop;
 
   .isMainPage & {
-    position: absolute;
-    left: 0;
-    right: 0;
-    background: transparent;
-    .header-menu {
-      top: 0;
-      padding-top: 6.5rem;
-      @include desktop {
-        padding-top: calc(7rem + 4rem);
-      }
-    }
-    .header-top {
-      border: none;
+    &:not(.isScrolled) {
       background: transparent;
-      @include desktop {
-        padding-top: 6rem;
+      .header-menu {
+        top: 0;
+        padding-top: 6.5rem;
+        @include desktop {
+          padding-top: calc(7rem + 4rem);
+        }
       }
-    }
-    &:not(.isOpen) {
-      .back,
-      .logo,
-      .lang,
-      .search,
-      .burger {
-        color: $white
+      .header-top {
+        border: none;
+        background: transparent;
+        transform: translateY(2rem);
+        // @include desktop {
+        //   padding-top: 6rem;
+        // }
       }
-      .header-link + .header-link::before {
-        background: $white;
+      &:not(.isOpen) {
+        .back,
+        .logo,
+        .lang,
+        .search,
+        .burger,
+        .burger,
+        .burger .text,
+        .burger .burger-button {
+          color: $white;
+          &:hover {
+            color: $white;
+          }
+        }
+        .logo,
+        .burger {
+          @include desktop {
+            &:hover {
+              color: rgba($white, .5);
+              .burger-button,
+              .text {
+                color: rgba($white, .5);
+              }
+            }
+          }
+        }
+        .header-link + .header-link::before {
+          background: $white;
+        }
       }
     }
   }
@@ -171,6 +219,7 @@ export default {
     background: $white;
     border-bottom: 1px solid $border;
     z-index: $zLayerMenuOpenedBurgerBtn;
+    transition: transform .2s ease, backbround-color .2s ease, border-color .2s ease;
     @include mobile {
       padding: 1.5rem 0;
     }
@@ -184,8 +233,13 @@ export default {
     left: 0;
     background: $white;
     z-index: $zLayerMenuOpened;
-    @include mobile_tablet {
+    @include tablet {
       display: flex;
+      top: $headerHeightTablet;
+    }
+    @include mobile {
+      display: flex;
+      top: $headerHeightMobile;
     }
   }
 
