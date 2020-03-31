@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
@@ -68,8 +69,17 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      GET_MQ: 'mediaQuery/GET_MQ'
+    }),
     model() {
       return MODEL(this.info)
+    }
+  },
+  created() {
+    // center slides
+    if (this.GET_MQ === 'desktop') {
+      (this.customOptions || {}).initialSlide = Math.abs((this.model.slides || []).length / 3)
     }
   },
   mounted() {},
@@ -86,6 +96,12 @@ export default {
     @include desktop {
       padding-left: 8rem;
       padding-right: 8rem;
+    }
+  }
+
+  /deep/.swiper-wrapper {
+    @include desktop {
+      // justify-content: center;
     }
   }
 

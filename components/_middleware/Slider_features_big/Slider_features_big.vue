@@ -8,7 +8,7 @@
 import SliderFeaturesBig from '~/components/Slider/FeaturesBig/FeaturesBig'
 
 export default {
-  name: 'MiddlewareHero',
+  name: 'MiddlewareSliderFeaturesBig',
   components: {
     SliderFeaturesBig
   },

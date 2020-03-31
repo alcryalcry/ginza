@@ -8,7 +8,7 @@
 import SliderFeatures from '~/components/Slider/Features/Features'
 
 export default {
-  name: 'MiddlewareHero',
+  name: 'MiddlewareSliderFeatures',
   components: {
     SliderFeatures
   },

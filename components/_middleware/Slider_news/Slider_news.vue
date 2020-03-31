@@ -8,7 +8,7 @@
 import SliderNews from '~/components/Slider/News/News'
 
 export default {
-  name: 'MiddlewareHero',
+  name: 'MiddlewareSliderNews',
   components: {
     SliderNews
   },
