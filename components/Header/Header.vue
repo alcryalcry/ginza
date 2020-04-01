@@ -225,7 +225,7 @@ export default {
 
   .header-menu {
     position: fixed;
-    top: $headerHeight;
+    top: calc(#{$headerHeight} - .5rem);
     right: 0;
     bottom: 0;
     left: 0;
@@ -233,11 +233,11 @@ export default {
     z-index: $zLayerMenuOpened;
     @include tablet {
       display: flex;
-      top: $headerHeightTablet;
+      top: calc(#{$headerHeightTablet} - .5rem);
     }
     @include mobile {
       display: flex;
-      top: $headerHeightMobile;
+      top: calc(#{$headerHeightMobile} - .5rem);
     }
   }
 

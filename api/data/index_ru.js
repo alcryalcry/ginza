@@ -84,13 +84,24 @@ module.exports = {
     },
     {
       name: 'banner_sale',
+      description: 'Отель, мини-отель или апартаменты, какой бы формат размещения от Ginza Hotels & Apartments Вы не выбрали – Вас ждет сервис премиум класса. Забронировать стол в ресторане, заказать доставку еды или свежих цветов, организовать билеты в театр, сдать вещи в химчистку, быстро убрать апартаменты - все бытовые вопросы решаются моментально после звонка персональному менеджеру.',
+      url: '/',
+      linkLabel: 'Ещё',
       values: [
         {
-          title: 'Индивидуальный сервиc',
-          description: 'при бронировании апартаментов для всех держателей карт Ginza Team Silver и Ginza Team Gold.'
+          description: 'при бронировании апартаментов для всех держателей карт Ginza Team Silver и Ginza Team Gold.',
+          sale: '20%',
+          label: 'скидка',
+          logo: '/images/logo-hotels.svg',
+          image: '/images/rest-image.jpg'
+        },
+        {
+          description: 'на меню ресторанов <br/>Ginza Project',
+          sale: '20%',
+          logo: '/images/logo-rest.svg',
+          image: '/images/hotels-image.jpg'
         }
-      ],
-      linkLabel: 'Подробнее'
+      ]
     },
     {
       name: 'banner_text',

@@ -28,6 +28,15 @@ export default {
   &--black {
     background: $black;
   }
+  &--full {
+    .container {
+      @include desktop {
+        max-width: 144rem;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
 }
 
 .container {
