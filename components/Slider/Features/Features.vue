@@ -3,12 +3,12 @@
     <Section>
       <HeadTitle :info="model" />
       <Slider
-        v-if="model.slides.length"
+        v-if="model.values.length"
         :custom-options="customOptions"
       >
         <template v-slot:slides>
           <div
-            v-for="slide in model.slides"
+            v-for="slide in model.values"
             :key="slide.id"
             :class="slide.mode"
             class="swiper-slide"
@@ -71,9 +71,12 @@ export default {
 
   .head-title {
     margin-bottom: 6rem;
-    /deep/.content {
-      padding: 0;
+    &::v-deep {
+      .content {
+        padding: 0;
+      }
     }
+
   }
 
   .swiper-wrapper {

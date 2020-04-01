@@ -1,9 +1,9 @@
 export default (info) => {
   const {
-    slides = []
+    values = []
   } = info || {}
 
-  const adaptedSlides = (slides || []).map((item) => {
+  const adaptedSlides = (values || []).map((item) => {
     const {
       title = '',
       city = '',
@@ -23,6 +23,6 @@ export default (info) => {
   })
 
   return {
-    slides: adaptedSlides
+    values: adaptedSlides
   }
 }

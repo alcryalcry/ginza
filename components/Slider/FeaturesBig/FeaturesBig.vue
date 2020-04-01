@@ -1,13 +1,13 @@
 <template>
   <div class="slider-features-big">
     <Slider
-      v-if="model.slides.length"
+      v-if="model.values.length"
       :custom-options="customOptions"
       @active-index="setAactiveIndex"
     >
       <template v-slot:slides>
         <div
-          v-for="slide in model.slides"
+          v-for="slide in model.values"
           :key="slide.id"
           :class="slide.mode"
           class="swiper-slide"
@@ -114,9 +114,9 @@ export default {
     },
     generatedNavigation() {
       return {
-        prev: this.model.slides[this.activeIndex - 1] || this.model.slides[this.model.slides.length - 1],
-        current: this.model.slides[this.activeIndex] || {},
-        next: this.model.slides[this.activeIndex + 1] || this.model.slides[0]
+        prev: this.model.values[this.activeIndex - 1] || this.model.values[this.model.values.length - 1],
+        current: this.model.values[this.activeIndex] || {},
+        next: this.model.values[this.activeIndex + 1] || this.model.values[0]
       }
     }
   },
@@ -135,19 +135,20 @@ export default {
   user-select: none;
   padding-bottom: 4rem;
 
-  /deep/.swiper-container {
-    position: relative;
-  }
-
-  /deep/.swiper-slide {
-    position: relative;
-    flex: 1 0 auto;
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    min-height: 50rem;
-    @include desktop {
-      min-height: 70rem;
+  &::v-deep {
+    .swiper-container {
+      position: relative;
+    }
+    .swiper-slide {
+      position: relative;
+      flex: 1 0 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
+      min-height: 50rem;
+      @include desktop {
+        min-height: 70rem;
+      }
     }
   }
 
@@ -214,36 +215,38 @@ export default {
     }
   }
 
-  /deep/.swiper-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    @include mobile {
-      padding-top: 2rem;
-    }
-    .swiper-pagination-bullet {
-      position: relative;
-      padding: .5rem;
-      margin: 0 .5rem;
-      width: 2rem;
-      height: 2rem;
-      cursor: pointer;
-      &::before {
-        content: '';
-        position: absolute;
-        top: calc(50% - .5rem);
-        left: calc(50% - .5rem);
-        width: 1rem;
-        height: 1rem;
-        border: 1px solid $border;
-        border-radius: 50%;
-        transition: border-color .2s ease, background-color .2s ease;
+  &::v-deep {
+    .swiper-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      @include mobile {
+        padding-top: 2rem;
       }
-      &.swiper-pagination-bullet-active {
+      .swiper-pagination-bullet {
+        position: relative;
+        padding: .5rem;
+        margin: 0 .5rem;
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
         &::before {
-          border-color: $brown;
-          background-color: $brown;
+          content: '';
+          position: absolute;
+          top: calc(50% - .5rem);
+          left: calc(50% - .5rem);
+          width: 1rem;
+          height: 1rem;
+          border: 1px solid $border;
+          border-radius: 50%;
+          transition: border-color .2s ease, background-color .2s ease;
+        }
+        &.swiper-pagination-bullet-active {
+          &::before {
+            border-color: $brown;
+            background-color: $brown;
+          }
         }
       }
     }
@@ -288,51 +291,53 @@ export default {
     }
   }
 
-  /deep/.navigation {
-    .navigation-btn {
-      position: absolute;
-      top: calc(50% - 4rem);
-      width: 8rem;
-      height: 8rem;
-      background: transparent;
-      border: 1px solid $white;
-      color: $white;
-      border-radius: 50%;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 1;
-      z-index: 1;
-      transition: background-color .2s ease, color .2s ease, opacity .2s ease;
-      @include desktop {
-        &:hover {
-          // color: $white;
-          // background-color: $brown;
-        }
-      }
-      &.swiper-button-disabled {
-        opacity: 0;
-        pointer-events: none;
-      }
-      &.swiper-button-next {
-        right: 7rem;
-        &::before {
-          transform: rotate(45deg) translate3d(-2px, 2px, 0);
-        }
-      }
-      &.swiper-button-prev {
-        left: 7rem;
-        &::before {
-          transform: rotate(-135deg) translate3d(-1px, 1px, 0);
-        }
-      }
-      &::before {
-        content: '';
+  &::v-deep {
+    .navigation {
+      .navigation-btn {
         position: absolute;
-        top: calc(50% - 4px);
-        left: calc(50% - 4px);
-        padding: 4px;
-        border: solid currentColor;
-        border-width: 1px 1px 0 0;
+        top: calc(50% - 4rem);
+        width: 8rem;
+        height: 8rem;
+        background: transparent;
+        border: 1px solid $white;
+        color: $white;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 1;
+        z-index: 1;
+        transition: background-color .2s ease, color .2s ease, opacity .2s ease;
+        @include desktop {
+          &:hover {
+            color: $black17;
+            background-color: $white;
+          }
+        }
+        &.swiper-button-disabled {
+          opacity: 0;
+          pointer-events: none;
+        }
+        &.swiper-button-next {
+          right: 7rem;
+          &::before {
+            transform: rotate(45deg) translate3d(-2px, 2px, 0);
+          }
+        }
+        &.swiper-button-prev {
+          left: 7rem;
+          &::before {
+            transform: rotate(-135deg) translate3d(-1px, 1px, 0);
+          }
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: calc(50% - 4px);
+          left: calc(50% - 4px);
+          padding: 4px;
+          border: solid currentColor;
+          border-width: 1px 1px 0 0;
+        }
       }
     }
   }

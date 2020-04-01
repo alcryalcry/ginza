@@ -144,14 +144,16 @@ export default {
       @include tablet {
         margin: 0;
       }
-      /deep/.social-item {
-        @include tablet {
-          width: 4rem;
-          height: 4rem;
-        }
-        @include mobile {
-          width: 4.5rem;
-          height: 4.5rem;
+      &::v-deep {
+        .social-item {
+          @include tablet {
+            width: 4rem;
+            height: 4rem;
+          }
+          @include mobile {
+            width: 4.5rem;
+            height: 4.5rem;
+          }
         }
       }
     }

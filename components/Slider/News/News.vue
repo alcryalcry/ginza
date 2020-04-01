@@ -3,13 +3,13 @@
     <Section>
       <HeadTitle class="isShort" :info="model" />
       <Slider
-        v-if="model.slides.length"
+        v-if="model.values.length"
         :custom-options="customOptions"
         class="slider-pre-wrapper"
       >
         <template v-slot:slides>
           <div
-            v-for="slide in model.slides"
+            v-for="slide in model.values"
             :key="slide.id"
             :class="slide.mode"
             class="swiper-slide"
@@ -17,7 +17,7 @@
             <picture class="image">
               <img :src="slide.image" :alt="slide.name" data-manual-lazy>
             </picture>
-            <div v-if="slide.name" class="text text--16" v-html="slide.name" />
+            <div v-if="slide.title" class="text text--16" v-html="slide.title" />
           </div>
         </template>
         <template v-slot:navigation>
@@ -79,7 +79,7 @@ export default {
   created() {
     // center slides
     if (this.GET_MQ === 'desktop') {
-      (this.customOptions || {}).initialSlide = Math.abs((this.model.slides || []).length / 3)
+      (this.customOptions || {}).initialSlide = Math.abs((this.model.values || []).length / 3)
     }
   },
   mounted() {},
@@ -99,9 +99,11 @@ export default {
     }
   }
 
-  /deep/.swiper-wrapper {
-    @include desktop {
-      // justify-content: center;
+  &::v-deep {
+    .swiper-wrapper {
+      @include desktop {
+        // justify-content: center;
+      }
     }
   }
 

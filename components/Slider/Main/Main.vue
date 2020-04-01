@@ -1,12 +1,12 @@
 <template>
   <div class="slider-main">
     <Slider
-      v-if="model.slides.length"
+      v-if="model.values.length"
       :custom-options="customOptions"
     >
       <template v-slot:slides>
         <div
-          v-for="slide in model.slides"
+          v-for="slide in model.values"
           :key="slide.title"
           class="swiper-slide"
         >
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/.swiper-slide {
+.swiper-slide {
   flex: 1 0 auto;
   width: 100%;
 }

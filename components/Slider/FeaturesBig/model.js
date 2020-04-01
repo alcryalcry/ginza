@@ -2,10 +2,10 @@ export default (info) => {
   const {
     url = '',
     linkLabel = '',
-    slides = []
+    values = []
   } = info || {}
 
-  const adaptedSlides = (slides || []).map((item) => {
+  const adaptedSlides = (values || []).map((item) => {
     const {
       id = null,
       title = '',
@@ -29,6 +29,6 @@ export default (info) => {
   return {
     url,
     linkLabel,
-    slides: adaptedSlides
+    values: adaptedSlides
   }
 }

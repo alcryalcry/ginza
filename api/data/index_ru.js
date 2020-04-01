@@ -5,7 +5,7 @@ module.exports = {
   components: [
     {
       name: 'slider_main',
-      slides: [
+      values: [
         {
           title: 'Karavannaya 11',
           city: 'Санкт-Петербург',
@@ -37,7 +37,7 @@ module.exports = {
       title: 'Продуманный дизайн до мелочей для комфортного пребывания.',
       url: '/',
       linkLabel: 'Подробнее',
-      slides: [
+      values: [
         {
           id: 1,
           mode: 'vertical',
@@ -83,6 +83,16 @@ module.exports = {
       ]
     },
     {
+      name: 'banner_sale',
+      values: [
+        {
+          title: 'Индивидуальный сервиc',
+          description: 'при бронировании апартаментов для всех держателей карт Ginza Team Silver и Ginza Team Gold.'
+        }
+      ],
+      linkLabel: 'Подробнее'
+    },
+    {
       name: 'banner_text',
       title: 'Индивидуальный сервиc',
       description: 'Мы очень любим своих гостей и делаем все, чтобы они провели свой отдых в Санкт-Петербурге незабываемо. Для лучшего обслуживания мы подготовили для Вас премиальный сервис, услуги которого постоянно обновляются.',
@@ -91,7 +101,7 @@ module.exports = {
     },
     {
       name: 'slider_features_big',
-      slides: [
+      values: [
         {
           id: 1,
           name: '0 Экскурсии и туры',
@@ -126,40 +136,40 @@ module.exports = {
       title: 'Блог',
       url: '/',
       linkLabel: 'Подробнее',
-      slides: [
+      values: [
         {
           id: 1,
-          name: 'Заголовок блога',
+          title: 'Заголовок блога',
           image: '/images/blog-1.jpg'
         },
         {
           id: 2,
-          name: 'Топ 10 мест для посещения',
+          title: 'Топ 10 мест для посещения',
           image: '/images/blog-2.jpg'
         },
         {
           id: 3,
-          name: 'Заголовок новости',
+          title: 'Заголовок новости',
           image: '/images/blog-3.jpg'
         },
         {
           id: 4,
-          name: 'Заголовок блога',
+          title: 'Заголовок блога',
           image: '/images/blog-1.jpg'
         },
         {
           id: 5,
-          name: 'Топ 10 мест для посещения',
+          title: 'Топ 10 мест для посещения',
           image: '/images/blog-2.jpg'
         },
         {
           id: 6,
-          name: 'Персональный вход',
+          title: 'Персональный вход',
           image: '/images/blog-3.jpg'
         },
         {
           id: 7,
-          name: 'VIP-экскурсии по городу',
+          title: 'VIP-экскурсии по городу',
           image: '/images/blog-1.jpg'
         }
       ]

@@ -139,6 +139,7 @@ export default {
   top: 0;
   background: $white;
   z-index: $zLayerTop;
+  transition: background-color .2s ease;
 
   .isMainPage & {
     &:not(.isScrolled) {
@@ -151,12 +152,9 @@ export default {
         }
       }
       .header-top {
-        border: none;
+        border-color: transparent;
         background: transparent;
         transform: translateY(2rem);
-        // @include desktop {
-        //   padding-top: 6rem;
-        // }
       }
       &:not(.isOpen) {
         .back,
@@ -219,7 +217,7 @@ export default {
     background: $white;
     border-bottom: 1px solid $border;
     z-index: $zLayerMenuOpenedBurgerBtn;
-    transition: transform .2s ease, backbround-color .2s ease, border-color .2s ease;
+    transition: transform .2s ease .2s, background-color .2s ease, border-color .2s ease;
     @include mobile {
       padding: 1.5rem 0;
     }

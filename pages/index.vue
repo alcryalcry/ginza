@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoper>
 .isMainPage {
-  /deep/.page-content {
+  .page-content {
     @include desktop {
       margin-top: - $headerHeight;
     }

@@ -1,6 +1,6 @@
 <template>
   <Section>
-    <div class="banner-love">
+    <div class="banner-sale">
       <div class="content">
         <div class="logo">
           <iconLove />
@@ -17,7 +17,7 @@ import Section from '~/components/Utils/Section'
 import iconLove from '~/assets/svg/love.svg'
 
 export default {
-  name: 'BannerLove',
+  name: 'BannerSale',
   components: {
     Section,
     iconLove
@@ -37,30 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner-love {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.banner-sale {
 
-.content {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  text-align: center;
-}
-
-.logo {
-  width: 30rem;
-  height: 10rem;
-  @include mobile {
-    width: 25rem;
-    height: 7rem;
-  }
-}
-
-.text {
-  margin-top: -1rem;
 }
 
 </style>
