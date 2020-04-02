@@ -37,6 +37,10 @@ app.get('/', (req, res) => {
   res.send('API root')
 })
 
+app.get('/get-settings', (req, res) => {
+  res.send(reponseJson('settings'))
+})
+
 app.get('/get-layout', (req, res) => {
   res.send(reponseJson('layout'))
 })

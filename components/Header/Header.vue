@@ -54,7 +54,7 @@
 
 <script>
 import { throttle } from 'throttle-debounce'
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Menu from '~/components/Menu/Menu'
@@ -94,11 +94,6 @@ export default {
       return MODEL(this.info)
     }
   },
-  created() {
-    if (process.browser) {
-      this.UPDATE_CITIES(this.model.cities)
-    }
-  },
   mounted() {
     if (process.browser) {
       this.initEvents()
@@ -110,11 +105,7 @@ export default {
   methods: {
     ...mapMutations({
       TOGGLE_MENU: 'popup/TOGGLE_MENU',
-      CLOSE_MENU: 'popup/CLOSE_MENU',
-      SET_CITIES: 'SET_CITIES'
-    }),
-    ...mapActions({
-      UPDATE_CITIES: 'UPDATE_CITIES'
+      CLOSE_MENU: 'popup/CLOSE_MENU'
     }),
     initEvents () {
       if (this.GET_MEDIA_QUERY !== 'mobile') {

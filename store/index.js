@@ -1,3 +1,5 @@
+import axios from '~/plugins/axios'
+import { API_ROUTES_SETTINGS } from '~/config/constants'
 
 export const state = () => ({
   locales: ['ru', 'en'],
@@ -27,6 +29,18 @@ export const getters = {
 }
 
 export const actions = {
+  async nuxtServerInit({ dispatch }) {
+    try {
+      const {
+        data: {
+          settings = {}
+        }
+      } = await axios.get(API_ROUTES_SETTINGS)
+      dispatch('UPDATE_CITIES', settings.cities)
+    } catch (e) {
+      return console.error(API_ROUTES_SETTINGS, e)
+    }
+  },
   UPDATE_CITIES ({ commit, state }, payload = []) {
     commit('SET_CITIES', payload)
     if (!state.city.id) {

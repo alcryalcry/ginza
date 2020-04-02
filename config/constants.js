@@ -7,6 +7,7 @@ export const {
   pageDescription: PAGE_DESCRIPTION = '',
   api: {
     routes: {
+      settings: API_ROUTES_SETTINGS = 'get-settings/',
       layout: API_ROUTES_LAYOUT = 'get-layout/',
       pages: {
         API_ROUTES_INDEX = 'get-page/index'

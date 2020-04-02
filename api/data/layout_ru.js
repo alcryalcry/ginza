@@ -1,19 +1,5 @@
 module.exports = {
   header: {
-    cities: [
-      {
-        id: 1,
-        name: 'Санкт-Петербург'
-      },
-      {
-        id: 2,
-        name: 'Ростов на Дону'
-      },
-      {
-        id: 3,
-        name: 'Тбилиси'
-      }
-    ],
     menu: {
       phone: '8 800 500–33–00',
       social: [
