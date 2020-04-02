@@ -5,13 +5,14 @@ import messagesRu from './locales/ru.json'
 
 require('dotenv').config()
 
-export default {
+const config = {
   mode: 'universal',
   store: true,
   head,
   server: {
     port: 8080
   },
+  serverMiddleware: [],
   loading: { color: '#fff' },
   css: [
     '~assets/scss/app.scss'
@@ -114,3 +115,9 @@ export default {
     appEnv: process.env.APP_ENV
   }
 }
+
+if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
+  config.serverMiddleware.push({ path: '/api', handler: '~/api/index.js' })
+}
+
+module.exports = config
