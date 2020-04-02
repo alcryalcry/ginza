@@ -8,7 +8,6 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "now-build": "cd dist/",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "api": "cd api && nodemon index.js"
