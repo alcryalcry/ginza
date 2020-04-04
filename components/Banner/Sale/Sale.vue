@@ -249,19 +249,11 @@ export default {
   }
 
   .image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    @include absolute;
     pointer-events: none;
     &::before {
       content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      @include absolute;
       background: rgba($black, .5);
     }
   }

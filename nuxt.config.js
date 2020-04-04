@@ -63,9 +63,15 @@ const config = {
           }
         }
       }
+    ],
+    [
+      'nuxt-gmaps', {
+        key: process.env.API_KEY_GMAPS
+      }
     ]
   ],
   build: {
+    assetsPublicPath: '/static/',
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

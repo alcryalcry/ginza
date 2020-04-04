@@ -99,10 +99,7 @@ module.exports = {
                 '/images/housing-2.jpg',
                 '/images/blog-3.jpg'
               ],
-              coords: {
-                lat: '59.932211',
-                lng: '30.346072'
-              },
+              coords: [59.932211, 30.346072],
               params: [
                 {
                   type: 'beds',
@@ -127,10 +124,7 @@ module.exports = {
                 '/images/housing-1.jpg',
                 '/images/blog-3.jpg'
               ],
-              coords: {
-                lat: '59.932211',
-                lng: '30.346072'
-              },
+              coords: [59.032211, 30.446072],
               params: [
                 {
                   type: 'beds',
@@ -155,10 +149,7 @@ module.exports = {
                 '/images/housing-2.jpg',
                 '/images/housing-1.jpg'
               ],
-              coords: {
-                lat: '59.932211',
-                lng: '30.346072'
-              },
+              coords: [59.232211, 30.906072],
               params: [
                 {
                   type: 'beds',
@@ -190,10 +181,7 @@ module.exports = {
                 '/images/housing-1.jpg',
                 '/images/blog-3.jpg'
               ],
-              coords: {
-                lat: '59.932211',
-                lng: '30.346072'
-              },
+              coords: [59.532211, 30.99072],
               params: [
                 {
                   type: 'text',
@@ -210,10 +198,7 @@ module.exports = {
                 '/images/housing-2.jpg',
                 '/images/blog-3.jpg'
               ],
-              coords: {
-                lat: '59.932211',
-                lng: '30.346072'
-              },
+              coords: [59.552211, 30.096072],
               params: [
                 {
                   type: 'text',
@@ -230,10 +215,7 @@ module.exports = {
                 '/images/housing-1.jpg',
                 '/images/blog-3.jpg'
               ],
-              coords: {
-                lat: '59.932211',
-                lng: '30.346072'
-              },
+              coords: [59.792211, 30.556072],
               params: [
                 {
                   type: 'text',

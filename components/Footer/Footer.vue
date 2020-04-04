@@ -82,11 +82,7 @@ export default {
 
   &::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @include absolute;
     background: linear-gradient(180deg, #EAE5E1 0%, #D1C6BF 95.24%);
     pointer-events: none;
   }

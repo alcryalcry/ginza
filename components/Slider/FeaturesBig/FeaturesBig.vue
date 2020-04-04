@@ -153,20 +153,12 @@ export default {
   }
 
   .image {
-    position: absolute;
+    @include absolute;
     display: flex;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     pointer-events: none;
     &::before {
       content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      @include absolute;
       background: linear-gradient(180deg, rgba(50, 50, 50, 0.1) 55.68%, rgba(0, 0, 0, 0.80415) 96%);
       pointer-events: none;
       z-index: 1;

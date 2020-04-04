@@ -15,7 +15,7 @@
               <button
                 class="button button--arrow"
                 :class="{ 'button--active': activeView === 'list' }"
-                @click="activeView='list'"
+                @click="setView('list')"
               >
                 <div class="icon">
                   <iconList />
@@ -25,7 +25,7 @@
               <button
                 class="button button--arrow"
                 :class="{ 'button--active': activeView === 'map' }"
-                @click="activeView='map'"
+                @click="setView('map')"
               >
                 <div class="icon">
                   <iconMapList />
@@ -35,30 +35,31 @@
             </div>
           </div>
         </div>
-        <div class="col-8 col-t-8 col-m-12">
-          <transition mode="out-in" name="fade">
-            <div class="housing-cards">
-              <div
-                v-for="list in model.values"
-                :key="list.id"
-                class="housing-list"
-                :data-anchor="list.id"
-              >
-                <div class="row">
-                  <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                    <HousingCard
-                      :house-type="list.id"
-                      :info="card"
-                    />
-                  </div>
-                  <div class="col-6 col-t-6 housing-list-item">
-                    <HousingLink :house-type="list.id" />
-                  </div>
+        <transition-group mode="out-in" name="fade" tag="div" class="col-8 col-t-8 col-m-12">
+          <div v-show="activeView === 'list'" key="list" class="housing-cards">
+            <div
+              v-for="list in model.values"
+              :key="list.id"
+              class="housing-list"
+              :data-anchor="list.id"
+            >
+              <div class="row">
+                <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
+                  <HousingCard
+                    :house-type="list.id"
+                    :info="card"
+                  />
+                </div>
+                <div class="col-6 col-t-6 housing-list-item">
+                  <HousingLink :house-type="list.id" />
                 </div>
               </div>
             </div>
-          </transition>
-        </div>
+          </div>
+          <div v-if="activeView === 'map'" key="map" class="housing-map">
+            <Map :markers="mapMarkers" />
+          </div>
+        </transition-group>
       </div>
     </div>
   </Section>
@@ -69,6 +70,7 @@ import MODEL from './model'
 import HousingTypes from '~/components/Housing/Types/Types'
 import HousingCard from '~/components/Housing/Card/Card'
 import HousingLink from '~/components/Housing/Card/Link'
+import Map from '~/components/Map/Map'
 import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'
 import iconList from '~/assets/svg/icon-list.svg'
@@ -79,6 +81,7 @@ export default {
   name: 'Housing',
   components: {
     Section,
+    Map,
     iconList,
     iconMapList,
     HousingTypes,
@@ -103,6 +106,22 @@ export default {
     model() {
       return MODEL(this.info)
     },
+    mapMarkers() {
+      const markers = []
+      this.model.values.forEach((item) => {
+        item.list.forEach((marker) => {
+          const {
+            coords = [],
+            slug = ''
+          } = marker
+          markers.push({
+            coords,
+            url: slug
+          })
+        })
+      })
+      return markers
+    },
     stickyAnchors() {
       return this.model.values.map((anchor) => {
         return {
@@ -118,6 +137,13 @@ export default {
     }
   },
   methods: {
+    setView(view) {
+      this.activeView = view
+      window.scrollTo({
+        top: this.$el.getBoundingClientRect().top + window.scrollY - 50,
+        behavior: 'smooth'
+      })
+    },
     selectType(id) {
       this.activeType = id
       this.scrollToSection(id)
@@ -156,6 +182,12 @@ export default {
       margin-top: 6rem;
     }
   }
+
+  // .housing-map {
+  //   width: 100%;
+  //   height: 50rem;
+  //   overflow: hidden;
+  // }
 
   .housing-list {
     padding: 0 0 15rem;

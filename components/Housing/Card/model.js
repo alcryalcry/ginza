@@ -4,10 +4,7 @@ export default (info) => {
     city = '',
     title = '',
     images = [],
-    coords = {
-      lat: '',
-      lng: ''
-    },
+    coords = [],
     params = []
   } = info
 
