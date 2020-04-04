@@ -6,7 +6,9 @@
   "housing": {
     "all": "Все",
     "listLabel": "Списком",
-    "mapLabel": "На карте"
+    "mapLabel": "На карте",
+    "apartments": "Все апартаменты",
+    "hotels": "Все отели"
   },
   "slider": {
     "prev": "Назад",

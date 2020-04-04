@@ -6,7 +6,9 @@
   "housing": {
     "all": "All",
     "listLabel": "List",
-    "mapLabel": "Map"
+    "mapLabel": "Map",
+    "apartments": "All apartments",
+    "hotels": "All hotels"
   },
   "slider": {
     "prev": "Prev",

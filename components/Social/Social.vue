@@ -23,7 +23,7 @@ export default {
   props: {
     info: {
       type: Array,
-      default: () => []
+      default: () => ([])
     }
   },
   data() {

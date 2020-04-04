@@ -16,6 +16,7 @@ export default (info) => {
         slug = '',
         city = '',
         title = '',
+        images = [],
         coords = {
           lat: '',
           lng: ''
@@ -38,6 +39,7 @@ export default (info) => {
         slug,
         city,
         title,
+        images,
         coords,
         params: adaptedParams
       }

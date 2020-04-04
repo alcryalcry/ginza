@@ -94,6 +94,11 @@ module.exports = {
               slug: 'rubinsteina12',
               city: 'Санкт-Петербург',
               title: 'Rubinsteina 12',
+              images: [
+                '/images/housing-1.jpg',
+                '/images/housing-2.jpg',
+                '/images/blog-3.jpg'
+              ],
               coords: {
                 lat: '59.932211',
                 lng: '30.346072'
@@ -117,6 +122,11 @@ module.exports = {
               slug: 'karavannaya11',
               city: 'Санкт-Петербург',
               title: 'Karavannaya 11',
+              images: [
+                '/images/housing-2.jpg',
+                '/images/housing-1.jpg',
+                '/images/blog-3.jpg'
+              ],
               coords: {
                 lat: '59.932211',
                 lng: '30.346072'
@@ -140,6 +150,11 @@ module.exports = {
               slug: 'moskovskiy191',
               city: 'Санкт-Петербург',
               title: 'Moskovskiy 191',
+              images: [
+                '/images/blog-3.jpg',
+                '/images/housing-2.jpg',
+                '/images/housing-1.jpg'
+              ],
               coords: {
                 lat: '59.932211',
                 lng: '30.346072'
@@ -170,6 +185,11 @@ module.exports = {
               slug: 'dom16',
               city: 'Санкт-Петербург',
               title: 'Dom 16',
+              images: [
+                '/images/blog-3.jpg',
+                '/images/housing-1.jpg',
+                '/images/blog-3.jpg'
+              ],
               coords: {
                 lat: '59.932211',
                 lng: '30.346072'
@@ -185,6 +205,11 @@ module.exports = {
               slug: 'kvartira14',
               city: 'Санкт-Петербург',
               title: 'Kvartira 14',
+              images: [
+                '/images/housing-1.jpg',
+                '/images/housing-2.jpg',
+                '/images/blog-3.jpg'
+              ],
               coords: {
                 lat: '59.932211',
                 lng: '30.346072'
@@ -200,6 +225,11 @@ module.exports = {
               slug: 'khedi',
               city: 'Тбилиси, Грузия',
               title: 'Khedi',
+              images: [
+                '/images/housing-2.jpg',
+                '/images/housing-1.jpg',
+                '/images/blog-3.jpg'
+              ],
               coords: {
                 lat: '59.932211',
                 lng: '30.346072'

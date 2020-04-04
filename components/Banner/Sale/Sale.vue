@@ -54,7 +54,7 @@ export default {
   props: {
     info: {
       type: Object,
-      default: () => {}
+      default: () => ({})
     }
   },
   computed: {
@@ -69,13 +69,13 @@ export default {
 .banner-section {
   border-top: 1px solid $border;
   border-bottom: 1px solid $border;
-  margin: $sectionOffsetVertical 0;
-  @include tablet {
-    margin: $sectionOffsetVerticalTablet 0;
-  }
-  @include tablet {
-    margin: $sectionOffsetVerticalMobile 0;
-  }
+  // margin: $sectionOffsetVertical 0;
+  // @include tablet {
+  //   margin: $sectionOffsetVerticalTablet 0;
+  // }
+  // @include mobile {
+  //   margin: $sectionOffsetVerticalMobile 0;
+  // }
   &::v-deep {
     .container {
       padding: 0;
