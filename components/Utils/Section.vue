@@ -28,6 +28,9 @@ export default {
   &--black {
     background: $black;
   }
+  &--gray {
+    background: $grayBg;
+  }
   &--full {
     .container {
       @include desktop {

@@ -16,25 +16,7 @@
           </ul>
         </div>
         <div class="col-3 col-t-12 col-m-12 sidebar">
-          <ul class="cities">
-            <li
-              v-for="city in GET_CITIES"
-              :key="city.id"
-              class="cities-item"
-              :class="{ isActive: city.id === GET_CURRENT_CITY.id }"
-            >
-              <div class="icon">
-                <iconPlane />
-              </div>
-              <button
-                type="button"
-                class="cities-btn"
-                @click="SET_CURRENT_CITY(city)"
-              >
-                {{ city.name }}
-              </button>
-            </li>
-          </ul>
+          <Cities />
           <div class="menu-social">
             <div v-if="model.phone" class="phone">
               <a class="link" :href="`tel:${model.phone}`">{{ model.phone }}</a>
@@ -48,17 +30,16 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
-import iconPlane from '~/assets/svg/plane.svg'
+import Cities from '~/components/Cities/Cities'
 import Social from '~/components/Social/Social'
 
 export default {
   components: {
     Section,
     Social,
-    iconPlane
+    Cities
   },
   props: {
     info: {
@@ -72,10 +53,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      GET_CITIES: 'GET_CITIES',
-      GET_CURRENT_CITY: 'GET_CURRENT_CITY'
-    }),
     model() {
       return MODEL(this.info)
     }
@@ -91,9 +68,6 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({
-      SET_CURRENT_CITY: 'SET_CURRENT_CITY'
-    })
   }
 }
 </script>

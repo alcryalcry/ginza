@@ -83,6 +83,139 @@ module.exports = {
       ]
     },
     {
+      name: 'Housing',
+      values: [
+        {
+          title: 'Апартаменты',
+          id: 'apartments',
+          linkLabel: 'Все апартаменты',
+          list: [
+            {
+              slug: 'rubinsteina12',
+              city: 'Санкт-Петербург',
+              title: 'Rubinsteina 12',
+              coords: {
+                lat: '59.932211',
+                lng: '30.346072'
+              },
+              params: [
+                {
+                  type: 'beds',
+                  value: '3'
+                },
+                {
+                  type: 'adult',
+                  value: '4'
+                },
+                {
+                  type: 'size',
+                  value: '57м'
+                }
+              ]
+            },
+            {
+              slug: 'karavannaya11',
+              city: 'Санкт-Петербург',
+              title: 'Karavannaya 11',
+              coords: {
+                lat: '59.932211',
+                lng: '30.346072'
+              },
+              params: [
+                {
+                  type: 'beds',
+                  value: '3'
+                },
+                {
+                  type: 'adult',
+                  value: '4-6'
+                },
+                {
+                  type: 'size',
+                  value: '100м'
+                }
+              ]
+            },
+            {
+              slug: 'moskovskiy191',
+              city: 'Санкт-Петербург',
+              title: 'Moskovskiy 191',
+              coords: {
+                lat: '59.932211',
+                lng: '30.346072'
+              },
+              params: [
+                {
+                  type: 'beds',
+                  value: '3'
+                },
+                {
+                  type: 'adult',
+                  value: '4'
+                },
+                {
+                  type: 'size',
+                  value: '60м'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: 'Отели',
+          id: 'hotels',
+          linkLabel: 'Все отели',
+          list: [
+            {
+              slug: 'dom16',
+              city: 'Санкт-Петербург',
+              title: 'Dom 16',
+              coords: {
+                lat: '59.932211',
+                lng: '30.346072'
+              },
+              params: [
+                {
+                  type: 'text',
+                  value: '1 номер'
+                }
+              ]
+            },
+            {
+              slug: 'kvartira14',
+              city: 'Санкт-Петербург',
+              title: 'Kvartira 14',
+              coords: {
+                lat: '59.932211',
+                lng: '30.346072'
+              },
+              params: [
+                {
+                  type: 'text',
+                  value: '3 номера'
+                }
+              ]
+            },
+            {
+              slug: 'khedi',
+              city: 'Тбилиси, Грузия',
+              title: 'Khedi',
+              coords: {
+                lat: '59.932211',
+                lng: '30.346072'
+              },
+              params: [
+                {
+                  type: 'text',
+                  value: '60 номеров'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       name: 'banner_sale',
       description: 'Отель, мини-отель или апартаменты, какой бы формат размещения от Ginza Hotels & Apartments Вы не выбрали – Вас ждет сервис премиум класса. Забронировать стол в ресторане, заказать доставку еды или свежих цветов, организовать билеты в театр, сдать вещи в химчистку, быстро убрать апартаменты - все бытовые вопросы решаются моментально после звонка персональному менеджеру.',
       url: '/',

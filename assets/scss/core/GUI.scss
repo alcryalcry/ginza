@@ -93,39 +93,3 @@
 .bold {
   font-weight: $bold;
 }
-
-.link {
-  color: $black17;
-  outline: none;
-  text-decoration: none;
-  transition: color .2s ease, border-color .2s ease;
-  &:active {
-    color: $brown;
-  }
-  @include desktop {
-    &:hover {
-      color: $brown;
-    }
-  }
-
-  &.link--tdu {
-    border-bottom: 1px solid currentColor;
-    padding-bottom: .25rem;
-    &:active {
-      border-color: transparent;
-    }
-    @include desktop {
-      &:hover {
-        border-color: transparent;
-      }
-    }
-  }
-
-  &.link--white {
-    color: $white;
-  }
-
-  &.link--brown {
-    color: $brown;
-  }
-}

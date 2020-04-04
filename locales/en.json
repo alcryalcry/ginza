@@ -3,6 +3,11 @@
     "menu_name": "Menu",
     "back": "Back"
   },
+  "housing": {
+    "all": "All",
+    "listLabel": "List",
+    "mapLabel": "Map"
+  },
   "slider": {
     "prev": "Prev",
     "next": "Next"
