@@ -1,6 +1,9 @@
 export default (info) => {
   const {
     title = '',
+    description = '',
+    subtext = '',
+    afterText = '',
     url = '',
     linkLabel = '',
     values = []
@@ -23,6 +26,9 @@ export default (info) => {
 
   return {
     title,
+    description,
+    subtext,
+    afterText,
     url,
     linkLabel,
     values: adaptedSlides

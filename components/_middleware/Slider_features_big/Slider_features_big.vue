@@ -1,7 +1,5 @@
 <template>
-  <div :class="model.mode">
-    <SliderFeaturesBig :info="model" />
-  </div>
+  <SliderFeaturesBig :class="model.mode" :info="model" />
 </template>
 
 <script>

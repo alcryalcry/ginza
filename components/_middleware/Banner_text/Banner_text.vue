@@ -1,9 +1,7 @@
 <template>
-  <div :class="model.mode">
-    <Section>
-      <HeadTitle class="isShort" :info="model" />
-    </Section>
-  </div>
+  <Section :class="model.mode">
+    <HeadTitle class="isShort" :info="model" />
+  </Section>
 </template>
 
 <script>

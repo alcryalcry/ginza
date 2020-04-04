@@ -10,7 +10,8 @@ export const {
       settings: API_ROUTES_SETTINGS = 'get-settings/',
       layout: API_ROUTES_LAYOUT = 'get-layout/',
       pages: {
-        API_ROUTES_INDEX = 'get-page/index'
+        API_ROUTES_INDEX = 'get-page/index',
+        API_ROUTES_ABOUT = 'get-page/about'
       } = {},
       get: {
         housing: API_ROUTES_HOUSING = 'housing'

@@ -1,7 +1,7 @@
 <template>
   <div class="slider-features">
     <Section>
-      <HeadTitle :info="model" />
+      <HeadTitle v-if="model.title" :info="model" />
       <Slider
         v-if="model.values.length"
         :custom-options="customOptions"
@@ -20,6 +20,7 @@
           </div>
         </template>
       </Slider>
+      <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" />
     </Section>
   </div>
 </template>
@@ -67,7 +68,6 @@ export default {
 <style lang="scss" scoped>
 .slider-features {
   overflow: hidden;
-  user-select: none;
 
   .head-title {
     margin-bottom: 6rem;

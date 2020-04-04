@@ -1,14 +1,14 @@
 <template>
-  <SliderMain :class="model.mode" :info="model" />
+  <BookingMini :class="model.mode" :info="model" />
 </template>
 
 <script>
-import SliderMain from '~/components/Slider/Main/Main'
+import BookingMini from '~/components/Booking/Mini/Mini'
 
 export default {
-  name: 'MiddlewareSliderMain',
+  name: 'MiddlewareBookingMini',
   components: {
-    SliderMain
+    BookingMini
   },
   props: {
     data: {

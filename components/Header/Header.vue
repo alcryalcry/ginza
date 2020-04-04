@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ isScrolled, isOpen: GET_MENU_STATUS }">
+  <header class="header" :class="{ isScrolled: GET_HEADER_STATUS, isOpen: GET_MENU_STATUS }">
     <Section class="header-top section--big section--no-p">
       <div class="header-row">
         <div class="header-col left">
@@ -82,13 +82,13 @@ export default {
   },
   data() {
     return {
-      isScrolled: false
     }
   },
   computed: {
     ...mapGetters({
       GET_LANG: 'GET_LANG',
-      GET_MENU_STATUS: 'popup/GET_MENU_STATUS'
+      GET_MENU_STATUS: 'popup/GET_MENU_STATUS',
+      GET_HEADER_STATUS: 'popup/GET_HEADER_STATUS'
     }),
     model() {
       return MODEL(this.info)
@@ -104,6 +104,7 @@ export default {
   },
   methods: {
     ...mapMutations({
+      SET_HEADER: 'popup/SET_HEADER',
       TOGGLE_MENU: 'popup/TOGGLE_MENU',
       CLOSE_MENU: 'popup/CLOSE_MENU'
     }),
@@ -117,7 +118,7 @@ export default {
       if (this.scrollEvent) { window.removeEventListener('scroll', this.scrollEvent, false) }
     },
     changeColor () {
-      this.isScrolled = window.pageYOffset > 15
+      this.SET_HEADER(window.pageYOffset > 15)
     }
   }
 }

@@ -1,7 +1,5 @@
 <template>
-  <div :class="model.mode">
-    <BannerSale :info="model" />
-  </div>
+  <BannerSale :class="model.mode" :info="model" />
 </template>
 
 <script>

@@ -25,13 +25,34 @@ export default {
 <style lang="scss" scoped>
 .section {
   position: relative;
-  &--black {
-    background: $black;
+  &.section--menu {
+    .container {
+      @include mobile_tablet {
+        display: flex;
+      }
+    }
   }
-  &--gray {
-    background: $grayBg;
+  &.section--big {
+    .container {
+      @include desktop {
+        max-width: $containerBigWidth;
+      }
+    }
   }
-  &--full {
+  &.section--min {
+    .container {
+      @include desktop {
+        max-width: $containerMinWidth;
+      }
+    }
+  }
+  &.section--no-p {
+    .container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+  &.section--full {
     .container {
       @include desktop {
         max-width: 144rem;
@@ -39,6 +60,12 @@ export default {
         padding-left: 0;
       }
     }
+  }
+  &--black {
+    background: $black;
+  }
+  &--gray {
+    background: $grayBg;
   }
 }
 
@@ -54,29 +81,5 @@ export default {
   @include mobile {
     padding: $sectionOffsetVerticalMobile $sectionOffsetHorizontalMobile;
   }
-
-  .section--menu & {
-    @include mobile_tablet {
-      display: flex;
-    }
-  }
-
-  .section--big & {
-    @include desktop {
-      max-width: $containerBigWidth;
-    }
-  }
-
-  .section--min & {
-    @include desktop {
-      max-width: $containerMinWidth;
-    }
-  }
-
-  .section--no-p & {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
 }
 </style>

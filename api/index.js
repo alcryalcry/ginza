@@ -49,6 +49,10 @@ app.get('/get-page/index', (req, res) => {
   res.send(reponseJson('index'))
 })
 
+app.get('/get-page/about', (req, res) => {
+  res.send(reponseJson('about'))
+})
+
 app.post('/feedback', (req, res) => {
   res.jsonp({
     status: true

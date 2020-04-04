@@ -2,6 +2,7 @@ export default (info) => {
   const {
     title = '',
     description = '',
+    subtext = '',
     url = '#',
     linkLabel = ''
   } = info || {}
@@ -9,6 +10,7 @@ export default (info) => {
   return {
     title,
     description,
+    subtext,
     url,
     linkLabel
   }

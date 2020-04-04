@@ -14,7 +14,7 @@
             <picture class="image">
               <img data-manual-lazy :src="slide.image" :alt="slide.title">
             </picture>
-            <Section class="content section--no-p" data-swiper-parallax="-400">
+            <Section class="content section--no-p section--min" data-swiper-parallax="-400">
               <div class="labels">
                 <div v-if="slide.city" class="text--13 city" v-html="slide.city" />
                 <div v-if="slide.category" class="text--13 category" v-html="slide.category" />

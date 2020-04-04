@@ -1,7 +1,5 @@
 <template>
-  <div :class="model.mode">
-    <Housing :info="model" />
-  </div>
+  <Housing :class="model.mode" :info="model" />
 </template>
 
 <script>
