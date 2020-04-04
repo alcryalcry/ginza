@@ -3,7 +3,7 @@
     <div class="housing-content">
       <div class="row">
         <div class="col-4 col-t-4 col-m-12 sidebar">
-          <div class="sidebar-content">
+          <div class="sidebar-content ">
             <div class="sidebar-row sidebar-list housing-types-list">
               <HousingTypes :active-type="activeType" :info="model" @select-type="selectType" />
               <nuxt-link class="link link--brown" :to="localePath('housing')">{{ $t('housing.all') }}</nuxt-link>
@@ -36,21 +36,28 @@
           </div>
         </div>
         <div class="col-8 col-t-8 col-m-12">
-          <div class="housing-content">
-            <div v-for="list in model.values" :key="list.id" class="housing-list">
-              <div class="row">
-                <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                  <HousingCard
-                    :house-type="list.id"
-                    :info="card"
-                  />
-                </div>
-                <div class="col-6 col-t-6 housing-list-item">
-                  <HousingLink :house-type="list.id" />
+          <transition mode="out-in" name="fade">
+            <div class="housing-cards">
+              <div
+                v-for="list in model.values"
+                :key="list.id"
+                class="housing-list"
+                :data-anchor="list.id"
+              >
+                <div class="row">
+                  <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
+                    <HousingCard
+                      :house-type="list.id"
+                      :info="card"
+                    />
+                  </div>
+                  <div class="col-6 col-t-6 housing-list-item">
+                    <HousingLink :house-type="list.id" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -66,6 +73,7 @@ import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'
 import iconList from '~/assets/svg/icon-list.svg'
 import iconMapList from '~/assets/svg/icon-map-list.svg'
+import stickyMenu from '~/mixins/stickyMenu'
 
 export default {
   name: 'Housing',
@@ -78,6 +86,7 @@ export default {
     HousingLink,
     Cities
   },
+  mixins: [stickyMenu],
   props: {
     info: {
       type: Object,
@@ -93,6 +102,14 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    stickyAnchors() {
+      return this.model.values.map((anchor) => {
+        return {
+          href: anchor.id,
+          id: anchor.id
+        }
+      })
     }
   },
   created() {
@@ -103,6 +120,7 @@ export default {
   methods: {
     selectType(id) {
       this.activeType = id
+      this.scrollToSection(id)
     }
   }
 }

@@ -12,6 +12,9 @@ export const {
       pages: {
         API_ROUTES_INDEX = 'get-page/index'
       } = {},
+      get: {
+        housing: API_ROUTES_HOUSING = 'housing'
+      } = {},
       post: {
         feedback: API_ROUTES_FEEDBACK = 'feedback'
       } = {}

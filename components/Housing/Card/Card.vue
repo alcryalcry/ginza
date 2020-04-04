@@ -6,15 +6,15 @@
       tag="div"
       class="images"
       mode="out-in"
-      name="fade"
+      name="fade-reversed-long"
+      @mouseenter.native="startChanger"
+      @mouseleave.native="stopChanger"
     >
       <picture
         v-for="(image, index) in model.images"
         v-show="index === activeIndex"
         :key="index + 1"
         class="image"
-        @mouseover="activeIndex = 1"
-        @mouseleave="activeIndex = 0"
       >
         <img :src="image" :alt="model.title">
       </picture>
@@ -59,7 +59,8 @@ export default {
   },
   data() {
     return {
-      activeIndex: 0
+      activeIndex: 0,
+      intervalId: null
     }
   },
   computed: {
@@ -73,6 +74,22 @@ export default {
   created() {
   },
   methods: {
+    imageChanger() {
+      if (this.activeIndex === this.model.images.length - 1) {
+        this.activeIndex = 0
+      } else {
+        this.activeIndex++
+      }
+    },
+    startChanger() {
+      this.imageChanger()
+      this.intervalId = setInterval(() => {
+        this.imageChanger()
+      }, 1500)
+    },
+    stopChanger() {
+      clearInterval(this.intervalId)
+    }
   }
 }
 </script>
@@ -84,6 +101,7 @@ export default {
     position: relative;
     width: 100%;
     height: 40rem;
+    z-index: 1;
     @include tablet {
       height: 30rem;
     }
@@ -97,6 +115,7 @@ export default {
     left: 0;
     bottom: 0;
     right: 0;
+    pointer-events: none;
   }
   .content {
     padding: 1rem 0;

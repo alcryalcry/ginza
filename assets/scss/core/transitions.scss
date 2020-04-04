@@ -1,0 +1,43 @@
+// LIST FADE
+.list-fade-enter-active,
+.list-fade-leave-active {
+  transition: opacity .2s ease, transform .2s ease;
+}
+.list-fade-enter,
+.list-fade-leave-to {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: none;
+}
+
+// FADE
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity $t
+}
+.fade-enter, 
+.fade-leave-to {
+  opacity: 0;
+  transition: none;
+}
+
+// FADE REVERSED
+.fade-reversed-enter-active,
+.fade-reversed-leave-active {
+  transition: opacity $t
+}
+.fade-reversed-enter, 
+.fade-reversed-leave-to {
+  opacity: 0;
+}
+
+// FADE REVERSED LONG
+.fade-reversed-long-enter-active,
+.fade-reversed-long-leave-active {
+  transition: opacity .5s ease
+}
+
+.fade-reversed-long-enter, 
+.fade-reversed-long-leave-to {
+  opacity: 0;
+}

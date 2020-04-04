@@ -35,14 +35,14 @@
               <button type="button" class="navigation-btn swiper-button-prev text--12 ttu bold ls1">
                 <span v-if="generatedNavigation.prev.name">
                   <span>{{ $t('slider.prev') }}</span>
-                  <transition name="fade" mode="out-in">
+                  <transition name="fade-reversed" mode="out-in">
                     <span :key="generatedNavigation.prev.name" class="name">{{ generatedNavigation.prev.name }}</span>
                   </transition>
                 </span>
               </button>
             </div>
             <div class="col-4 col-t-12 col-m-12 jc-c">
-              <transition name="fade" mode="out-in">
+              <transition name="fade-reversed" mode="out-in">
                 <span v-if="generatedNavigation.current.name" :key="generatedNavigation.current.name" class="text--12 ttu bold ls1">
                   {{ generatedNavigation.current.name }}
                 </span>
@@ -51,7 +51,7 @@
             <div class="col-4 jc-fe d-show">
               <button type="button" class="navigation-btn swiper-button-next text--12 ttu bold ls1">
                 <span v-if="generatedNavigation.next.name">
-                  <transition name="fade" mode="out-in">
+                  <transition name="fade-reversed" mode="out-in">
                     <span :key="generatedNavigation.next.name" class="name">{{ generatedNavigation.next.name }}</span>
                   </transition>
                   <span>{{ $t('slider.next') }}</span>
