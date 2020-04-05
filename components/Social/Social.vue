@@ -1,6 +1,6 @@
 <template>
   <ul class="social">
-    <li v-for="item in model" :key="item.name" class="social-item">
+    <li v-for="item in checkComponents" :key="item.name" class="social-item">
       <a class="link" :href="item.url" target="_blank">
         <component :is="item.name" />
       </a>
@@ -10,9 +10,9 @@
 
 <script>
 import MODEL from './model'
-import instagram from '~/assets/svg/instagram.svg'
-import facebook from '~/assets/svg/facebook.svg'
-import tripadvisor from '~/assets/svg/tripadvisor.svg'
+import instagram from '~/assets/svg/social/instagram.svg'
+import facebook from '~/assets/svg/social/facebook.svg'
+import tripadvisor from '~/assets/svg/social/tripadvisor.svg'
 
 export default {
   components: {
@@ -27,15 +27,21 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+    }
   },
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    checkComponents() {
+      return this.model.filter(item => !!this.$options.components[item.name])
     }
   },
-  mounted() {},
-  methods: {}
+  created() {
+  },
+  methods: {
+  }
 }
 </script>
 

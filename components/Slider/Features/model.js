@@ -6,7 +6,8 @@ export default (info) => {
     afterText = '',
     url = '',
     linkLabel = '',
-    values = []
+    values = [],
+    services = []
   } = info || {}
 
   const adaptedSlides = (values || []).map((item) => {
@@ -31,6 +32,7 @@ export default (info) => {
     afterText,
     url,
     linkLabel,
+    services,
     values: adaptedSlides
   }
 }

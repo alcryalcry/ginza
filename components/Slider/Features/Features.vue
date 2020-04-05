@@ -22,6 +22,9 @@
       </Slider>
       <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" />
     </Section>
+    <Section v-if="model.services" class="section--no-p section--big">
+      <ServicesList :info="model.services" />
+    </Section>
   </div>
 </template>
 
@@ -30,11 +33,13 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
 import Slider from '~/components/Slider/Slider'
+import ServicesList from '~/components/Services/List/List'
 
 export default {
   components: {
     HeadTitle,
     Section,
+    ServicesList,
     Slider
   },
   props: {
