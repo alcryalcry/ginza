@@ -1,6 +1,6 @@
 <template>
-  <ul class="services-list">
-    <li v-for="item in checkComponents" :key="item.name" class="services-item">
+  <ul class="services-list row">
+    <li v-for="item in checkComponents" :key="item.name" class="col-t-3 col-m-4 services-item">
       <div class="icon">
         <component :is="item.iconName" />
       </div>
@@ -59,17 +59,24 @@ export default {
 
 <style lang="scss" scoped>
 .services-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: -1rem;
+  @include desktop {
+    margin: -1rem;
+    justify-content: space-between;
+  }
 
   .services-item {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
-    margin: 1rem;
+    padding: 2rem 1rem;
+    @include mobile {
+      padding: 1rem;
+    }
+    @include desktop {
+      margin: 1rem;
+    }
+
     .icon {
       display: flex;
       align-items: center;
@@ -82,6 +89,14 @@ export default {
       padding: 1.25rem;
       overflow: hidden;
       color: $brown;
+      @include tablet {
+        width: 8rem;
+        height: 8rem;
+      }
+      @include mobile {
+        width: 7rem;
+        height: 7rem;
+      }
     }
 
     .icon-logo {
