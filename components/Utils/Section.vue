@@ -54,10 +54,10 @@ export default {
   }
   &.section--full {
     >.container {
+      padding-right: 0;
+      padding-left: 0;
       @include desktop {
         max-width: 144rem;
-        padding-right: 0;
-        padding-left: 0;
       }
     }
   }

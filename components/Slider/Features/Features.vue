@@ -1,6 +1,6 @@
 <template>
-  <div class="slider-features">
-    <Section>
+  <Section class="section--full slider-features">
+    <Section class="section--no-p section--min">
       <HeadTitle v-if="model.title" :info="model" />
       <Slider
         v-if="model.values.length"
@@ -25,7 +25,7 @@
     <Section v-if="model.services" class="section--no-p section--big">
       <ServicesList :info="model.services" />
     </Section>
-  </div>
+  </Section>
 </template>
 
 <script>

@@ -96,6 +96,109 @@ module.exports = {
       ]
     },
     {
+      name: 'review',
+      description: 'Ginza Hotels&Apartments – отели и премиальные апартаменты в Петербурге и Баку для тех, кто ценит свое время и привык получать лучшее. Все апартаменты отличает выгодное местоположение: отсюда всегда удобно добираться до аэропорта и вокзалов, бизнес-центров и магазинов.',
+      values: [
+        {
+          name: 'gallery_grid',
+          title: 'Дизайн',
+          rows: [
+            {
+              type: 'video',
+              cols: [
+                {
+                  videoSrc: 'https://player.vimeo.com/video/76979871',
+                  mode: 'size-full',
+                  image: 'https://i.picsum.photos/id/10/780/464.jpg'
+                }
+              ]
+            },
+            {
+              type: 'image',
+              cols: [
+                {
+                  mode: 'size-one',
+                  image: 'https://i.picsum.photos/id/1014/300/464.jpg'
+                },
+                {
+                  mode: 'size-two',
+                  image: 'https://i.picsum.photos/id/1012/460/464.jpg'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'text',
+          title: 'Искусно спроектированное жилье в идеальном состоянии — с роскошными удобствами, услугами и персональным менеджером.'
+        },
+        {
+          name: 'gallery_grid',
+          rows: [
+            {
+              type: 'image',
+              cols: [
+                {
+                  mode: 'size-full',
+                  image: 'https://i.picsum.photos/id/1027/780/464.jpg'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'gallery_grid',
+          title: 'Для отдыха <br/>с детьми',
+          rows: [
+            {
+              type: 'image',
+              cols: [
+                {
+                  mode: 'size-two',
+                  image: 'https://i.picsum.photos/id/1066/460/464.jpg'
+                },
+                {
+                  mode: 'size-one',
+                  image: 'https://i.picsum.photos/id/173/300/464.jpg'
+                }
+              ]
+            },
+            {
+              type: 'image',
+              cols: [
+                {
+                  mode: 'size-one',
+                  image: 'https://i.picsum.photos/id/237/300/464.jpg'
+                },
+                {
+                  mode: 'size-two',
+                  image: 'https://i.picsum.photos/id/244/460/464.jpg'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'text',
+          title: 'Искусно спроектированное жилье в идеальном состоянии — с роскошными удобствами, услугами и персональным менеджером.'
+        },
+        {
+          name: 'gallery_grid',
+          rows: [
+            {
+              type: 'image',
+              cols: [
+                {
+                  mode: 'size-full',
+                  image: 'https://i.picsum.photos/id/225/780/464.jpg'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       name: 'slider_features',
       title: 'Вечеринки с Ginza Hotels & Apartments',
       url: '/',

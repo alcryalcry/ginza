@@ -113,6 +113,12 @@ export default {
     @include mobile_tablet {
       border-top: 1px solid $border;
     }
+    @include mobile {
+      padding-top: 6rem;
+    }
+    @include tablet {
+      padding-top: 8rem;
+    }
   }
 
   .icon {
