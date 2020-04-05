@@ -126,6 +126,56 @@ module.exports = {
           image: '/images/feature-1.jpg'
         }
       ]
+    },
+    {
+      name: 'slider_instagram',
+      title: 'Наше вдохновение <br />- это Вы!',
+      url: '/',
+      values: [
+        {
+          id: 1,
+          url: '/',
+          image: '/images/blog-1.jpg'
+        },
+        {
+          id: 2,
+          url: '/',
+          image: '/images/blog-2.jpg'
+        },
+        {
+          id: 3,
+          url: '/',
+          image: '/images/blog-3.jpg'
+        },
+        {
+          id: 4,
+          url: '/',
+          image: '/images/blog-1.jpg'
+        },
+        {
+          id: 5,
+          url: '/',
+          image: '/images/blog-2.jpg'
+        },
+        {
+          id: 6,
+          url: '/',
+          image: '/images/blog-3.jpg'
+        }
+      ]
+    },
+    {
+      name: 'breadcrumbs',
+      values: [
+        {
+          url: '/',
+          linkLabel: 'Главная'
+        },
+        {
+          url: '/about',
+          linkLabel: 'О нас'
+        }
+      ]
     }
   ]
 }

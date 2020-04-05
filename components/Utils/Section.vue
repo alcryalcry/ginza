@@ -22,38 +22,38 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .section {
   position: relative;
   &.section--menu {
-    .container {
+    >.container {
       @include mobile_tablet {
         display: flex;
       }
     }
   }
   &.section--big {
-    .container {
+    >.container {
       @include desktop {
         max-width: $containerBigWidth;
       }
     }
   }
   &.section--min {
-    .container {
+    >.container {
       @include desktop {
         max-width: $containerMinWidth;
       }
     }
   }
   &.section--no-p {
-    .container {
+    >.container {
       padding-top: 0;
       padding-bottom: 0;
     }
   }
   &.section--full {
-    .container {
+    >.container {
       @include desktop {
         max-width: 144rem;
         padding-right: 0;

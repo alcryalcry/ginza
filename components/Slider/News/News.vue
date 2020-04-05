@@ -27,9 +27,7 @@
           </div>
         </template>
       </Slider>
-    </section>
-  </div>
-  </Section>
+    </Section>
   </div>
 </template>
 
