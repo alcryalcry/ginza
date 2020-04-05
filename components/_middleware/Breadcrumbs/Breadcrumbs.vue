@@ -1,7 +1,5 @@
 <template>
-  <div :class="model.mode">
-    <Breadcrumbs :info="model" />
-  </div>
+  <Breadcrumbs :info="model" :class="model.mode" />
 </template>
 
 <script>

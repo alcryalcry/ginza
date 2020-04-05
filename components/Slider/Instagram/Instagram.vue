@@ -114,6 +114,27 @@ export default {
     flex: 1 0 auto;
     width: 30rem;
     height: 30rem;
+    &:active {
+      &::before {
+        opacity: 1;
+      }
+    }
+    @include desktop {
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    &::before {
+      @include absolute;
+      content: '';
+      pointer-events: none;
+      background: rgba($black17, .25);
+      opacity: 0;
+      z-index: 1;
+      transition: opacity .2s ease;
+    }
     .image {
       width: 100%;
       height: 100%;
