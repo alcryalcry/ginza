@@ -22,8 +22,12 @@
         </template>
         <template v-slot:navigation>
           <div class="navigation d-show">
-            <button type="button" class="navigation-btn swiper-button-prev" />
-            <button type="button" class="navigation-btn swiper-button-next" />
+            <button type="button" class="navigation-btn swiper-button-prev">
+              <iconArrowCircle class="icon" />
+            </button>
+            <button type="button" class="navigation-btn swiper-button-next">
+              <iconArrowCircle class="icon" />
+            </button>
           </div>
         </template>
       </Slider>
@@ -37,12 +41,14 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
+import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
 
 export default {
   components: {
     Slider,
     HeadTitle,
-    Section
+    Section,
+    iconArrowCircle
   },
   props: {
     info: {
@@ -118,14 +124,15 @@ export default {
       color: $black17;
       border-radius: 50%;
       overflow: hidden;
+      border: none;
       cursor: pointer;
       opacity: 1;
       z-index: 1;
       transition: background-color .2s ease, color .2s ease, opacity .2s ease;
       @include desktop {
         &:hover {
-          color: $white;
           background-color: $brown;
+          color: $white;
         }
       }
       &.swiper-button-disabled {
@@ -135,25 +142,13 @@ export default {
       &.swiper-button-next {
         top: 9.5rem;
         right: -10vw;
-        &::before {
-          transform: rotate(45deg) translate3d(-2px, 2px, 0);
+        .icon {
+          transform: rotate(180deg);
         }
       }
       &.swiper-button-prev {
         top: 9.5rem;
         left: -10vw;
-        &::before {
-          transform: rotate(-135deg) translate3d(-1px, 1px, 0);
-        }
-      }
-      &::before {
-        content: '';
-        position: absolute;
-        top: calc(50% - 4px);
-        left: calc(50% - 4px);
-        padding: 4px;
-        border: solid currentColor;
-        border-width: 1px 1px 0 0;
       }
     }
   }

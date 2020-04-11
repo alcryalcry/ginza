@@ -299,26 +299,17 @@ export default {
         background: transparent;
         color: $white;
         border-radius: 50%;
-        border: none;
+        border: 1px solid $white;
         overflow: hidden;
         cursor: pointer;
         opacity: 1;
         z-index: 1;
-        transition: background-color .2s ease, color .2s ease, opacity .2s ease;
+        transition: background-color .2s ease, color .2s ease, opacity .2s ease, border-color .2s ease;
         @include desktop {
           &:hover {
             color: $black17;
             background-color: $white;
-            .icon {
-              fill: $white;
-              stroke: $black17;
-            }
           }
-        }
-        .icon {
-          fill: transparent;
-          stroke: $white;
-          transition: fill .2s ease, stroke .2s ease;
         }
         &.swiper-button-disabled {
           opacity: 0;
