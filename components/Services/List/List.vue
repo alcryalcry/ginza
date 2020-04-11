@@ -1,13 +1,15 @@
 <template>
   <ul class="services-list row">
-    <li v-for="item in checkComponents" :key="item.name" class="col-t-3 col-m-4 services-item">
-      <div class="icon">
-        <component :is="item.iconName" />
-      </div>
-      <div class="icon-logo">
-        <iconGinza />
-      </div>
-      <div v-if="item.label" class="label text--18" v-html="item.label" />
+    <li v-for="item in checkComponents" :key="item.name" class="col-t-3 col-m-4">
+      <nuxt-link class="services-item" :to="localePath('/')">
+        <div class="icon">
+          <component :is="item.id" />
+        </div>
+        <div class="icon-logo">
+          <iconGinza />
+        </div>
+        <div v-if="item.label" class="label text--18" v-html="item.label" />
+      </nuxt-link>
     </li>
   </ul>
 </template>
@@ -49,7 +51,7 @@ export default {
       return MODEL(this.info)
     },
     checkComponents() {
-      return this.model.filter(item => !!this.$options.components[item.iconName])
+      return this.model.filter(item => !!this.$options.components[item.id])
     }
   },
   mounted() {},
@@ -75,6 +77,12 @@ export default {
     }
     @include desktop {
       margin: 1rem;
+      &:hover {
+        .icon {
+          background-color: $brown;
+          color: $white;
+        }
+      }
     }
 
     .icon {
@@ -89,6 +97,7 @@ export default {
       padding: 1.25rem;
       overflow: hidden;
       color: $brown;
+      transition: background-color .2s ease, color .2s ease;
       @include tablet {
         width: 8rem;
         height: 8rem;

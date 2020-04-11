@@ -44,31 +44,31 @@ module.exports = {
       url: '/',
       services: [
         {
-          iconName: 'catering',
+          id: 'catering',
           label: 'Catering'
         },
         {
-          iconName: 'delivery',
+          id: 'delivery',
           label: 'Delivery Service'
         },
         {
-          iconName: 'flower',
+          id: 'flower',
           label: 'Flower'
         },
         {
-          iconName: 'fitness',
+          id: 'fitness',
           label: 'Fitness'
         },
         {
-          iconName: 'tuor',
+          id: 'tuor',
           label: 'Tuor'
         },
         {
-          iconName: 'prime',
+          id: 'prime',
           label: 'Prime'
         },
         {
-          iconName: 'sky',
+          id: 'sky',
           label: 'Sky'
         }
       ],
@@ -76,37 +76,37 @@ module.exports = {
         {
           id: 1,
           mode: 'vertical',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         },
         {
           id: 2,
           mode: 'horizontal',
-          image: '/images/feature-2.jpg'
+          image: 'https://picsum.photos/id/1060/540/370'
         },
         {
           id: 3,
           mode: 'vertical',
-          image: '/images/feature-3.jpg'
+          image: 'https://picsum.photos/id/1062/300/460'
         },
         {
           id: 4,
           mode: 'vertical',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         },
         {
           id: 5,
           mode: 'horizontal',
-          image: '/images/feature-2.jpg'
+          image: 'https://picsum.photos/id/1060/540/370'
         },
         {
           id: 6,
           mode: 'horizontal',
-          image: '/images/feature-3.jpg'
+          image: 'https://picsum.photos/id/1062/300/460'
         },
         {
           id: 7,
           mode: 'vertical',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         }
       ]
     },
@@ -125,7 +125,7 @@ module.exports = {
                 {
                   videoSrc: 'https://player.vimeo.com/video/76979871',
                   mode: 'size-full',
-                  image: 'https://i.picsum.photos/id/10/780/464.jpg'
+                  image: 'https://picsum.photos/id/10/780/464.jpg'
                 }
               ]
             },
@@ -134,11 +134,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-one',
-                  image: 'https://i.picsum.photos/id/1014/300/464.jpg'
+                  image: 'https://picsum.photos/id/1014/300/464.jpg'
                 },
                 {
                   mode: 'size-two',
-                  image: 'https://i.picsum.photos/id/1012/460/464.jpg'
+                  image: 'https://picsum.photos/id/1012/460/464.jpg'
                 }
               ]
             }
@@ -156,7 +156,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://i.picsum.photos/id/1027/780/464.jpg'
+                  image: 'https://picsum.photos/id/1027/780/464.jpg'
                 }
               ]
             }
@@ -171,11 +171,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-two',
-                  image: 'https://i.picsum.photos/id/1066/460/464.jpg'
+                  image: 'https://picsum.photos/id/1066/460/464.jpg'
                 },
                 {
                   mode: 'size-one',
-                  image: 'https://i.picsum.photos/id/173/300/464.jpg'
+                  image: 'https://picsum.photos/id/173/300/464.jpg'
                 }
               ]
             },
@@ -184,11 +184,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-one',
-                  image: 'https://i.picsum.photos/id/237/300/464.jpg'
+                  image: 'https://picsum.photos/id/237/300/464.jpg'
                 },
                 {
                   mode: 'size-two',
-                  image: 'https://i.picsum.photos/id/244/460/464.jpg'
+                  image: 'https://picsum.photos/id/244/460/464.jpg'
                 }
               ]
             }
@@ -206,7 +206,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://i.picsum.photos/id/225/780/464.jpg'
+                  image: 'https://picsum.photos/id/225/780/464.jpg'
                 }
               ]
             }
@@ -224,43 +224,43 @@ module.exports = {
           id: 1,
           mode: 'vertical',
           name: 'Завтраки в постель',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         },
         {
           id: 2,
           mode: 'horizontal',
           name: '20% скидка в ресторанах Ginza Project ',
-          image: '/images/feature-2.jpg'
+          image: 'https://picsum.photos/id/1060/540/370'
         },
         {
           id: 3,
           mode: 'vertical',
           name: 'Сервис 24/7',
-          image: '/images/feature-3.jpg'
+          image: 'https://picsum.photos/id/1062/300/460'
         },
         {
           id: 4,
           mode: 'vertical',
           name: 'Расположение в центре города',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         },
         {
           id: 5,
           mode: 'horizontal',
           name: 'Стильные интерьеры',
-          image: '/images/feature-2.jpg'
+          image: 'https://picsum.photos/id/1060/540/370'
         },
         {
           id: 6,
           mode: 'horizontal',
           name: 'Персональный вход',
-          image: '/images/feature-3.jpg'
+          image: 'https://picsum.photos/id/1062/300/460'
         },
         {
           id: 7,
           mode: 'vertical',
           name: 'VIP-экскурсии по городу',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         }
       ]
     },
@@ -272,32 +272,32 @@ module.exports = {
         {
           id: 1,
           url: '/',
-          image: '/images/blog-1.jpg'
+          image: 'https://picsum.photos/id/628/300/300'
         },
         {
           id: 2,
           url: '/',
-          image: '/images/blog-2.jpg'
+          image: 'https://picsum.photos/id/629/300/300'
         },
         {
           id: 3,
           url: '/',
-          image: '/images/blog-3.jpg'
+          image: 'https://picsum.photos/id/633/300/300'
         },
         {
           id: 4,
           url: '/',
-          image: '/images/blog-1.jpg'
+          image: 'https://picsum.photos/id/64/300/300'
         },
         {
           id: 5,
           url: '/',
-          image: '/images/blog-2.jpg'
+          image: 'https://picsum.photos/id/65/300/300'
         },
         {
           id: 6,
           url: '/',
-          image: '/images/blog-3.jpg'
+          image: 'https://picsum.photos/id/656/300/300'
         }
       ]
     },

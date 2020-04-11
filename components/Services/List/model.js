@@ -1,11 +1,11 @@
 export default (info) => {
   return (info || []).map((item) => {
     const {
-      iconName = '',
+      id = '',
       label = ''
     } = item
     return {
-      iconName,
+      id,
       label
     }
   })

@@ -110,6 +110,9 @@ export default {
   overflow: hidden;
 
   &::v-deep {
+    [class*="ymaps-2-1"][class*="-ground-pane"] {
+      filter: grayscale(1);
+    }
     .map-wrapper {
       position: relative;
       // width 100%

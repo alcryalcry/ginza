@@ -26,8 +26,12 @@
       </template>
       <template v-slot:navigation>
         <div class="navigation d-show">
-          <button type="button" class="navigation-btn swiper-button-prev" />
-          <button type="button" class="navigation-btn swiper-button-next" />
+          <button type="button" class="navigation-btn swiper-button-prev">
+            <iconArrowCircle class="icon" />
+          </button>
+          <button type="button" class="navigation-btn swiper-button-next">
+            <iconArrowCircle class="icon" />
+          </button>
         </div>
         <Section class="section--big section--no-p">
           <div class="row navigation-row">
@@ -72,11 +76,13 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
+import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
 
 export default {
   components: {
     Section,
-    Slider
+    Slider,
+    iconArrowCircle
   },
   props: {
     info: {
@@ -291,9 +297,9 @@ export default {
         width: 8rem;
         height: 8rem;
         background: transparent;
-        border: 1px solid $white;
         color: $white;
         border-radius: 50%;
+        border: none;
         overflow: hidden;
         cursor: pointer;
         opacity: 1;
@@ -303,7 +309,16 @@ export default {
           &:hover {
             color: $black17;
             background-color: $white;
+            .icon {
+              fill: $white;
+              stroke: $black17;
+            }
           }
+        }
+        .icon {
+          fill: transparent;
+          stroke: $white;
+          transition: fill .2s ease, stroke .2s ease;
         }
         &.swiper-button-disabled {
           opacity: 0;
@@ -311,24 +326,12 @@ export default {
         }
         &.swiper-button-next {
           right: 7rem;
-          &::before {
-            transform: rotate(45deg) translate3d(-2px, 2px, 0);
+          .icon {
+            transform: rotate(180deg);
           }
         }
         &.swiper-button-prev {
           left: 7rem;
-          &::before {
-            transform: rotate(-135deg) translate3d(-1px, 1px, 0);
-          }
-        }
-        &::before {
-          content: '';
-          position: absolute;
-          top: calc(50% - 4px);
-          left: calc(50% - 4px);
-          padding: 4px;
-          border: solid currentColor;
-          border-width: 1px 1px 0 0;
         }
       }
     }
