@@ -12,6 +12,9 @@ $sizeMobile: 1rem;
 
     &.isNoGut {
       margin: 0;
+      > [class*="col-"] {
+        padding: 0;
+      }
     }
 
     @for $colNum from 1 to $cols {
@@ -19,9 +22,6 @@ $sizeMobile: 1rem;
         flex: 0 0 (100% * $colNum / $cols);
         max-width: (100% * $colNum / $cols);
         padding: $sizeDesktop;
-        .isNoGut & {
-          padding: 0;
-        }
       }
     }
 
@@ -44,25 +44,20 @@ $sizeMobile: 1rem;
 
     &.isNoGut {
       margin: 0;
+      > [class*="col-"] {
+        padding: 0;
+      }
     }
 
     @for $colNum from 1 to $cols {
       .col-#{$colNum} {
         padding: 0 $sizeTablet;
-
-        .isNoGut & {
-          padding: 0;
-        }
       }
 
       .col-t-#{$colNum} {
         flex: 0 0 (100% * $colNum / $cols);
         max-width: (100% * $colNum / $cols);
         padding: $sizeTablet;
-
-        .isNoGut & {
-          padding: 0;
-        }
       }
     }
 
@@ -78,6 +73,9 @@ $sizeMobile: 1rem;
 
     &.isNoGut {
       margin: 0;
+      > [class*="col-"] {
+        padding: 0;
+      }
     }
 
     @for $colNum from 0 to $cols {
@@ -91,10 +89,6 @@ $sizeMobile: 1rem;
         flex: 0 0 (100% * $colNum / $cols) !important;
         max-width: (100% * $colNum / $cols);
         padding: $sizeMobile;
-
-        .isNoGut & {
-          padding: 0;
-        }
       }
     }
 

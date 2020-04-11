@@ -56,6 +56,9 @@ export default {
   right: 0;
   bottom: 2.5rem;
   z-index: 100;
+  @include mobile_tablet {
+    display: none;
+  }
 }
 
 .booking-content {

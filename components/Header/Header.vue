@@ -34,9 +34,7 @@
             </button>
           </div>
           <div class="header-link m-hide">
-            <button class="lang">
-              {{ GET_LANG }}
-            </button>
+            <div class="lang" v-html="GET_LANG" />
           </div>
         </div>
       </div>
@@ -162,6 +160,8 @@ export default {
             color: $white;
           }
         }
+        .search,
+        .lang,
         .logo,
         .burger {
           @include desktop {
@@ -253,12 +253,24 @@ export default {
   }
 
   .lang {
-    display: flex;
-    align-items: center;
+    display: block;
+    text-align: center;
     height: 3rem;
     padding: 0.6rem;
     line-height: 1;
+    cursor: pointer;
     transition: color .2s ease;
+    &:active {
+      color: $brown;
+    }
+    @include desktop {
+      &:hover {
+        color: $brown;
+      }
+    }
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
   .search {
@@ -267,6 +279,14 @@ export default {
     height: 3rem;
     padding: 0.6rem;
     transition: color .2s ease;
+    &:active {
+      color: $brown;
+    }
+    @include desktop {
+      &:hover {
+        color: $brown;
+      }
+    }
   }
 
   .back {

@@ -63,11 +63,6 @@ const config = {
           }
         }
       }
-    ],
-    [
-      'nuxt-gmaps', {
-        key: process.env.API_KEY_GMAPS
-      }
     ]
   ],
   build: {

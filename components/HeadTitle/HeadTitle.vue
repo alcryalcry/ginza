@@ -81,7 +81,8 @@ export default {
     position: relative;
     margin-bottom: 3rem;
     @include mobile {
-      padding-right: 4rem;
+      padding-right: 0;
+      // padding-right: 4rem;
       margin-bottom: 1rem;
     }
   }

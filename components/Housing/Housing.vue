@@ -146,7 +146,9 @@ export default {
     },
     selectType(id) {
       this.activeType = id
-      this.scrollToSection(id)
+      if (this.activeView === 'list') {
+        this.scrollToSection(id)
+      }
     }
   }
 }
@@ -183,11 +185,29 @@ export default {
     }
   }
 
-  // .housing-map {
-  //   width: 100%;
-  //   height: 50rem;
-  //   overflow: hidden;
-  // }
+  .housing-map {
+    height: 50rem;
+    @include mobile {
+      position: relative;
+      height: 36rem;
+    }
+    &::v-deep {
+      .map {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(65rem + ((100vw - #{$containerWidth}) / 2));
+        height: 100%;
+        @include tablet {
+          width: calc(49rem + ((100vw - #{$containerWidthTablet}) / 2));
+        }
+        @include mobile {
+          left: - $sectionOffsetHorizontalMobile;
+          width: calc(100% + (#{$sectionOffsetHorizontalMobile} * 2));
+        }
+      }
+    }
+  }
 
   .housing-list {
     padding: 0 0 15rem;

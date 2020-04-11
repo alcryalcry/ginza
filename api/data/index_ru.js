@@ -23,7 +23,7 @@ module.exports = {
           category: 'Апартаменты',
           url: '/',
           linkLabel: 'Посмотреть',
-          image: '/images/feature-big-1.jpg'
+          image: 'https://picsum.photos/id/604/1440/700'
         },
         {
           title: 'Khedi',
@@ -31,7 +31,7 @@ module.exports = {
           category: 'Отель',
           url: '/',
           linkLabel: 'Посмотреть',
-          image: '/images/feature-big-2.jpg'
+          image: 'https://picsum.photos/id/594/1440/700'
         }
       ]
     },
@@ -45,43 +45,43 @@ module.exports = {
           id: 1,
           mode: 'vertical',
           name: 'Завтраки в постель',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         },
         {
           id: 2,
           mode: 'horizontal',
           name: '20% скидка в ресторанах Ginza Project ',
-          image: '/images/feature-2.jpg'
+          image: 'https://picsum.photos/id/1060/540/370'
         },
         {
           id: 3,
           mode: 'vertical',
           name: 'Сервис 24/7',
-          image: '/images/feature-3.jpg'
+          image: 'https://picsum.photos/id/1062/300/460'
         },
         {
           id: 4,
           mode: 'vertical',
           name: 'Расположение в центре города',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         },
         {
           id: 5,
           mode: 'horizontal',
           name: 'Стильные интерьеры',
-          image: '/images/feature-2.jpg'
+          image: 'https://picsum.photos/id/1060/540/370'
         },
         {
           id: 6,
           mode: 'horizontal',
           name: 'Персональный вход',
-          image: '/images/feature-3.jpg'
+          image: 'https://picsum.photos/id/1062/540/370'
         },
         {
           id: 7,
           mode: 'vertical',
           name: 'VIP-экскурсии по городу',
-          image: '/images/feature-1.jpg'
+          image: 'https://picsum.photos/id/106/300/460'
         }
       ]
     },
@@ -98,9 +98,9 @@ module.exports = {
               city: 'Санкт-Петербург',
               title: 'Rubinsteina 12',
               images: [
-                '/images/housing-1.jpg',
-                '/images/housing-2.jpg',
-                '/images/blog-3.jpg'
+                'https://picsum.photos/id/580/300/400',
+                'https://picsum.photos/id/57/300/400',
+                'https://picsum.photos/id/58/300/400'
               ],
               coords: [59.932211, 30.346072],
               params: [
@@ -123,9 +123,9 @@ module.exports = {
               city: 'Санкт-Петербург',
               title: 'Karavannaya 11',
               images: [
-                '/images/housing-2.jpg',
-                '/images/housing-1.jpg',
-                '/images/blog-3.jpg'
+                'https://picsum.photos/id/57/300/400',
+                'https://picsum.photos/id/580/300/400',
+                'https://picsum.photos/id/58/300/400'
               ],
               coords: [59.032211, 30.446072],
               params: [
@@ -148,9 +148,9 @@ module.exports = {
               city: 'Санкт-Петербург',
               title: 'Moskovskiy 191',
               images: [
-                '/images/blog-3.jpg',
-                '/images/housing-2.jpg',
-                '/images/housing-1.jpg'
+                'https://picsum.photos/id/58/300/400',
+                'https://picsum.photos/id/57/300/400',
+                'https://picsum.photos/id/580/300/400'
               ],
               coords: [59.232211, 30.906072],
               params: [
@@ -180,9 +180,9 @@ module.exports = {
               city: 'Санкт-Петербург',
               title: 'Dom 16',
               images: [
-                '/images/blog-3.jpg',
-                '/images/housing-1.jpg',
-                '/images/blog-3.jpg'
+                'https://picsum.photos/id/58/300/400',
+                'https://picsum.photos/id/580/300/400',
+                'https://picsum.photos/id/58/300/400'
               ],
               coords: [59.532211, 30.99072],
               params: [
@@ -197,9 +197,9 @@ module.exports = {
               city: 'Санкт-Петербург',
               title: 'Kvartira 14',
               images: [
-                '/images/housing-1.jpg',
-                '/images/housing-2.jpg',
-                '/images/blog-3.jpg'
+                'https://picsum.photos/id/580/300/400',
+                'https://picsum.photos/id/57/300/400',
+                'https://picsum.photos/id/58/300/400'
               ],
               coords: [59.552211, 30.096072],
               params: [
@@ -214,9 +214,9 @@ module.exports = {
               city: 'Тбилиси, Грузия',
               title: 'Khedi',
               images: [
-                '/images/housing-2.jpg',
-                '/images/housing-1.jpg',
-                '/images/blog-3.jpg'
+                'https://picsum.photos/id/57/300/400',
+                'https://picsum.photos/id/580/300/400',
+                'https://picsum.photos/id/58/300/400'
               ],
               coords: [59.792211, 30.556072],
               params: [
@@ -268,7 +268,7 @@ module.exports = {
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы, отменное обслуживание — все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
           url: '/',
           linkLabel: 'Посмотреть',
-          image: '/images/feature-big-1.jpg'
+          image: 'https://picsum.photos/id/593/1440/700'
         },
         {
           id: 2,
@@ -277,7 +277,7 @@ module.exports = {
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы.',
           url: '/',
           linkLabel: 'Посмотреть',
-          image: '/images/blog-2.jpg'
+          image: 'https://picsum.photos/id/594/1440/700'
         },
         {
           id: 3,
@@ -286,7 +286,7 @@ module.exports = {
           description: 'Все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
           url: '/',
           linkLabel: 'Посмотреть',
-          image: '/images/blog-3.jpg'
+          image: 'https://picsum.photos/id/596/1440/700'
         }
       ]
     },
@@ -299,37 +299,37 @@ module.exports = {
         {
           id: 1,
           title: 'Заголовок блога',
-          image: '/images/blog-1.jpg'
+          image: 'https://picsum.photos/id/605/250/270'
         },
         {
           id: 2,
           title: 'Топ 10 мест для посещения',
-          image: '/images/blog-2.jpg'
+          image: 'https://picsum.photos/id/609/250/270'
         },
         {
           id: 3,
           title: 'Заголовок новости',
-          image: '/images/blog-3.jpg'
+          image: 'https://picsum.photos/id/61/250/270'
         },
         {
           id: 4,
           title: 'Заголовок блога',
-          image: '/images/blog-1.jpg'
+          image: 'https://picsum.photos/id/613/250/270'
         },
         {
           id: 5,
           title: 'Топ 10 мест для посещения',
-          image: '/images/blog-2.jpg'
+          image: 'https://picsum.photos/id/619/250/270'
         },
         {
           id: 6,
           title: 'Персональный вход',
-          image: '/images/blog-3.jpg'
+          image: 'https://picsum.photos/id/620/250/270'
         },
         {
           id: 7,
           title: 'VIP-экскурсии по городу',
-          image: '/images/blog-1.jpg'
+          image: 'https://picsum.photos/id/621/250/270'
         }
       ]
     },

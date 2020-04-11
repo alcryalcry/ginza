@@ -1,13 +1,16 @@
+import smoothscroll from 'smoothscroll-polyfill'
 import { debounce, throttle } from 'throttle-debounce'
 import { mapGetters } from 'vuex'
 
 export default {
-  data: () => ({
-    oldScroll: 0,
-    isShowMenu: false,
-    activeLink: 1,
-    sections: []
-  }),
+  data() {
+    return {
+      oldScroll: 0,
+      isShowMenu: false,
+      activeLink: 1,
+      sections: []
+    }
+  },
   computed: {
     ...mapGetters({
       GET_MQ: 'mediaQuery/GET_MQ'
@@ -21,6 +24,7 @@ export default {
       this.$nextTick(() => {
         this.init()
         this.initEvents()
+        smoothscroll.polyfill()
       })
     }
   },
@@ -53,12 +57,26 @@ export default {
         }
       })
     },
+    scrollToActiveLink() {
+      if (Array.isArray(this.$refs.stickyMenuItems) && this.$refs.stickyMenuWrapper) {
+        const activeButton = this.$refs.stickyMenuItems.find(btn => btn.classList.contains('isActive'))
+        if (activeButton) {
+          this.$refs.stickyMenuWrapper.scrollTo({
+            left: activeButton.offsetLeft - 75,
+            behavior: 'smooth'
+          })
+        }
+      }
+    },
     setActiveLink (id) {
       this.activeLink = id
       this.activeType = id
 
       if (this.GET_MQ !== 'desktop' && Math.abs(this.oldScroll - window.scrollY) > 5) {
         this.oldScroll = window.scrollY
+        this.$nextTick(() => {
+          this.scrollToActiveLink()
+        })
       }
     },
     setSizes() {

@@ -1,5 +1,5 @@
 <template>
-  <div :class="model.mode">
+  <div :class="model.mode" :data-anchor="model.anchor">
     <BannerLove :info="model" />
   </div>
 </template>
@@ -22,6 +22,7 @@ export default {
     model() {
       return {
         mode: '',
+        anchor: false,
         ...this.data
       }
     }

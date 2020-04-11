@@ -1,5 +1,5 @@
 <template>
-  <Section :class="model.mode">
+  <Section :class="model.mode" :data-anchor="model.anchor">
     <HeadTitle class="isShort" :info="model" />
   </Section>
 </template>
@@ -24,6 +24,7 @@ export default {
     model() {
       return {
         mode: '',
+        anchor: false,
         ...this.data
       }
     }

@@ -1,6 +1,6 @@
 <template>
-  <div class="slider-features">
-    <Section>
+  <Section class="section--full slider-features">
+    <Section class="section--no-p section--min">
       <HeadTitle v-if="model.title" :info="model" />
       <Slider
         v-if="model.values.length"
@@ -22,7 +22,10 @@
       </Slider>
       <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" />
     </Section>
-  </div>
+    <Section v-if="model.services" class="section--no-p section--big">
+      <ServicesList :info="model.services" />
+    </Section>
+  </Section>
 </template>
 
 <script>
@@ -30,11 +33,13 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
 import Slider from '~/components/Slider/Slider'
+import ServicesList from '~/components/Services/List/List'
 
 export default {
   components: {
     HeadTitle,
     Section,
+    ServicesList,
     Slider
   },
   props: {

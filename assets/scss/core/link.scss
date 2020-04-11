@@ -29,6 +29,18 @@
     color: $white;
   }
 
+  &.link--gray {
+    color: $gray69;
+    &:active {
+      color: $brown;
+    }
+    @include desktop {
+      &:hover {
+        color: $brown;
+      }
+    }
+  }
+
   &.link--brown {
     color: $brown;
     &:active {
