@@ -1,14 +1,14 @@
 <template>
-  <BookingMini :info="model" :class="model.mode" :data-anchor="model.anchor" />
+  <Subheader :info="model" :class="model.mode" :data-anchor="model.anchor" />
 </template>
 
 <script>
-import BookingMini from '~/components/Booking/Mini/Mini'
+import Subheader from '~/components/Subheader/Subheader'
 
 export default {
-  name: 'MiddlewareBookingMini',
+  name: 'MiddlewareSubheader',
   components: {
-    BookingMini
+    Subheader
   },
   props: {
     data: {

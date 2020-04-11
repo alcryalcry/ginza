@@ -146,7 +146,9 @@ export default {
     },
     selectType(id) {
       this.activeType = id
-      this.scrollToSection(id)
+      if (this.activeView === 'list') {
+        this.scrollToSection(id)
+      }
     }
   }
 }

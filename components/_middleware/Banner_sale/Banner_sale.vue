@@ -1,5 +1,5 @@
 <template>
-  <BannerSale :class="model.mode" :info="model" />
+  <BannerSale :info="model" :class="model.mode" :data-anchor="model.anchor" />
 </template>
 
 <script>
@@ -20,6 +20,7 @@ export default {
     model() {
       return {
         mode: '',
+        anchor: false,
         ...this.data
       }
     }

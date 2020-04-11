@@ -4,7 +4,22 @@ module.exports = {
   keywords: '',
   components: [
     {
+      name: 'sub_header',
+      type: 'anchors',
+      values: [
+        {
+          linkLabel: 'Ginza Project',
+          url: 'ginza-project'
+        },
+        {
+          linkLabel: 'Ginza Hotels & Apartments',
+          url: 'ginza-hotels-and-apartments'
+        }
+      ]
+    },
+    {
       name: 'about_numbers',
+      anchor: 'ginza-project',
       values: [
         {
           value: '1 500 000',
@@ -97,6 +112,7 @@ module.exports = {
     },
     {
       name: 'review',
+      anchor: 'ginza-hotels-and-apartments',
       description: 'Ginza Hotels&Apartments – отели и премиальные апартаменты в Петербурге и Баку для тех, кто ценит свое время и привык получать лучшее. Все апартаменты отличает выгодное местоположение: отсюда всегда удобно добираться до аэропорта и вокзалов, бизнес-центров и магазинов.',
       values: [
         {

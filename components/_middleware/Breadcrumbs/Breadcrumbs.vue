@@ -1,5 +1,5 @@
 <template>
-  <Breadcrumbs :info="model" :class="model.mode" />
+  <Breadcrumbs :info="model" :class="model.mode" :data-anchor="model.anchor" />
 </template>
 
 <script>
@@ -20,6 +20,7 @@ export default {
     model() {
       return {
         mode: '',
+        anchor: false,
         ...this.data
       }
     }
