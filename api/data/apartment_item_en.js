@@ -1,10 +1,39 @@
 module.exports = {
-  title: 'Apartament one',
+  title: 'Apartment one',
   description: 'Описание страницы',
   keywords: '',
   components: [
     {
       name: 'booking_mini'
+    },
+    {
+      name: 'slider_main_apartment',
+      values: [
+        {
+          title: 'Karavannaya 11',
+          city: 'Санкт-Петербург',
+          category: 'Апартаменты',
+          url: '/',
+          linkLabel: 'Посмотреть',
+          image: '/images/DSC04920.jpg'
+        },
+        {
+          title: 'Rubinsteina 12',
+          city: 'Санкт-Петербург',
+          category: 'Апартаменты',
+          url: '/',
+          linkLabel: 'Посмотреть',
+          image: 'https://picsum.photos/id/604/1440/700'
+        },
+        {
+          title: 'Khedi',
+          city: 'Тбилиси',
+          category: 'Отель',
+          url: '/',
+          linkLabel: 'Посмотреть',
+          image: 'https://picsum.photos/id/594/1440/700'
+        }
+      ]
     },
     {
       name: 'apartment_head',

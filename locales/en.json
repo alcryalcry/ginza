@@ -3,6 +3,10 @@
     "menu_name": "Menu",
     "back": "Back"
   },
+  "apartment": {
+    "showVideo": "Show video",
+    "excursion": "Apartment Tour"
+  },
   "housing": {
     "all": "All",
     "listLabel": "List",

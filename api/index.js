@@ -57,8 +57,8 @@ app.get('/get-page/aparts', (req, res) => {
   res.send(reponseJson('aparts'))
 })
 
-app.get('/get-page/apartament/:id', (req, res) => {
-  res.send(reponseJson('apartament_item'))
+app.get('/get-page/apartment/:id', (req, res) => {
+  res.send(reponseJson('apartment_item'))
 })
 
 app.post('/feedback', (req, res) => {
