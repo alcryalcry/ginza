@@ -1,11 +1,13 @@
 export default (info) => {
   const {
     title = '',
-    description = ''
+    description = '',
+    url = ''
   } = info || {}
 
   return {
     title,
-    description
+    description,
+    url
   }
 }

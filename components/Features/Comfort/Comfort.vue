@@ -1,9 +1,9 @@
 <template>
   <Section class="section--full features-comfort">
-    <Section class="section--no-p">
+    <Section class="section--no-p section--min">
       <HeadTitleMini :info="model" />
     </Section>
-    <Section class="section--no-p">
+    <Section class="section--no-p section--min">
       <div class="list">
         <div class="list-scrolled">
           <div

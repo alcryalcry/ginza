@@ -28,7 +28,7 @@
         </div>
       </template>
     </Slider>
-    <Section class="slider-actions">
+    <Section class="slider-actions section--min">
       <div class="slider-actions-row">
         <button
           class="button button--arrow"

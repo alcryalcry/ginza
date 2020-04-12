@@ -1,6 +1,6 @@
 <template>
   <Section class="toggle-list section--full">
-    <Section class="section--no-p">
+    <Section class="section--no-p section--min">
       <HeadTitleMini :info="model" />
     </Section>
     <div class="list">
@@ -10,7 +10,7 @@
         class="toggle-item"
         :class="{ isActive: activeItem === item.id }"
       >
-        <Section class="section--no-p">
+        <Section class="section--no-p section--min">
           <div class="toggle-button" @click="setActiveItem(item.id)">
             <div class="text text--24 medium" v-html="item.title" />
             <div class="icon">

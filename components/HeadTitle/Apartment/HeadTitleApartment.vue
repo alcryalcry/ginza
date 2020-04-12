@@ -1,5 +1,5 @@
 <template>
-  <Section class="apartment-head">
+  <Section class="apartment-head section--min">
     <div class="labels">
       <div v-if="model.city" class="text--13 city medium" v-html="model.city" />
       <div v-if="model.category" class="text--13 category medium" v-html="model.category" />

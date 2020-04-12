@@ -1,9 +1,9 @@
 <template>
   <Section class="section--full features-list">
-    <Section class="section--no-p">
+    <Section class="section--no-p section--min">
       <HeadTitleMini :info="model" />
     </Section>
-    <Section class="section--no-p">
+    <Section class="section--no-p section--min">
       <div class="row list">
         <div v-for="item in checkComponents" :key="item.id" class="col-6 col-t-6">
           <div class="feature">

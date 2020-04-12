@@ -1,16 +1,23 @@
 <template>
   <div class="head-title-mini">
-    <h4 v-if="model.title" class="title text--24" v-html="model.title" />
+    <h4 v-if="model.title" class="title text--24">
+      <nuxt-link v-if="model.url" :to="localePath(model.url)" class="icon">
+        <iconPlus />
+      </nuxt-link>
+      <span v-html="model.title" />
+    </h4>
     <p v-if="model.description" class="description text--16" v-html="model.description" />
   </div>
 </template>
 
 <script>
 import MODEL from './model'
+import iconPlus from '~/assets/svg/plus.svg'
 
 export default {
   name: 'HeadTitleMini',
   components: {
+    iconPlus
   },
   props: {
     info: {
@@ -30,7 +37,30 @@ export default {
 .head-title-mini {
   max-width: 40rem;
   margin-bottom: 3rem;
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.4rem;
+    width: 4rem;
+    height: 4rem;
+    margin-right: 2rem;
+    border-radius: 50%;
+    background: $white;
+    border: 1px solid $black17;
+    color: $black17;
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+    @include desktop {
+      &:hover {
+        color: $white;
+        background-color: $brown;
+        border-color: $brown;
+      }
+    }
+  }
   .title {
+    display: flex;
+    align-items: center;
     margin-bottom: 3rem;
   }
 }
