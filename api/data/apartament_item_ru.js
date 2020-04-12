@@ -7,6 +7,36 @@ module.exports = {
       name: 'booking_mini'
     },
     {
+      name: 'features_comfort',
+      title: 'Для вашего комфорта',
+      values: [
+        {
+          color: '#D698B9',
+          title: 'Видовый балкон'
+        },
+        {
+          color: '#AB93C9',
+          title: 'Декоративный камин'
+        },
+        {
+          color: '#FFBEA3',
+          title: 'Трансфер от/до аэропорта'
+        },
+        {
+          color: '#FAE3D9',
+          title: 'Кухня с обеденной зоной'
+        },
+        {
+          color: '#BBDED6',
+          title: 'Детские принадлежности'
+        },
+        {
+          color: '#8AC6D1',
+          title: 'Просторная гостиная'
+        }
+      ]
+    },
+    {
       name: 'toggle_list',
       title: 'Спецпредложения',
       description: 'Скидки и специальные предложения для наших гостей от Ginza Hotels&Apartments.',

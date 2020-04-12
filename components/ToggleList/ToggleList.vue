@@ -1,6 +1,6 @@
 <template>
-  <div class="toggle-list">
-    <Section class="section--no-p toggle-list-title">
+  <Section class="toggle-list section--full">
+    <Section class="section--no-p">
       <HeadTitleMini :info="model" />
     </Section>
     <div class="list">
@@ -25,7 +25,7 @@
         </Section>
       </div>
     </div>
-  </div>
+  </Section>
 </template>
 
 <script>
@@ -68,9 +68,6 @@ export default {
 
 <style lang="scss" scoped>
 .toggle-list {
-  .toggle-list-title {
-    margin-bottom: 3rem;
-  }
   .toggle-item {
     padding: 3rem 0;
     border-top: 1px solid $border;

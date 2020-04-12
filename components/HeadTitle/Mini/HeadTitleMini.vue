@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
 .head-title-mini {
   max-width: 40rem;
+  margin-bottom: 3rem;
   .title {
     margin-bottom: 3rem;
   }
