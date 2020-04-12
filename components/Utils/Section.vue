@@ -61,6 +61,14 @@ export default {
       }
     }
   }
+  &.section--apartment {
+    >.container {
+      @include desktop {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  }
   &--black {
     background: $black;
   }

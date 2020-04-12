@@ -67,12 +67,12 @@ export default {
         .card-image {
           .image {
             filter: blur(5px);
-            transition: filter .2s ease .2s;
+            // transition-delay: 0.2s;
           }
         }
         .description {
           opacity: 1;
-          transition: opacity .2s ease .2s;
+          // transition-delay: 0.2s;
         }
       }
     }
@@ -86,6 +86,7 @@ export default {
     height: 28rem;
     overflow: hidden;
     transition: filter .2s ease;
+    -webkit-transition: filter .2s ease;
     .image {
       width: 100%;
       height: 100%;

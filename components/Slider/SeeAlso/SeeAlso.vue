@@ -154,14 +154,14 @@ export default {
         pointer-events: none;
       }
       &.swiper-button-next {
-        top: 9.5rem;
+        top: 15rem;
         right: -10vw;
         .icon {
           transform: rotate(180deg);
         }
       }
       &.swiper-button-prev {
-        top: 9.5rem;
+        top: 15rem;
         left: -10vw;
       }
     }

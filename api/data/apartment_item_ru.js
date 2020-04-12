@@ -43,6 +43,7 @@ module.exports = {
     },
     {
       name: 'apartment_head',
+      mode: 'section--apartment',
       title: 'Karavannaya 11',
       label: 'by Ginza Hotels&Apartments',
       city: 'Санкт-Петербург',
@@ -69,6 +70,7 @@ module.exports = {
     },
     {
       name: 'features_list',
+      mode: 'section--apartment',
       title: 'Услуги и удобства',
       values: [
         {
@@ -115,6 +117,7 @@ module.exports = {
     },
     {
       name: 'features_comfort',
+      mode: 'section--apartment',
       title: 'Для вашего комфорта',
       values: [
         {
@@ -145,6 +148,7 @@ module.exports = {
     },
     {
       name: 'toggle_list',
+      mode: 'section--apartment',
       title: 'Спецпредложения',
       description: 'Скидки и специальные предложения для наших гостей от Ginza Hotels&Apartments.',
       values: [
@@ -167,6 +171,7 @@ module.exports = {
     },
     {
       name: 'services_additional',
+      mode: 'section--apartment',
       title: 'Дополнительные услуги',
       description: 'После того как вы забронируете жилье, менеджер поездки договорится о дополнительных услугах.',
       url: '/',
