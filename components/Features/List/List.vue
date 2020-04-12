@@ -1,18 +1,16 @@
 <template>
-  <Section class="section--full comfort">
+  <Section class="section--full features-list">
     <Section class="section--no-p">
       <HeadTitleMini :info="model" />
     </Section>
     <Section class="section--no-p">
-      <div class="list">
-        <div class="list-scrolled">
-          <div
-            v-for="(item, index) in model.values"
-            :key="item.title + index"
-            class="comfort-item"
-          >
-            <div class="logo" :style="{ color: item.color }" />
-            <div class="text text--13" v-html="item.title" />
+      <div class="row list">
+        <div v-for="item in checkComponents" :key="item.id" class="col-6">
+          <div class="feature">
+            <div class="icon">
+              <component :is="item.id" />
+            </div>
+            <div v-if="item.title" class="title" v-html="item.title" />
           </div>
         </div>
       </div>
@@ -26,10 +24,31 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitleMini from '~/components/HeadTitle/Mini/HeadTitleMini'
 
+import batler from '~/assets/svg/features/batler.svg'
+import babychair from '~/assets/svg/features/babychair.svg'
+import delivery from '~/assets/svg/features/delivery.svg'
+import family from '~/assets/svg/features/family.svg'
+import breakfast from '~/assets/svg/features/breakfast.svg'
+import elevator from '~/assets/svg/features/elevator.svg'
+import coffeemachine from '~/assets/svg/features/coffeemachine.svg'
+import games from '~/assets/svg/features/games.svg'
+import ironing from '~/assets/svg/features/ironing.svg'
+import buro from '~/assets/svg/features/buro.svg'
+
 export default {
   components: {
     Section,
-    HeadTitleMini
+    HeadTitleMini,
+    batler,
+    babychair,
+    delivery,
+    family,
+    breakfast,
+    elevator,
+    coffeemachine,
+    games,
+    ironing,
+    buro
   },
   props: {
     info: {
@@ -39,55 +58,39 @@ export default {
   },
   data() {
     return {
-      activeItem: null
     }
   },
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    checkComponents() {
+      return this.model.values.filter(item => !!this.$options.components[item.id])
     }
   },
   created() {
   },
   methods: {
-    setActiveItem(id) {
-      this.activeItem = this.activeItem === id ? null : id
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.comfort {
+.features-list {
   .list {
-    margin: -1rem;
-    overflow: hidden;
+    @include desktop {
+      padding-right: 10rem;
+    }
   }
-  .list-scrolled {
+  .feature {
     display: flex;
     align-items: flex-start;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
   }
-  .comfort-item {
-    width: 12rem;
-    margin: 1rem;
-    .text {
-      margin-top: 3rem;
-    }
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
   }
-  .logo {
-    position: relative;
-    width: 8.6rem;
-    height: 8.6rem;
-    overflow: hidden;
-    &::before {
-      content: '';
-      @include absolute;
-      border-radius: 50%;
-      background: currentColor;
-      transform: translateX(-50%);
-    }
-  }
+  //
 }
 </style>

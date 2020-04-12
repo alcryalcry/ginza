@@ -1,5 +1,5 @@
 <template>
-  <Section class="section--full comfort">
+  <Section class="section--full features-comfort">
     <Section class="section--no-p">
       <HeadTitleMini :info="model" />
     </Section>
@@ -39,7 +39,6 @@ export default {
   },
   data() {
     return {
-      activeItem: null
     }
   },
   computed: {
@@ -50,15 +49,12 @@ export default {
   created() {
   },
   methods: {
-    setActiveItem(id) {
-      this.activeItem = this.activeItem === id ? null : id
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.comfort {
+.features-comfort {
   .list {
     margin: -1rem;
     overflow: hidden;

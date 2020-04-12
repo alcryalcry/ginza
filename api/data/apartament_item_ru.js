@@ -7,6 +7,52 @@ module.exports = {
       name: 'booking_mini'
     },
     {
+      name: 'features_list',
+      title: 'Услуги и удобства',
+      values: [
+        {
+          id: 'batler',
+          title: 'Персональный батлер 24/7'
+        },
+        {
+          id: 'babychair',
+          title: 'Детский стул'
+        },
+        {
+          id: 'delivery',
+          title: 'Доставка еды и напитков'
+        },
+        {
+          id: 'family',
+          title: 'Семейные апартаменты'
+        },
+        {
+          id: 'breakfast',
+          title: 'Завтрак в номер'
+        },
+        {
+          id: 'elevator',
+          title: 'Лифт'
+        },
+        {
+          id: 'coffeemachine',
+          title: 'Кофемашина Nespresso'
+        },
+        {
+          id: 'games',
+          title: 'Настольные игры'
+        },
+        {
+          id: 'ironing',
+          title: 'Гладильные принадлежности'
+        },
+        {
+          id: 'buro',
+          title: 'Экскурсионное бюро'
+        }
+      ]
+    },
+    {
       name: 'features_comfort',
       title: 'Для вашего комфорта',
       values: [
