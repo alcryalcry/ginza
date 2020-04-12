@@ -210,6 +210,165 @@ module.exports = {
       ]
     },
     {
+      name: 'slider_see_also',
+      title: 'Смотрите также',
+      url: '/',
+      linkLabel: 'Все варианты',
+      id: 'apartments',
+      values: [
+        {
+          slug: 'rubinsteina12',
+          city: 'Санкт-Петербург',
+          title: 'Rubinsteina 12',
+          images: [
+            'https://picsum.photos/id/582/300/400',
+            'https://picsum.photos/id/57/300/400',
+            'https://picsum.photos/id/58/300/400'
+          ],
+          coords: [59.932211, 30.346072],
+          params: [
+            {
+              type: 'beds',
+              value: '3'
+            },
+            {
+              type: 'adult',
+              value: '4'
+            },
+            {
+              type: 'size',
+              value: '57м'
+            }
+          ]
+        },
+        {
+          slug: 'karavannaya11',
+          city: 'Санкт-Петербург',
+          title: 'Karavannaya 11',
+          images: [
+            'https://picsum.photos/id/532/300/400',
+            'https://picsum.photos/id/586/300/400',
+            'https://picsum.photos/id/58/300/400'
+          ],
+          coords: [59.032211, 30.446072],
+          params: [
+            {
+              type: 'beds',
+              value: '3'
+            },
+            {
+              type: 'adult',
+              value: '4-6'
+            },
+            {
+              type: 'size',
+              value: '100м'
+            }
+          ]
+        },
+        {
+          slug: 'moskovskiy191',
+          city: 'Санкт-Петербург',
+          title: 'Moskovskiy 191',
+          images: [
+            'https://picsum.photos/id/560/300/400',
+            'https://picsum.photos/id/57/300/400',
+            'https://picsum.photos/id/600/300/400'
+          ],
+          coords: [59.232211, 30.906072],
+          params: [
+            {
+              type: 'beds',
+              value: '3'
+            },
+            {
+              type: 'adult',
+              value: '4'
+            },
+            {
+              type: 'size',
+              value: '60м'
+            }
+          ]
+        },
+        {
+          slug: 'moskovskiy1912',
+          city: 'Санкт-Петербург',
+          title: 'Moskovskiy 191',
+          images: [
+            'https://picsum.photos/id/550/300/400',
+            'https://picsum.photos/id/57/300/400',
+            'https://picsum.photos/id/22/300/400'
+          ],
+          coords: [59.232211, 30.906072],
+          params: [
+            {
+              type: 'beds',
+              value: '3'
+            },
+            {
+              type: 'adult',
+              value: '4'
+            },
+            {
+              type: 'size',
+              value: '60м'
+            }
+          ]
+        },
+        {
+          slug: 'moskovskiy1913',
+          city: 'Санкт-Петербург',
+          title: 'Moskovskiy 191',
+          images: [
+            'https://picsum.photos/id/570/300/400',
+            'https://picsum.photos/id/57/300/400',
+            'https://picsum.photos/id/44/300/400'
+          ],
+          coords: [59.232211, 30.906072],
+          params: [
+            {
+              type: 'beds',
+              value: '3'
+            },
+            {
+              type: 'adult',
+              value: '4'
+            },
+            {
+              type: 'size',
+              value: '60м'
+            }
+          ]
+        },
+        {
+          slug: 'moskovskiy1914',
+          city: 'Санкт-Петербург',
+          title: 'Moskovskiy 191',
+          images: [
+            'https://picsum.photos/id/12/300/400',
+            'https://picsum.photos/id/57/300/400',
+            'https://picsum.photos/id/1/300/400'
+          ],
+          coords: [59.232211, 30.906072],
+          params: [
+            {
+              type: 'beds',
+              value: '3'
+            },
+            {
+              type: 'adult',
+              value: '4'
+            },
+            {
+              type: 'size',
+              value: '60м'
+            }
+          ]
+        }
+      ]
+    },
+    {
       name: 'breadcrumbs',
       values: [
         {
