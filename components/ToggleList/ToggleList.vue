@@ -17,9 +17,7 @@
               <iconPlus />
             </div>
           </div>
-          <vue-slide-toggle
-            :open="activeItem === item.id"
-          >
+          <vue-slide-toggle :open="activeItem === item.id">
             <p class="toggle-text" v-html="item.text" />
           </vue-slide-toggle>
         </Section>
@@ -69,7 +67,6 @@ export default {
 <style lang="scss" scoped>
 .toggle-list {
   .toggle-item {
-    padding: 3rem 0;
     border-top: 1px solid $border;
     border-bottom: 1px solid $border;
     transition: background-color .2s ease, color .2s ease;
@@ -85,6 +82,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 3rem 0;
     cursor: pointer;
     .text {
       flex: 1 1 auto;
@@ -99,7 +97,7 @@ export default {
     transition: transform .2s ease;
   }
   .toggle-text {
-    padding-top: 2rem;
+    padding-bottom: 2rem;
     max-width: 60rem;
   }
 }

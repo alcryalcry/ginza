@@ -5,7 +5,7 @@
     </Section>
     <Section class="section--no-p">
       <div class="row list">
-        <div v-for="item in checkComponents" :key="item.id" class="col-6">
+        <div v-for="item in checkComponents" :key="item.id" class="col-6 col-t-6">
           <div class="feature">
             <div class="icon">
               <component :is="item.id" />
