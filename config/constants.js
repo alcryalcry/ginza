@@ -11,7 +11,9 @@ export const {
       layout: API_ROUTES_LAYOUT = 'get-layout/',
       pages: {
         API_ROUTES_INDEX = 'get-page/index',
-        API_ROUTES_ABOUT = 'get-page/about'
+        API_ROUTES_ABOUT = 'get-page/about',
+        API_ROUTES_APARTS = 'get-page/aparts',
+        API_ROUTES_APARTAMENT_ROOT = 'get-page/apartament'
       } = {},
       get: {
         housing: API_ROUTES_HOUSING = 'housing'

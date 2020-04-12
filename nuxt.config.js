@@ -31,8 +31,18 @@ const config = {
   },
   plugins: [
     '~/plugins/i18n.js',
-    { src: '~plugins/v-body-scroll-lock.js', ssr: false },
-    { src: '~plugins/vue-awesome-swiper.js', ssr: false }
+    {
+      src: '~plugins/v-body-scroll-lock.js',
+      ssr: false
+    },
+    {
+      src: '~plugins/vue-awesome-swiper.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/vue-slide-toggle.js',
+      ssr: false
+    }
   ],
   buildModules: [
     '@nuxtjs/style-resources'

@@ -13,7 +13,7 @@
 
 <script>
 import get from '~/plugins/api'
-import { API_ROUTES_ABOUT } from '~/config/constants'
+import { API_ROUTES_APARTS } from '~/config/constants'
 
 import Layout from '~/components/Layout/Layout'
 
@@ -26,7 +26,7 @@ export default {
       header = {},
       footer = {},
       pageComponents = {}
-    } = await get(context, API_ROUTES_ABOUT)
+    } = await get(context, API_ROUTES_APARTS)
     return {
       header,
       footer,

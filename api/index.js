@@ -53,6 +53,14 @@ app.get('/get-page/about', (req, res) => {
   res.send(reponseJson('about'))
 })
 
+app.get('/get-page/aparts', (req, res) => {
+  res.send(reponseJson('aparts'))
+})
+
+app.get('/get-page/apartament/:id', (req, res) => {
+  res.send(reponseJson('apartament_item'))
+})
+
 app.post('/feedback', (req, res) => {
   res.jsonp({
     status: true
