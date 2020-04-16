@@ -1,24 +1,19 @@
 <template>
-  <Section class="section--full features-comfort">
-    <Section class="section--no-p section--min">
-      <HeadTitleMini :info="model" />
-    </Section>
-    <Section class="section--no-p section--min">
-      <div class="list">
-        <div class="list-scrolled">
-          <div
-            v-for="(item, index) in model.values"
-            :key="item.title + index"
-            class="comfort-item"
-          >
-            <div class="logo" :style="{ color: item.color }" />
-            <div class="text text--13" v-html="item.title" />
-          </div>
+  <Section class="section--min features-comfort">
+    <HeadTitleMini :info="model" />
+    <div class="list">
+      <div class="list-scrolled">
+        <div
+          v-for="(item, index) in model.values"
+          :key="item.title + index"
+          class="comfort-item"
+        >
+          <div class="logo" :style="{ color: item.color }" />
+          <div class="text text--13" v-html="item.title" />
         </div>
       </div>
-    </Section>
+    </div>
   </Section>
-  </div>
 </template>
 
 <script>
@@ -62,11 +57,16 @@ export default {
   .list-scrolled {
     display: flex;
     align-items: flex-start;
+    @include desktop {
+      justify-content: flex-start;
+      flex-flow: row wrap;
+    }
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
   .comfort-item {
-    width: 12rem;
+    flex: 0 0 auto;
+    width: 11rem;
     margin: 1rem;
     .text {
       margin-top: 3rem;

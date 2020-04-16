@@ -1,9 +1,9 @@
 <template>
   <div class="head-title-mini">
     <h4 v-if="model.title" class="title text--24">
-      <nuxt-link v-if="model.url" :to="localePath(model.url)" class="icon">
+      <div v-if="model.descriptionIcon" class="icon">
         <iconPlus />
-      </nuxt-link>
+      </div>
       <span v-html="model.title" />
     </h4>
     <p v-if="model.description" class="description text--16" v-html="model.description" />
@@ -49,14 +49,6 @@ export default {
     background: $white;
     border: 1px solid $black17;
     color: $black17;
-    transition: color .2s ease, background-color .2s ease, border-color .2s ease;
-    @include desktop {
-      &:hover {
-        color: $white;
-        background-color: $brown;
-        border-color: $brown;
-      }
-    }
   }
   .title {
     display: flex;

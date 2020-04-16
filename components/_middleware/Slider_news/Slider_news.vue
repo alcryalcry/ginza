@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SliderNews from '~/components/Slider/News/News'
+import SliderNews from '~/components/Slider/News/SliderNews'
 
 export default {
   name: 'MiddlewareSliderNews',

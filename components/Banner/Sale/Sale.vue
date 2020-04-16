@@ -1,5 +1,5 @@
 <template>
-  <Section class="section--full banner-section">
+  <Section class="section--1440 banner-section">
     <div class="banner-sale">
       <div v-if="model.values[0]" class="banner-col first">
         <picture v-if="model.values[0]" class="logo">

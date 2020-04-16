@@ -101,6 +101,7 @@ export default {
   flex: 1 0 auto;
   width: 100%;
   @include desktop {
+    min-width: 75%;
     width: 108rem;
   }
 }
@@ -193,7 +194,7 @@ export default {
   position: relative;
   display: flex;
   flex-flow: column nowrap;
-  min-height: 90rem;
+  min-height: 72rem;
   overflow: hidden;
   @include tablet {
     min-height: 90vh

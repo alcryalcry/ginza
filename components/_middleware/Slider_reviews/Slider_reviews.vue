@@ -1,14 +1,14 @@
 <template>
-  <SliderMainApartment :info="model" :class="model.mode" :data-anchor="model.anchor" />
+  <SliderReviews :info="model" :class="model.mode" :data-anchor="model.anchor" />
 </template>
 
 <script>
-import SliderMainApartment from '~/components/Slider/Apartment/SliderApartment'
+import SliderReviews from '~/components/Slider/Reviews/SliderReviews'
 
 export default {
-  name: 'MiddlewareSliderMainApartment',
+  name: 'MiddlewareSliderReviews',
   components: {
-    SliderMainApartment
+    SliderReviews
   },
   props: {
     data: {

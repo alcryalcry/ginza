@@ -1,20 +1,16 @@
 <template>
-  <Section class="section--full features-list">
-    <Section class="section--no-p section--min">
-      <HeadTitleMini :info="model" />
-    </Section>
-    <Section class="section--no-p section--min">
-      <div class="row list">
-        <div v-for="item in checkComponents" :key="item.id" class="col-6 col-t-6">
-          <div class="feature">
-            <div class="icon">
-              <component :is="item.id" />
-            </div>
-            <div v-if="item.title" class="title" v-html="item.title" />
+  <Section class="section--min features-list">
+    <HeadTitleMini :info="model" />
+    <div class="row list">
+      <div v-for="item in checkComponents" :key="item.id" class="col-6 col-t-6">
+        <div class="feature">
+          <div class="icon">
+            <component :is="item.id" />
           </div>
+          <div v-if="item.title" class="title" v-html="item.title" />
         </div>
       </div>
-    </Section>
+    </div>
   </Section>
   </div>
 </template>

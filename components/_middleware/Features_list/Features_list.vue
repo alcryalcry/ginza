@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import FeaturesList from '~/components/Features/List/List'
+import FeaturesList from '~/components/Features/List/FeaturesList'
 
 export default {
   name: 'MiddlewareFeaturesList',

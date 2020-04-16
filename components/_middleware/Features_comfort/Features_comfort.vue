@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import FeaturesComfort from '~/components/Features/Comfort/Comfort'
+import FeaturesComfort from '~/components/Features/Comfort/FeaturesComfort'
 
 export default {
   name: 'MiddlewareFeaturesComfort',

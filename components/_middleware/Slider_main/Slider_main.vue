@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SliderMain from '~/components/Slider/Main/Main'
+import SliderMain from '~/components/Slider/Main/SliderMain'
 
 export default {
   name: 'MiddlewareSliderMain',

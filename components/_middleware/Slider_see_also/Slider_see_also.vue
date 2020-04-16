@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SliderSeeAlso from '~/components/Slider/SeeAlso/SeeAlso'
+import SliderSeeAlso from '~/components/Slider/SeeAlso/SliderSeeAlso'
 
 export default {
   name: 'MiddlewareSliderSeeAlso',

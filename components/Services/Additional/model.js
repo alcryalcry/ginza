@@ -2,6 +2,7 @@ export default (info) => {
   const {
     title = '',
     description = '',
+    descriptionIcon = false,
     url = '',
     values = []
   } = info
@@ -24,6 +25,7 @@ export default (info) => {
   return {
     title,
     description,
+    descriptionIcon,
     url,
     values: adaptedValues
   }

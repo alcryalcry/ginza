@@ -1,7 +1,9 @@
 <template>
-  <Section class="section--full slider-features">
-    <Section class="section--no-p section--min">
+  <Section class="section--1440 slider-features">
+    <Section class="section--no-p" :class="model.mode">
       <HeadTitle v-if="model.title" :info="model" />
+    </Section>
+    <Section class="section--no-p slider-section" :class="model.modeSlider">
       <Slider
         v-if="model.values.length"
         :custom-options="customOptions"
@@ -33,7 +35,7 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
 import Slider from '~/components/Slider/Slider'
-import ServicesList from '~/components/Services/List/List'
+import ServicesList from '~/components/Services/List/ServicesList'
 
 export default {
   components: {

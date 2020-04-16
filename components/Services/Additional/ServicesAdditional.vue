@@ -15,7 +15,7 @@
             <h5 v-if="item.title" class="title text--12 bold ttu" v-html="item.title" />
             <div v-if="item.text" class="description">
               <div class="text-wrapper">
-                <div class="text text--14" v-html="item.text" />
+                <div class="text text--16" v-html="item.text" />
               </div>
             </div>
           </nuxt-link>

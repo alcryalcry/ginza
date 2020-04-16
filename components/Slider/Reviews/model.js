@@ -1,42 +1,28 @@
 export default (info) => {
   const {
-    mode = '',
-    modeSlider = '',
     title = '',
     description = '',
-    subtext = '',
-    afterText = '',
-    url = '',
-    linkLabel = '',
-    values = [],
-    services = []
+    values = []
   } = info || {}
 
   const adaptedSlides = (values || []).map((item) => {
     const {
       id = null,
-      name = '',
+      userName = '',
       image = '',
-      mode = ''
+      text = ''
     } = item
     return {
       id,
-      name,
+      userName,
       image,
-      mode
+      text
     }
   })
 
   return {
-    mode,
-    modeSlider,
     title,
     description,
-    subtext,
-    afterText,
-    url,
-    linkLabel,
-    services,
     values: adaptedSlides
   }
 }

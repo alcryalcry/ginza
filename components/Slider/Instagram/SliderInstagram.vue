@@ -1,6 +1,6 @@
 <template>
   <Section class="section--full slider-instagram">
-    <Section class="section--no-p">
+    <Section class="section--no-p section--min">
       <HeadTitle class="" :info="model" />
     </Section>
     <Section class="section--no-p section--full">

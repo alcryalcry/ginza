@@ -18,7 +18,7 @@
     </div>
     <div class="description">
       <HeadTitleMini :info="model.description" />
-      <p v-if="model.description.text" class="text" v-html="model.description.text" />
+      <p v-if="model.description.text" class="text text--16" v-html="model.description.text" />
       <vue-slide-toggle
         v-if="model.description.moreText"
         :open="isOpen"
@@ -77,6 +77,14 @@ export default {
 
 <style lang="scss" scoped>
 .apartment-head {
+  &::v-deep {
+    >.container {
+      @include tablet_desktop {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  }
   .title-block {
     margin-bottom: 3rem;
     .title {

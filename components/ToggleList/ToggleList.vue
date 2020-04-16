@@ -1,29 +1,31 @@
 <template>
-  <Section class="toggle-list section--full">
-    <Section class="section--no-p section--min">
+  <div class="toggle-list">
+    <Section class="section--no-p section--min section--apartment">
       <HeadTitleMini :info="model" />
     </Section>
-    <div class="list">
-      <div
-        v-for="item in model.values"
-        :key="item.id"
-        class="toggle-item"
-        :class="{ isActive: activeItem === item.id }"
-      >
-        <Section class="section--no-p section--min">
-          <div class="toggle-button" @click="setActiveItem(item.id)">
-            <div class="text text--24 medium" v-html="item.title" />
-            <div class="icon">
-              <iconPlus />
+    <Section class="section--no-p section--full">
+      <div class="list">
+        <div
+          v-for="item in model.values"
+          :key="item.id"
+          class="toggle-item"
+          :class="{ isActive: activeItem === item.id }"
+        >
+          <Section class="section--no-p section--min">
+            <div class="toggle-button" @click="setActiveItem(item.id)">
+              <div class="text text--24 medium" v-html="item.title" />
+              <div class="icon">
+                <iconPlus />
+              </div>
             </div>
-          </div>
-          <vue-slide-toggle :open="activeItem === item.id">
-            <p class="toggle-text" v-html="item.text" />
-          </vue-slide-toggle>
-        </Section>
+            <vue-slide-toggle :open="activeItem === item.id">
+              <p class="toggle-text" v-html="item.text" />
+            </vue-slide-toggle>
+          </Section>
+        </div>
       </div>
-    </div>
-  </Section>
+    </Section>
+  </div>
 </template>
 
 <script>
@@ -66,10 +68,15 @@ export default {
 
 <style lang="scss" scoped>
 .toggle-list {
+  .head-title-mini {
+    margin-bottom: 0;
+  }
   .toggle-item {
-    border-top: 1px solid $border;
     border-bottom: 1px solid $border;
     transition: background-color .2s ease, color .2s ease;
+    &:first-child {
+      border-top: 1px solid $border;
+    }
     &.isActive {
       background: $brown;
       color: $white;

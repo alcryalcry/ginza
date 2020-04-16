@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SliderInstagram from '~/components/Slider/Instagram/Instagram'
+import SliderInstagram from '~/components/Slider/Instagram/SliderInstagram'
 
 export default {
   name: 'MiddlewareSliderInstagram',
