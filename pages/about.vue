@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import get from '~/plugins/api'
+import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_ABOUT } from '~/config/constants'
 
 import Layout from '~/components/Layout/Layout'
@@ -26,7 +26,7 @@ export default {
       header = {},
       footer = {},
       pageComponents = {}
-    } = await get(context, API_ROUTES_ABOUT)
+    } = await getAsyncData(context, API_ROUTES_ABOUT)
     return {
       header,
       footer,
