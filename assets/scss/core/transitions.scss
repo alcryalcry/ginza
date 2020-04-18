@@ -1,3 +1,6 @@
+$transition: $t;
+
+
 // LIST FADE
 .list-fade-enter-active,
 .list-fade-leave-active {
@@ -13,7 +16,7 @@
 // FADE
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity $t
+  transition: opacity $transition
 }
 .fade-enter, 
 .fade-leave-to {
@@ -24,7 +27,7 @@
 // FADE REVERSED
 .fade-reversed-enter-active,
 .fade-reversed-leave-active {
-  transition: opacity $t
+  transition: opacity $transition
 }
 .fade-reversed-enter, 
 .fade-reversed-leave-to {

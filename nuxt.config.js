@@ -42,6 +42,10 @@ const config = {
     {
       src: '~/plugins/vue-slide-toggle.js',
       ssr: false
+    },
+    {
+      src: '~/plugins/vue-yandex-maps.js',
+      mode: 'client'
     }
   ],
   buildModules: [

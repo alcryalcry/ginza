@@ -3,6 +3,14 @@
     "menu_name": "Menu",
     "back": "Back"
   },
+  "showMore": {
+    "show": "Show more",
+    "hide": "Hide"
+  },
+  "showMoreDescription": {
+    "show": "Show more",
+    "hide": "Hide"
+  },
   "apartment": {
     "showVideo": "Show video",
     "excursion": "Apartment Tour"

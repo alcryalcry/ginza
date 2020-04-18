@@ -26,10 +26,11 @@
         <p class="more-text" v-html="model.description.moreText" />
       </vue-slide-toggle>
       <div class="more-link">
-        <transition mode="out-in" name="fade">
-          <div v-if="!isOpen" key="1" class="link link--brown link--tdu" @click="isOpen = true">Подробнее</div>
-          <div v-else key="2" class="link link--brown link--tdu" @click="isOpen = false">Свернуть</div>
-        </transition>
+        <button
+          class="link link--brown link--tdu"
+          @click="isOpen = !isOpen"
+          v-html="isOpen ? $t('showMoreDescription.hide') : $t('showMoreDescription.show')"
+        />
       </div>
     </div>
   </Section>

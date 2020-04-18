@@ -147,6 +147,98 @@ module.exports = {
       ]
     },
     {
+      name: 'housing_location',
+      mode: '',
+      title: 'Расположение',
+      coords: [59.932211, 30.346072],
+      values: [
+        {
+          id: 1,
+          name: 'Большой драматический театр имени Г. А. Товстоногова',
+          distance: '5 мин',
+          type: 'foot',
+          url: '#'
+        },
+        {
+          id: 2,
+          name: 'Terrassa- Ресторан Ginza Project',
+          distance: '7 мин',
+          type: 'foot',
+          url: '#'
+        },
+        {
+          id: 3,
+          name: 'Музей Анны Ахматовой в фонтанном доме- музей',
+          distance: '10 мин',
+          type: 'foot',
+          url: '#'
+        },
+        {
+          id: 4,
+          name: 'Jamie\'s Italian- Ресторан Ginza Project',
+          distance: '20 мин',
+          type: 'foot',
+          url: '#'
+        },
+        {
+          id: 5,
+          name: 'Царь - ресторан Ginza Project',
+          distance: '5 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 6,
+          name: 'Катюша - ресторан Ginza Project',
+          distance: '9 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 7,
+          name: 'Музей театрального и музыкального искусства - музей',
+          distance: '15 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 8,
+          name: 'Музей Фаберже - музей',
+          distance: '20 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 9,
+          name: 'Царь - ресторан Ginza Project',
+          distance: '25 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 10,
+          name: 'Катюша - ресторан Ginza Project',
+          distance: '39 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 11,
+          name: 'Музей театрального и музыкального искусства - музей',
+          distance: '45 мин',
+          type: 'car',
+          url: '#'
+        },
+        {
+          id: 12,
+          name: 'Музей Фаберже - музей',
+          distance: '60 мин',
+          type: 'car',
+          url: '#'
+        }
+      ]
+    },
+    {
       name: 'slider_reviews',
       mode: '',
       title: 'Отзывы гостей',
