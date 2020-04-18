@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SliderFeaturesBig from '~/components/Slider/FeaturesBig/FeaturesBig'
+import SliderFeaturesBig from '~/components/Slider/FeaturesBig/SliderFeaturesBig'
 
 export default {
   name: 'MiddlewareSliderFeaturesBig',

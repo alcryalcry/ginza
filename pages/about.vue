@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import get from '~/plugins/api'
+import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_ABOUT } from '~/config/constants'
 
 import Layout from '~/components/Layout/Layout'
@@ -22,15 +22,19 @@ export default {
     Layout
   },
   async asyncData(context) {
-    const {
-      header = {},
-      footer = {},
-      pageComponents = {}
-    } = await get(context, API_ROUTES_ABOUT)
-    return {
-      header,
-      footer,
-      components: pageComponents.components
+    try {
+      const {
+        header = {},
+        footer = {},
+        pageComponents = {}
+      } = await getAsyncData(context, API_ROUTES_ABOUT)
+      return {
+        header,
+        footer,
+        components: pageComponents.components
+      }
+    } catch (e) {
+      console.warn('ERROR FROM page (asyncData)', e)
     }
   },
   data() {
@@ -50,7 +54,7 @@ export default {
     }
   },
   methods: {
-    capitalize(string) {
+    capitalize(string = '') {
       return string.charAt(0).toUpperCase() + string.slice(1)
     }
   }

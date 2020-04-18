@@ -2,15 +2,17 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const PORT = 3000
-let currentLang = 'ru'
+require('dotenv').config()
 
-const reponseJson = name => require(`./data/${name}_${currentLang}.js`)
-// const reponseJson = name => require(`./data/${name}.js`)
+// let currentLang = 'ru'
+
+// const reponseJson = name => require(`./data/${name}_${currentLang}.js`)
+const reponseJson = name => require(`./data/${name}.js`)
 
 app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
-  currentLang = req.query.lang === 'en' ? 'en' : 'ru'
+  // currentLang = req.query.lang === 'en' ? 'en' : 'ru'
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Credentials', 'true')
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT')
@@ -53,22 +55,17 @@ app.get('/get-page/about', (req, res) => {
   res.send(reponseJson('about'))
 })
 
-app.post('/feedback', (req, res) => {
-  res.jsonp({
-    status: true
+app.get('/get-page/apartment/:id', (req, res) => {
+  res.send(reponseJson('apartment_item'))
+})
+
+if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
+  module.exports = {
+    path: '/api',
+    handler: app
+  }
+} else {
+  app.listen(PORT, () => {
+    console.log(`api listening on port ${PORT}`)
   })
-})
-
-app.listen(PORT, () => {
-  console.log(`api listening on port ${PORT}`)
-})
-
-// if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
-//   // export the server middleware
-//   module.exports = {
-//     path: '/api',
-//     handler: app
-//   }
-// } else {
-//   app.listen(PORT)
-// }
+}

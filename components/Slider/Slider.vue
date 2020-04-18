@@ -3,7 +3,7 @@
     <div ref="sliderWrapper" class="swiper-wrapper">
       <slot name="slides" />
     </div>
-    <slot class="aaa" name="navigation" />
+    <slot class="nav" name="navigation" />
     <slot name="pagination" />
   </div>
 </template>

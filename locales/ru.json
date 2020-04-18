@@ -3,6 +3,18 @@
     "menu_name": "Меню",
     "back": "Назад"
   },
+  "showMore": {
+    "show": "Показать еще",
+    "hide": "Свернуть"
+  },
+  "showMoreDescription": {
+    "show": "Подробнее",
+    "hide": "Свернуть"
+  },
+  "apartment": {
+    "showVideo": "Посмотреть видео",
+    "excursion": "Экскурсия по апартаментам"
+  },
   "housing": {
     "all": "Все",
     "listLabel": "Списком",

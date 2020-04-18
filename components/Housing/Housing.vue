@@ -57,7 +57,7 @@
             </div>
           </div>
           <div v-if="activeView === 'map'" key="map" class="housing-map">
-            <Map :markers="mapMarkers" />
+            <YandexMap :info="mapMarkers" />
           </div>
         </transition-group>
       </div>
@@ -70,7 +70,7 @@ import MODEL from './model'
 import HousingTypes from '~/components/Housing/Types/Types'
 import HousingCard from '~/components/Housing/Card/Card'
 import HousingLink from '~/components/Housing/Card/Link'
-import Map from '~/components/Map/Map'
+import YandexMap from '~/components/YandexMap/YandexMap'
 import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'
 import iconList from '~/assets/svg/icon-list.svg'
@@ -81,7 +81,7 @@ export default {
   name: 'Housing',
   components: {
     Section,
-    Map,
+    YandexMap,
     iconList,
     iconMapList,
     HousingTypes,
@@ -116,11 +116,13 @@ export default {
           } = marker
           markers.push({
             coords,
-            url: slug
+            id: slug
           })
         })
       })
-      return markers
+      return {
+        markers
+      }
     },
     stickyAnchors() {
       return this.model.values.map((anchor) => {

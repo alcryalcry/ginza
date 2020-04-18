@@ -1,5 +1,7 @@
 export default (info) => {
   const {
+    mode = '',
+    modeSlider = '',
     title = '',
     description = '',
     subtext = '',
@@ -26,6 +28,8 @@ export default (info) => {
   })
 
   return {
+    mode,
+    modeSlider,
     title,
     description,
     subtext,
