@@ -22,15 +22,19 @@ export default {
     Layout
   },
   async asyncData(context) {
-    const {
-      header = {},
-      footer = {},
-      pageComponents = {}
-    } = await getAsyncData(context, API_ROUTES_ABOUT)
-    return {
-      header,
-      footer,
-      components: pageComponents.components
+    try {
+      const {
+        header = {},
+        footer = {},
+        pageComponents = {}
+      } = await getAsyncData(context, API_ROUTES_ABOUT)
+      return {
+        header,
+        footer,
+        components: pageComponents.components
+      }
+    } catch (e) {
+      console.warn('ERROR FROM page (asyncData)', e)
     }
   },
   data() {

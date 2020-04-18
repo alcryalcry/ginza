@@ -1,9 +1,13 @@
 <template>
   <div class="page">
-    <Header :is-main="isHeaderMain" :info="header" />
+    <Header :is-main="isHeaderMain && !!header" :info="header" />
 
     <main class="page-content">
-      <slot name="page-content" :value="value" />
+      <slot name="page-content" :value="value">
+        <Section class="section--min">
+          <div class="title--h1">Something went wrong. <br>Please try again later</div>
+        </Section>
+      </slot>
       <slot name="popup" />
     </main>
 
@@ -14,12 +18,14 @@
 <script>
 import Header from '~/components/Header/Header'
 import Footer from '~/components/Footer/Footer'
+import Section from '~/components/Utils/Section'
 
 export default {
   name: 'Layout',
   components: {
     Header,
-    Footer
+    Footer,
+    Section
   },
   props: {
     header: {

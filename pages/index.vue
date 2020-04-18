@@ -1,5 +1,5 @@
 <template>
-  <Layout class="isMainPage" :is-header-main="true" :header="header" :footer="footer">
+  <Layout :class="{ isMainPage: !!header }" :is-header-main="true" :header="header" :footer="footer">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -22,15 +22,19 @@ export default {
     Layout
   },
   async asyncData(context) {
-    const {
-      header = {},
-      footer = {},
-      pageComponents = {}
-    } = await getAsyncData(context, API_ROUTES_INDEX)
-    return {
-      header,
-      footer,
-      components: pageComponents.components
+    try {
+      const {
+        header = {},
+        footer = {},
+        pageComponents = {}
+      } = await getAsyncData(context, API_ROUTES_INDEX)
+      return {
+        header,
+        footer,
+        components: pageComponents.components
+      }
+    } catch (e) {
+      console.warn('ERROR FROM page (asyncData)', e)
     }
   },
   data() {

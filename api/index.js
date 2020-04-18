@@ -59,15 +59,13 @@ app.get('/get-page/apartment/:id', (req, res) => {
   res.send(reponseJson('apartment_item'))
 })
 
-app.listen(PORT, () => {
-  console.log(`api listening on port ${PORT}`)
-})
-
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
   module.exports = {
     path: '/api',
     handler: app
   }
 } else {
-  app.listen(PORT)
+  app.listen(PORT, () => {
+    console.log(`api listening on port ${PORT}`)
+  })
 }
