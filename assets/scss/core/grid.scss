@@ -7,6 +7,10 @@ $sizeMobile: 1rem;
   display: flex;
   flex-wrap: wrap;
 
+  &.isNoWrap {
+    flex-wrap: nowrap;
+  }
+
   @include desktop {
     margin: 0 - $sizeDesktop;
 

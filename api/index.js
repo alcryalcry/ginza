@@ -55,11 +55,15 @@ app.get('/get-page/about', (req, res) => {
   res.send(reponseJson('about'))
 })
 
-app.get('/get-page/apartment/:id', (req, res) => {
+app.get('/get-page/aparts', (req, res) => {
+  res.send(reponseJson('aparts'))
+})
+
+app.get('/get-page/apartments/:id', (req, res) => {
   res.send(reponseJson('apartment_item'))
 })
 
-app.get('/get-page/apartment/:id/gallery', (req, res) => {
+app.get('/get-page/apartments/:id/gallery', (req, res) => {
   res.send(reponseJson('apartment_item_gallery'))
 })
 

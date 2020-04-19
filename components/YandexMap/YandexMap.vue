@@ -1,29 +1,32 @@
 <template>
   <div class="map">
-    <yandex-map v-bind="mapSettings">
+    <yandex-map v-bind="mapSettings" @click="closeBalloon">
       <ymap-marker
         v-for="marker in markers"
         :key="marker.id"
-        class="map-icon aaa123"
         :marker-id="marker.id"
         :coords="marker.coords"
-        cluster-name="1"
         :icon="activeMarker === marker.id ? iconMarkerActive : iconMarker"
-        @click="showBaloon(marker.id)"
-      />
+      >
+        <template v-if="isBalloonNeed" slot="balloon">
+          <HousingCardBalloon :info="marker" :house-type="marker.houseType" />
+        </template>
+      </ymap-marker>
     </yandex-map>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { ymapMarker, yandexMap } from 'vue-yandex-maps'
+import { ymapMarker, yandexMap, loadYmap } from 'vue-yandex-maps'
 import MODEL from './model'
+import HousingCardBalloon from '~/components/Housing/CardBalloon/HousingCardBalloon'
 
 export default {
   components: {
     yandexMap,
-    ymapMarker
+    ymapMarker,
+    HousingCardBalloon
   },
   props: {
     info: {
@@ -35,6 +38,10 @@ export default {
       default: ''
     },
     isMarkerDefault: {
+      type: Boolean,
+      default: false
+    },
+    isBalloonNeed: {
       type: Boolean,
       default: false
     }
@@ -84,24 +91,9 @@ export default {
         },
         showAllMarkers: this.markers.length > 1,
         controls: [],
-        zoom: 13,
+        // zoom: 13,
+        zoom: 11,
         markers: this.markers,
-        // options: {
-        //   suppressMapOpenBlock: true
-        // },
-        clusterOptions: {
-          1: {
-            clusterDisableClickZoom: true,
-            clusterOpenBalloonOnClick: true,
-            clusterBalloonLayout: [
-              '<ul class=list>',
-              '{% for geoObject in properties.geoObjects %}',
-              '<li><a href=# class="list_item">{{ geoObject.properties.balloonContentHeader|raw }}</a></li>',
-              '{% endfor %}',
-              '</ul>'
-            ].join('')
-          }
-        },
         ...this.model
       }
     }
@@ -112,15 +104,24 @@ export default {
     }
   },
   // если понадобится instance map
-  // async mounted() {
-  //   await loadYmap({ ...this.settings })
-  // },
+  async mounted() {
+    await loadYmap({ ...this.settings })
+  },
   methods: {
-    showBaloon(id) {
-      if (this.isMarkerDefault) {
-        return
-      }
-      this.activeMarker = id
+    bindListener() {
+      document.getElementById('btn').addEventListener('click', this.handler)
+    },
+    unbindListener() {
+      document.getElementById('btn').removeEventListener('click', this.handler)
+    },
+    handler(id) {
+      console.log(id)
+    },
+    closeBalloon(e) {
+      const myMap = e.originalEvent.map
+      myMap.events.add('click', function (e) {
+        myMap.balloon.close()
+      })
     }
   }
 }
@@ -136,6 +137,22 @@ export default {
   &::v-deep {
     [class*="ymaps-2-1"][class*="-ground-pane"] {
       filter: grayscale(1);
+    }
+    [class*="ymaps-2-1"][class*="balloon"] {
+      box-shadow: none;
+      background: none;
+    }
+    [class*="ymaps-2-1"][class*="balloon__content"] {
+      margin: 0;
+      background: none;
+      padding: 1rem;
+      border: none;
+    }
+    [class*="ymaps-2-1"][class*="balloon__close"] {
+      display: none;
+    }
+    [class*="ymaps-2-1"][class*="balloon__tail"] {
+      display: none;
     }
   }
 }

@@ -57,7 +57,7 @@
             </div>
           </div>
           <div v-if="activeView === 'map'" key="map" class="housing-map">
-            <YandexMap :info="mapMarkers" />
+            <YandexMap :info="mapMarkers" :is-balloon-need="true" />
           </div>
         </transition-group>
       </div>
@@ -109,12 +109,18 @@ export default {
     mapMarkers() {
       const markers = []
       this.model.values.forEach((item) => {
+        const {
+          id = ''
+        } = item
         item.list.forEach((marker) => {
           const {
             coords = [],
-            slug = ''
+            slug = '',
+            houseType = id
           } = marker
           markers.push({
+            ...marker,
+            houseType,
             coords,
             id: slug
           })

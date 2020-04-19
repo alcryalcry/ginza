@@ -46,11 +46,11 @@ module.exports = {
                     },
                     {
                       id: 2,
-                      image: 'https://picsum.photos/id/237/780/460.jpg'
+                      image: 'https://picsum.photos/id/244/780/460.jpg'
                     },
                     {
                       id: 3,
-                      image: 'https://picsum.photos/id/237/780/460.jpg'
+                      image: 'https://picsum.photos/id/299/780/460.jpg'
                     }
                   ]
                 }

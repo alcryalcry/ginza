@@ -23,7 +23,7 @@ module.exports = {
         },
         {
           label: 'Апартаменты ',
-          url: '/apartments'
+          url: '/aparts'
         },
         {
           label: 'Отели',

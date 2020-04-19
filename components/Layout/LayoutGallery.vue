@@ -3,7 +3,7 @@
     <main class="page-content">
       <slot name="page-content" :value="value">
         <Section class="section--min">
-          <div class="title--h1">Something went wrong. <br>Please try again later</div>
+          <!-- <div class="title--h1">Something went wrong. <br>Please try again later</div> -->
         </Section>
       </slot>
       <slot name="popup" />
