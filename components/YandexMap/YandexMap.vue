@@ -129,7 +129,7 @@ export default {
 <style lang="scss" scoped>
 .map {
   width: 100%;
-  height: 50rem;
+  height: 100%;
   overflow: hidden;
   background: $grayBg;
 

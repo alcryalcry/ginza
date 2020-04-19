@@ -59,6 +59,10 @@ app.get('/get-page/apartment/:id', (req, res) => {
   res.send(reponseJson('apartment_item'))
 })
 
+app.get('/get-page/apartment/:id/gallery', (req, res) => {
+  res.send(reponseJson('apartment_item_gallery'))
+})
+
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
   module.exports = {
     path: '/api',

@@ -1,30 +1,31 @@
 
 export const state = () => ({
-  isMenuOpen: false,
-  isHeaderScrolled: false,
-  isPopupShow: false
+  popupStatus: false,
+  popupType: '',
+  popupContent: {}
 })
 
 export const mutations = {
-  SET_HEADER (state, payload) {
-    state.isHeaderScrolled = payload
+  SET_POPUP_CONTENT (state, payload) {
+    state.popupContent = payload
   },
-  TOGGLE_MENU (state) {
-    state.isMenuOpen = !state.isMenuOpen
+  SET_POPUP_TYPE (state, payload) {
+    state.popupType = payload
   },
-  CLOSE_MENU (state) {
-    state.isMenuOpen = false
+  OPEN_POPUP (state) {
+    state.popupStatus = true
   },
   TOGGLE_POPUP (state) {
-    state.isPopupShow = !state.isPopupShow
+    state.popupStatus = !state.popupStatus
   },
   CLOSE_POPUP (state) {
-    state.isPopupShow = false
+    state.popupStatus = false
+    state.popupContent = {}
   }
 }
 
 export const getters = {
-  GET_HEADER_STATUS: state => state.isHeaderScrolled,
-  GET_MENU_STATUS: state => state.isMenuOpen,
-  GET_POPUP_STATUS: state => state.isPopupShow
+  GET_POPUP_STATUS: state => state.popupStatus,
+  GET_POPUP_TYPE: state => state.popupType,
+  GET_POPUP_CONTENT: state => state.popupContent
 }

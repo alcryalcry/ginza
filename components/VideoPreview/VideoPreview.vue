@@ -1,8 +1,8 @@
 <template>
   <div v-if="model.videoSrc" class="video">
-    <div class="video__container">
+    <div class="video-container">
       <transition mode="out-in" name="fade-reversed">
-        <button v-if="!isActive" key="1" class="video__preview" @click="isActive = true">
+        <button v-if="!isActive" key="1" class="video-preview" @click="isActive = true">
           <picture v-if="model.image" class="image">
             <img :src="model.image" alt="">
           </picture>
@@ -53,14 +53,14 @@ export default {
   position: relative;
 
   &,
-  .video__container,
-  .video__preview,
+  .video-container,
+  .video-preview,
   .iframe {
     width: 100%;
     height: 100%;
   }
 
-  .video__preview {
+  .video-preview {
     position: relative;
     &:active {
       &::before {
@@ -79,7 +79,6 @@ export default {
       content: '';
       background-position: center;
       background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCA0MiA0MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWx0ZXI9InVybCgjZmlsdGVyMF9iKSI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMSA0MkMzMi41OTggNDIgNDIgMzIuNTk4IDQyIDIxQzQyIDkuNDAyMDIgMzIuNTk4IDAgMjEgMEM5LjQwMjAyIDAgMCA5LjQwMjAyIDAgMjFDMCAzMi41OTggOS40MDIwMiA0MiAyMSA0MloiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNiIvPjwvZz48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE3LjM4NjcgMTIuODkxNEMxNi43ODc3IDEyLjUwNjQgMTYgMTIuOTM2NCAxNiAxMy42NDg1VjI4LjM1MTVDMTYgMjkuMDYzNiAxNi43ODc3IDI5LjQ5MzYgMTcuMzg2NyAyOS4xMDg2TDI4LjgyMjQgMjEuNzU3MUMyOS4zNzM0IDIxLjQwMjggMjkuMzczNCAyMC41OTcyIDI4LjgyMjQgMjAuMjQyOUwxNy4zODY3IDEyLjg5MTRaIiBmaWxsPSJ3aGl0ZSIvPjxkZWZzPjxmaWx0ZXIgaWQ9ImZpbHRlcjBfYiIgeD0iLTMwIiB5PSItMzAiIHdpZHRoPSIxMDIiIGhlaWdodD0iMTAyIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVHYXVzc2lhbkJsdXIgaW49IkJhY2tncm91bmRJbWFnZSIgc3RkRGV2aWF0aW9uPSIxNSIvPjxmZUNvbXBvc2l0ZSBpbjI9IlNvdXJjZUFscGhhIiBvcGVyYXRvcj0iaW4iIHJlc3VsdD0iZWZmZWN0MV9iYWNrZ3JvdW5kQmx1ciIvPjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9iYWNrZ3JvdW5kQmx1ciIgcmVzdWx0PSJzaGFwZSIvPjwvZmlsdGVyPjwvZGVmcz48L3N2Zz4=');
-      // background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAgNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjQiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0zMS44NzczIDI1TDIxLjU2NDggMzAuOTUzOUwyMS41NjQ4IDE5LjA0NjFMMzEuODc3MyAyNVoiIGZpbGw9IndoaXRlIi8+PC9zdmc+');
       background-size: 4.2rem;
       background-repeat: no-repeat;
       z-index: 1;

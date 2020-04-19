@@ -69,6 +69,10 @@ export default {
   margin-top: 3rem;
 }
 .location-map {
+  height: 50rem;
   margin-bottom: 3rem;
+  @include mobile {
+    height: 36rem;
+  }
 }
 </style>

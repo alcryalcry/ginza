@@ -39,8 +39,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_HEADER_STATUS: 'popup/GET_HEADER_STATUS',
-      GET_MENU_STATUS: 'popup/GET_MENU_STATUS'
+      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS',
+      GET_MENU_STATUS: 'header/GET_MENU_STATUS'
     }),
     model() {
       return MODEL(this.info)

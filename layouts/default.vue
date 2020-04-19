@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      CLOSE_MENU: 'popup/CLOSE_MENU',
+      CLOSE_MENU: 'header/CLOSE_MENU',
       CLOSE_POPUP: 'popup/CLOSE_POPUP'
     }),
     handleResize() {

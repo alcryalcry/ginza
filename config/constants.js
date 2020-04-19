@@ -13,7 +13,8 @@ export const {
         API_ROUTES_INDEX = 'get-page/index',
         API_ROUTES_ABOUT = 'get-page/about',
         API_ROUTES_APARTS = 'get-page/aparts',
-        API_ROUTES_APARTMENT_ROOT = 'get-page/apartment/:id'
+        API_ROUTES_APARTMENT_ROOT = 'get-page/apartment/:id',
+        API_ROUTES_APARTMENT_ROOT_GALLERY = 'get-page/apartment/:id/gallery'
       } = {},
       get: {
         housing: API_ROUTES_HOUSING = 'housing'

@@ -1,5 +1,5 @@
 <template>
-  <Section v-body-scroll-lock:reserveScrollBarGap="isReady" class="menu section--menu">
+  <Section v-bsl:reserveScrollBarGap="isReady" class="menu section--menu">
     <div class="menu-content">
       <div class="row">
         <div class="col-9 col-t-12 col-m-12">

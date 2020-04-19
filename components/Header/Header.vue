@@ -85,8 +85,8 @@ export default {
   computed: {
     ...mapGetters({
       GET_LANG: 'GET_LANG',
-      GET_MENU_STATUS: 'popup/GET_MENU_STATUS',
-      GET_HEADER_STATUS: 'popup/GET_HEADER_STATUS'
+      GET_MENU_STATUS: 'header/GET_MENU_STATUS',
+      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS'
     }),
     model() {
       return MODEL(this.info)
@@ -102,9 +102,9 @@ export default {
   },
   methods: {
     ...mapMutations({
-      SET_HEADER: 'popup/SET_HEADER',
-      TOGGLE_MENU: 'popup/TOGGLE_MENU',
-      CLOSE_MENU: 'popup/CLOSE_MENU'
+      SET_HEADER: 'header/SET_HEADER',
+      TOGGLE_MENU: 'header/TOGGLE_MENU',
+      CLOSE_MENU: 'header/CLOSE_MENU'
     }),
     initEvents () {
       if (this.GET_MEDIA_QUERY !== 'mobile') {

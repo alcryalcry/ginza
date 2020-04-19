@@ -31,7 +31,9 @@
     <Section class="slider-actions section--min">
       <div class="slider-actions-row">
         <button
+          v-if="model.popup.content"
           class="button button--arrow"
+          @click="openPopup(model.popup)"
         >
           <div class="icon">
             <iconPlayButton />
@@ -52,16 +54,17 @@ import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
 import iconPlayButton from '~/assets/svg/play-button.svg'
+import popupMethods from '~/mixins/popupMethods'
 
 export default {
   name: 'SliderApartment',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     Section,
     iconArrowCircle,
     iconPlayButton,
     Slider
   },
+  mixins: [popupMethods],
   props: {
     info: {
       type: Object,

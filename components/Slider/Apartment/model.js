@@ -1,5 +1,6 @@
 export default (info) => {
   const {
+    popup = {},
     values = []
   } = info || {}
 
@@ -23,6 +24,7 @@ export default (info) => {
   })
 
   return {
+    popup,
     values: adaptedSlides
   }
 }

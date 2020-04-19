@@ -8,35 +8,27 @@ module.exports = {
     },
     {
       name: 'slider_main_apartment',
-      popupVideo: {
-        // TODO: popup video
-      },
-      popupGallery: {
-        // TODO: popup gallery
+      popup: {
+        type: 'video',
+        content: {
+          title: 'Karavannaya 11',
+          video: {
+            videoSrc: 'https://player.vimeo.com/video/76979871',
+            image: 'https://picsum.photos/id/10/780/464.jpg'
+          }
+        }
       },
       values: [
         {
-          title: 'Karavannaya 11',
-          city: 'Санкт-Петербург',
-          category: 'Апартаменты',
-          url: '/',
-          linkLabel: 'Посмотреть',
+          title: '1',
           image: '/images/DSC04920.jpg'
         },
         {
-          title: 'Rubinsteina 12',
-          city: 'Санкт-Петербург',
-          category: 'Апартаменты',
-          url: '/',
-          linkLabel: 'Посмотреть',
+          title: '2',
           image: 'https://picsum.photos/id/604/1440/700'
         },
         {
-          title: 'Khedi',
-          city: 'Тбилиси',
-          category: 'Отель',
-          url: '/',
-          linkLabel: 'Посмотреть',
+          title: '3',
           image: 'https://picsum.photos/id/594/1440/700'
         }
       ]
