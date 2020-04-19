@@ -40,9 +40,9 @@
           </div>
           <span class="text">{{ $t('apartment.showVideo') }}</span>
         </button>
-        <button class="button">
+        <nuxt-link :to="localePath({ path: `${pageId}/gallery` })" class="button">
           {{ $t('apartment.excursion') }}
-        </button>
+        </nuxt-link>
       </div>
     </Section>
   </div>
@@ -90,6 +90,9 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    pageId() {
+      return this.$route.params.id
     }
   },
   mounted() {

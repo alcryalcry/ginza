@@ -14,13 +14,15 @@ export default (info) => {
         url = '',
         videoSrc = '',
         mode = '',
-        image = ''
+        image = '',
+        values = []
       } = col
       return {
         url,
         videoSrc,
         mode,
-        image
+        image,
+        values
       }
     })
     return {

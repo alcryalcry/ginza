@@ -25,6 +25,7 @@ import PopupVideo from '~/components/Popup/Video/PopupVideo'
 import Layout from '~/components/Layout/Layout'
 
 export default {
+  name: 'ApartmentOne',
   components: {
     Layout,
     Popup,

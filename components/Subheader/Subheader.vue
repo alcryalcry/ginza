@@ -8,7 +8,7 @@
         class="subheader-link text--18"
         type="button"
         :class="{ isActive: activeLink === link.url }"
-        @click="aaa(link.url)"
+        @click="toAnchor(link.url)"
         v-html="link.linkLabel"
       />
     </div>
@@ -52,7 +52,7 @@ export default {
     }
   },
   methods: {
-    aaa(url) {
+    toAnchor(url) {
       this.activeLink = url
       this.scrollToSection(url)
     }

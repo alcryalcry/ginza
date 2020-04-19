@@ -1,7 +1,8 @@
 {
   "header": {
     "menu_name": "Меню",
-    "back": "Назад"
+    "back": "Назад",
+    "allRooms": "Все комнаты"
   },
   "showMore": {
     "show": "Показать еще",

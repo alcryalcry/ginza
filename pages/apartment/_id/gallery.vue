@@ -1,5 +1,5 @@
 <template>
-  <Layout :header="header" :footer="footer">
+  <LayoutGallery>
     <template v-slot:page-content>
       <component
         :is="item"
@@ -8,18 +8,19 @@
         :data="components[index]"
       />
     </template>
-  </Layout>
+  </LayoutGallery>
 </template>
 
 <script>
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_APARTMENT_ROOT_GALLERY } from '~/config/constants'
 
-import Layout from '~/components/Layout/Layout'
+import LayoutGallery from '~/components/Layout/LayoutGallery'
 
 export default {
+  name: 'ApartmentGallery',
   components: {
-    Layout
+    LayoutGallery
   },
   async asyncData(context) {
     try {

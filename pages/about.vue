@@ -18,6 +18,7 @@ import { API_ROUTES_ABOUT } from '~/config/constants'
 import Layout from '~/components/Layout/Layout'
 
 export default {
+  name: 'About',
   components: {
     Layout
   },

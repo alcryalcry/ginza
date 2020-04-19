@@ -1,7 +1,8 @@
 {
   "header": {
     "menu_name": "Menu",
-    "back": "Back"
+    "back": "Back",
+    "allRooms": "All rooms"
   },
   "showMore": {
     "show": "Show more",

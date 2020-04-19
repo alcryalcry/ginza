@@ -6,7 +6,7 @@ export default {
   data() {
     return {
       oldScroll: 0,
-      isShowMenu: false,
+      // isShowMenu: false,
       activeLink: 1,
       sections: []
     }
@@ -33,25 +33,25 @@ export default {
   },
   methods: {
     scrollSpy() {
-      const parentPos = {
-        top: this.$parent.$el.getBoundingClientRect().top + window.scrollY - 200,
-        bottom: this.$parent.$el.getBoundingClientRect().top + window.scrollY + this.$parent.$el.offsetHeight - window.innerHeight / 1.1
-      }
+      // const parentPos = {
+      //   top: this.$parent.$el.getBoundingClientRect().top + window.scrollY - 200,
+      //   bottom: this.$parent.$el.getBoundingClientRect().top + window.scrollY + this.$parent.$el.offsetHeight - window.innerHeight / 1.1
+      // }
       this.sections.forEach((item) => {
         const scrolledY = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop)
-        if (this.GET_MQ === 'desktop') {
-          this.isShowMenu = scrolledY >= parentPos.top && scrolledY < parentPos.bottom
-        }
+        // if (this.GET_MQ === 'desktop') {
+        //   this.isShowMenu = scrolledY >= parentPos.top && scrolledY < parentPos.bottom
+        // }
         if (scrolledY >= item.position) {
           this.setActiveLink(item.id)
         }
       })
     },
-    scrollToSection(id) {
+    scrollToSection(id, offsetTop = 0) {
       this.sections.forEach((item) => {
         if (item.id === id) {
           window.scrollTo({
-            top: item.position + 5,
+            top: item.position + 5 - offsetTop,
             behavior: 'smooth'
           })
         }

@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-grid">
-    <div v-if="model.title" class="title title--h2" v-html="model.title" />
+    <div v-if="model.title" class="title" :class="titleClassNames" v-html="model.title" />
     <div class="gallery-rows">
       <div v-for="(row, index) in model.rows" :key="row.type + index" class="gallery-row">
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
@@ -8,6 +8,9 @@
             <picture v-if="col.image" class="image">
               <img :src="col.image" alt="">
             </picture>
+          </template>
+          <template v-else-if="row.type === 'slider'">
+            <SliderGrid :info="col.values" />
           </template>
           <template v-else-if="row.type === 'video'">
             <VideoPreview :info="col" />
@@ -21,13 +24,19 @@
 <script>
 import MODEL from './model'
 import VideoPreview from '~/components/VideoPreview/VideoPreview'
+import SliderGrid from '~/components/Slider/Grid/SliderGrid'
 
 export default {
   name: 'GalleryGrid',
   components: {
-    VideoPreview
+    VideoPreview,
+    SliderGrid
   },
   props: {
+    titleClassNames: {
+      type: String,
+      default: 'title--h2'
+    },
     info: {
       type: Object,
       default: () => ({})
