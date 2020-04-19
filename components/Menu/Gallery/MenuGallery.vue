@@ -76,7 +76,7 @@ export default {
   width: 100%;
   padding: 3rem 0;
   cursor: pointer;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.05rem;
   @include mobile {
     width: 100%;
     padding: 2rem 0;
