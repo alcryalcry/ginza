@@ -37,7 +37,7 @@ export default {
         header = {},
         footer = {},
         pageComponents = {}
-      } = await getAsyncData(context, API_ROUTES_APARTMENT_ROOT)
+      } = await getAsyncData(context, API_ROUTES_APARTMENT_ROOT + '/' + context.route.params.id)
       return {
         header,
         footer,

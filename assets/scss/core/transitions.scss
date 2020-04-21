@@ -1,6 +1,15 @@
 $transition: $t;
 
 
+.page-enter-active,
+.page-leave-active {
+  transition: opacity $transition
+}
+.page-enter, 
+.page-leave-to {
+  opacity: 0;
+}
+
 // LIST FADE
 .list-fade-enter-active,
 .list-fade-leave-active {
