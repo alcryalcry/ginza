@@ -99,7 +99,6 @@ export default {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  background: $white;
   border-bottom: 1px solid $border;
   z-index: $zLayerMenuOpenedBurgerBtn;
 }
@@ -112,6 +111,9 @@ export default {
   justify-content: space-between;
   align-items: center;
   z-index: $zLayerMenuOpenedBurgerBtn;
+
+  @include backdrop;
+
   @include mobile {
     padding: 1.5rem 0;
   }

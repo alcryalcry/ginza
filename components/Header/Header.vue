@@ -409,12 +409,12 @@ export default {
 
 .header-enter-active,
 .header-leave-active {
-  transition: opacity 0.2s ease, transform 0.4s ease;
+  transition: opacity 0.25s ease, transform 0.5s ease;
 }
 
 .header-enter,
 .header-leave-to {
   opacity: 0;
-  transform: translateY(-10rem);
+  transform: translateY(-150%);
 }
 </style>

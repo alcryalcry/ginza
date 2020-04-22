@@ -78,11 +78,12 @@ export default {
     position: relative;
     display: flex;
     padding: 1rem 0;
-    background: $white;
     border-bottom: 1px solid $border;
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    @include backdrop;
+
     @include tablet_desktop {
       justify-content: center;
     }

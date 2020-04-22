@@ -150,7 +150,7 @@ export default {
         }
       }
       &.swiper-button-disabled {
-        opacity: 0;
+        opacity: 0.3;
         pointer-events: none;
       }
       &.swiper-button-next {

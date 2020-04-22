@@ -13,11 +13,6 @@
               </picture>
             </div>
             <h5 v-if="item.title" class="title text--12 bold ttu" v-html="item.title" />
-            <div v-if="item.text" class="description">
-              <div class="text-wrapper">
-                <div class="text text--16" v-html="item.text" />
-              </div>
-            </div>
           </nuxt-link>
         </div>
       </div>
@@ -64,15 +59,8 @@ export default {
     display: block;
     @include desktop {
       &:hover {
-        .card-image {
-          .image {
-            filter: blur(5px);
-            // transition-delay: 0.2s;
-          }
-        }
-        .description {
-          opacity: 1;
-          // transition-delay: 0.2s;
+        .title {
+          color: $brown;
         }
       }
     }
@@ -80,6 +68,7 @@ export default {
   .title {
     padding-left: 2rem;
     margin-top: 1rem;
+    transition: color .2s ease;
   }
   .card-image {
     width: 100%;
@@ -90,28 +79,6 @@ export default {
     .image {
       width: 100%;
       height: 100%;
-    }
-  }
-  .description {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 28rem;
-    opacity: 0;
-    overflow: hidden;
-    background: rgba($white, .85);
-    z-index: 1;
-    transition: opacity .2s ease;
-    @include mobile_tablet {
-      display: none;
-    }
-
-    .text-wrapper {
-      @include absolute;
-      padding: 2rem;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
     }
   }
 }

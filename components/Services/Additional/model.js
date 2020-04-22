@@ -11,14 +11,12 @@ export default (info) => {
     const {
       url = '',
       title = '',
-      image = '',
-      text = ''
+      image = ''
     } = item
     return {
       url,
       title,
-      image,
-      text
+      image
     }
   })
 

@@ -75,7 +75,7 @@ export default {
 
 .popup-head {
   position: relative;
-  background: $white;
+  background: transparent;
   border-bottom: 1px solid $border;
   z-index: $zLayerMenuOpenedBurgerBtn;
 }
@@ -86,6 +86,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  background-color: rgba($white, 0.85);
   @include mobile {
     padding: 1.5rem 0;
   }

@@ -10,9 +10,10 @@
           :key="item.id"
           class="toggle-item"
           :class="{ isActive: activeItem === item.id }"
+          @click="setActiveItem(item.id)"
         >
           <Section class="section--no-p section--min">
-            <div class="toggle-button" @click="setActiveItem(item.id)">
+            <div class="toggle-button">
               <div class="text text--24 medium" v-html="item.title" />
               <div class="icon">
                 <iconPlus />
@@ -73,6 +74,7 @@ export default {
   }
   .toggle-item {
     border-bottom: 1px solid $border;
+    cursor: pointer;
     transition: background-color .2s ease, color .2s ease;
     &:first-child {
       border-top: 1px solid $border;
@@ -90,7 +92,6 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 3rem 0;
-    cursor: pointer;
     .text {
       flex: 1 1 auto;
       padding-right: 2rem;

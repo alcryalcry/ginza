@@ -9,6 +9,16 @@ $widthDesktop: 1025px;
   left: 0;
 }
 
+@mixin backdrop {
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba($white,0.72);
+  transition: background-color .3s ease;
+  .isOpen & {
+    background-color: $white;
+  }
+}
+
 @mixin mobile {
   @media (max-width: #{$widthTablet - 1px}) {
     @content;
