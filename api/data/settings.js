@@ -13,6 +13,16 @@ module.exports = {
         id: 'tbilisi',
         name: 'Тбилиси'
       }
+    ],
+    housingTypes: [
+      {
+        id: 'apartments',
+        name: 'Апартаменты'
+      },
+      {
+        id: 'hotels',
+        name: 'Отели'
+      }
     ]
   }
 }

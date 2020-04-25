@@ -1,24 +1,23 @@
 <template>
   <ul class="housing-types">
     <li
-      v-for="item in model.values"
-      :key="item.id"
+      v-for="type in GET_HOUSING_TYPES"
+      :key="type.id"
       class="housing-types-item"
-      :class="{ isActive: item.id === activeType }"
+      :class="{ isActive: type.id === GET_CURRENT_HOUSING_TYPE.id }"
     >
       <button
         type="button"
         class="housing-types-btn"
-        @click="selectType(item.id)"
-      >
-        {{ item.title }}
-      </button>
+        @click="selectType(type)"
+        v-html="type.name"
+      />
     </li>
   </ul>
 </template>
 
 <script>
-import MODEL from './model'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -38,13 +37,18 @@ export default {
     }
   },
   computed: {
-    model() {
-      return MODEL(this.info)
-    }
+    ...mapGetters({
+      GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
+    })
   },
   methods: {
-    selectType(id) {
-      this.$emit('select-type', id)
+    ...mapMutations({
+      SET_CURRENT_HOUSING_TYPE: 'housing/SET_CURRENT_HOUSING_TYPE'
+    }),
+    selectType(type) {
+      this.SET_CURRENT_HOUSING_TYPE(type)
+      this.$emit('select-type', type)
     }
   }
 }

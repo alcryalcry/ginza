@@ -6,6 +6,7 @@
         v-if="model.values.length"
         :custom-options="customOptions"
         :has-navigation="true"
+        :is-centered-slides="true"
         navigation-mode="navigation--white"
         class="slider-pre-wrapper"
       >

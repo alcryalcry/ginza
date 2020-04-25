@@ -1,5 +1,9 @@
 <template>
-  <nuxt-link :to="localePath({ path: `${houseType}/${model.slug}` })" class="housing-card">
+  <nuxt-link
+    :to="localePath({ path: `${houseType}/${model.slug}` })"
+    :class="isReady"
+    class="housing-card"
+  >
     <div
       v-if="model.images.length"
       tag="div"
@@ -46,6 +50,7 @@ export default {
   },
   data() {
     return {
+      isReady: false
     }
   },
   computed: {
@@ -57,6 +62,11 @@ export default {
     }
   },
   created() {
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.isReady = true
+    })
   },
   methods: {
   }
@@ -72,18 +82,13 @@ export default {
   background: $white;
   .images {
     position: relative;
-    // @include tablet {
-    //   height: 30rem;
-    // }
-    // @include mobile {
-    //   height: 30rem;
-    // }
   }
   .image {
     width: 100%;
     height: 20rem;
     pointer-events: none;
-    opacity: 1;
+    opacity: 0;
+    transition: opacity .3s ease;
   }
   .content {
     padding: 1rem 1.5rem;
@@ -91,7 +96,6 @@ export default {
 
   .title {
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
     font-weight: $bold;
     margin-bottom: .5rem;
     @include mobile {

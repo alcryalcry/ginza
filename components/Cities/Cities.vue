@@ -13,16 +13,14 @@
         type="button"
         class="cities-btn"
         @click="SET_CURRENT_CITY(city)"
-      >
-        {{ city.name }}
-      </button>
+        v-html="city.name"
+      />
     </li>
   </ul>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import MODEL from './model'
 import iconPlane from '~/assets/svg/plane.svg'
 
 export default {
@@ -41,16 +39,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_CITIES: 'GET_CITIES',
-      GET_CURRENT_CITY: 'GET_CURRENT_CITY'
-    }),
-    model() {
-      return MODEL(this.info)
-    }
+      GET_CITIES: 'cities/GET_CITIES',
+      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
+    })
   },
   methods: {
     ...mapMutations({
-      SET_CURRENT_CITY: 'SET_CURRENT_CITY'
+      SET_CURRENT_CITY: 'cities/SET_CURRENT_CITY'
     })
   }
 }

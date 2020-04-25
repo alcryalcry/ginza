@@ -4,20 +4,6 @@ module.exports = {
   keywords: '',
   components: [
     {
-      name: 'sub_header',
-      type: 'anchors',
-      values: [
-        {
-          linkLabel: 'Апартаменты',
-          url: 'apartments'
-        },
-        {
-          linkLabel: 'Отели',
-          url: 'hotels'
-        }
-      ]
-    },
-    {
       name: 'housing_page',
       values: [
         {

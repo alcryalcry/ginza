@@ -5,8 +5,8 @@
         <div class="col-4 col-t-4 col-m-12 sidebar">
           <div class="sidebar-content ">
             <div class="sidebar-row sidebar-list housing-types-list">
-              <HousingTypes :active-type="activeType" :info="model" @select-type="selectType" />
-              <nuxt-link class="link link--brown" :to="localePath('housing')">{{ $t('housing.all') }}</nuxt-link>
+              <HousingTypes @select-type="selectType" />
+              <nuxt-link class="link link--brown" :to="localePath('aparts')">{{ $t('housing.all') }}</nuxt-link>
             </div>
             <div class="sidebar-row sidebar-list">
               <Cities />
@@ -67,7 +67,7 @@
 
 <script>
 import MODEL from './model'
-import HousingTypes from '~/components/Housing/Types/Types'
+import HousingTypes from '~/components/Housing/Types/HousingTypes'
 import HousingCard from '~/components/Housing/Card/Card'
 import HousingLink from '~/components/Housing/Card/Link'
 import YandexMap from '~/components/YandexMap/YandexMap'
@@ -98,7 +98,6 @@ export default {
   },
   data() {
     return {
-      activeType: '',
       activeView: 'list'
     }
   },
@@ -139,11 +138,6 @@ export default {
       })
     }
   },
-  created() {
-    if (process.browser) {
-      this.activeType = (this.model.values[0] || {}).id
-    }
-  },
   methods: {
     setView(view) {
       this.activeView = view
@@ -153,7 +147,6 @@ export default {
       })
     },
     selectType(id) {
-      this.activeType = id
       if (this.activeView === 'list') {
         this.scrollToSection(id)
       }

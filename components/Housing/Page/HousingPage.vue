@@ -1,5 +1,6 @@
 <template>
   <Section class="housing section--full section--no-p section--gray">
+    <HousingSubheader />
     <div class="housing-content">
       <div class="row isNoGut isNoWrap">
         <div class="col-auto">
@@ -37,6 +38,7 @@
 import MODEL from './model'
 import HousingCard from '~/components/Housing/Card/Card'
 import YandexMap from '~/components/YandexMap/YandexMap'
+import HousingSubheader from '~/components/Housing/Subheader/HousingSubheader'
 import Section from '~/components/Utils/Section'
 
 export default {
@@ -44,7 +46,8 @@ export default {
   components: {
     Section,
     YandexMap,
-    HousingCard
+    HousingCard,
+    HousingSubheader
   },
   props: {
     info: {

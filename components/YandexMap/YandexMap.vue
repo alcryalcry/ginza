@@ -1,5 +1,5 @@
 <template>
-  <div class="map">
+  <div class="map" :class="{ isBalloonReady }">
     <yandex-map v-bind="mapSettings" @click="closeBalloon">
       <ymap-marker
         v-for="marker in markers"
@@ -7,6 +7,8 @@
         :marker-id="marker.id"
         :coords="marker.coords"
         :icon="activeMarker === marker.id ? iconMarkerActive : iconMarker"
+        @balloonopen="balloonOpen"
+        @balloonclose="balloonClose"
       >
         <template v-if="isBalloonNeed" slot="balloon">
           <HousingCardBalloon :info="marker" :house-type="marker.houseType" />
@@ -48,7 +50,8 @@ export default {
   },
   data() {
     return {
-      activeMarker: ''
+      activeMarker: '',
+      isBalloonReady: false
     }
   },
   computed: {
@@ -91,9 +94,12 @@ export default {
         },
         showAllMarkers: this.markers.length > 1,
         controls: [],
-        // zoom: 13,
         zoom: 11,
         markers: this.markers,
+        options: {
+          maxZoom: 16,
+          minZoom: 6
+        },
         ...this.model
       }
     }
@@ -108,14 +114,13 @@ export default {
     await loadYmap({ ...this.settings })
   },
   methods: {
-    bindListener() {
-      document.getElementById('btn').addEventListener('click', this.handler)
+    balloonOpen() {
+      setTimeout(() => {
+        this.isBalloonReady = true
+      }, 100)
     },
-    unbindListener() {
-      document.getElementById('btn').removeEventListener('click', this.handler)
-    },
-    handler(id) {
-      console.log(id)
+    balloonClose() {
+      this.isBalloonReady = false
     },
     closeBalloon(e) {
       const myMap = e.originalEvent.map
@@ -133,6 +138,13 @@ export default {
   height: 100%;
   overflow: hidden;
   background: $grayBg;
+  &.isBalloonReady {
+    &::v-deep {
+      .housing-card .image {
+        opacity: 1;
+      }
+    }
+  }
 
   &::v-deep {
     [class*="ymaps-2-1"][class*="-ground-pane"] {

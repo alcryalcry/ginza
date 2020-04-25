@@ -6,7 +6,7 @@
 import HousingPage from '~/components/Housing/Page/HousingPage'
 
 export default {
-  name: 'MiddlewareHousing',
+  name: 'MiddlewareHousingPage',
   components: {
     HousingPage
   },

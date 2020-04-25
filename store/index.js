@@ -3,9 +3,7 @@ import { API_ROUTES_SETTINGS } from '~/config/constants'
 
 export const state = () => ({
   locales: ['ru', 'en'],
-  locale: 'ru',
-  cities: [],
-  city: {}
+  locale: 'ru'
 })
 
 export const mutations = {
@@ -13,19 +11,11 @@ export const mutations = {
     if (state.locales.includes(payload)) {
       state.locale = payload
     }
-  },
-  SET_CITIES (state, payload = []) {
-    state.cities = [...payload]
-  },
-  SET_CURRENT_CITY (state, payload = {}) {
-    state.city = { ...payload }
   }
 }
 
 export const getters = {
-  GET_LANG: state => state.locale,
-  GET_CITIES: state => state.cities,
-  GET_CURRENT_CITY: state => state.city
+  GET_LANG: state => state.locale
 }
 
 export const actions = {
@@ -36,15 +26,10 @@ export const actions = {
           settings = {}
         }
       } = await axios.get(API_ROUTES_SETTINGS)
-      dispatch('UPDATE_CITIES', settings.cities)
+      dispatch('cities/UPDATE_CITIES', settings.cities)
+      dispatch('housing/UPDATE_HOUSING_TYPES', settings.housingTypes)
     } catch (e) {
       return console.error(API_ROUTES_SETTINGS, e)
-    }
-  },
-  UPDATE_CITIES ({ commit, state }, payload = []) {
-    commit('SET_CITIES', payload)
-    if (!state.city.id) {
-      commit('SET_CURRENT_CITY', payload[0])
     }
   }
 }
