@@ -46,15 +46,15 @@ export default {
       })
     }
   },
-  created() {
+  mounted() {
     if (process.browser) {
       this.activeLink = (this.model.values[0] || {}).url
     }
   },
   methods: {
-    toAnchor(url) {
-      this.activeLink = url
-      this.scrollToSection(url)
+    toAnchor(id) {
+      this.activeLink = id
+      this.scrollToSection(id)
     }
   }
 }

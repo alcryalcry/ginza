@@ -5,9 +5,7 @@
       tag="div"
       class="images"
     >
-      <picture class="image">
-        <img :src="model.images[0]" data-not-lazy class="isLoaded" :alt="model.title">
-      </picture>
+      <img class="image" data-not-lazy :src="model.images[0]" :alt="model.title">
     </div>
     <div class="content">
       <div v-if="model.title" class="title text--16" v-html="model.title" />
@@ -48,8 +46,6 @@ export default {
   },
   data() {
     return {
-      activeIndex: 0,
-      intervalId: null
     }
   },
   computed: {
@@ -63,22 +59,6 @@ export default {
   created() {
   },
   methods: {
-    imageChanger() {
-      if (this.activeIndex === this.model.images.length - 1) {
-        this.activeIndex = 0
-      } else {
-        this.activeIndex++
-      }
-    },
-    startChanger() {
-      this.imageChanger()
-      this.intervalId = setInterval(() => {
-        this.imageChanger()
-      }, 1500)
-    },
-    stopChanger() {
-      clearInterval(this.intervalId)
-    }
   }
 }
 </script>
@@ -92,9 +72,6 @@ export default {
   background: $white;
   .images {
     position: relative;
-    width: 100%;
-    height: 20rem;
-    z-index: 1;
     // @include tablet {
     //   height: 30rem;
     // }
@@ -103,8 +80,10 @@ export default {
     // }
   }
   .image {
-    @include absolute;
+    width: 100%;
+    height: 20rem;
     pointer-events: none;
+    opacity: 1;
   }
   .content {
     padding: 1rem 1.5rem;

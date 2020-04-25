@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import GalleryGrid from '~/components/GalleryGrid/GalleryGrid'
@@ -37,6 +38,9 @@ export default {
     model() {
       return MODEL(this.info)
     },
+    ...mapGetters({
+      GET_MENU_STATUS: 'header/GET_MENU_STATUS'
+    }),
     stickyAnchors() {
       return this.model.values.map((item) => {
         return {
@@ -48,7 +52,7 @@ export default {
   },
   methods: {
     toAnchor(id) {
-      this.scrollToSection(id, 100)
+      this.scrollToSection(id)
     }
   }
 }
@@ -83,7 +87,7 @@ export default {
   }
   .review-row {
     & + .review-row {
-      margin-top: 10rem;
+      padding-top: 10rem;
     }
   }
   .review-text {

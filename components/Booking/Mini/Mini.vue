@@ -66,15 +66,22 @@ export default {
   align-items: stretch;
   padding: 0 4rem;
   min-height: 5rem;
-  background: $white;
+  background: $brown;
   border-radius: 4px;
-  border: 1px solid $border;
+  border: 1px solid $brown;
   transition: background-color .2s ease, border-color .2s ease;
-  &.isScrolled {
-    background-color: $brown;
-    border-color: $brown;
+  .isMainPage & {
+    background-color: $white;
+    border-color: $border;
     .booking-button {
-      color: $white;
+      color: $black17;
+    }
+    &.isScrolled {
+      background-color: $brown;
+      border-color: $brown;
+      .booking-button {
+        color: $white;
+      }
     }
   }
 }
@@ -107,6 +114,7 @@ export default {
 
 .booking-button {
   flex: 1 1 auto;
+  color: $white;
   transition: color .2s ease;
 }
 </style>

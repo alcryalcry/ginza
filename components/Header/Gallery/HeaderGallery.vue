@@ -105,7 +105,8 @@ export default {
 
 .popup-head-row {
   position: relative;
-  padding: 2rem 0;
+  padding: 2rem $sectionOffsetHorizontal;
+  margin: 0 0 - $sectionOffsetHorizontal;
   display: flex;
   background: $white;
   justify-content: space-between;
@@ -114,8 +115,13 @@ export default {
 
   @include backdrop;
 
+  @include tablet {
+    padding: 2rem $sectionOffsetHorizontalTablet;
+    margin: 0 0 - $sectionOffsetHorizontalTablet;
+  }
   @include mobile {
-    padding: 1.5rem 0;
+    padding: 1.5rem $sectionOffsetHorizontalMobile;
+    margin: 0 0 - $sectionOffsetHorizontalMobile;
   }
 }
 
