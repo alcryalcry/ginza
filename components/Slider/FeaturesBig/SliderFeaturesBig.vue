@@ -3,6 +3,8 @@
     <Slider
       v-if="model.values.length"
       :custom-options="customOptions"
+      :has-navigation="true"
+      :has-pagination="true"
       @active-index="setAactiveIndex"
     >
       <template v-slot:slides>
@@ -25,7 +27,7 @@
         </div>
       </template>
       <template v-slot:navigation>
-        <div class="navigation d-show">
+        <div class="navigation d-show navigation--transparent-white">
           <button type="button" class="navigation-btn swiper-button-prev">
             <iconArrowCircle class="icon" />
           </button>
@@ -65,9 +67,6 @@
           </div>
         </Section>
       </template>
-      <template v-slot:pagination>
-        <div class="swiper-pagination" />
-      </template>
     </Slider>
   </div>
 </template>
@@ -98,14 +97,6 @@ export default {
         speed: 700,
         loop: true,
         parallax: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
         breakpoints: {
           767: {
             spaceBetween: 40
@@ -200,53 +191,6 @@ export default {
     .link {
       position: relative;
       z-index: 1;
-      // &:active {
-      //   color: $white;
-      //   text-decoration-color: transparent;
-      // }
-      // @include desktop {
-      //   &:hover {
-      //     color: $white;
-      //     text-decoration-color: transparent;
-      //   }
-      // }
-    }
-  }
-
-  &::v-deep {
-    .swiper-pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-      @include mobile {
-        padding-top: 2rem;
-      }
-      .swiper-pagination-bullet {
-        position: relative;
-        padding: .5rem;
-        margin: 0 .5rem;
-        width: 2rem;
-        height: 2rem;
-        cursor: pointer;
-        &::before {
-          content: '';
-          position: absolute;
-          top: calc(50% - .5rem);
-          left: calc(50% - .5rem);
-          width: 1rem;
-          height: 1rem;
-          border: 1px solid $border;
-          border-radius: 50%;
-          transition: border-color .2s ease, background-color .2s ease;
-        }
-        &.swiper-pagination-bullet-active {
-          &::before {
-            border-color: $brown;
-            background-color: $brown;
-          }
-        }
-      }
     }
   }
 
@@ -292,29 +236,7 @@ export default {
   &::v-deep {
     .navigation {
       .navigation-btn {
-        position: absolute;
-        top: calc(50% - 4rem);
-        width: 8rem;
-        height: 8rem;
-        background: transparent;
-        color: $white;
-        border-radius: 50%;
-        border: 1px solid $white;
-        overflow: hidden;
-        cursor: pointer;
-        opacity: 1;
-        z-index: 1;
-        transition: background-color .2s ease, color .2s ease, opacity .2s ease, border-color .2s ease;
-        @include desktop {
-          &:hover {
-            color: $black17;
-            background-color: $white;
-          }
-        }
-        &.swiper-button-disabled {
-          opacity: 0.3;
-          pointer-events: none;
-        }
+        top: calc(50% - 12rem);
         &.swiper-button-next {
           right: 7rem;
           .icon {

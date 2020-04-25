@@ -9,7 +9,7 @@ export default {
     options() {
       return {
         ...this.basicOptions,
-        ...this.customOptions
+        ...this.generatedCustomOptions
       }
     },
     basicOptions() {
@@ -20,10 +20,6 @@ export default {
         loop: false,
         threshold: 10,
         on: {
-          init: () => {
-            this.isSliderReady = true
-            this.updateLazySlides()
-          },
           slideChange: (e) => {
             this.updateLazySlides()
             this.updateActiveSlide()
@@ -33,14 +29,25 @@ export default {
           }
         }
       }
-    },
-    swiper() {
-      return (this.$refs.mySwiper || {}).swiper || {}
+    }
+  },
+  mounted() {
+    if (process.browser) {
+      this.$nextTick(() => {
+        this.isSliderReady = true
+        this.updateLazySlides()
+
+        if (this.GET_MQ === 'desktop' && this.isCenteredSlides) {
+          this.mySwiper.slideTo(Math.abs((this.mySwiper || {}).slides.length / 3))
+        } else {
+          this.mySwiper.slideTo(0)
+        }
+      })
     }
   },
   methods: {
     updateActiveSlide() {
-      this.activeIndex = this.swiper.realIndex
+      this.activeIndex = this.mySwiper.realIndex
     },
     updateLazySlides() {
       if (this.$refs.sliderWrapper) {

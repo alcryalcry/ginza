@@ -5,6 +5,9 @@
       <Slider
         v-if="model.values.length"
         :custom-options="customOptions"
+        :has-navigation="true"
+        navigation-mode="navigation--white"
+        :is-centered-slides="true"
         class="slider-pre-wrapper"
       >
         <template v-slot:slides>
@@ -15,19 +18,9 @@
             class="swiper-slide"
           >
             <picture class="image">
-              <img :src="slide.image" :alt="slide.name" data-manual-lazy>
+              <img data-not-lazy :src="slide.image" :alt="slide.name">
             </picture>
             <div v-if="slide.title" class="text text--16" v-html="slide.title" />
-          </div>
-        </template>
-        <template v-slot:navigation>
-          <div class="navigation d-show">
-            <button type="button" class="navigation-btn swiper-button-prev">
-              <iconArrowCircle class="icon" />
-            </button>
-            <button type="button" class="navigation-btn swiper-button-next">
-              <iconArrowCircle class="icon" />
-            </button>
           </div>
         </template>
       </Slider>
@@ -36,19 +29,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
-import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
 
 export default {
   components: {
     Slider,
     HeadTitle,
-    Section,
-    iconArrowCircle
+    Section
   },
   props: {
     info: {
@@ -60,10 +50,6 @@ export default {
     return {
       customOptions: {
         spaceBetween: 20,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
         breakpoints: {
           767: {
             slidesOffsetAfter: 90
@@ -73,21 +59,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      GET_MQ: 'mediaQuery/GET_MQ'
-    }),
     model() {
       return MODEL(this.info)
     }
-  },
-  created() {
-    // center slides
-    if (this.GET_MQ === 'desktop') {
-      (this.customOptions || {}).initialSlide = Math.abs((this.model.values || []).length / 3)
-    }
-  },
-  mounted() {},
-  methods: {}
+  }
 }
 </script>
 
@@ -103,48 +78,17 @@ export default {
     }
   }
 
-  &::v-deep {
-    .swiper-wrapper {
-      @include desktop {
-        // justify-content: center;
-      }
-    }
-  }
-
   .head-title {
     margin-bottom: 6rem;
   }
 
   .navigation {
     .navigation-btn {
-      position: absolute;
       width: 8rem;
       height: 8rem;
-      background: $white;
-      color: $black17;
-      border-radius: 50%;
-      overflow: hidden;
-      border: none;
-      cursor: pointer;
-      opacity: 1;
-      z-index: 1;
-      transition: background-color .2s ease, color .2s ease, opacity .2s ease;
-      @include desktop {
-        &:hover {
-          background-color: $brown;
-          color: $white;
-        }
-      }
-      &.swiper-button-disabled {
-        opacity: 0.3;
-        pointer-events: none;
-      }
       &.swiper-button-next {
         top: 9.5rem;
         right: -10vw;
-        .icon {
-          transform: rotate(180deg);
-        }
       }
       &.swiper-button-prev {
         top: 9.5rem;

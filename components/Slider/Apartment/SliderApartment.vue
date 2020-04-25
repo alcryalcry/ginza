@@ -3,6 +3,8 @@
     <Slider
       v-if="model.values.length"
       :custom-options="customOptions"
+      :has-navigation="true"
+      navigation-mode="navigation--white"
     >
       <template v-slot:slides>
         <div
@@ -15,16 +17,6 @@
               <img data-manual-lazy :src="slide.image" :alt="slide.title">
             </picture>
           </div>
-        </div>
-      </template>
-      <template v-slot:navigation>
-        <div class="navigation d-show">
-          <button type="button" class="navigation-btn swiper-button-prev">
-            <iconArrowCircle class="icon" />
-          </button>
-          <button type="button" class="navigation-btn swiper-button-next">
-            <iconArrowCircle class="icon" />
-          </button>
         </div>
       </template>
     </Slider>
@@ -52,7 +44,6 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
-import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
 import iconPlayButton from '~/assets/svg/play-button.svg'
 import popupMethods from '~/mixins/popupMethods'
 
@@ -60,7 +51,6 @@ export default {
   name: 'SliderApartment',
   components: {
     Section,
-    iconArrowCircle,
     iconPlayButton,
     Slider
   },
@@ -78,10 +68,6 @@ export default {
         speed: 400,
         parallax: true,
         spaceBetween: 5,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
         breakpoints: {
         }
       }
@@ -132,29 +118,7 @@ export default {
   &::v-deep {
     .navigation {
       .navigation-btn {
-        position: absolute;
         top: calc(50% - 4rem);
-        width: 8rem;
-        height: 8rem;
-        background: $white;
-        color: $black17;
-        border-radius: 50%;
-        border: none;
-        overflow: hidden;
-        cursor: pointer;
-        opacity: 1;
-        z-index: 1;
-        transition: background-color .2s ease, color .2s ease, opacity .2s ease, border-color .2s ease;
-        &:active {
-          background-color: $brown;
-          color: $white;
-        }
-        @include desktop {
-          &:hover {
-            background-color: $brown;
-            color: $white;
-          }
-        }
         @include tablet {
           top: calc(50% - 3rem);
           width: 6rem;
@@ -165,11 +129,6 @@ export default {
           width: 6rem;
           height: 6rem;
         }
-
-        &.swiper-button-disabled {
-          opacity: 0.3;
-          pointer-events: none;
-        }
         &.swiper-button-next {
           right: 7rem;
           @include tablet {
@@ -177,9 +136,6 @@ export default {
           }
           @include mobile {
             right: $sectionOffsetHorizontalMobile;
-          }
-          .icon {
-            transform: rotate(180deg);
           }
         }
         &.swiper-button-prev {
@@ -203,7 +159,7 @@ export default {
   min-height: 72rem;
   overflow: hidden;
   @include tablet {
-    min-height: 90vh
+    min-height: 75vh
   }
   @include mobile {
     min-height: 70vh

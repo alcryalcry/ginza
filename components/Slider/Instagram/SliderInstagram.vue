@@ -79,14 +79,6 @@ export default {
   overflow: hidden;
   user-select: none;
 
-  &::v-deep {
-    .swiper-wrapper {
-      @include desktop {
-        // justify-content: center;
-      }
-    }
-  }
-
   .head-title {
     margin-bottom: 6rem;
   }

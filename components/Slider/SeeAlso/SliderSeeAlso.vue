@@ -5,6 +5,8 @@
       <Slider
         v-if="model.values.length"
         :custom-options="customOptions"
+        :has-navigation="true"
+        navigation-mode="navigation--white"
         class="slider-pre-wrapper"
       >
         <template v-slot:slides>
@@ -15,16 +17,6 @@
             class="swiper-slide"
           >
             <HousingCard :info="slide" :house-type="model.id" />
-          </div>
-        </template>
-        <template v-slot:navigation>
-          <div class="navigation d-show">
-            <button type="button" class="navigation-btn swiper-button-prev">
-              <iconArrowCircle class="icon" />
-            </button>
-            <button type="button" class="navigation-btn swiper-button-next">
-              <iconArrowCircle class="icon" />
-            </button>
           </div>
         </template>
       </Slider>
@@ -40,15 +32,13 @@ import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
-import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
 import HousingCard from '~/components/Housing/Card/Card'
 
 export default {
   components: {
     Slider,
     HousingCard,
-    Section,
-    iconArrowCircle
+    Section
   },
   props: {
     info: {
@@ -60,10 +50,6 @@ export default {
     return {
       customOptions: {
         spaceBetween: 20,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
         breakpoints: {
           767: {
             slidesOffsetAfter: 90
@@ -103,14 +89,6 @@ export default {
     }
   }
 
-  &::v-deep {
-    .swiper-wrapper {
-      @include desktop {
-        // justify-content: center;
-      }
-    }
-  }
-
   .title {
     margin-bottom: 7rem;
     text-align: center;
@@ -134,31 +112,9 @@ export default {
       position: absolute;
       width: 8rem;
       height: 8rem;
-      background: $white;
-      color: $black17;
-      border-radius: 50%;
-      overflow: hidden;
-      border: none;
-      cursor: pointer;
-      opacity: 1;
-      z-index: 1;
-      transition: background-color .2s ease, color .2s ease, opacity .2s ease;
-      @include desktop {
-        &:hover {
-          background-color: $brown;
-          color: $white;
-        }
-      }
-      &.swiper-button-disabled {
-        opacity: 0.3;
-        pointer-events: none;
-      }
       &.swiper-button-next {
         top: 15rem;
         right: -10vw;
-        .icon {
-          transform: rotate(180deg);
-        }
       }
       &.swiper-button-prev {
         top: 15rem;
