@@ -5,6 +5,9 @@
       <div class="row isNoGut isNoWrap">
         <div class="col-auto">
           <div class="housing-cards">
+            <div class="cities">
+              <CitiesDropdown />
+            </div>
             <div
               v-for="list in model.values"
               :key="list.id"
@@ -40,6 +43,7 @@ import HousingCard from '~/components/Housing/Card/Card'
 import YandexMap from '~/components/YandexMap/YandexMap'
 import HousingSubheader from '~/components/Housing/Subheader/HousingSubheader'
 import Section from '~/components/Utils/Section'
+import CitiesDropdown from '~/components/Cities/CitiesDropdown'
 
 export default {
   name: 'Housing',
@@ -47,7 +51,8 @@ export default {
     Section,
     YandexMap,
     HousingCard,
-    HousingSubheader
+    HousingSubheader,
+    CitiesDropdown
   },
   props: {
     info: {
@@ -122,6 +127,16 @@ export default {
         width: 100%;
         height: calc(100vh - #{$headerHeightBig});
       }
+    }
+  }
+
+  .cities {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 5rem;
+    padding-left: 5rem;
+    @include desktop {
+      display: none;
     }
   }
 

@@ -1,26 +1,35 @@
 <template>
-  <div class="subheader">
-    <div ref="stickyMenuWrapper" class="subheader-top">
-      <button
-        v-for="type in GET_HOUSING_TYPES"
-        :key="type.id"
-        ref="stickyMenuItems"
-        class="subheader-link text--18"
-        type="button"
-        :class="{ isActive: type.id === GET_CURRENT_HOUSING_TYPE.id }"
-        @click="selectType(type)"
-        v-html="type.name"
-      />
+  <Section class="section--no-p section--big subheader" container-class-names="subheader-container">
+    <div class="cities">
+      <CitiesDropdown />
     </div>
-  </div>
+    <div class="subheader-menu">
+      <div ref="stickyMenuWrapper" class="subheader-top">
+        <button
+          v-for="type in GET_HOUSING_TYPES"
+          :key="type.id"
+          ref="stickyMenuItems"
+          class="subheader-link text--18"
+          type="button"
+          :class="{ isActive: type.id === GET_CURRENT_HOUSING_TYPE.id }"
+          @click="selectType(type)"
+          v-html="type.name"
+        />
+      </div>
+    </div>
+  </Section>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
+import Section from '~/components/Utils/Section'
+import CitiesDropdown from '~/components/Cities/CitiesDropdown'
 
 export default {
   components: {
+    CitiesDropdown,
+    Section
   },
   props: {
     info: {
@@ -66,8 +75,11 @@ export default {
   position: sticky;
   position: -webkit-sticky;
   top: calc(#{$headerHeight} - .1rem);
+  padding: 1rem 0;
+  border-bottom: 1px solid $border;
   z-index: $zLayerSticky;
-  overflow: hidden;
+  @include backdrop;
+
   @include tablet {
     top: calc(#{$headerHeightTablet} - .1rem);
   }
@@ -75,15 +87,39 @@ export default {
     top: calc(#{$headerHeightMobile} - .1rem);
   }
 
+  &::v-deep {
+    .subheader-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include desktop {
+        padding: 0 25rem;
+      }
+    }
+  }
+  .cities {
+    display: none;
+    @include desktop {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: $sectionOffsetHorizontal;
+      max-width: 25rem;
+      transform: translateY(-50%);
+    }
+  }
+
+  .subheader-menu {
+    overflow: hidden;
+  }
+
   .subheader-top {
     position: relative;
     display: flex;
-    padding: 1rem 0;
-    border-bottom: 1px solid $border;
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    @include backdrop;
 
     @include tablet_desktop {
       justify-content: center;

@@ -22,6 +22,16 @@ $transition: $t;
   transition: none;
 }
 
+.list-fade-reversed-enter-active,
+.list-fade-reversed-leave-active {
+  transition: opacity .2s ease, transform .2s ease;
+}
+.list-fade-reversed-enter,
+.list-fade-reversed-leave-to {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
 // FADE
 .fade-enter-active,
 .fade-leave-active {
