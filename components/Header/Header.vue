@@ -13,14 +13,16 @@
               {{ $t("header.menu_name") }}
             </span>
           </button>
-          <nuxt-link v-if="model.prevPage" class="back" :to="localePath(model.prevPage)">
-            <div class="back-link">
-              <iconBack />
-            </div>
-            <span class="text text--13">
-              {{ $t("header.back") }}
-            </span>
-          </nuxt-link>
+          <client-only>
+            <button v-if="hasPrevUrl" class="back" @click="goToPrevPage">
+              <div class="back-link">
+                <iconBack />
+              </div>
+              <span class="text text--13">
+                {{ $t("header.back") }}
+              </span>
+            </button>
+          </client-only>
         </div>
         <div class="header-col center">
           <nuxt-link class="logo" :to="localePath('/')">
@@ -88,6 +90,12 @@ export default {
       GET_MENU_STATUS: 'header/GET_MENU_STATUS',
       GET_HEADER_STATUS: 'header/GET_HEADER_STATUS'
     }),
+    hasPrevUrl() {
+      if (process.browser) {
+        return window.history.length > 2 && this.$route.path !== '/'
+      }
+      return false
+    },
     model() {
       return MODEL(this.info)
     }
@@ -106,6 +114,9 @@ export default {
       TOGGLE_MENU: 'header/TOGGLE_MENU',
       CLOSE_MENU: 'header/CLOSE_MENU'
     }),
+    goToPrevPage() {
+      this.$router.back()
+    },
     initEvents () {
       if (this.GET_MEDIA_QUERY !== 'mobile') {
         this.scrollEvent = throttle(150, () => this.changeColor())

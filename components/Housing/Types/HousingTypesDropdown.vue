@@ -1,33 +1,28 @@
 <template>
-  <div class="cities-dropdown">
+  <div class="housing-types-dropdown">
     <transition mode="out-in" name="fade-reversed">
-      <div :key="GET_CURRENT_CITY.id" class="cities-item isActive">
-        <div class="icon">
-          <iconPlane />
-        </div>
+      <div :key="GET_CURRENT_HOUSING_TYPE.id" class="housing-types-item isActive">
         <button
           type="button"
-          class="cities-btn text--18"
+          class="housing-types-btn text--18"
           @click="toggleList"
-          v-html="GET_CURRENT_CITY.name"
+          v-html="GET_CURRENT_HOUSING_TYPE.name"
         />
       </div>
     </transition>
     <transition mode="out-in" name="list-fade-reversed">
       <ul v-if="isOpen" :key="1" v-on-clickaway="closeList" class="dropdown-list">
         <li
-          v-for="city in filteredCities"
-          :key="city.id"
-          class="cities-item"
+          v-for="type in filteredTypes"
+          :key="type.id"
+          class="housing-types-item"
+          :class="{ isActive: type.id === GET_CURRENT_HOUSING_TYPE.id }"
         >
-          <div class="icon">
-            <iconPlane />
-          </div>
           <button
             type="button"
-            class="cities-btn text--18"
-            @click="selectCity(city)"
-            v-html="city.name"
+            class="housing-types-btn text--18"
+            @click="selectType(type)"
+            v-html="type.name"
           />
         </li>
       </ul>
@@ -38,11 +33,9 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import { mixin as clickaway } from 'vue-clickaway'
-import iconPlane from '~/assets/svg/plane.svg'
 
 export default {
   components: {
-    iconPlane
   },
   mixins: [ clickaway ],
   props: {
@@ -58,19 +51,19 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_CITIES: 'cities/GET_CITIES',
-      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
+      GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
     }),
-    filteredCities() {
-      return this.GET_CITIES.filter(item => item.id !== this.GET_CURRENT_CITY.id)
+    filteredTypes() {
+      return this.GET_HOUSING_TYPES.filter(item => item.id !== this.GET_CURRENT_HOUSING_TYPE.id)
     }
   },
   methods: {
     ...mapMutations({
-      SET_CURRENT_CITY: 'cities/SET_CURRENT_CITY'
+      SET_CURRENT_HOUSING_TYPE: 'housing/SET_CURRENT_HOUSING_TYPE'
     }),
-    selectCity(city) {
-      this.SET_CURRENT_CITY(city)
+    selectType(city) {
+      this.SET_CURRENT_HOUSING_TYPE(city)
       this.closeList()
     },
     toggleList() {
@@ -84,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cities-dropdown {
+.housing-types-dropdown {
   position: relative;
   .dropdown-list {
     position: absolute;
@@ -104,7 +97,7 @@ export default {
     }
   }
 
-  .cities-item {
+  .housing-types-item {
     position: relative;
     display: flex;
     align-items: center;
@@ -115,43 +108,44 @@ export default {
     @include mobile {
       padding-left: 3rem;
     }
-
     &.isActive {
-      .cities-btn {
+      &::before {
         color: $black17;
+        opacity: 1,
       }
-      .icon {
+      .housing-types-btn {
         color: $black17;
-        opacity: 1;
       }
     }
-
-    & + .cities-item {
+    & + .housing-types-item {
       margin-top: 2rem;
     }
 
-    .icon {
+    &::before {
+      content: '';
       position: absolute;
-      top: 0;
-      left: 0;
+      top: calc(50% - .4rem);
+      left: .4rem;
       display: flex;
-      width: 1.5rem;
-      height: 100%;
+      width: .8rem;
+      height: .8rem;
+      background: currentColor;
+      border-radius: 50%;
       opacity: 0;
       transition: opacity 0.2s ease;
     }
-  }
-  .cities-btn {
-    white-space: nowrap;
-    cursor: pointer;
-    color: $border;
-    transition: color .2s ease;
-    &:active {
-      color: $black17;
-    }
-    @include desktop {
-      &:hover {
+
+    .housing-types-btn {
+      cursor: pointer;
+      color: $border;
+      transition: color .2s ease;
+      &:active {
         color: $black17;
+      }
+      @include desktop {
+        &:hover {
+          color: $black17;
+        }
       }
     }
   }

@@ -8,7 +8,7 @@
     >
       <button
         type="button"
-        class="housing-types-btn"
+        class="housing-types-btn text--18"
         @click="selectType(type)"
         v-html="type.name"
       />

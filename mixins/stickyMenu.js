@@ -46,7 +46,6 @@ export default {
           //   top: currentElement.position,
           //   behavior: 'smooth'
           // })
-          console.log(currentElement.element)
           currentElement.element.scrollIntoView({
             block: 'start',
             behavior: 'smooth'

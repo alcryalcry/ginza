@@ -11,7 +11,7 @@
       </div>
       <button
         type="button"
-        class="cities-btn"
+        class="cities-btn text--18"
         @click="SET_CURRENT_CITY(city)"
         v-html="city.name"
       />
@@ -102,7 +102,7 @@ export default {
       left: 0;
       display: flex;
       width: 1.5rem;
-      height: 1.5rem;
+      height: 100%;
       opacity: 0;
       transition: opacity 0.2s ease;
     }

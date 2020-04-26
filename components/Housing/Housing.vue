@@ -12,26 +12,7 @@
               <Cities />
             </div>
             <div class="sidebar-row housing-actions">
-              <button
-                class="button button--arrow"
-                :class="{ 'button--active': activeView === 'list' }"
-                @click="setView('list')"
-              >
-                <div class="icon">
-                  <iconList />
-                </div>
-                <span class="text">{{ $t('housing.listLabel') }}</span>
-              </button>
-              <button
-                class="button button--arrow"
-                :class="{ 'button--active': activeView === 'map' }"
-                @click="setView('map')"
-              >
-                <div class="icon">
-                  <iconMapList />
-                </div>
-                <span class="text">{{ $t('housing.mapLabel') }}</span>
-              </button>
+              <HousingViewChanger :active-view="activeView" @set-view="setView($event)" />
             </div>
           </div>
         </div>
@@ -67,14 +48,13 @@
 
 <script>
 import MODEL from './model'
+import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
 import HousingTypes from '~/components/Housing/Types/HousingTypes'
 import HousingCard from '~/components/Housing/Card/Card'
 import HousingLink from '~/components/Housing/Card/Link'
 import YandexMap from '~/components/YandexMap/YandexMap'
 import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'
-import iconList from '~/assets/svg/icon-list.svg'
-import iconMapList from '~/assets/svg/icon-map-list.svg'
 import stickyMenu from '~/mixins/stickyMenu'
 
 export default {
@@ -82,12 +62,11 @@ export default {
   components: {
     Section,
     YandexMap,
-    iconList,
-    iconMapList,
     HousingTypes,
     HousingCard,
     HousingLink,
-    Cities
+    Cities,
+    HousingViewChanger
   },
   mixins: [stickyMenu],
   props: {
