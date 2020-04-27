@@ -13,6 +13,16 @@ const config = {
     port: 8080
   },
   serverMiddleware: [],
+  // generate: {
+  //   routes: [
+  //     '/apartments/1',
+  //     '/apartments/1/gallery',
+  //     '/hotels/1',
+  //     '/hotels/2',
+  //     '/hotels/1/room',
+  //     '/restaurants/1'
+  //   ]
+  // },
   loading: { color: '#fff' },
   css: [
     '~assets/scss/app.scss'

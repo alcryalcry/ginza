@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "builds": [{ "src": "index.js", "use": "@now/node-server" }],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-settings",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-layout",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/index",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/about",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/housing",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/apartments/:slug",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/apartments/:slug/gallery",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/hotels/:slug",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/hotels/:slug/:room",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/get-page/restaurants/:slug",
+      "dest": "/index.js",
+      "methods": ["GET"]
+    }
+  ]
+}

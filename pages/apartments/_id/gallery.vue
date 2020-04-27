@@ -46,7 +46,7 @@ export default {
   computed: {
     generatedComps() {
       const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
-      return this.components.map((component) => {
+      return (this.components || []).map((component) => {
         const componentName = capitalize(component.name)
         return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
           .then(m => m.default)

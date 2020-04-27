@@ -12,6 +12,7 @@
 </template>
 
 <script>
+// import axios from '~/plugins/axios'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_INDEX } from '~/config/constants'
 
@@ -42,7 +43,7 @@ export default {
   computed: {
     generatedComps() {
       const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
-      return this.components.map((component) => {
+      return (this.components || []).map((component) => {
         const componentName = capitalize(component.name)
         return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
           .then(m => m.default)
