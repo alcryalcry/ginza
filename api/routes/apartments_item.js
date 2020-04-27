@@ -122,7 +122,7 @@ module.exports = {
           title: 'Лифт'
         },
         {
-          id: 'coffeemachine',
+          id: 'nespresso',
           title: 'Кофемашина Nespresso'
         },
         {

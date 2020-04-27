@@ -2,10 +2,10 @@
   <Section class="section--min features-list">
     <HeadTitleMini :info="model" />
     <div class="row list">
-      <div v-for="item in checkComponents" :key="item.id" class="col-6 col-t-6">
+      <div v-for="(item, index) in model.values" :key="item.id" class="col-6 col-t-6">
         <div class="feature">
           <div class="icon">
-            <component :is="item.id" />
+            <component :is="generatedComps[index]" />
           </div>
           <div v-if="item.title" class="title" v-html="item.title" />
         </div>
@@ -20,31 +20,10 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitleMini from '~/components/HeadTitle/Mini/HeadTitleMini'
 
-import batler from '~/assets/svg/features/batler.svg'
-import babychair from '~/assets/svg/features/babychair.svg'
-import delivery from '~/assets/svg/features/delivery.svg'
-import family from '~/assets/svg/features/family.svg'
-import breakfast from '~/assets/svg/features/breakfast.svg'
-import elevator from '~/assets/svg/features/elevator.svg'
-import coffeemachine from '~/assets/svg/features/coffeemachine.svg'
-import games from '~/assets/svg/features/games.svg'
-import ironing from '~/assets/svg/features/ironing.svg'
-import buro from '~/assets/svg/features/buro.svg'
-
 export default {
   components: {
     Section,
-    HeadTitleMini,
-    batler,
-    babychair,
-    delivery,
-    family,
-    breakfast,
-    elevator,
-    coffeemachine,
-    games,
-    ironing,
-    buro
+    HeadTitleMini
   },
   props: {
     info: {
@@ -52,21 +31,19 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     model() {
       return MODEL(this.info)
     },
-    checkComponents() {
-      return this.model.values.filter(item => !!this.$options.components[item.id])
+    generatedComps() {
+      const capitalize = (string = '') => string.charAt(0).toLowerCase() + string.slice(1)
+      return this.model.values.map((component) => {
+        const componentName = capitalize(component.id)
+        return () => import('~/assets/svg/features/' + componentName + '.svg')
+          .then(m => m.default)
+          .catch(e => import('~/assets/svg/features/default.svg'))
+      })
     }
-  },
-  created() {
-  },
-  methods: {
   }
 }
 </script>

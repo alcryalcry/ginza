@@ -54,44 +54,52 @@ module.exports = {
       title: 'Услуги и удобства',
       values: [
         {
-          id: 'batler',
-          title: 'Персональный батлер 24/7'
+          id: 'wifi',
+          title: 'Wi Fi'
         },
         {
-          id: 'babychair',
-          title: 'Детский стул'
+          id: 'safe',
+          title: 'Сейф'
         },
         {
-          id: 'delivery',
-          title: 'Доставка еды и напитков'
+          id: 'menu',
+          title: 'Меню подушек'
         },
         {
-          id: 'family',
-          title: 'Семейные апартаменты'
+          id: 'baggage',
+          title: 'Хранение багажа'
         },
         {
-          id: 'breakfast',
-          title: 'Завтрак в номер'
+          id: 'tv',
+          title: 'Цифровое телевидение'
         },
         {
-          id: 'elevator',
-          title: 'Лифт'
+          id: 'invalid',
+          title: 'Доступ для инвалидных колясок'
         },
         {
           id: 'coffeemachine',
-          title: 'Кофемашина Nespresso'
+          title: 'Кофемашина Zielinski & Rozen'
         },
         {
-          id: 'games',
-          title: 'Настольные игры'
+          id: 'multilanguage',
+          title: 'Многоязычный персонал'
         },
         {
-          id: 'ironing',
-          title: 'Гладильные принадлежности'
+          id: 'sport',
+          title: 'Спортзал'
         },
         {
-          id: 'buro',
-          title: 'Экскурсионное бюро'
+          id: 'minibar',
+          title: 'Мини-бар'
+        },
+        {
+          id: 'parking',
+          title: 'Платная парковка'
+        },
+        {
+          id: 'guide',
+          title: 'Услуги гида'
         }
       ]
     },
