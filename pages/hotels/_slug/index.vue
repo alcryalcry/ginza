@@ -1,5 +1,5 @@
 <template>
-  <LayoutGallery :class="mode">
+  <Layout :header="header" :footer="footer" :class="mode">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -8,19 +8,28 @@
         :data="components[index]"
       />
     </template>
-  </LayoutGallery>
+    <template v-slot:popup>
+      <Popup>
+        <PopupVideo />
+      </Popup>
+    </template>
+  </Layout>
 </template>
 
 <script>
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
+import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
+import Popup from '~/components/Utils/Popup'
+import PopupVideo from '~/components/Popup/Video/PopupVideo'
 
-import LayoutGallery from '~/components/Layout/LayoutGallery'
+import Layout from '~/components/Layout/Layout'
 
 export default {
-  name: 'ApartmentsOneGallery',
+  name: 'HotelsOne',
   components: {
-    LayoutGallery
+    Layout,
+    Popup,
+    PopupVideo
   },
   async asyncData(context) {
     try {
@@ -29,9 +38,8 @@ export default {
         footer = {},
         pageComponents = {}
       } = await getAsyncData(context,
-        API_ROUTES_APARTMENTS_ROOT + '/' +
-        context.route.params.slug + '/' +
-        'gallery'
+        API_ROUTES_HOTELS_ROOT + '/' +
+        context.route.params.slug
       )
       return {
         header,

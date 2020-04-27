@@ -47,6 +47,47 @@ main,
   flex-direction: column;
   flex: 1;
   width: 100%;
+
+  &.page--dark {
+    background: $black17;
+    color: $grayLight;
+    .header {
+      background: $black17;
+      color: $grayLight;
+      button {
+        &:not(:hover) {
+          color:$grayLight;
+        }
+      }
+      .header-top {
+        background: $black17;
+        border-color: $gray5c;
+      }
+      .header-menu {
+        background: $black17;
+      }
+    }
+    .breadcrumbs {
+      border-color: $gray5c;
+    }
+    .section--apartment {
+      >.container {
+        border-color: $gray5c;
+      }
+    }
+    a,
+    .link {
+      &:not(:hover) {
+        color: $grayLight;
+      }
+    }
+    .footer {
+      background: $black17;
+      &::before {
+        content: none;
+      }
+    }
+  }
 }
 
 

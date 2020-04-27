@@ -2,9 +2,6 @@ module.exports = {
   title: 'Apartment One Gallery',
   description: 'Описание страницы',
   keywords: '',
-  meta: {
-    breadcrumb: 'Галерея'
-  },
   components: [
     {
       name: 'review_page',

@@ -1,10 +1,7 @@
 module.exports = {
-  title: 'Aparts',
+  title: 'Stays',
   description: 'Описание страницы',
   keywords: '',
-  meta: {
-    breadcrumb: 'Апартаменты'
-  },
   components: [
     {
       name: 'housing_page',

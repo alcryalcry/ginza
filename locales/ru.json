@@ -1,4 +1,7 @@
 {
+  "seeAlso": {
+    "label": "Посмотрите также"
+  },
   "header": {
     "menu_name": "Меню",
     "back": "Назад",

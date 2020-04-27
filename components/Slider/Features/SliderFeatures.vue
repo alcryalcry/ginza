@@ -4,6 +4,7 @@
       <HeadTitle v-if="model.title" :info="model" />
     </Section>
     <Section class="section--no-p slider-section" :class="model.modeSlider">
+      <HeadTitle v-if="model.beforeText" :info="{ description: model.beforeText, url: false }" />
       <Slider
         v-if="model.values.length"
         :custom-options="customOptions"

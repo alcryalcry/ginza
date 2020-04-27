@@ -48,6 +48,7 @@ export default {
 <style lang="scss" scoped>
 .breadcrumbs {
   border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
   overflow: hidden;
   .breadcrumbs-list {
     display: flex;

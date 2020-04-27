@@ -1,5 +1,5 @@
 <template>
-  <LayoutGallery :class="mode">
+  <Layout :header="header" :footer="footer" :class="mode">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -8,19 +8,20 @@
         :data="components[index]"
       />
     </template>
-  </LayoutGallery>
+  </Layout>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
+import { API_ROUTES_HOUSING } from '~/config/constants'
 
-import LayoutGallery from '~/components/Layout/LayoutGallery'
+import Layout from '~/components/Layout/Layout'
 
 export default {
-  name: 'ApartmentsOneGallery',
+  name: 'Apartments',
   components: {
-    LayoutGallery
+    Layout
   },
   async asyncData(context) {
     try {
@@ -29,9 +30,7 @@ export default {
         footer = {},
         pageComponents = {}
       } = await getAsyncData(context,
-        API_ROUTES_APARTMENTS_ROOT + '/' +
-        context.route.params.slug + '/' +
-        'gallery'
+        API_ROUTES_HOUSING
       )
       return {
         header,
@@ -52,7 +51,22 @@ export default {
           .then(m => m.default)
           .catch(e => import('~/components/NotFound/NotFound.vue'))
       })
+    },
+    ...mapGetters({
+      GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
+    })
+  },
+  created() {
+    const type = this.GET_HOUSING_TYPES.find(item => item.id === this.$route.path.replace('/', ''))
+    if (type !== this.GET_CURRENT_HOUSING_TYPE) {
+      this.SET_CURRENT_HOUSING_TYPE(type)
     }
+  },
+  methods: {
+    ...mapMutations({
+      SET_CURRENT_HOUSING_TYPE: 'housing/SET_CURRENT_HOUSING_TYPE'
+    })
   }
 }
 </script>

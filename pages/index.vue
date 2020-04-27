@@ -1,5 +1,5 @@
 <template>
-  <Layout :class="{ isMainPage: !!header }" :is-header-main="true" :header="header" :footer="footer">
+  <Layout :class="[{ isMainPage: !!header }, mode]" :is-header-main="true" :header="header" :footer="footer">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -18,7 +18,7 @@ import { API_ROUTES_INDEX } from '~/config/constants'
 import Layout from '~/components/Layout/Layout'
 
 export default {
-  name: 'Index',
+  name: 'MainPage',
   components: {
     Layout
   },
@@ -32,7 +32,8 @@ export default {
       return {
         header,
         footer,
-        components: pageComponents.components
+        components: pageComponents.components,
+        mode: pageComponents.mode || ''
       }
     } catch (e) {
       console.warn('ERROR FROM page (asyncData)', e)

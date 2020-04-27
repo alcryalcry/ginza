@@ -1,5 +1,5 @@
 <template>
-  <Layout :header="header" :footer="footer">
+  <Layout :header="header" :footer="footer" :class="mode">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -8,19 +8,28 @@
         :data="components[index]"
       />
     </template>
+    <template v-slot:popup>
+      <Popup>
+        <PopupVideo />
+      </Popup>
+    </template>
   </Layout>
 </template>
 
 <script>
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_APARTS } from '~/config/constants'
+import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
+import Popup from '~/components/Utils/Popup'
+import PopupVideo from '~/components/Popup/Video/PopupVideo'
 
 import Layout from '~/components/Layout/Layout'
 
 export default {
-  name: 'About',
+  name: 'HotelsOneRoom',
   components: {
-    Layout
+    Layout,
+    Popup,
+    PopupVideo
   },
   async asyncData(context) {
     try {
@@ -28,11 +37,16 @@ export default {
         header = {},
         footer = {},
         pageComponents = {}
-      } = await getAsyncData(context, API_ROUTES_APARTS)
+      } = await getAsyncData(context,
+        API_ROUTES_HOTELS_ROOT + '/' +
+        context.route.params.slug + '/' +
+        context.route.params.room
+      )
       return {
         header,
         footer,
-        components: pageComponents.components
+        components: pageComponents.components,
+        mode: pageComponents.mode || ''
       }
     } catch (e) {
       console.warn('ERROR FROM page (asyncData)', e)

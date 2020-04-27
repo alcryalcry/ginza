@@ -1,5 +1,5 @@
 <template>
-  <Layout :header="header" :footer="footer">
+  <Layout :header="header" :footer="footer" :class="mode">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -32,7 +32,8 @@ export default {
       return {
         header,
         footer,
-        components: pageComponents.components
+        components: pageComponents.components,
+        mode: pageComponents.mode || ''
       }
     } catch (e) {
       console.warn('ERROR FROM page (asyncData)', e)

@@ -1,5 +1,5 @@
 <template>
-  <Layout :header="header" :footer="footer">
+  <Layout :header="header" :footer="footer" :class="mode">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -25,7 +25,7 @@ import PopupVideo from '~/components/Popup/Video/PopupVideo'
 import Layout from '~/components/Layout/Layout'
 
 export default {
-  name: 'ApartmentOne',
+  name: 'ApartmentsOne',
   components: {
     Layout,
     Popup,
@@ -37,11 +37,15 @@ export default {
         header = {},
         footer = {},
         pageComponents = {}
-      } = await getAsyncData(context, API_ROUTES_APARTMENTS_ROOT + '/' + context.route.params.id)
+      } = await getAsyncData(context,
+        API_ROUTES_APARTMENTS_ROOT + '/' +
+        context.route.params.slug
+      )
       return {
         header,
         footer,
-        components: pageComponents.components
+        components: pageComponents.components,
+        mode: pageComponents.mode || ''
       }
     } catch (e) {
       console.warn('ERROR FROM page (asyncData)', e)

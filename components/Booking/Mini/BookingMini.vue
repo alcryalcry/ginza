@@ -70,7 +70,7 @@ export default {
   border-radius: 4px;
   border: 1px solid $brown;
   transition: background-color .2s ease, border-color .2s ease;
-  .isMainPage & {
+  .booking--main & {
     background-color: $white;
     border-color: $border;
     .booking-button {

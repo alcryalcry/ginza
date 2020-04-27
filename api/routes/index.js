@@ -4,7 +4,8 @@ module.exports = {
   keywords: '',
   components: [
     {
-      name: 'booking_mini'
+      name: 'booking_mini',
+      mode: 'booking--main'
     },
     {
       name: 'slider_main',

@@ -6,7 +6,7 @@
           <div class="sidebar-content ">
             <div class="sidebar-row sidebar-list housing-types-list">
               <HousingTypes @select-type="selectType" />
-              <nuxt-link class="link link--brown" :to="localePath('aparts')">{{ $t('housing.all') }}</nuxt-link>
+              <nuxt-link class="link link--brown" :to="localePath('apartments')">{{ $t('housing.all') }}</nuxt-link>
             </div>
             <div class="sidebar-row sidebar-list">
               <Cities />

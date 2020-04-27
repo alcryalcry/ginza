@@ -51,20 +51,28 @@ app.get('/get-page/about', (req, res) => {
   res.send(reponseJson('about'))
 })
 
-app.get('/get-page/aparts', (req, res) => {
-  res.send(reponseJson('aparts'))
+app.get('/get-page/housing', (req, res) => {
+  res.send(reponseJson('housing'))
 })
 
-app.get('/get-page/apartments/:id', (req, res) => {
+app.get('/get-page/apartments/:slug', (req, res) => {
   res.send(reponseJson('apartments_item'))
 })
 
-app.get('/get-page/apartments/:id/gallery', (req, res) => {
+app.get('/get-page/apartments/:slug/gallery', (req, res) => {
   res.send(reponseJson('apartments_item_gallery'))
 })
 
-app.get('/get-page/hotels/:id', (req, res) => {
+app.get('/get-page/hotels/:slug', (req, res) => {
   res.send(reponseJson('hotels_item'))
+})
+
+app.get('/get-page/hotels/:slug/:room', (req, res) => {
+  res.send(reponseJson('hotels_room'))
+})
+
+app.get('/get-page/restaurants/:slug', (req, res) => {
+  res.send(reponseJson('restaurants_item'))
 })
 
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {

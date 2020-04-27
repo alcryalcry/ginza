@@ -1,14 +1,14 @@
 <template>
-  <BookingMini :info="model" :class="model.mode" :data-anchor="model.anchor" />
+  <SeeAlso :info="model" :class="model.mode" :data-anchor="model.anchor" />
 </template>
 
 <script>
-import BookingMini from '~/components/Booking/Mini/BookingMini'
+import SeeAlso from '~/components/SeeAlso/SeeAlso'
 
 export default {
-  name: 'MiddlewareBookingMini',
+  name: 'MiddlewareSeeAlso',
   components: {
-    BookingMini
+    SeeAlso
   },
   props: {
     data: {
