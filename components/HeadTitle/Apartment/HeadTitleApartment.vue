@@ -19,19 +19,18 @@
     <div class="description">
       <HeadTitleMini :info="model.description" />
       <p v-if="model.description.text" class="text text--16" v-html="model.description.text" />
-      <vue-slide-toggle
-        v-if="model.description.moreText"
-        :open="isOpen"
-      >
-        <p class="more-text" v-html="model.description.moreText" />
-      </vue-slide-toggle>
-      <div class="more-link">
-        <button
-          class="link link--brown link--tdu"
-          @click="isOpen = !isOpen"
-          v-html="isOpen ? $t('showMoreDescription.hide') : $t('showMoreDescription.show')"
-        />
-      </div>
+      <template v-if="model.description.moreText">
+        <vue-slide-toggle :open="isOpen">
+          <p class="more-text" v-html="model.description.moreText" />
+        </vue-slide-toggle>
+        <div class="more-link">
+          <button
+            class="link link--brown link--tdu"
+            @click="isOpen = !isOpen"
+            v-html="isOpen ? $t('showMoreDescription.hide') : $t('showMoreDescription.show')"
+          />
+        </div>
+      </template>
     </div>
   </Section>
 </template>
@@ -112,7 +111,7 @@ export default {
 
   .description {
     max-width: 62rem;
-    margin-top: 12rem;
+    margin-top: 6rem;
 
     .text {
       margin-bottom: 3rem;

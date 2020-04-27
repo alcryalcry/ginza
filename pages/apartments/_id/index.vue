@@ -18,7 +18,7 @@
 
 <script>
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_APARTMENT_ROOT } from '~/config/constants'
+import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
 import Popup from '~/components/Utils/Popup'
 import PopupVideo from '~/components/Popup/Video/PopupVideo'
 
@@ -37,7 +37,7 @@ export default {
         header = {},
         footer = {},
         pageComponents = {}
-      } = await getAsyncData(context, API_ROUTES_APARTMENT_ROOT + '/' + context.route.params.id)
+      } = await getAsyncData(context, API_ROUTES_APARTMENTS_ROOT + '/' + context.route.params.id)
       return {
         header,
         footer,

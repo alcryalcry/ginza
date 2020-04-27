@@ -14,7 +14,7 @@
         >
           <Section class="section--no-p section--min">
             <div class="toggle-button">
-              <div class="text text--24 medium" v-html="item.title" />
+              <div class="text text--24 bold" v-html="item.title" />
               <div class="icon">
                 <iconPlus />
               </div>

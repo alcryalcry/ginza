@@ -53,7 +53,9 @@ export default {
   .title {
     display: flex;
     align-items: center;
-    margin-bottom: 3rem;
+  }
+  .description {
+    margin-top: 3rem;
   }
 }
 </style>

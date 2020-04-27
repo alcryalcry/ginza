@@ -4,15 +4,11 @@ const bodyParser = require('body-parser')
 const PORT = 3000
 require('dotenv').config()
 
-// let currentLang = 'ru'
-
-// const reponseJson = name => require(`./data/${name}_${currentLang}.js`)
-const reponseJson = name => require(`./data/${name}.js`)
+const reponseJson = name => require(`./routes/${name}.js`)
 
 app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
-  // currentLang = req.query.lang === 'en' ? 'en' : 'ru'
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Credentials', 'true')
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT')
@@ -60,11 +56,15 @@ app.get('/get-page/aparts', (req, res) => {
 })
 
 app.get('/get-page/apartments/:id', (req, res) => {
-  res.send(reponseJson('apartment_item'))
+  res.send(reponseJson('apartments_item'))
 })
 
 app.get('/get-page/apartments/:id/gallery', (req, res) => {
-  res.send(reponseJson('apartment_item_gallery'))
+  res.send(reponseJson('apartments_item_gallery'))
+})
+
+app.get('/get-page/hotels/:id', (req, res) => {
+  res.send(reponseJson('hotels_item'))
 })
 
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {

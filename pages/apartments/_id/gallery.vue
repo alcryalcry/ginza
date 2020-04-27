@@ -13,7 +13,7 @@
 
 <script>
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_APARTMENT_ROOT } from '~/config/constants'
+import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
 
 import LayoutGallery from '~/components/Layout/LayoutGallery'
 
@@ -28,7 +28,7 @@ export default {
         header = {},
         footer = {},
         pageComponents = {}
-      } = await getAsyncData(context, API_ROUTES_APARTMENT_ROOT + '/' + context.route.params.id + '/' + 'gallery')
+      } = await getAsyncData(context, API_ROUTES_APARTMENTS_ROOT + '/' + context.route.params.id + '/' + 'gallery')
       return {
         header,
         footer,
