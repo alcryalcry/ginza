@@ -84,6 +84,13 @@ export default {
       }
     }
   }
+  .page--dark & {
+    background-color: $white;
+    border-color: $border;
+    .booking-button {
+      color: $black17;
+    }
+  }
 }
 
 .booking-list {

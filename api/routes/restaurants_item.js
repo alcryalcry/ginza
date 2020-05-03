@@ -5,7 +5,17 @@ module.exports = {
   mode: 'page--dark',
   components: [
     {
-      name: 'booking_mini'
+      name: 'hero_restaurant',
+      properties: {
+        image: 'https://picsum.photos/id/835/1440/900',
+        popupImage: 'https://picsum.photos/id/998/1440/900',
+        logo: '/images/restaurant-logo.svg',
+        restaurantName: 'Lilo',
+        type: 'Ресторан',
+        parentPlace: 'Arka',
+        city: 'Ростов-на-Дону',
+        menuFile: '/'
+      }
     },
     {
       name: 'slider_features',

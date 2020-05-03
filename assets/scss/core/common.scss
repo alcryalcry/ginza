@@ -54,6 +54,29 @@ main,
     .header {
       background: $black17;
       color: $grayLight;
+      .burger-button {
+        color: $white;
+      }
+      .cities {
+        .cities-item {
+          &.isActive {
+            .cities-btn {
+              color: $grayLight;
+            }
+            .icon {
+              color: $grayLight;
+              opacity: 1;
+            }
+          }
+          .cities-btn {
+            @include desktop {
+              &:hover {
+                color: $brown;
+              }
+            }
+          }
+        }
+      }
       button {
         &:not(:hover) {
           color:$grayLight;
