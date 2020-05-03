@@ -27,7 +27,7 @@
         </div>
       </template>
       <template v-slot:navigation>
-        <div class="navigation d-show navigation--transparent-white">
+        <div class="navigation d-show" :class="model.navigationMode || 'navigation--transparent-white'">
           <button type="button" class="navigation-btn swiper-button-prev">
             <iconArrowCircle class="icon" />
           </button>

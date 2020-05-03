@@ -21,7 +21,8 @@ export default {
       return {
         mode: '',
         anchor: false,
-        ...this.data
+        ...this.data,
+        ...(this.data.properties || {})
       }
     }
   }

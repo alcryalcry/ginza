@@ -1,7 +1,6 @@
 export default (info) => {
   const {
-    url = '',
-    linkLabel = '',
+    navigationMode = '',
     values = []
   } = info || {}
 
@@ -27,8 +26,7 @@ export default (info) => {
   })
 
   return {
-    url,
-    linkLabel,
+    navigationMode,
     values: adaptedSlides
   }
 }

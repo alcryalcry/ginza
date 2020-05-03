@@ -5,7 +5,7 @@
     </Section>
     <Section class="section--no-p section--min">
       <div class="row">
-        <div v-for="item in model.values" :key="item.title + item.url" class="col-4 col-t-6">
+        <div v-for="item in model.values" :key="item.title + item.url" :class="item.mode" class="service-col col-4 col-t-6">
           <nuxt-link :to="localePath(item.url)" class="card">
             <div class="card-image">
               <picture v-if="item.image" class="image">
@@ -79,6 +79,19 @@ export default {
     .image {
       width: 100%;
       height: 100%;
+    }
+  }
+
+  .service-col {
+    &.size-full {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding: 1rem;
+      @include mobile {
+        flex: 1 0 auto;
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 }

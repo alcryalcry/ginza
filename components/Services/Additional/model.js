@@ -11,11 +11,13 @@ export default (info) => {
     const {
       url = '',
       title = '',
+      mode = '',
       image = ''
     } = item
     return {
       url,
       title,
+      mode,
       image
     }
   })
