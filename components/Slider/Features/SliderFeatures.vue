@@ -10,9 +10,11 @@
         :custom-options="customOptions"
       >
         <template v-slot:slides>
-          <div
+          <component
+            :is="slide.slug ? 'nuxt-link' : 'div'"
             v-for="slide in model.values"
             :key="slide.id"
+            :to="slide.slug ? localePath({ name: 'restaurants-slug', params: { slug: slide.slug } }) : false"
             :class="slide.mode"
             class="swiper-slide"
           >
@@ -20,7 +22,7 @@
               <img :src="slide.image" :alt="slide.name" data-manual-lazy>
             </picture>
             <div v-if="slide.name" class="text text--16" v-html="slide.name" />
-          </div>
+          </component>
         </template>
       </Slider>
       <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" />
@@ -68,7 +70,9 @@ export default {
       return MODEL(this.info)
     }
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$router.options.routes)
+  },
   methods: {}
 }
 </script>

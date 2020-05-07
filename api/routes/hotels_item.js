@@ -12,42 +12,49 @@ module.exports = {
       values: [
         {
           id: 1,
+          slug: 'gastro_space',
           mode: 'vertical',
           image: 'https://picsum.photos/id/106/300/460',
           name: 'Gastro Space'
         },
         {
           id: 2,
+          slug: 'lilo',
           mode: 'horizontal',
           image: 'https://picsum.photos/id/1060/540/370',
           name: 'Lilo'
         },
         {
           id: 3,
+          slug: 'ten_june',
           mode: 'vertical',
           image: 'https://picsum.photos/id/1062/300/460',
           name: 'Ten June'
         },
         {
           id: 4,
+          slug: 'rest4',
           mode: 'vertical',
           image: 'https://picsum.photos/id/106/300/460',
           name: 'Gastro Space'
         },
         {
           id: 5,
+          slug: 'rest5',
           mode: 'horizontal',
           image: 'https://picsum.photos/id/1060/540/370',
           name: 'Gastro Space'
         },
         {
           id: 6,
+          slug: 'rest6',
           mode: 'horizontal',
           image: 'https://picsum.photos/id/1062/300/460',
           name: 'Gastro Space'
         },
         {
           id: 7,
+          slug: 'rest7',
           mode: 'vertical',
           image: 'https://picsum.photos/id/106/300/460',
           name: 'Gastro Space'
