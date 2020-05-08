@@ -17,7 +17,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://picsum.photos/id/237/780/460.jpg'
+                  image: '/images/gallery/gallery-2-1.jpg'
                 }
               ]
             },
@@ -26,11 +26,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-one',
-                  image: 'https://picsum.photos/id/1066/460/464.jpg'
+                  image: '/images/gallery/gallery-2-2.jpg'
                 },
                 {
                   mode: 'size-two',
-                  image: 'https://picsum.photos/id/173/300/464.jpg'
+                  image: '/images/gallery/gallery-2-aaa.jpg'
                 }
               ]
             },
@@ -42,15 +42,15 @@ module.exports = {
                   values: [
                     {
                       id: 1,
-                      image: 'https://picsum.photos/id/237/780/460.jpg'
+                      image: '/images/gallery/gallery-2-18.jpg'
                     },
                     {
                       id: 2,
-                      image: 'https://picsum.photos/id/244/780/460.jpg'
+                      image: '/images/gallery/gallery-2-1.jpg'
                     },
                     {
                       id: 3,
-                      image: 'https://picsum.photos/id/299/780/460.jpg'
+                      image: '/images/gallery/gallery-2-19.jpg'
                     }
                   ]
                 }
@@ -71,15 +71,15 @@ module.exports = {
                   values: [
                     {
                       id: 1,
-                      image: 'https://picsum.photos/id/237/780/460.jpg'
+                      image: '/images/gallery/gallery-2-17.jpg'
                     },
                     {
                       id: 2,
-                      image: 'https://picsum.photos/id/237/780/460.jpg'
+                      image: '/images/gallery/gallery-1-1.jpg'
                     },
                     {
                       id: 3,
-                      image: 'https://picsum.photos/id/237/780/460.jpg'
+                      image: '/images/gallery/gallery-2-2.jpg'
                     }
                   ]
                 }
@@ -90,11 +90,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-one',
-                  image: 'https://picsum.photos/id/1066/460/464.jpg'
+                  image: '/images/gallery/gallery-2-16.jpg'
                 },
                 {
                   mode: 'size-two',
-                  image: 'https://picsum.photos/id/173/300/464.jpg'
+                  image: '/images/gallery/gallery-2-15.jpg'
                 }
               ]
             }
@@ -110,11 +110,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-half',
-                  image: 'https://picsum.photos/id/1066/480/480.jpg'
+                  image: '/images/gallery/gallery-2-12.jpg'
                 },
                 {
                   mode: 'size-half',
-                  image: 'https://picsum.photos/id/173/380/480.jpg'
+                  image: '/images/gallery/gallery-2-13.jpg'
                 }
               ]
             },
@@ -123,11 +123,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-half',
-                  image: 'https://picsum.photos/id/1066/480/480.jpg'
+                  image: '/images/gallery/gallery-2-14.jpg'
                 },
                 {
                   mode: 'size-half',
-                  image: 'https://picsum.photos/id/173/380/480.jpg'
+                  image: '/images/gallery/gallery-2-10.jpg'
                 }
               ]
             },
@@ -136,7 +136,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://picsum.photos/id/173/780/460.jpg'
+                  image: '/images/gallery/gallery-2-10.jpg'
                 }
               ]
             }
@@ -152,7 +152,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://picsum.photos/id/788/780/460.jpg'
+                  image: '/images/gallery/gallery-2-9.jpg'
                 }
               ]
             }

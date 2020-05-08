@@ -78,37 +78,17 @@ module.exports = {
         {
           id: 1,
           mode: 'vertical',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-3-1.jpg'
         },
         {
           id: 2,
           mode: 'horizontal',
-          image: 'https://picsum.photos/id/1060/540/370'
+          image: '/images/feature/feature-preview-3-2.jpg'
         },
         {
           id: 3,
           mode: 'vertical',
-          image: 'https://picsum.photos/id/1062/300/460'
-        },
-        {
-          id: 4,
-          mode: 'vertical',
-          image: 'https://picsum.photos/id/106/300/460'
-        },
-        {
-          id: 5,
-          mode: 'horizontal',
-          image: 'https://picsum.photos/id/1060/540/370'
-        },
-        {
-          id: 6,
-          mode: 'horizontal',
-          image: 'https://picsum.photos/id/1062/300/460'
-        },
-        {
-          id: 7,
-          mode: 'vertical',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-3-3.jpg'
         }
       ]
     },
@@ -127,7 +107,7 @@ module.exports = {
                 {
                   videoSrc: 'https://player.vimeo.com/video/76979871',
                   mode: 'size-full',
-                  image: 'https://picsum.photos/id/10/780/464.jpg'
+                  image: '/images/gallery/gallery-1-1.jpg'
                 }
               ]
             },
@@ -136,11 +116,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-one',
-                  image: 'https://picsum.photos/id/1014/300/464.jpg'
+                  image: '/images/gallery/gallery-1-2.jpg'
                 },
                 {
                   mode: 'size-two',
-                  image: 'https://picsum.photos/id/1012/460/464.jpg'
+                  image: '/images/gallery/gallery-1-3.jpg'
                 }
               ]
             }
@@ -158,7 +138,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://picsum.photos/id/1027/780/464.jpg'
+                  image: '/images/gallery/gallery-1-4.jpg'
                 }
               ]
             }
@@ -173,11 +153,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-two',
-                  image: 'https://picsum.photos/id/1066/460/464.jpg'
+                  image: '/images/gallery/gallery-1-5.jpg'
                 },
                 {
                   mode: 'size-one',
-                  image: 'https://picsum.photos/id/173/300/464.jpg'
+                  image: '/images/gallery/gallery-1-6.jpg'
                 }
               ]
             },
@@ -186,11 +166,11 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-one',
-                  image: 'https://picsum.photos/id/237/300/464.jpg'
+                  image: '/images/gallery/gallery-1-7.jpg'
                 },
                 {
                   mode: 'size-two',
-                  image: 'https://picsum.photos/id/244/460/464.jpg'
+                  image: '/images/gallery/gallery-1-8.jpg'
                 }
               ]
             }
@@ -208,7 +188,7 @@ module.exports = {
               cols: [
                 {
                   mode: 'size-full',
-                  image: 'https://picsum.photos/id/225/780/464.jpg'
+                  image: '/images/gallery/gallery-1-9.jpg'
                 }
               ]
             }
@@ -228,43 +208,43 @@ module.exports = {
           id: 1,
           mode: 'vertical',
           name: 'Завтраки в постель',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-2-1.jpg'
         },
         {
           id: 2,
           mode: 'horizontal',
           name: '20% скидка в ресторанах Ginza Project ',
-          image: 'https://picsum.photos/id/1060/540/370'
+          image: '/images/feature/feature-preview-2-2.jpg'
         },
         {
           id: 3,
           mode: 'vertical',
           name: 'Сервис 24/7',
-          image: 'https://picsum.photos/id/1062/300/460'
+          image: '/images/feature/feature-preview-2-3.jpg'
         },
         {
           id: 4,
           mode: 'vertical',
           name: 'Расположение в центре города',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-2-4.jpg'
         },
         {
           id: 5,
           mode: 'horizontal',
           name: 'Стильные интерьеры',
-          image: 'https://picsum.photos/id/1060/540/370'
+          image: '/images/feature/feature-preview-2-5.jpg'
         },
         {
           id: 6,
           mode: 'horizontal',
           name: 'Персональный вход',
-          image: 'https://picsum.photos/id/1062/300/460'
+          image: '/images/feature/feature-preview-2-6.jpg'
         },
         {
           id: 7,
           mode: 'vertical',
           name: 'VIP-экскурсии по городу',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-2-7.jpg'
         }
       ]
     },
@@ -276,32 +256,32 @@ module.exports = {
         {
           id: 1,
           url: '/',
-          image: 'https://picsum.photos/id/628/300/300'
+          image: '/images/instagram/instagram-1.jpg'
         },
         {
           id: 2,
           url: '/',
-          image: 'https://picsum.photos/id/629/300/300'
+          image: '/images/instagram/instagram-2.jpg'
         },
         {
           id: 3,
           url: '/',
-          image: 'https://picsum.photos/id/633/300/300'
+          image: '/images/instagram/instagram-3.jpg'
         },
         {
           id: 4,
           url: '/',
-          image: 'https://picsum.photos/id/64/300/300'
+          image: '/images/instagram/instagram-4.jpg'
         },
         {
           id: 5,
           url: '/',
-          image: 'https://picsum.photos/id/65/300/300'
+          image: '/images/instagram/instagram-5.jpg'
         },
         {
           id: 6,
           url: '/',
-          image: 'https://picsum.photos/id/656/300/300'
+          image: '/images/instagram/instagram-2.jpg'
         }
       ]
     },

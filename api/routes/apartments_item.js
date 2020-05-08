@@ -15,22 +15,22 @@ module.exports = {
           title: 'Karavannaya 11',
           video: {
             videoSrc: 'https://player.vimeo.com/video/76979871',
-            image: 'https://picsum.photos/id/10/780/464.jpg'
+            image: '/images/gallery/gallery-2-5.jpg'
           }
         }
       },
       values: [
         {
           title: '1',
-          image: '/images/DSC04920.jpg'
+          image: '/images/main/main-1.jpg'
         },
         {
           title: '2',
-          image: 'https://picsum.photos/id/604/1440/700'
+          image: '/images/gallery/gallery-2-2.jpg'
         },
         {
           title: '3',
-          image: 'https://picsum.photos/id/594/1440/700'
+          image: '/images/main/main-2.jpg'
         }
       ]
     },
@@ -239,37 +239,37 @@ module.exports = {
       values: [
         {
           id: 1,
-          image: 'https://picsum.photos/id/237/60/60',
+          image: '/images/user/user-1.png',
           userName: 'Лидия Черникова',
           text: 'Это самые удобные кровати, на которых мне доводилось спать. Ты ложишься и тебя словно обнимает мягкое удобное облако. Просто какое-то волшебство. Хочется вернуться, и еще раз испытать эти ощущения.'
         },
         {
           id: 2,
-          image: 'https://picsum.photos/id/231/60/60',
+          image: '/images/user/user-2.png',
           userName: 'Татьяна Путилина',
           text: 'Идеальное местоположение - самый центр города. Жили на верхнем этаже, порадовали очень большие окна и отличный вид на главную улицу города. Отель новый, все стильное, чистое, красивое.'
         },
         {
           id: 3,
-          image: 'https://picsum.photos/id/200/60/60',
+          image: '/images/user/user-1.png',
           userName: 'Лидия Черникова',
           text: 'Ты ложишься и тебя словно обнимает мягкое удобное облако. Просто какое-то волшебство.'
         },
         {
           id: 4,
-          image: 'https://picsum.photos/id/201/60/60',
+          image: '/images/user/user-2.png',
           userName: 'Татьяна Путилина',
           text: 'Идеальное местоположение - самый центр города. Жили на верхнем этаже, порадовали очень большие окна и отличный вид на главную улицу города. Отель новый, все стильное, чистое, красивое.'
         },
         {
           id: 5,
-          image: 'https://picsum.photos/id/202/60/60',
+          image: '/images/user/user-1.png',
           userName: 'Лидия Черникова',
           text: 'Это самые удобные кровати, на которых мне доводилось спать. Ты ложишься и тебя словно обнимает мягкое удобное облако. Просто какое-то волшебство. Хочется вернуться, и еще раз испытать эти ощущения.'
         },
         {
           id: 6,
-          image: 'https://picsum.photos/id/203/60/60',
+          image: '/images/user/user-2.png',
           userName: 'Татьяна Путилина',
           text: 'Идеальное местоположение - самый центр города. Жили на верхнем этаже, порадовали очень большие окна и отличный вид на главную улицу города. Отель новый, все стильное, чистое, красивое.'
         }
@@ -308,32 +308,32 @@ module.exports = {
         {
           url: '/',
           title: 'Свадебные предложения',
-          image: 'https://picsum.photos/id/594/250/280'
+          image: '/images/service-additional/service-additional-1.jpg'
         },
         {
           url: '/',
           title: 'Экскурсии и туры',
-          image: 'https://picsum.photos/id/444/250/280'
+          image: '/images/service-additional/service-additional-2.jpg'
         },
         {
           url: '/',
           title: 'Beauty Concierge',
-          image: 'https://picsum.photos/id/596/250/280'
+          image: '/images/service-additional/service-additional-3.jpg'
         },
         {
           url: '/',
           title: 'Личный водитель',
-          image: 'https://picsum.photos/id/220/250/280'
+          image: '/images/service-additional/service-additional-full.jpg'
         },
         {
           url: '/',
           title: 'Цветочный домик',
-          image: 'https://picsum.photos/id/598/250/280'
+          image: '/images/gallery/gallery-2-12.jpg'
         },
         {
           url: '/',
           title: 'Прачечная и химчистка',
-          image: 'https://picsum.photos/id/599/250/280'
+          image: '/images/gallery/gallery-2-10.jpg'
         }
       ]
     },
@@ -349,9 +349,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Rubinsteina 12',
           images: [
-            'https://picsum.photos/id/582/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/58/300/400'
+            '/images/hotel/hotel-preview-1.jpg'
           ],
           coords: [59.932211, 30.346072],
           params: [
@@ -374,9 +372,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Karavannaya 11',
           images: [
-            'https://picsum.photos/id/532/300/400',
-            'https://picsum.photos/id/586/300/400',
-            'https://picsum.photos/id/58/300/400'
+            '/images/hotel/hotel-preview-2.jpg'
           ],
           coords: [59.032211, 30.446072],
           params: [
@@ -399,9 +395,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/560/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/600/300/400'
+            '/images/hotel/hotel-preview-3.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [
@@ -424,9 +418,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/550/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/22/300/400'
+            '/images/apartment/apartment-preview-1.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [
@@ -449,9 +441,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/570/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/44/300/400'
+            '/images/apartment/apartment-preview-2.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [
@@ -474,9 +464,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/12/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/1/300/400'
+            '/images/apartment/apartment-preview-3.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [

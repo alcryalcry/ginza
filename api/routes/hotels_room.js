@@ -11,15 +11,15 @@ module.exports = {
       values: [
         {
           title: '1',
-          image: 'https://picsum.photos/id/896/1440/700'
+          image: '/images/main/main-1.jpg'
         },
         {
           title: '2',
-          image: 'https://picsum.photos/id/604/1440/700'
+          image: '/images/main/main-2.jpg'
         },
         {
           title: '3',
-          image: 'https://picsum.photos/id/594/1440/700'
+          image: '/images/main/main-1.jpg'
         }
       ]
     },
@@ -144,9 +144,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Rubinsteina 12',
           images: [
-            'https://picsum.photos/id/582/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/58/300/400'
+            '/images/hotel/hotel-preview-1.jpg'
           ],
           coords: [59.932211, 30.346072],
           params: [
@@ -169,9 +167,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Karavannaya 11',
           images: [
-            'https://picsum.photos/id/532/300/400',
-            'https://picsum.photos/id/586/300/400',
-            'https://picsum.photos/id/58/300/400'
+            '/images/hotel/hotel-preview-2.jpg'
           ],
           coords: [59.032211, 30.446072],
           params: [
@@ -194,9 +190,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/560/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/600/300/400'
+            '/images/hotel/hotel-preview-3.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [
@@ -219,9 +213,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/550/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/22/300/400'
+            '/images/apartment/apartment-preview-1.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [
@@ -244,9 +236,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/570/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/44/300/400'
+            '/images/apartment/apartment-preview-2.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [
@@ -269,9 +259,7 @@ module.exports = {
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
-            'https://picsum.photos/id/12/300/400',
-            'https://picsum.photos/id/57/300/400',
-            'https://picsum.photos/id/1/300/400'
+            '/images/apartment/apartment-preview-3.jpg'
           ],
           coords: [59.232211, 30.906072],
           params: [

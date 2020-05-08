@@ -7,8 +7,8 @@ module.exports = {
     {
       name: 'hero_restaurant',
       properties: {
-        image: 'https://picsum.photos/id/835/1440/900',
-        popupImage: 'https://picsum.photos/id/998/1440/900',
+        image: '/images/restaurant/restaurant-1.jpg',
+        popupImage: '/images/restaurant/restaurant-full.jpg',
         logo: '/images/restaurant-logo.svg',
         restaurantName: 'Lilo',
         type: 'Ресторан',
@@ -24,37 +24,32 @@ module.exports = {
         {
           id: 1,
           mode: 'vertical',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-1.jpg'
         },
         {
           id: 2,
           mode: 'horizontal',
-          image: 'https://picsum.photos/id/1060/540/370'
+          image: '/images/feature/feature-preview-2.jpg'
         },
         {
           id: 3,
           mode: 'vertical',
-          image: 'https://picsum.photos/id/1062/300/460'
+          image: '/images/feature/feature-preview-3.jpg'
         },
         {
           id: 4,
           mode: 'vertical',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-2-1.jpg'
         },
         {
           id: 5,
           mode: 'horizontal',
-          image: 'https://picsum.photos/id/1060/540/370'
+          image: '/images/feature/feature-preview-2-2.jpg'
         },
         {
           id: 6,
           mode: 'horizontal',
-          image: 'https://picsum.photos/id/1062/300/460'
-        },
-        {
-          id: 7,
-          mode: 'vertical',
-          image: 'https://picsum.photos/id/106/300/460'
+          image: '/images/feature/feature-preview-2-3.jpg'
         }
       ]
     },
