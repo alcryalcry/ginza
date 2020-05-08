@@ -24,32 +24,17 @@ module.exports = {
         {
           id: 1,
           mode: 'vertical',
-          image: '/images/feature/feature-preview-1.jpg'
+          image: '/images/restaurant/restaurant-preview-1.jpg'
         },
         {
           id: 2,
           mode: 'horizontal',
-          image: '/images/feature/feature-preview-2.jpg'
+          image: '/images/restaurant/restaurant-preview-2.jpg'
         },
         {
           id: 3,
           mode: 'vertical',
-          image: '/images/feature/feature-preview-3.jpg'
-        },
-        {
-          id: 4,
-          mode: 'vertical',
-          image: '/images/feature/feature-preview-2-1.jpg'
-        },
-        {
-          id: 5,
-          mode: 'horizontal',
-          image: '/images/feature/feature-preview-2-2.jpg'
-        },
-        {
-          id: 6,
-          mode: 'horizontal',
-          image: '/images/feature/feature-preview-2-3.jpg'
+          image: '/images/restaurant/restaurant-preview-3.jpg'
         }
       ]
     },
