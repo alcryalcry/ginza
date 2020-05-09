@@ -24,6 +24,146 @@ module.exports = {
       }
     },
     {
+      name: 'filter_rooms',
+      properties: {
+        filterType: 'adult',
+        filters: [
+          {
+            id: '',
+            name: 'Все номера'
+          },
+          {
+            id: 'double',
+            name: 'Двухместные'
+          },
+          {
+            id: 'triple',
+            name: 'Трехместные'
+          },
+          {
+            id: 'more_3',
+            name: 'Более'
+          }
+        ]
+      },
+      values: [
+        {
+          type: 'hotels',
+          slug: 'standart',
+          title: 'Standart',
+          images: [
+            '/images/room/room-preview-1.jpg',
+            '/images/hotel/hotel-preview-1.jpg'
+          ],
+          params: [
+            {
+              type: 'adult',
+              value: 4
+            },
+            {
+              type: 'size',
+              value: '15м'
+            }
+          ]
+        },
+        {
+          type: 'hotels',
+          slug: 'business',
+          title: 'Business',
+          images: [
+            '/images/room/room-preview-2.jpg',
+            '/images/hotel/hotel-preview-2.jpg'
+          ],
+          params: [
+            {
+              type: 'adult',
+              value: 3
+            },
+            {
+              type: 'size',
+              value: '13м'
+            }
+          ]
+        },
+        {
+          type: 'hotels',
+          slug: 'business_city_view',
+          title: 'Business City View',
+          images: [
+            '/images/room/room-preview-3.jpg',
+            '/images/hotel/hotel-preview-3.jpg'
+          ],
+          params: [
+            {
+              type: 'adult',
+              value: 2
+            },
+            {
+              type: 'size',
+              value: '13м'
+            }
+          ]
+        },
+        {
+          type: 'hotels',
+          slug: 'corner_suite',
+          title: 'Corner Suite',
+          images: [
+            '/images/room/room-preview-4.jpg',
+            '/images/hall/hall-preview-1.jpg'
+          ],
+          params: [
+            {
+              type: 'adult',
+              value: 2
+            },
+            {
+              type: 'size',
+              value: '15м'
+            }
+          ]
+        },
+        {
+          type: 'hotels',
+          slug: 'duplex_city_view',
+          title: 'Duplex City View',
+          images: [
+            '/images/room/room-preview-5.jpg',
+            '/images/hall/hall-preview-2.jpg'
+          ],
+          params: [
+            {
+              type: 'adult',
+              value: 4
+            },
+            {
+              type: 'size',
+              value: '15м'
+            }
+          ]
+        },
+        {
+          type: 'hotels',
+          slug: 'royal_suite',
+          title: 'Royal Suite',
+          images: [
+            '/images/room/room-preview-6.jpg',
+            '/images/hotel/hotel-preview-3.jpg'
+          ],
+          params: [
+            {
+              type: 'adult',
+              value: 2
+            },
+            {
+              type: 'size',
+              value: '15м'
+            }
+          ]
+        }
+      ]
+    },
+    {
       name: 'slider_features',
       properties: {
         mode: 'section--min',

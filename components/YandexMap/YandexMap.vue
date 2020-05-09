@@ -11,7 +11,7 @@
         @balloonclose="balloonClose"
       >
         <template v-if="isBalloonNeed" slot="balloon">
-          <HousingCardBalloon :info="marker" :house-type="marker.houseType" />
+          <HousingCardBalloon :info="marker" />
         </template>
       </ymap-marker>
     </yandex-map>

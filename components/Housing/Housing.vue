@@ -26,10 +26,7 @@
             >
               <div class="row">
                 <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                  <HousingCard
-                    :house-type="list.id"
-                    :info="card"
-                  />
+                  <HousingCard :info="card" />
                 </div>
                 <div class="col-6 col-t-6 housing-list-item">
                   <HousingLink :house-type="list.id" />
@@ -50,8 +47,8 @@
 import MODEL from './model'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
 import HousingTypes from '~/components/Housing/Types/HousingTypes'
-import HousingCard from '~/components/Housing/Card/Card'
-import HousingLink from '~/components/Housing/Card/Link'
+import HousingCard from '~/components/Housing/Card/HousingCard'
+import HousingLink from '~/components/Housing/Card/HousingLink'
 import YandexMap from '~/components/YandexMap/YandexMap'
 import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'

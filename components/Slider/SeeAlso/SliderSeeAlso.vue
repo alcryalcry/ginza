@@ -17,7 +17,7 @@
             :class="slide.mode"
             class="swiper-slide"
           >
-            <HousingCard :info="slide" :house-type="model.id" />
+            <HousingCard :info="slide" />
           </div>
         </template>
       </Slider>
@@ -33,7 +33,7 @@ import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
-import HousingCard from '~/components/Housing/Card/Card'
+import HousingCard from '~/components/Housing/Card/HousingCard'
 
 export default {
   components: {

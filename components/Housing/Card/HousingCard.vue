@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localePath({ path: `${houseType}/${model.slug}` })" class="housing-card">
+  <nuxt-link :to="localePath(path)" class="housing-card">
     <transition-group
       v-if="model.images.length"
       tag="div"
@@ -51,9 +51,9 @@ export default {
       type: Object,
       default: () => ({})
     },
-    houseType: {
-      type: String,
-      required: true
+    isNested: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -68,6 +68,12 @@ export default {
     },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
+    },
+    path() {
+      return { path: this.isNested
+        ? `${this.$route.path}/${this.model.slug}`
+        : `${this.model.type}/${this.model.slug}`
+      }
     }
   },
   created() {

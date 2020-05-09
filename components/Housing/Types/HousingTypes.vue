@@ -1,10 +1,10 @@
 <template>
   <ul class="housing-types">
     <li
-      v-for="type in GET_HOUSING_TYPES"
+      v-for="type in curList"
       :key="type.id"
       class="housing-types-item"
-      :class="{ isActive: type.id === GET_CURRENT_HOUSING_TYPE.id }"
+      :class="{ isActive: type.id === curItem.id }"
     >
       <button
         type="button"
@@ -27,9 +27,13 @@ export default {
       type: Object,
       default: () => ({})
     },
-    activeType: {
-      type: String,
-      default: ''
+    customList: {
+      type: Array,
+      default: () => ([])
+    },
+    selectedItem: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {
@@ -40,14 +44,25 @@ export default {
     ...mapGetters({
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
       GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
-    })
+    }),
+    isCustomList() {
+      return (this.customList || []).length
+    },
+    curItem() {
+      return this.isCustomList ? this.selectedItem : this.GET_CURRENT_HOUSING_TYPE
+    },
+    curList() {
+      return this.isCustomList ? this.customList : this.GET_HOUSING_TYPES
+    }
   },
   methods: {
     ...mapMutations({
       SET_CURRENT_HOUSING_TYPE: 'housing/SET_CURRENT_HOUSING_TYPE'
     }),
     selectType(type) {
-      this.SET_CURRENT_HOUSING_TYPE(type)
+      if (!this.isCustomList) {
+        this.SET_CURRENT_HOUSING_TYPE(type)
+      }
       this.$emit('select-type', type)
     }
   }

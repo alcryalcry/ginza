@@ -27,7 +27,6 @@
               <div class="row">
                 <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
                   <HousingCard
-                    :house-type="list.id"
                     :info="card"
                     @mouseenter.native="setActiveMarker(card)"
                     @mouseleave.native="removeActiveMarker"
@@ -51,7 +50,7 @@
 import { mapGetters } from 'vuex'
 import MODEL from './model'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
-import HousingCard from '~/components/Housing/Card/Card'
+import HousingCard from '~/components/Housing/Card/HousingLink'
 import YandexMap from '~/components/YandexMap/YandexMap'
 import HousingSubheader from '~/components/Housing/Subheader/HousingSubheader'
 import Section from '~/components/Utils/Section'

@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :to="localePath({ path: `${houseType}/${model.slug}` })"
+    :to="localePath({ path: `${model.type}/${model.slug}` })"
     :class="isReady"
     class="housing-card"
   >
@@ -42,10 +42,6 @@ export default {
     info: {
       type: Object,
       default: () => ({})
-    },
-    houseType: {
-      type: String,
-      required: true
     }
   },
   data() {
