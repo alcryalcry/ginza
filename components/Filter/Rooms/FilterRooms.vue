@@ -1,5 +1,5 @@
 <template>
-  <Section class="housing">
+  <Section class="housing filter-rooms">
     <div class="housing-content">
       <div class="row">
         <div class="col-4 col-t-4 col-m-12 sidebar">
@@ -16,11 +16,13 @@
         <div class="col-8 col-t-8 col-m-12">
           <div ref="cards" class="housing-cards">
             <div class="housing-list">
-              <div class="row">
-                <div v-for="card in filteredItems" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                  <HousingCard :info="card" :is-nested="true" />
+              <transition name="list-fade" mode="out-in">
+                <div :key="selectedFilter.id" class="row">
+                  <div v-for="card in filteredItems" :key="card.slug" class="col-6 col-t-6 housing-list-item">
+                    <HousingCard :info="card" :is-nested="true" />
+                  </div>
                 </div>
-              </div>
+              </transition>
             </div>
           </div>
         </div>
@@ -99,6 +101,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .filter-rooms {
+//   &::v-deep {
+//     .sidebar {
+//       @include mobile {
+//         position: sticky;
+//         position: -webkit-sticky;
+//         top: $headerHeightMobile;
+//         z-index: 1;
+//       }
+//     }
+//     .housing-types {
+//       @include mobile {
+//         display: flex;
+//       }
+//     }
+//   }
+// }
 .housing-list {
   padding: 0 0 15rem;
   margin-top: -4rem;
