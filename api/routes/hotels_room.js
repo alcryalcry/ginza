@@ -25,11 +25,13 @@ module.exports = {
     },
     {
       name: 'apartment_head',
-      mode: '',
-      title: 'Royal Suite',
-      label: 'by Ginza Hotels&Apartments',
-      city: 'Ростов-на-Дону',
-      category: 'Отель',
+      properties: {
+        mode: '',
+        title: 'Royal Suite',
+        label: 'by Ginza Hotels&Apartments',
+        city: 'Ростов-на-Дону',
+        category: 'Отель'
+      },
       description: {
         title: 'Описание',
         text: 'Роскошный номер с большой гостиной и панорамными окнами.'
@@ -47,8 +49,10 @@ module.exports = {
     },
     {
       name: 'features_list',
-      mode: 'section--apartment',
-      title: 'Услуги и удобства',
+      properties: {
+        mode: 'section--apartment',
+        title: 'Услуги и удобства'
+      },
       values: [
         {
           id: 'wifi',
@@ -102,8 +106,10 @@ module.exports = {
     },
     {
       name: 'toggle_list',
-      mode: '',
-      title: 'Политики',
+      properties: {
+        mode: '',
+        title: 'Политики'
+      },
       values: [
         {
           id: 1,
@@ -134,10 +140,12 @@ module.exports = {
     },
     {
       name: 'slider_see_also',
-      title: 'Смотрите также',
-      url: '/',
-      linkLabel: 'Все варианты',
-      id: 'apartments',
+      properties: {
+        title: 'Смотрите также',
+        url: '/',
+        linkLabel: 'Все варианты',
+        id: 'apartments'
+      },
       values: [
         {
           slug: 'rubinsteina12',

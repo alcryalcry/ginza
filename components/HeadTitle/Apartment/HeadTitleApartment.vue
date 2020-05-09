@@ -16,29 +16,14 @@
         <div class="params-text">{{ param.value }}</div>
       </div>
     </div>
-    <div class="description">
-      <HeadTitleMini :info="model.description" />
-      <p v-if="model.description.text" class="text text--16" v-html="model.description.text" />
-      <template v-if="model.description.moreText">
-        <vue-slide-toggle :open="isOpen">
-          <p class="more-text" v-html="model.description.moreText" />
-        </vue-slide-toggle>
-        <div class="more-link">
-          <button
-            class="link link--brown link--tdu"
-            @click="isOpen = !isOpen"
-            v-html="isOpen ? $t('showMoreDescription.hide') : $t('showMoreDescription.show')"
-          />
-        </div>
-      </template>
-    </div>
+    <Description :info="model.description" />
   </Section>
 </template>
 
 <script>
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
-import HeadTitleMini from '~/components/HeadTitle/Mini/HeadTitleMini'
+import Description from '~/components/Description/Description'
 
 import beds from '~/assets/svg/icon-beds.svg'
 import adult from '~/assets/svg/icon-adult.svg'
@@ -48,7 +33,7 @@ export default {
   name: 'HeadTitleApartment',
   components: {
     Section,
-    HeadTitleMini,
+    Description,
     beds,
     adult,
     size
@@ -61,7 +46,6 @@ export default {
   },
   data() {
     return {
-      isOpen: false
     }
   },
   computed: {
@@ -112,13 +96,6 @@ export default {
   .description {
     max-width: 62rem;
     margin-top: 6rem;
-
-    .text {
-      margin-bottom: 3rem;
-    }
-    .more-text {
-      padding-bottom: 3rem;
-    }
   }
 
   .more-link {

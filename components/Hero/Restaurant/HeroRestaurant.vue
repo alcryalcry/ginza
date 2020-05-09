@@ -9,12 +9,14 @@
       </picture>
       <h4 class="title">
         <span v-if="model.type" class="type" v-html="model.type" />
-        <span v-if="model.restaurantName" class="name" v-html="model.restaurantName" />
+        <span v-if="model.placeName" class="name" v-html="model.placeName" />
       </h4>
-      <h5 class="place text--13">
-        <span v-if="model.parentPlace" class="parent" v-html="model.parentPlace" />
-        <span v-if="model.city" class="city" v-html="model.city" />
-      </h5>
+      <div class="place">
+        <a :href="model.url" target="_blank" class="place-link text--13">
+          <span v-if="model.placeParent" class="parent" v-html="model.placeParent" />
+          <span v-if="model.city" class="city" v-html="model.city" />
+        </a>
+      </div>
     </div>
     <div class="actions">
       <ul class="actions-list">
@@ -116,8 +118,18 @@ export default {
 }
 
 .place {
+  display: flex;
+  justify-content: center;
   color: $border;
-  text-align: center;
+  .place-link {
+    text-align: center;
+    @include desktop {
+      &:hover {
+        color: $brown;
+        transition: color .2s ease;
+      }
+    }
+  }
   .parent {
     &::after {
       content: ', ';

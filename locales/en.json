@@ -1,4 +1,7 @@
 {
+  "hotels": {
+    "anchorLabel": "Show rooms"
+  },
   "seeAlso": {
     "label": "See also"
   },

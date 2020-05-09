@@ -1,24 +1,18 @@
 export default (info) => {
   const {
     image = '',
-    popupImage = '',
-    logo = '',
     type = '',
     placeName = '',
-    placeParent = '',
     city = '',
-    url = '',
-    menuFile = ''
+    anchorLink = '',
+    description = ''
   } = info
   return {
     image,
-    popupImage,
-    logo,
     type,
     placeName,
-    placeParent,
     city,
-    url,
-    menuFile
+    anchorLink,
+    description
   }
 }

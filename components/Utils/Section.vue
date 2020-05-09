@@ -52,6 +52,14 @@ export default {
       padding-bottom: 0;
     }
   }
+  &.section--p6 {
+    >.container {
+      @include desktop {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+    }
+  }
   &.section--1440 {
     >.container {
       padding-right: 0;

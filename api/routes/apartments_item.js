@@ -8,7 +8,9 @@ module.exports = {
     },
     {
       name: 'slider_main_apartment',
-      hasGallery: true,
+      properties: {
+        hasGallery: true
+      },
       popup: {
         type: 'video',
         content: {
@@ -36,11 +38,13 @@ module.exports = {
     },
     {
       name: 'apartment_head',
-      mode: '',
-      title: 'Karavannaya 11',
-      label: 'by Ginza Hotels&Apartments',
-      city: 'Санкт-Петербург',
-      category: 'Апартаменты',
+      properties: {
+        mode: '',
+        title: 'Karavannaya 11',
+        label: 'by Ginza Hotels&Apartments',
+        city: 'Санкт-Петербург',
+        category: 'Апартаменты'
+      },
       description: {
         title: 'Описание',
         text: 'Просторные апартаменты расположились на пятом этаже старинного дома на углу Невского проспекта и Караванной улицы, построенного в стиле раннего классицизма 1780-х гг. с треугольными эркерами. Гости апартаментов смогут прикоснуться к истории Петрограда, остановившись водном из исторических центров его литературной жизни. Здесь жил Жуковский, бывали Тургенев и Вяземский.',
@@ -63,8 +67,10 @@ module.exports = {
     },
     {
       name: 'features_comfort',
-      mode: 'section--apartment',
-      title: 'Для вашего комфорта',
+      properties: {
+        mode: 'section--apartment',
+        title: 'Для вашего комфорта'
+      },
       values: [
         {
           color: '#D698B9',
@@ -94,8 +100,10 @@ module.exports = {
     },
     {
       name: 'features_list',
-      mode: 'section--apartment',
-      title: 'Услуги и удобства',
+      properties: {
+        mode: 'section--apartment',
+        title: 'Услуги и удобства'
+      },
       values: [
         {
           id: 'batler',
@@ -141,8 +149,10 @@ module.exports = {
     },
     {
       name: 'housing_location',
-      mode: '',
-      title: 'Расположение',
+      properties: {
+        mode: '',
+        title: 'Расположение'
+      },
       coords: [59.932211, 30.346072],
       values: [
         {
@@ -233,9 +243,11 @@ module.exports = {
     },
     {
       name: 'slider_reviews',
-      mode: '',
-      title: 'Отзывы гостей',
-      description: 'После выезда мы просим гостей оставить их отзыв и пожелания.',
+      properties: {
+        mode: '',
+        title: 'Отзывы гостей',
+        description: 'После выезда мы просим гостей оставить их отзыв и пожелания.'
+      },
       values: [
         {
           id: 1,
@@ -277,9 +289,11 @@ module.exports = {
     },
     {
       name: 'toggle_list',
-      mode: '',
-      title: 'Спецпредложения',
-      description: 'Скидки и специальные предложения для наших гостей от Ginza Hotels&Apartments.',
+      properties: {
+        mode: '',
+        title: 'Спецпредложения',
+        description: 'Скидки и специальные предложения для наших гостей от Ginza Hotels&Apartments.'
+      },
       values: [
         {
           id: 1,
@@ -300,10 +314,12 @@ module.exports = {
     },
     {
       name: 'services_additional',
-      mode: '',
-      title: 'Дополнительные услуги',
-      description: 'После того как вы забронируете жилье, менеджер поездки договорится о дополнительных услугах.',
-      descriptionIcon: true,
+      properties: {
+        mode: '',
+        title: 'Дополнительные услуги',
+        description: 'После того как вы забронируете жилье, менеджер поездки договорится о дополнительных услугах.',
+        descriptionIcon: true
+      },
       values: [
         {
           url: '/',
@@ -339,10 +355,12 @@ module.exports = {
     },
     {
       name: 'slider_see_also',
-      title: 'Смотрите также',
-      url: '/',
-      linkLabel: 'Все варианты',
-      id: 'apartments',
+      properties: {
+        title: 'Смотрите также',
+        url: '/',
+        linkLabel: 'Все варианты',
+        id: 'apartments'
+      },
       values: [
         {
           slug: 'rubinsteina12',

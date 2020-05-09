@@ -5,7 +5,9 @@ module.exports = {
   components: [
     {
       name: 'review_page',
-      title: 'Karavannaya 11',
+      properties: {
+        title: 'Karavannaya 11'
+      },
       values: [
         {
           name: 'gallery_grid',
