@@ -67,6 +67,14 @@ app.get('/get-page/hotels/:slug', (req, res) => {
   res.send(reponseJson('hotels_item'))
 })
 
+app.get('/get-page/hotels/:slug/halls', (req, res) => {
+  res.send(reponseJson('hotels_item_halls'))
+})
+
+app.get('/get-page/hotels/:slug/halls/:id', (req, res) => {
+  res.send(reponseJson('hotels_item_halls_item'))
+})
+
 app.get('/get-page/hotels/:slug/:room', (req, res) => {
   res.send(reponseJson('hotels_room'))
 })

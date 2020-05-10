@@ -164,6 +164,9 @@ export default {
   padding: 0 0 15rem;
   margin-top: -4rem;
   margin-bottom: -4rem;
+  @include tablet {
+    padding-bottom: 9rem;
+  }
   @include mobile {
     margin-top: 0;
     margin-bottom: 0;
