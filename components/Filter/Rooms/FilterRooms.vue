@@ -101,23 +101,65 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .filter-rooms {
-//   &::v-deep {
-//     .sidebar {
-//       @include mobile {
-//         position: sticky;
-//         position: -webkit-sticky;
-//         top: $headerHeightMobile;
-//         z-index: 1;
-//       }
-//     }
-//     .housing-types {
-//       @include mobile {
-//         display: flex;
-//       }
-//     }
-//   }
-// }
+.filter-rooms {
+  &::v-deep {
+    .sidebar {
+      @include mobile {
+        position: sticky;
+        position: -webkit-sticky;
+        top: $headerHeightMobile;
+        z-index: 2;
+        margin: 0;
+        flex-flow: row nowrap;
+        padding: 0;
+      }
+    }
+    .sidebar-content {
+      @include mobile {
+        position: static;
+      }
+    }
+    .sidebar-content {
+      @include mobile {
+        overflow: hidden;
+        margin: 0 -2rem;
+        @include backdrop;
+      }
+    }
+    .housing-types-list {
+      @include mobile {
+        overflow-x: auto;
+      }
+    }
+    .housing-types-item {
+      @include mobile {
+        padding: 1rem;
+      }
+      & + .housing-types-item {
+        @include mobile {
+          margin: 0;
+        }
+      }
+      &::before {
+        @include mobile {
+          content: none;
+        }
+      }
+      .housing-types-btn {
+        @include mobile {
+          color: rgba($black17, .5);
+          white-space: nowrap;
+        }
+      }
+    }
+    .housing-types {
+      @include mobile {
+        display: flex;
+        padding: 0 2rem;
+      }
+    }
+  }
+}
 .housing-list {
   padding: 0 0 15rem;
   margin-top: -4rem;
