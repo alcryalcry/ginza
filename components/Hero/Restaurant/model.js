@@ -7,8 +7,7 @@ export default (info) => {
     placeName = '',
     placeParent = '',
     city = '',
-    url = '',
-    menuFile = ''
+    url = ''
   } = info
   return {
     image,
@@ -18,7 +17,6 @@ export default (info) => {
     placeName,
     placeParent,
     city,
-    url,
-    menuFile
+    url
   }
 }

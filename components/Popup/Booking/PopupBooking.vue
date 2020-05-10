@@ -1,5 +1,5 @@
 <template>
-  <div v-if="GET_POPUP_TYPE === 'popupVideo'" class="popup-video">
+  <div v-if="GET_POPUP_TYPE === 'popupBooking'" class="popup-booking">
     <Section class="section--big section--no-p popup-head">
       <div class="popup-head-row">
         <div class="popup-close">
@@ -11,13 +11,12 @@
             </div>
           </button>
         </div>
-        <div v-if="model.title" class="title text--16" v-html="model.title" />
       </div>
     </Section>
     <div v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-content">
       <Section class="section--big">
-        <div class="popup-video-container">
-          <VideoPreview :info="model.video" />
+        <div class="popup-booking-container">
+          {{ model }}
         </div>
       </Section>
     </div>
@@ -28,13 +27,11 @@
 import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
-import VideoPreview from '~/components/VideoPreview/VideoPreview'
 
 export default {
-  name: 'PopupVideo',
+  name: 'PopupBooking',
   components: {
-    Section,
-    VideoPreview
+    Section
   },
   computed: {
     model() {
@@ -55,25 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.popup-video {
-  display: flex;
-  flex-flow: column nowrap;
-  flex: 1;
-}
-
-.title {
-  text-transform: uppercase;
-}
-
-.popup-video-container {
-  padding: 0 2.5rem;
-  height: 64rem;
-  @include mobile {
-    padding: 0;
-    height: 36rem;
-  }
-}
-
 .popup-head {
   position: relative;
   background: transparent;

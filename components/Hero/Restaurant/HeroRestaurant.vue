@@ -18,32 +18,15 @@
         </a>
       </div>
     </div>
-    <div class="actions">
-      <ul class="actions-list">
-        <li class="actions-item">
-          <a v-if="model.menuFile" class="actions-button" :href="model.menuFile" download="">Меню ресторана</a>
-        </li>
-        <li class="actions-item">
-          <button class="actions-button">
-            <span>Забронировать столик</span>
-            <span class="icon">
-              <iconArrow />
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 
 <script>
 import MODEL from './model'
-import iconArrow from '~/assets/svg/arrow.svg'
 
 export default {
   name: 'HeroRestaurant',
   components: {
-    iconArrow
   },
   props: {
     info: {
@@ -133,83 +116,6 @@ export default {
   .parent {
     &::after {
       content: ', ';
-    }
-  }
-}
-
-.actions {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  min-height: 5rem;
-  background: $white;
-  padding: 0 3rem;
-  border-radius: 4px;
-  border: 1px solid $border;
-  @include mobile {
-    width: 100%;
-  }
-
-  .actions-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    flex: 1 1 auto;
-    @include mobile {
-      flex-flow: column nowrap;
-      align-items: flex-start;
-      justify-content: flex-start;
-      text-align: left;
-    }
-  }
-
-  .actions-item {
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    flex: 1 1 auto;
-    padding: 0 3rem;
-    @include mobile {
-      padding: 0 2rem;
-      margin: 2rem 0;
-      width: 100%;
-    }
-    & + .actions-item {
-      &::before {
-        content: '';
-        position: absolute;
-        top: 1.2rem;
-        left: 0;
-        width: 1px;
-        height: calc(100% - 2.4rem);
-        background: $border;
-        @include mobile {
-          top: -2rem;
-          width: 100%;
-          height: 1px;
-        }
-      }
-    }
-    .actions-button {
-      flex: 1 1 auto;
-      display: flex;
-      align-items: center;
-      color: $black17;
-      transition: color .2s ease;
-      &:active {
-        color: $brown;
-      }
-      @include desktop {
-        &:hover {
-          color: $brown;
-        }
-      }
-      .icon {
-        margin: .3rem 1.5rem 0;
-        display: flex;
-        width: 1.8rem;
-        height: 1.8rem;
-      }
     }
   }
 }

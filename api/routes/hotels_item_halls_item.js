@@ -4,7 +4,56 @@ module.exports = {
   keywords: '',
   components: [
     {
-      name: 'booking_mini'
+      name: 'fixed_actions',
+      values: [
+        {
+          id: 'phone',
+          type: 'link',
+          href: 'tel:88002012173',
+          label: '8 800 201-21-73'
+        },
+        {
+          id: 'booking',
+          type: 'popup',
+          label: 'Бронировать',
+          isMobile: true,
+          popup: {
+            type: 'popupBooking',
+            content: {
+              image: '/images/restaurant/restaurant-full.jpg',
+              logo: '/images/restaurant-logo.svg',
+              fields: [
+                {
+                  type: 'text',
+                  label: 'Имя',
+                  name: 'userName',
+                  validate: {
+                    required: true
+                  }
+                },
+                {
+                  type: 'phone',
+                  label: 'Телефон',
+                  name: 'userPhone',
+                  validate: {
+                    phone: true
+                  }
+                },
+                {
+                  type: 'counter',
+                  label: 'Гостей',
+                  name: 'count'
+                },
+                {
+                  type: 'date',
+                  label: 'Дата',
+                  name: 'date'
+                }
+              ]
+            }
+          }
+        }
+      ]
     },
     {
       name: 'slider_main_apartment',

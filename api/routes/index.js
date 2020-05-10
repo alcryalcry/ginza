@@ -4,10 +4,68 @@ module.exports = {
   keywords: '',
   components: [
     {
-      name: 'booking_mini',
+      name: 'fixed_actions',
       properties: {
         mode: 'booking--main'
-      }
+      },
+      values: [
+        {
+          id: 'city',
+          type: 'cities',
+          label: 'Выберите город'
+        },
+        {
+          id: 'date',
+          type: 'link',
+          href: '#',
+          label: 'Даты'
+        },
+        {
+          id: 'count',
+          type: 'link',
+          href: '#',
+          label: 'Гостей'
+        },
+        {
+          id: 'booking',
+          type: 'popup',
+          label: 'Бронировать',
+          isMobile: true,
+          popup: {
+            type: 'popupTravelLine',
+            content: {
+              fields: [
+                {
+                  type: 'text',
+                  label: 'Имя',
+                  name: 'userName',
+                  validate: {
+                    required: true
+                  }
+                },
+                {
+                  type: 'phone',
+                  label: 'Телефон',
+                  name: 'userPhone',
+                  validate: {
+                    phone: true
+                  }
+                },
+                {
+                  type: 'counter',
+                  label: 'Гостей',
+                  name: 'count'
+                },
+                {
+                  type: 'date',
+                  label: 'Дата',
+                  name: 'date'
+                }
+              ]
+            }
+          }
+        }
+      ]
     },
     {
       name: 'slider_main',
