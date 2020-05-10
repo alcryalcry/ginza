@@ -50,48 +50,68 @@ module.exports = {
           title: 'Wi Fi'
         },
         {
-          id: 'safe',
-          title: 'Сейф'
+          id: 'spotlight',
+          title: 'Профессиональное освещение'
         },
         {
-          id: 'menu',
-          title: 'Меню подушек'
+          id: 'sound',
+          title: 'Аудио&#8209;видео оборудование'
         },
         {
-          id: 'baggage',
-          title: 'Хранение багажа'
+          id: 'coffeebreak',
+          title: 'Зона для кофе&#8209;брейка'
         },
         {
-          id: 'tv',
-          title: 'Цифровое телевидение'
+          id: 'conditioning',
+          title: 'Индивид. система кондиционирования'
         },
         {
-          id: 'invalid',
-          title: 'Доступ для инвалидных колясок'
+          id: 'conference',
+          title: 'Дополнительные конференц&#8209;комнаты'
+        }
+      ]
+    },
+    {
+      name: 'seating_pattern',
+      properties: {
+        title: 'Схема рассадки'
+      },
+      values: [
+        {
+          id: '1',
+          title: 'Театр',
+          adult: '120 мест',
+          image: '/images/seating-pattern/theater.svg'
         },
         {
-          id: 'coffeemachine',
-          title: 'Кофемашина Zielinski & Rozen'
+          id: '2',
+          title: 'Банкет',
+          adult: '60 мест',
+          image: '/images/seating-pattern/banquet.svg'
         },
         {
-          id: 'multilanguage',
-          title: 'Многоязычный персонал'
+          id: '3',
+          title: 'Класс',
+          adult: '60 мест',
+          image: '/images/seating-pattern/classroom.svg'
         },
         {
-          id: 'sport',
-          title: 'Спортзал'
+          id: '4',
+          title: 'O-Shape',
+          adult: '60 мест',
+          image: '/images/seating-pattern/o-shape.svg'
         },
         {
-          id: 'minibar',
-          title: 'Мини-бар'
+          id: '5',
+          title: 'U-Shape',
+          adult: '60 мест',
+          image: '/images/seating-pattern/u-shape.svg'
         },
         {
-          id: 'parking',
-          title: 'Платная парковка'
-        },
-        {
-          id: 'guide',
-          title: 'Услуги гида'
+          id: '6',
+          title: 'Фуршет',
+          adult: '120 мест',
+          image: '/images/seating-pattern/stand-up-meal.svg'
         }
       ]
     },
