@@ -1,4 +1,8 @@
 {
+  "booking": {
+    "btnLabelTravelLine": "Find",
+    "btnLabel": "Book now"
+  },
   "hotels": {
     "anchorLabel": "Show rooms"
   },

@@ -57,6 +57,14 @@ const config = {
     {
       src: '~/plugins/vue-yandex-maps.js',
       mode: 'client'
+    },
+    {
+      src: '~/plugins/vuelidate.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/vuejs-datepicker.js',
+      ssr: false
     }
   ],
   buildModules: [

@@ -1,4 +1,8 @@
 {
+  "booking": {
+    "btnLabelTravelLine": "Подобрать",
+    "btnLabel": "Забронировать"
+  },
   "hotels": {
     "anchorLabel": "Посмотреть номера"
   },

@@ -27,7 +27,9 @@
     "vue-awesome-swiper": "3.1.3",
     "vue-clickaway": "^2.2.2",
     "vue-slide-toggle": "^1.1.1",
-    "vue-yandex-maps": "^0.10.7"
+    "vue-yandex-maps": "^0.10.7",
+    "vuejs-datepicker": "^1.6.2",
+    "vuelidate": "^0.7.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

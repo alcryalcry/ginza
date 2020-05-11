@@ -23,22 +23,27 @@ module.exports = {
             type: 'popupBooking',
             content: {
               image: '/images/hall/hall-1.jpg',
+              logo: '/images/restaurant-logo.svg',
               fields: [
                 {
                   type: 'text',
                   label: 'Имя',
                   name: 'userName',
-                  validate: {
-                    required: true
-                  }
+                  validate: [
+                    {
+                      rule: 'required'
+                    }
+                  ]
                 },
                 {
                   type: 'phone',
                   label: 'Телефон',
                   name: 'userPhone',
-                  validate: {
-                    phone: true
-                  }
+                  validate: [
+                    {
+                      rule: 'phone'
+                    }
+                  ]
                 },
                 {
                   type: 'counter',

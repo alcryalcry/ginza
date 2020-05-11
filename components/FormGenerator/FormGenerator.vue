@@ -1,0 +1,197 @@
+<template>
+  <form
+    class="form"
+    novalidate
+    @submit.prevent="debouncedSubmitHandler($event)"
+  >
+    <div
+      v-for="(field, index) in parsedComponents"
+      :key="field.name + index"
+      class="field-wrapper"
+    >
+      <div class="form-field">
+        <component
+          :is="field.componentName"
+          :is-invalid="checkError(field.name)"
+          v-bind="field"
+          @input-change="changeValue(field.name, $event)"
+          @input="changeValue(field.name, $event)"
+        />
+      </div>
+      <slot :name="field.name" />
+    </div>
+    <div class="submit-container">
+      <button class="button submit-btn">{{ btnLabel || $t('booking.btnLabel') }}</button>
+    </div>
+  </form>
+</template>
+
+<script>
+import { required, email, minLength, numeric } from 'vuelidate/lib/validators'
+import { debounce } from 'throttle-debounce'
+import FormInput from '~/components/FormGenerator/Fields/FormInput'
+
+const validateFunctions = {
+  required,
+  email,
+  numeric,
+  minLength: val => minLength(val),
+  // custom
+  phone: val => (val ? val.length === 17 : false)
+}
+
+const COMPONENTS = [
+  {
+    type: 'text',
+    componentName: 'FormInput'
+  },
+  {
+    type: 'hidden',
+    componentName: 'FormInput'
+  }
+]
+
+export default {
+  name: 'FormGenerator',
+  components: {
+    FormInput
+  },
+  props: {
+    info: {
+      type: Array,
+      default: () => []
+    },
+    btnLabel: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      formModel: {}
+    }
+  },
+  computed: {
+    parsedComponents() {
+      return (this.info || [])
+        .map((field) => {
+          const { type = 'text', validate = [] } = field || {}
+          return {
+            validate,
+            ...field,
+            componentName: (COMPONENTS.find(item => item.type === type) || {})
+              .componentName
+          }
+        })
+        .filter(item => !!this.$options.components[item.componentName])
+    },
+    rules() {
+      const res = {}
+      this.parsedComponents.map((field) => {
+        const { validate = [] } = field
+        const fieldRules = {}
+        validate.map((item) => {
+          if (validateFunctions[item.rule]) {
+            fieldRules[item.rule] = item.value
+              ? validateFunctions[item.rule](item.value)
+              : validateFunctions[item.rule]
+          }
+        })
+        res[field.name] = fieldRules
+      })
+      return res
+    },
+    isFormValid() {
+      return !(this.$v || {}).$invalid
+    }
+  },
+  created() {
+    this.debouncedSubmitHandler = debounce(300, () => {
+      this.submitHandler()
+    })
+    if (process.browser) {
+      for (const key in this.parsedComponents) {
+        this.$set(
+          this.formModel,
+          this.parsedComponents[key].name,
+          this.parsedComponents[key].value || null
+        )
+      }
+    }
+  },
+  validations() {
+    return {
+      formModel: this.rules
+    }
+  },
+  methods: {
+    filterObj(obj) {
+      const newObj = {}
+      Object.keys(obj).forEach((key) => {
+        if (obj[key] !== null) {
+          newObj[key] = obj[key]
+        }
+      })
+      return newObj
+    },
+    checkError(name) {
+      if (process.browser && this.$v && this.$v.formModel[name]) {
+        return (
+          this.$v.formModel[name].$dirty && this.$v.formModel[name].$invalid
+        )
+      }
+      return false
+    },
+    changeValue(name, value) {
+      this.formModel[name] = value
+      this.checkError(name)
+      this.$v.formModel[name].$touch()
+      if (this.isInputHandler && !this.$v.formModel[name].$invalid) {
+        this.$emit('formSubmit', {
+          name,
+          value,
+          src: this.filterObj(this.formModel)
+        })
+      }
+
+      if (this.isError) {
+        this.resetError()
+      }
+    },
+    submitHandler() {
+      this.$v.$touch()
+      if (this.isFormValid) {
+        this.$emit('formSubmit', this.filterObj(this.formModel))
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.field-wrapper {
+  position: relative;
+}
+
+.form-field {
+  position: relative;
+  width: 100%;
+}
+
+.submit-container {
+  margin-top: 6rem;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 6.5rem;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+</style>

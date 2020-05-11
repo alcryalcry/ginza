@@ -51,6 +51,34 @@ main,
   &.page--dark {
     background: $black17;
     color: $grayLight;
+    .popup-booking {
+      .form {
+        .submit-btn {
+          background: $white;
+          color: $black17;
+        }
+      }
+    }
+    .input-label {
+      .input {
+        color: $white;
+        border-color: rgba($white, .3)
+      }
+      .input-placeholder {
+        color: $white;
+      }
+    }
+    .popup {
+      .burger {
+        &:not(:hover) {
+          color: $white;
+        }
+      }
+      .popup-wrapper {
+        background: $black17;
+        color: $white;
+      }
+    }
     .header {
       background: $black17;
       color: $grayLight;
