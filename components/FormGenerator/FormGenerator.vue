@@ -21,7 +21,7 @@
       <slot :name="field.name" />
     </div>
     <div class="submit-container">
-      <button class="button submit-btn">{{ btnLabel || $t('booking.btnLabel') }}</button>
+      <button class="button submit-btn" type="submit">{{ btnLabel || $t('booking.btnLabel') }}</button>
     </div>
   </form>
 </template>
@@ -31,6 +31,7 @@ import { required, email, minLength, numeric } from 'vuelidate/lib/validators'
 import { debounce } from 'throttle-debounce'
 import FormInput from '~/components/FormGenerator/Fields/FormInput'
 import FormPhone from '~/components/FormGenerator/Fields/FormPhone'
+import FormCounter from '~/components/FormGenerator/Fields/FormCounter'
 
 const validateFunctions = {
   required,
@@ -38,7 +39,8 @@ const validateFunctions = {
   numeric,
   minLength: val => minLength(val),
   // custom
-  phone: val => (val ? val.isValid : false)
+  phone: val => (val ? val.isValid : false),
+  counter: val => (val ? val.model <= val.maxValue && val.model >= val.minValue : false)
 }
 
 const COMPONENTS = [
@@ -53,6 +55,10 @@ const COMPONENTS = [
   {
     type: 'phone',
     componentName: 'FormPhone'
+  },
+  {
+    type: 'counter',
+    componentName: 'FormCounter'
   }
 ]
 
@@ -60,7 +66,8 @@ export default {
   name: 'FormGenerator',
   components: {
     FormInput,
-    FormPhone
+    FormPhone,
+    FormCounter
   },
   props: {
     info: {
@@ -168,6 +175,9 @@ export default {
 <style lang="scss" scoped>
 .field-wrapper {
   position: relative;
+  & + .field-wrapper {
+    margin-top: 2rem;
+  }
 }
 
 .field {

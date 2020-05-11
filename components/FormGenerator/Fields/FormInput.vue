@@ -106,7 +106,7 @@ export default {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem 0;
+  padding: 2.5rem 0 2rem;
   min-height: 5rem;
   border-bottom: 1px solid $border;
   border-radius: 0;

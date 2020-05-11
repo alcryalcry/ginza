@@ -1,31 +1,47 @@
 <template>
-  <div v-if="GET_POPUP_TYPE === 'popupBooking'" class="popup-booking">
-    <Section class="section--big section--no-p">
-      <div v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-content">
-        <div class="popup-head-row">
-          <div class="popup-close">
-            <button class="burger" type="button" @click="CLOSE_POPUP">
-              <div class="burger-button">
-                <div class="line" />
-                <div class="line" />
-                <div class="line" />
-              </div>
-            </button>
+  <div v-if="GET_POPUP_TYPE === 'popupBooking'" v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-booking">
+    <div class="popup-booking-content">
+      <Section class="section--big section--no-p">
+        <div class="popup-content">
+          <div class="popup-head-row">
+            <div class="popup-close">
+              <button class="burger" type="button" @click="CLOSE_POPUP">
+                <div class="burger-button">
+                  <div class="line" />
+                  <div class="line" />
+                  <div class="line" />
+                </div>
+              </button>
+            </div>
+            <transition mode="out-in" name="fade-reversed">
+              <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" />
+            </transition>
           </div>
-          <div class="text--24 popup-head-title">Бронирование</div>
+          <div class="popup-booking-container">
+            <transition mode="out-in" name="list-fade">
+              <FormGenerator v-if="!isShowResult" key="form" :info="model.fields" @formSubmit="formSubmit" />
+              <div v-else key="result" class="result">
+                <div class="result-icon">
+                  <div class="icon">
+                    <iconCheck />
+                  </div>
+                </div>
+                <h5 v-if="model.resultTitle" class="result-title" v-html="model.resultTitle" />
+                <p v-if="model.resultDescription" class="result-desc" v-html="model.resultDescription" />
+                <a v-if="model.resultLink" :href="model.resultLink.href" class="result-link" v-html="model.resultLink.label" />
+              </div>
+            </transition>
+          </div>
         </div>
-        <div class="popup-booking-container">
-          <FormGenerator :info="model.fields" @formSubmit="formSubmit" />
-        </div>
+      </Section>
+      <div class="popup-image">
+        <picture v-if="model.image" class="image">
+          <img :src="model.image" alt="">
+        </picture>
+        <picture v-if="model.logo" class="logo">
+          <img :src="model.logo" alt="">
+        </picture>
       </div>
-    </Section>
-    <div class="popup-image">
-      <picture v-if="model.image" class="image">
-        <img :src="model.image" alt="">
-      </picture>
-      <picture v-if="model.logo" class="logo">
-        <img :src="model.logo" alt="">
-      </picture>
     </div>
   </div>
 </template>
@@ -35,12 +51,19 @@ import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import FormGenerator from '~/components/FormGenerator/FormGenerator'
+import iconCheck from '~/assets/svg/check.svg'
 
 export default {
   name: 'PopupBooking',
   components: {
     Section,
-    FormGenerator
+    FormGenerator,
+    iconCheck
+  },
+  data() {
+    return {
+      isShowResult: false
+    }
   },
   computed: {
     model() {
@@ -57,6 +80,7 @@ export default {
       CLOSE_POPUP: 'popup/CLOSE_POPUP'
     }),
     formSubmit(formData) {
+      this.isShowResult = true
       console.log(formData)
     }
   }
@@ -65,9 +89,45 @@ export default {
 
 <style lang="scss" scoped>
 .popup-booking {
+  display: flex;
+  flex-flow:column nowrap;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  &::v-deep {
+    .section {
+      flex: 1;
+      position: static;
+      >.container {
+        height: 100%;
+        // display: flex;
+        // flex-flow:column nowrap;
+        // flex: 1;
+      }
+    }
+  }
+
+  .popup-booking-content {
+    position: relative;
+    display: flex;
+    flex-flow:column nowrap;
+    flex: 1;
+    transform: translate3d(0,0,0);
+  }
+
   .popup-content {
-    margin-left: -3rem;
-    padding-left: 3rem;
+    display: flex;
+    flex-flow:column nowrap;
+    height: 100%;
+    flex: 1;
+    padding: 3rem 0;
+    // position: relative;
+    @include desktop {
+      max-width: 39rem;
+      padding: 6rem 8rem 6rem 0;
+      margin-left: -3rem;
+      padding-left: 3rem;
+    }
   }
 
   &::v-deep {
@@ -89,17 +149,77 @@ export default {
     }
   }
 }
-.popup-content {
-  max-width: 39rem;
-  padding: 6rem 8rem 6rem 0;
-}
 
+.result {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  .result-title {
+    margin-bottom: 1.5rem;
+  }
+  .result-link {
+    padding-top: 4rem;
+    margin-top: auto;
+    transition: color .2s ease;
+    &:active {
+      color: $brown;
+    }
+    @include desktop {
+      &:hover {
+        color: $brown;
+      }
+    }
+  }
+  .result-description {
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+  }
+  .result-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 11rem;
+    height: 11rem;
+    margin-top: 3rem;
+    margin-bottom: 4.5rem;
+    padding: 4rem;
+    border-radius: 50%;
+    background: $gray30;
+    color: $green;
+    @include desktop {
+      margin-top: auto;
+    }
+  }
+  .icon {
+    display: flex;
+  }
+}
+.popup-booking-container {
+  display: flex;
+  flex-flow:column nowrap;
+  flex: 1;
+  @include tablet {
+    width: 40rem;
+    margin: 0 auto;
+  }
+}
 .popup-image {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 95rem;
+  position: relative;
+  order: -1;
+  z-index: -1;
+  @include mobile_tablet {
+    height: 40rem;
+  }
+  @include desktop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 66vw;
+    order: 2;
+  }
   pointer-events: none;
   .image {
     display: flex;
@@ -128,8 +248,23 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include tablet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 4rem;
+    background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
+    z-index: 1;
+  }
   @include mobile {
-    padding: 1.5rem 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
+    z-index: 1;
   }
 }
 

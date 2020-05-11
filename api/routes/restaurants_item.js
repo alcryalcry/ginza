@@ -22,8 +22,14 @@ module.exports = {
           popup: {
             type: 'popupBooking',
             content: {
-              image: '/images/hall/hall-1.jpg',
+              image: '/images/restaurant/restaurant-full.jpg',
               logo: '/images/restaurant-logo.svg',
+              resultTitle: 'Вы забронировали столик',
+              resultDescription: 'Через несколько минут с Вами свяжется менеджер для уточнения деталей.',
+              resultLink: {
+                href: 'tel:88002012173',
+                label: '8 800 201-21-73'
+              },
               fields: [
                 {
                   type: 'text',
@@ -48,7 +54,12 @@ module.exports = {
                 {
                   type: 'counter',
                   label: 'Гостей',
-                  name: 'count'
+                  name: 'count',
+                  validate: [
+                    {
+                      rule: 'counter'
+                    }
+                  ]
                 },
                 {
                   type: 'date',

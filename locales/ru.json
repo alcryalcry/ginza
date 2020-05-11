@@ -1,5 +1,6 @@
 {
   "booking": {
+    "title": "Бронирование",
     "btnLabelTravelLine": "Подобрать",
     "btnLabel": "Забронировать"
   },

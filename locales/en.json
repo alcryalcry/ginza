@@ -1,5 +1,6 @@
 {
   "booking": {
+    "title": "Booking",
     "btnLabelTravelLine": "Find",
     "btnLabel": "Book now"
   },

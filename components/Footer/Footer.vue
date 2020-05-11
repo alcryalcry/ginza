@@ -76,10 +76,6 @@ export default {
   padding: 4rem 0 10rem;
   background: $gray;
 
-  @include mobile {
-    padding: 4rem 0;
-  }
-
   &::before {
     content: '';
     @include absolute;

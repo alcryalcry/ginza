@@ -1,6 +1,6 @@
 <template>
   <Section class="fixed-actions section--no-p">
-    <div class="actions" :class="{ isScrolled: GET_HEADER_STATUS || GET_MENU_STATUS }">
+    <div class="actions" :class="{ isScrolled: GET_HEADER_STATUS || GET_MENU_STATUS, isShowMenu: GET_MENU_STATUS }">
       <ul class="actions-list">
         <li v-for="item in model.values" :key="item.id" :class="{ 'd-show': !item.isMobile }" class="actions-item">
           <a
@@ -123,8 +123,15 @@ export default {
   padding: 0 3rem;
   border-radius: 4px;
   border: 1px solid $brown;
+  transition: opacity .2s ease;
   @include mobile {
     width: 100%;
+  }
+  &.isShowMenu {
+    @include mobile_tablet {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   .booking--main & {

@@ -52,6 +52,18 @@ main,
     background: $black17;
     color: $grayLight;
     .popup-booking {
+      .popup-head-title {
+        color: $border;
+      }
+      .form-counter {
+        border-color: rgba($white, .3);
+      }
+      .counter-btn {
+        color: $white;
+        &::before {
+          border-color: rgba($white, .3);
+        }
+      }
       .form {
         .submit-btn {
           background: $white;
@@ -237,4 +249,12 @@ svg {
 .fade-leave-to {
   opacity: 0;
   // transition: none;
+}
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
 }
