@@ -2,19 +2,19 @@
   <label
     class="input-label"
     :class="{
-      'is-filled': model.length > 0,
+      'is-filled': isFilled,
       'is-invalid': isInvalid,
       'is-disabled': disabled,
       visually_hidden: type === 'hidden'
     }"
   >
     <input
+      ref="phone"
       v-model="model"
       :name="name"
       :type="type"
       :disabled="disabled"
       class="input"
-      @input="$emit('input-change', model)"
     >
     <span class="input-placeholder">
       <span>{{ label }}</span>
@@ -23,8 +23,10 @@
 </template>
 
 <script>
+import { parsePhoneNumberFromString } from 'libphonenumber-js'
+
 export default {
-  name: 'FormInput',
+  name: 'FormPhone',
   props: {
     label: {
       type: String,
@@ -53,13 +55,44 @@ export default {
   },
   data() {
     return {
+      isPhoneValid: false,
       model: ''
     }
   },
+  computed: {
+    isFilled() {
+      return this.model.length > 0
+    }
+  },
+  watch: {
+    model(val) {
+      this.validatePhone()
+    }
+  },
   mounted() {
-    this.model = this.value
     if (this.type === 'hidden' && this.value) {
       this.$emit('input-change', this.model)
+    }
+  },
+  methods: {
+    validatePhone() {
+      let str = ''
+      switch (this.model.charAt(0)) {
+        case '+':
+          str = this.model
+          break
+        case '8':
+          str = `+7${this.model.substring(1)}`
+          break
+        default:
+          str = `+${this.model}`
+          break
+      }
+      const phoneNumber = parsePhoneNumberFromString(str)
+      this.isPhoneValid = phoneNumber ? phoneNumber.isValid() : false
+
+      this.model = phoneNumber ? phoneNumber.formatInternational() : this.model
+      this.$emit('input-change', { model: this.model, isValid: this.isPhoneValid })
     }
   }
 }

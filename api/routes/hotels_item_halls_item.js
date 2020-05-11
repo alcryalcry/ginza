@@ -27,17 +27,21 @@ module.exports = {
                   type: 'text',
                   label: 'Имя',
                   name: 'userName',
-                  validate: {
-                    required: true
-                  }
+                  validate: [
+                    {
+                      rule: 'required'
+                    }
+                  ]
                 },
                 {
                   type: 'phone',
                   label: 'Телефон',
                   name: 'userPhone',
-                  validate: {
-                    phone: true
-                  }
+                  validate: [
+                    {
+                      rule: 'phone'
+                    }
+                  ]
                 },
                 {
                   type: 'counter',

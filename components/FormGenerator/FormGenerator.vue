@@ -9,7 +9,7 @@
       :key="field.name + index"
       class="field-wrapper"
     >
-      <div class="form-field">
+      <div class="field">
         <component
           :is="field.componentName"
           :is-invalid="checkError(field.name)"
@@ -30,6 +30,7 @@
 import { required, email, minLength, numeric } from 'vuelidate/lib/validators'
 import { debounce } from 'throttle-debounce'
 import FormInput from '~/components/FormGenerator/Fields/FormInput'
+import FormPhone from '~/components/FormGenerator/Fields/FormPhone'
 
 const validateFunctions = {
   required,
@@ -37,7 +38,7 @@ const validateFunctions = {
   numeric,
   minLength: val => minLength(val),
   // custom
-  phone: val => (val ? val.length === 17 : false)
+  phone: val => (val ? val.isValid : false)
 }
 
 const COMPONENTS = [
@@ -48,13 +49,18 @@ const COMPONENTS = [
   {
     type: 'hidden',
     componentName: 'FormInput'
+  },
+  {
+    type: 'phone',
+    componentName: 'FormPhone'
   }
 ]
 
 export default {
   name: 'FormGenerator',
   components: {
-    FormInput
+    FormInput,
+    FormPhone
   },
   props: {
     info: {
@@ -87,10 +93,10 @@ export default {
     },
     rules() {
       const res = {}
-      this.parsedComponents.map((field) => {
+      this.parsedComponents.forEach((field) => {
         const { validate = [] } = field
         const fieldRules = {}
-        validate.map((item) => {
+        validate.forEach((item) => {
           if (validateFunctions[item.rule]) {
             fieldRules[item.rule] = item.value
               ? validateFunctions[item.rule](item.value)
@@ -129,7 +135,9 @@ export default {
       const newObj = {}
       Object.keys(obj).forEach((key) => {
         if (obj[key] !== null) {
-          newObj[key] = obj[key]
+          typeof obj[key] === 'object'
+            ? newObj[key] = obj[key].model
+            : newObj[key] = obj[key]
         }
       })
       return newObj
@@ -145,18 +153,7 @@ export default {
     changeValue(name, value) {
       this.formModel[name] = value
       this.checkError(name)
-      this.$v.formModel[name].$touch()
-      if (this.isInputHandler && !this.$v.formModel[name].$invalid) {
-        this.$emit('formSubmit', {
-          name,
-          value,
-          src: this.filterObj(this.formModel)
-        })
-      }
-
-      if (this.isError) {
-        this.resetError()
-      }
+      // this.$v.formModel[name].$touch()
     },
     submitHandler() {
       this.$v.$touch()
@@ -173,7 +170,7 @@ export default {
   position: relative;
 }
 
-.form-field {
+.field {
   position: relative;
   width: 100%;
 }

@@ -1,8 +1,43 @@
 
 export const state = () => ({
-  popupStatus: false,
-  popupType: '',
-  popupContent: {}
+  popupStatus: true,
+  popupType: 'popupBooking',
+  popupContent: {
+    image: '/images/restaurant/restaurant-full.jpg',
+    logo: '/images/restaurant-logo.svg',
+    fields: [
+      {
+        type: 'text',
+        label: 'Имя',
+        name: 'userName',
+        validate: [
+          {
+            rule: 'required'
+          }
+        ]
+      },
+      {
+        type: 'phone',
+        label: 'Телефон',
+        name: 'userPhone',
+        validate: [
+          {
+            rule: 'phone'
+          }
+        ]
+      },
+      {
+        type: 'counter',
+        label: 'Гостей',
+        name: 'count'
+      },
+      {
+        type: 'date',
+        label: 'Дата',
+        name: 'date'
+      }
+    ]
+  }
 })
 
 export const mutations = {
