@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { mixin as clickaway } from 'vue-clickaway'
 import iconPlane from '~/assets/svg/plane.svg'
 
@@ -66,11 +66,11 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({
-      SET_CURRENT_CITY: 'cities/SET_CURRENT_CITY'
+    ...mapActions({
+      UPDATE_CURRENT_CITY: 'cities/UPDATE_CURRENT_CITY'
     }),
     selectCity(city) {
-      this.SET_CURRENT_CITY(city)
+      this.UPDATE_CURRENT_CITY(city)
       this.closeList()
     },
     toggleList() {

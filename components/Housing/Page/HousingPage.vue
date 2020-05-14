@@ -1,5 +1,5 @@
 <template>
-  <Section class="housing section--full section--no-p section--gray">
+  <Section class="housing section--full section--no-p section--gray" :class="{ isLoading: GET_HOUSING_STATUS }">
     <HousingSubheader />
     <div class="housing-content">
       <div class="housing-filter">
@@ -17,24 +17,21 @@
       </div>
       <transition-group class="row wrapper isNoGut isNoWrap" mode="out-in" name="list-fade" tag="div">
         <div v-if="isDesktop ? true : activeView === 'list'" key="list" class="col-auto col-t-12 col-m-12">
-          <div class="housing-cards">
-            <div
-              v-for="list in model.values"
-              :key="list.id"
-              class="housing-list"
-              :data-anchor="list.id"
-            >
-              <div class="row">
-                <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                  <HousingCard
-                    :info="card"
-                    @mouseenter.native="setActiveMarker(card)"
-                    @mouseleave.native="removeActiveMarker"
-                  />
+          <transition mode="out-in" name="list-fade">
+            <div :key="transitionKey" class="housing-cards">
+              <div class="housing-list">
+                <div class="row">
+                  <div v-for="card in GET_HOUSING_LIST" :key="card.slug" class="col-6 col-t-6 housing-list-item">
+                    <HousingCard
+                      :info="card"
+                      @mouseenter.native="setActiveMarker(card)"
+                      @mouseleave.native="removeActiveMarker"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </transition>
         </div>
         <div v-if="isDesktop ? true : activeView === 'map'" key="map" class="col-auto col-t-12 col-m-12 map-col">
           <div class="housing-map">
@@ -50,7 +47,7 @@
 import { mapGetters } from 'vuex'
 import MODEL from './model'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
-import HousingCard from '~/components/Housing/Card/HousingLink'
+import HousingCard from '~/components/Housing/Card/HousingCard'
 import YandexMap from '~/components/YandexMap/YandexMap'
 import HousingSubheader from '~/components/Housing/Subheader/HousingSubheader'
 import Section from '~/components/Utils/Section'
@@ -76,42 +73,47 @@ export default {
   },
   data() {
     return {
+      transitionKey: 0,
       activeView: 'list',
       activeMarker: null
     }
   },
   computed: {
     ...mapGetters({
-      GET_MQ: 'mediaQuery/GET_MQ'
+      GET_MQ: 'mediaQuery/GET_MQ',
+      GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS',
+      GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST'
     }),
     model() {
-      return MODEL(this.info)
+      return MODEL(this.GET_HOUSING_LIST)
     },
     isDesktop() {
       return this.GET_MQ === 'desktop'
     },
     mapMarkers() {
       const markers = []
-      this.model.values.forEach((item) => {
+      this.model.values.forEach((marker) => {
         const {
-          id = ''
-        } = item
-        item.list.forEach((marker) => {
-          const {
-            coords = [],
-            slug = '',
-            houseType = id
-          } = marker
-          markers.push({
-            ...marker,
-            coords,
-            houseType,
-            id: slug
-          })
+          coords = [],
+          slug = '',
+          type = ''
+        } = marker
+        markers.push({
+          ...marker,
+          coords,
+          type,
+          id: slug
         })
       })
       return {
         markers
+      }
+    }
+  },
+  watch: {
+    GET_HOUSING_STATUS(val) {
+      if (!val) {
+        this.transitionKey++
       }
     }
   },
@@ -131,9 +133,12 @@ export default {
 
 <style lang="scss" scoped>
 .housing {
-  // .wrapper {
-  //   width: ;
-  // }
+  transition: opacity .3s ease;
+  &.isLoading {
+    opacity: .5;
+    pointer-events: none;
+  }
+
   .housing-map {
     width: 100%;
     height: 40rem;

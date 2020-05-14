@@ -1,7 +1,8 @@
 export default (info) => {
   const {
-    type = '',
     slug = '',
+    type = '',
+    cityId = '',
     city = '',
     title = '',
     images = [],
@@ -21,8 +22,9 @@ export default (info) => {
   })
 
   return {
-    type,
     slug,
+    type,
+    cityId,
     city,
     title,
     images,

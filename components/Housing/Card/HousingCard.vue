@@ -66,6 +66,9 @@ export default {
     model() {
       return MODEL(this.info)
     },
+    needChange() {
+      return this.model.images.length > 1
+    },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
     },
@@ -87,13 +90,17 @@ export default {
       }
     },
     startChanger() {
-      this.imageChanger()
-      this.intervalId = setInterval(() => {
+      if (this.needChange) {
         this.imageChanger()
-      }, 1500)
+        this.intervalId = setInterval(() => {
+          this.imageChanger()
+        }, 1500)
+      }
     },
     stopChanger() {
-      clearInterval(this.intervalId)
+      if (this.needChange) {
+        clearInterval(this.intervalId)
+      }
     }
   }
 }

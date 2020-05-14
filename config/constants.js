@@ -9,6 +9,7 @@ export const {
     routes: {
       settings: API_ROUTES_SETTINGS = 'get-settings',
       layout: API_ROUTES_LAYOUT = 'get-layout',
+      housing: API_ROUTES_HOUSING_LIST = 'get-housing-list',
       pages: {
         API_ROUTES_INDEX = 'get-page/index',
         API_ROUTES_ABOUT = 'get-page/about',

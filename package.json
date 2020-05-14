@@ -5,7 +5,7 @@
   "author": "Alexander",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "npx kill-port 3000 && concurrently -c \"cyan,green\" -n nuxt,api --handle-input \"nuxt\" \"npm run api\" -k",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.9.5",
     "@nuxtjs/dotenv": "^1.4.1",
     "axios": "^0.19.2",
+    "concurrently": "^5.2.0",
     "libphonenumber-js": "^1.7.51",
     "node-sass": "^4.13.1",
     "nuxt": "^2.12.0",

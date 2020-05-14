@@ -12,7 +12,7 @@
       <button
         type="button"
         class="cities-btn text--18"
-        @click="SET_CURRENT_CITY(city)"
+        @click="UPDATE_CURRENT_CITY(city)"
         v-html="city.name"
       />
     </li>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import iconPlane from '~/assets/svg/plane.svg'
 
 export default {
@@ -44,8 +44,8 @@ export default {
     })
   },
   methods: {
-    ...mapMutations({
-      SET_CURRENT_CITY: 'cities/SET_CURRENT_CITY'
+    ...mapActions({
+      UPDATE_CURRENT_CITY: 'cities/UPDATE_CURRENT_CITY'
     })
   }
 }

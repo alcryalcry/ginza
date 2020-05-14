@@ -28,6 +28,7 @@ export const actions = {
       } = await axios.get(API_ROUTES_SETTINGS)
       dispatch('cities/UPDATE_CITIES', settings.cities)
       dispatch('housing/UPDATE_HOUSING_TYPES', settings.housingTypes)
+      dispatch('housing/UPDATE_HOUSING_LIST')
     } catch (e) {
       return console.error(API_ROUTES_SETTINGS, e)
     }

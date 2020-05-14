@@ -1,52 +1,36 @@
-export default (info) => {
-  const {
-    values = []
-  } = info || {}
-
-  const adaptedValues = (values || []).map((item) => {
+export default (info = []) => {
+  const adaptedValues = (info || []).map((item) => {
     const {
+      slug = '',
+      type = '',
+      cityId = '',
+      city = '',
       title = '',
-      id = '',
-      linkLabel = '',
-      list = []
+      images = [],
+      coords = [],
+      params = []
     } = item
 
-    const adaptedList = (list || []).map((house) => {
+    const adaptedParams = (params || []).map((param) => {
       const {
-        slug = '',
-        city = '',
-        title = '',
-        images = [],
-        coords = [],
-        params = []
-      } = house
-
-      const adaptedParams = (params || []).map((param) => {
-        const {
-          type = '',
-          value = ''
-        } = param
-        return {
-          type,
-          value
-        }
-      })
-
+        type = '',
+        value = ''
+      } = param
       return {
-        slug,
-        city,
-        title,
-        images,
-        coords,
-        params: adaptedParams
+        type,
+        value
       }
     })
 
     return {
+      slug,
+      type,
+      cityId,
+      city,
       title,
-      id,
-      linkLabel,
-      list: adaptedList
+      images,
+      coords,
+      params: adaptedParams
     }
   })
 

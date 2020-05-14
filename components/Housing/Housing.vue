@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-          <div v-if="activeView === 'map'" key="map" class="housing-map">
+          <div v-show="activeView === 'map'" key="map" class="housing-map">
             <YandexMap :info="mapMarkers" :is-balloon-need="true" />
           </div>
         </transition-group>
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 import MODEL from './model'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
 import HousingTypes from '~/components/Housing/Types/HousingTypes'
@@ -78,6 +79,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS'
+    }),
     model() {
       return MODEL(this.info)
     },
@@ -115,6 +119,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      UPDATE_HOUSING_LIST: 'housing/UPDATE_HOUSING_LIST'
+    }),
     setView(view) {
       this.activeView = view
       window.scrollTo({

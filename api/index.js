@@ -43,6 +43,11 @@ app.get('/get-layout', (req, res) => {
   res.send(reponseJson('layout'))
 })
 
+app.get('/get-housing-list', (req, res) => {
+  const params = req.query
+  reponseJson('housing_list')(params, res)
+})
+
 app.get('/get-page/index', (req, res) => {
   res.send(reponseJson('index'))
 })

@@ -1,6 +1,11 @@
 <template>
   <div class="map" :class="{ isBalloonReady }">
-    <yandex-map v-bind="mapSettings" @click="closeBalloon">
+    <yandex-map
+      ref="myMap"
+      v-bind="mapSettings"
+      :coords.sync="coords"
+      @click="closeBalloon"
+    >
       <ymap-marker
         v-for="marker in markers"
         :key="marker.id"
@@ -50,6 +55,7 @@ export default {
   },
   data() {
     return {
+      coords: [],
       activeMarker: '',
       isBalloonReady: false
     }
@@ -92,7 +98,6 @@ export default {
           coordorder: 'latlong',
           version: '2.1'
         },
-        showAllMarkers: this.markers.length > 1,
         controls: [],
         zoom: 11,
         markers: this.markers,
@@ -107,11 +112,16 @@ export default {
   watch: {
     activeMarkerId(id) {
       this.activeMarker = id
+      if (this.activeMarker) {
+        const coords = (this.markers.find(item => item.id === this.activeMarker) || {}).coords || this.markers[0].coords
+        this.coords = coords
+      }
     }
   },
   // если понадобится instance map
   async mounted() {
     await loadYmap({ ...this.settings })
+    this.coords = this.markers[0].coords
   },
   methods: {
     balloonOpen() {
