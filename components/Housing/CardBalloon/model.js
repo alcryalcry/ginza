@@ -1,5 +1,6 @@
 export default (info) => {
   const {
+    id = '',
     slug = '',
     type = '',
     city = '',
@@ -21,6 +22,7 @@ export default (info) => {
   })
 
   return {
+    id,
     slug,
     type,
     city,

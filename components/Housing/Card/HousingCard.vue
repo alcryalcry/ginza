@@ -73,13 +73,12 @@ export default {
       return this.model.params.map(item => !!this.$options.components[item.type])
     },
     path() {
+      // TODO: починить path у карточки
       return { path: this.isNested
         ? `${this.$route.path}/${this.model.slug}`
         : `${this.model.type}/${this.model.slug}`
       }
     }
-  },
-  created() {
   },
   methods: {
     imageChanger() {

@@ -363,6 +363,7 @@ module.exports = {
       },
       values: [
         {
+          type: 'apartments',
           slug: 'rubinsteina12',
           city: 'Санкт-Петербург',
           title: 'Rubinsteina 12',
@@ -386,6 +387,7 @@ module.exports = {
           ]
         },
         {
+          type: 'apartments',
           slug: 'karavannaya11',
           city: 'Санкт-Петербург',
           title: 'Karavannaya 11',
@@ -409,6 +411,7 @@ module.exports = {
           ]
         },
         {
+          type: 'apartments',
           slug: 'moskovskiy191',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
@@ -432,6 +435,7 @@ module.exports = {
           ]
         },
         {
+          type: 'apartments',
           slug: 'moskovskiy1912',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
@@ -455,6 +459,7 @@ module.exports = {
           ]
         },
         {
+          type: 'apartments',
           slug: 'moskovskiy1913',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
@@ -478,6 +483,7 @@ module.exports = {
           ]
         },
         {
+          type: 'apartments',
           slug: 'moskovskiy1914',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',

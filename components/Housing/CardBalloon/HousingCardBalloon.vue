@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    :to="localePath({ path: `${model.type}/${model.slug}` })"
+    :to="localePath(path)"
     :class="isReady"
     class="housing-card"
   >
@@ -55,6 +55,9 @@ export default {
     },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
+    },
+    path() {
+      return { path: `${this.model.type}/${this.model.slug || this.model.id}` }
     }
   },
   created() {
