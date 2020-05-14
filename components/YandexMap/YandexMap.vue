@@ -3,7 +3,7 @@
     <yandex-map
       ref="myMap"
       v-bind="mapSettings"
-      :coords.sync="coords"
+      :coords="coords"
       @click="closeBalloon"
     >
       <ymap-marker
@@ -61,12 +61,12 @@ export default {
     }
   },
   computed: {
-    model () {
-      return MODEL(this.info)
-    },
     ...mapGetters({
       GET_LANG: 'GET_LANG'
     }),
+    model () {
+      return MODEL(this.info)
+    },
     markers() {
       return this.isMarkerDefault ? [
         {
@@ -110,20 +110,26 @@ export default {
     }
   },
   watch: {
+    markers(val) {
+      this.setDefaultCoords()
+    },
     activeMarkerId(id) {
       this.activeMarker = id
       if (this.activeMarker) {
-        const coords = (this.markers.find(item => item.id === this.activeMarker) || {}).coords || this.markers[0].coords
+        const coords = (this.markers.find(item => item.id === this.activeMarker) || {}).coords || this.model.coords
         this.coords = coords
       }
     }
   },
   // если понадобится instance map
   async mounted() {
+    this.setDefaultCoords()
     await loadYmap({ ...this.settings })
-    this.coords = this.markers[0].coords
   },
   methods: {
+    setDefaultCoords() {
+      this.coords = (this.markers[0] || {}).coords || this.model.coords
+    },
     balloonOpen() {
       setTimeout(() => {
         this.isBalloonReady = true

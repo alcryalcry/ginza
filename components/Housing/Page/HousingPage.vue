@@ -21,7 +21,7 @@
             <div :key="transitionKey" class="housing-cards">
               <div class="housing-list">
                 <div class="row">
-                  <div v-for="card in GET_HOUSING_LIST" :key="card.slug" class="col-6 col-t-6 housing-list-item">
+                  <div v-for="card in filteredCards" :key="card.slug" class="col-6 col-t-6 housing-list-item">
                     <HousingCard
                       :info="card"
                       @mouseenter.native="setActiveMarker(card)"
@@ -81,36 +81,29 @@ export default {
   computed: {
     ...mapGetters({
       GET_MQ: 'mediaQuery/GET_MQ',
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE',
       GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS',
       GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST'
     }),
     model() {
       return MODEL(this.GET_HOUSING_LIST)
     },
+    filteredCards() {
+      return this.model.filter(item => item.type === this.GET_CURRENT_HOUSING_TYPE.id)
+    },
     isDesktop() {
       return this.GET_MQ === 'desktop'
     },
     mapMarkers() {
-      const markers = []
-      this.model.values.forEach((marker) => {
-        const {
-          coords = [],
-          slug = '',
-          type = ''
-        } = marker
-        markers.push({
-          ...marker,
-          coords,
-          type,
-          id: slug
-        })
-      })
       return {
-        markers
+        markers: this.filteredCards
       }
     }
   },
   watch: {
+    GET_CURRENT_HOUSING_TYPE(type) {
+      // TODO:менять роут при смене типа жилья
+    },
     GET_HOUSING_STATUS(val) {
       if (!val) {
         this.transitionKey++

@@ -30,7 +30,7 @@ module.exports = function (params, res) {
         '/images/apartment/apartment-preview-2.jpg',
         '/images/apartment/apartment-preview-3.jpg'
       ],
-      coords: currentCity.id === 'spb' ? [59.932211, 30.346072] : [0, 0],
+      coords: currentCity.id === 'spb' ? [59.932211, 30.346072] : [40, 40],
       params: [
         {
           type: 'beds',
@@ -57,7 +57,7 @@ module.exports = function (params, res) {
         '/images/apartment/apartment-preview-1.jpg',
         '/images/apartment/apartment-preview-3.jpg'
       ],
-      coords: currentCity.id === 'spb' ? [59.032211, 30.446072] : [0, 0],
+      coords: currentCity.id === 'spb' ? [59.032211, 30.446072] : [40, 40],
       params: [
         {
           type: 'beds',
@@ -84,7 +84,7 @@ module.exports = function (params, res) {
         '/images/apartment/apartment-preview-2.jpg',
         '/images/apartment/apartment-preview-1.jpg'
       ],
-      coords: currentCity.id === 'spb' ? [59.232211, 30.906072] : [0, 0],
+      coords: currentCity.id === 'spb' ? [59.232211, 30.906072] : [40, 40],
       params: [
         {
           type: 'beds',
@@ -111,7 +111,7 @@ module.exports = function (params, res) {
         '/images/hotel/hotel-preview-2.jpg',
         '/images/hotel/hotel-preview-3.jpg'
       ],
-      coords: currentCity.id === 'spb' ? [59.532211, 30.99072] : [0, 0],
+      coords: currentCity.id === 'spb' ? [60.532211, 40.99072] : [40, 40],
       params: [
         {
           type: 'text',
@@ -130,7 +130,7 @@ module.exports = function (params, res) {
         '/images/hotel/hotel-preview-1.jpg',
         '/images/hotel/hotel-preview-3.jpg'
       ],
-      coords: currentCity.id === 'spb' ? [59.552211, 30.096072] : [0, 0],
+      coords: currentCity.id === 'spb' ? [60.552211, 40.096072] : [40, 40],
       params: [
         {
           type: 'text',
@@ -149,7 +149,7 @@ module.exports = function (params, res) {
         '/images/hotel/hotel-preview-2.jpg',
         '/images/hotel/hotel-preview-1.jpg'
       ],
-      coords: currentCity.id === 'spb' ? [59.792211, 30.556072] : [0, 0],
+      coords: currentCity.id === 'spb' ? [60.792211, 40.556072] : [40, 40],
       params: [
         {
           type: 'text',
