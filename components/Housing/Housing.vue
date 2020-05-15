@@ -16,23 +16,27 @@
             </div>
           </div>
         </div>
-        <transition-group mode="out-in" name="fade" tag="div" class="col-8 col-t-8 col-m-12">
-          <div v-show="activeView === 'list'" key="list" class="housing-cards">
-            <div
-              v-for="list in model.values"
-              :key="list.id"
-              class="housing-list"
-              :data-anchor="list.id"
-            >
-              <div class="row">
-                <div v-for="card in list.list" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                  <HousingCard :info="card" />
-                </div>
-                <div class="col-6 col-t-6 housing-list-item">
-                  <HousingLink :house-type="list.id" />
+        <transition-group :key="transitionKey" mode="out-in" name="fade" tag="div" class="col-8 col-t-8 col-m-12">
+          <div v-show="activeView === 'list'" key="list">
+            <transition mode="out-in" name="fade">
+              <div class="housing-cards">
+                <div
+                  v-for="values in filteredTypes"
+                  :key="values.id"
+                  class="housing-list"
+                  :data-anchor="values.id"
+                >
+                  <div class="row">
+                    <div v-for="card in values.list" :key="card.id" class="col-6 col-t-6 housing-list-item">
+                      <HousingCard :info="card" :is-nested="true" />
+                    </div>
+                    <div class="col-6 col-t-6 housing-list-item">
+                      <HousingLink :url="values.url" :type="values.id" />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </transition>
           </div>
           <div v-show="activeView === 'map'" key="map" class="housing-map">
             <YandexMap :info="mapMarkers" :is-balloon-need="true" />
@@ -75,47 +79,55 @@ export default {
   },
   data() {
     return {
-      activeView: 'list'
+      activeView: 'list',
+      transitionKey: 0
     }
   },
   computed: {
     ...mapGetters({
-      GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS'
+      GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS',
+      GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE',
+      GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST'
     }),
     model() {
       return MODEL(this.info)
     },
+    filteredTypes() {
+      return this.GET_HOUSING_TYPES.map((type) => {
+        return {
+          id: type.id,
+          url: type.id,
+          linkLabel: type.name,
+          list: this.GET_HOUSING_LIST.filter(item => item.type === type.id).splice(0, 3)
+        }
+      })
+    },
     mapMarkers() {
-      const markers = []
-      this.model.values.forEach((item) => {
-        const {
-          id = ''
-        } = item
-        item.list.forEach((marker) => {
-          const {
-            coords = [],
-            slug = '',
-            houseType = id
-          } = marker
-          markers.push({
-            ...marker,
-            houseType,
-            coords,
-            id: slug
-          })
+      const arr = []
+      this.filteredTypes.forEach((item) => {
+        item.list.forEach((listItem) => {
+          arr.push(listItem)
         })
       })
       return {
-        markers
+        markers: arr
       }
     },
     stickyAnchors() {
-      return this.model.values.map((anchor) => {
+      return this.filteredTypes.map((anchor) => {
         return {
           href: anchor.id,
           id: anchor.id
         }
       })
+    }
+  },
+  watch: {
+    GET_HOUSING_STATUS(val) {
+      if (!val) {
+        this.transitionKey++
+      }
     }
   },
   methods: {

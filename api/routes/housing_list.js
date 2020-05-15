@@ -20,7 +20,8 @@ module.exports = function (params, res) {
 
   const list = [
     {
-      slug: 'rubinsteina12',
+      id: 'rubinsteina12',
+      url: 'apartments/rubinsteina12',
       type: 'apartments',
       cityId: currentCity.id,
       city: currentCity.name,
@@ -47,7 +48,8 @@ module.exports = function (params, res) {
       ]
     },
     {
-      slug: 'karavannaya11',
+      id: 'karavannaya11',
+      url: 'apartments/karavannaya11',
       type: 'apartments',
       cityId: currentCity.id,
       city: currentCity.name,
@@ -74,7 +76,8 @@ module.exports = function (params, res) {
       ]
     },
     {
-      slug: 'moskovskiy191',
+      id: 'moskovskiy191',
+      url: 'apartments/moskovskiy191',
       type: 'apartments',
       cityId: currentCity.id,
       city: currentCity.name,
@@ -101,7 +104,8 @@ module.exports = function (params, res) {
       ]
     },
     {
-      slug: 'dom16',
+      id: 'dom16',
+      url: 'hotels/dom16',
       type: 'hotels',
       cityId: currentCity.id,
       city: currentCity.name,
@@ -120,7 +124,8 @@ module.exports = function (params, res) {
       ]
     },
     {
-      slug: 'kvartira14',
+      id: 'kvartira14',
+      url: 'hotels/kvartira14',
       type: 'hotels',
       cityId: currentCity.id,
       city: currentCity.name,
@@ -139,7 +144,8 @@ module.exports = function (params, res) {
       ]
     },
     {
-      slug: 'khedi',
+      id: 'khedi',
+      url: 'hotels/khedi',
       type: 'hotels',
       cityId: currentCity.id,
       city: currentCity.name,

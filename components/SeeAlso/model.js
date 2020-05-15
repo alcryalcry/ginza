@@ -1,10 +1,10 @@
 export default (info) => {
   const {
-    slug = '',
+    url = '',
     linkLabel = ''
   } = info
   return {
-    slug,
+    url,
     linkLabel
   }
 }

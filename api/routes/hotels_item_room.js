@@ -142,146 +142,128 @@ module.exports = {
       name: 'slider_see_also',
       properties: {
         title: 'Смотрите также',
-        url: '/',
+        url: 'hotels/2',
         linkLabel: 'Все варианты',
         id: 'apartments'
       },
       values: [
         {
-          slug: 'rubinsteina12',
-          city: 'Санкт-Петербург',
-          title: 'Rubinsteina 12',
+          id: 'standart',
+          type: 'hotels',
+          url: 'standart',
+          title: 'Standart',
           images: [
+            '/images/room/room-preview-1.jpg',
             '/images/hotel/hotel-preview-1.jpg'
           ],
-          coords: [59.932211, 30.346072],
           params: [
             {
-              type: 'beds',
-              value: '3'
-            },
-            {
               type: 'adult',
-              value: '4'
+              value: 4
             },
             {
               type: 'size',
-              value: '57м'
+              value: '15м'
             }
           ]
         },
         {
-          slug: 'karavannaya11',
-          city: 'Санкт-Петербург',
-          title: 'Karavannaya 11',
+          type: 'hotels',
+          id: 'business',
+          url: 'business',
+          title: 'Business',
           images: [
+            '/images/room/room-preview-2.jpg',
             '/images/hotel/hotel-preview-2.jpg'
           ],
-          coords: [59.032211, 30.446072],
           params: [
             {
-              type: 'beds',
-              value: '3'
-            },
-            {
               type: 'adult',
-              value: '4-6'
+              value: 3
             },
             {
               type: 'size',
-              value: '100м'
+              value: '13м'
             }
           ]
         },
         {
-          slug: 'moskovskiy191',
-          city: 'Санкт-Петербург',
-          title: 'Moskovskiy 191',
+          type: 'hotels',
+          id: 'business_city_view',
+          url: 'business_city_view',
+          title: 'Business City View',
           images: [
+            '/images/room/room-preview-3.jpg',
             '/images/hotel/hotel-preview-3.jpg'
           ],
-          coords: [59.232211, 30.906072],
           params: [
             {
-              type: 'beds',
-              value: '3'
-            },
-            {
               type: 'adult',
-              value: '4'
+              value: 2
             },
             {
               type: 'size',
-              value: '60м'
+              value: '13м'
             }
           ]
         },
         {
-          slug: 'moskovskiy1912',
-          city: 'Санкт-Петербург',
-          title: 'Moskovskiy 191',
+          type: 'hotels',
+          id: 'corner_suite',
+          url: 'corner_suite',
+          title: 'Corner Suite',
           images: [
-            '/images/apartment/apartment-preview-1.jpg'
+            '/images/room/room-preview-4.jpg',
+            '/images/hall/hall-preview-1.jpg'
           ],
-          coords: [59.232211, 30.906072],
           params: [
             {
-              type: 'beds',
-              value: '3'
-            },
-            {
               type: 'adult',
-              value: '4'
+              value: 2
             },
             {
               type: 'size',
-              value: '60м'
+              value: '15м'
             }
           ]
         },
         {
-          slug: 'moskovskiy1913',
-          city: 'Санкт-Петербург',
-          title: 'Moskovskiy 191',
+          type: 'hotels',
+          id: 'duplex_city_view',
+          url: 'duplex_city_view',
+          title: 'Duplex City View',
           images: [
-            '/images/apartment/apartment-preview-2.jpg'
+            '/images/room/room-preview-5.jpg',
+            '/images/hall/hall-preview-2.jpg'
           ],
-          coords: [59.232211, 30.906072],
           params: [
             {
-              type: 'beds',
-              value: '3'
-            },
-            {
               type: 'adult',
-              value: '4'
+              value: 4
             },
             {
               type: 'size',
-              value: '60м'
+              value: '15м'
             }
           ]
         },
         {
-          slug: 'moskovskiy1914',
-          city: 'Санкт-Петербург',
-          title: 'Moskovskiy 191',
+          type: 'hotels',
+          id: 'royal_suite',
+          url: 'royal_suite',
+          title: 'Royal Suite',
           images: [
-            '/images/apartment/apartment-preview-3.jpg'
+            '/images/room/room-preview-6.jpg',
+            '/images/hotel/hotel-preview-3.jpg'
           ],
-          coords: [59.232211, 30.906072],
           params: [
             {
-              type: 'beds',
-              value: '3'
-            },
-            {
               type: 'adult',
-              value: '4'
+              value: 2
             },
             {
               type: 'size',
-              value: '60м'
+              value: '15м'
             }
           ]
         }

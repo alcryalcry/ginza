@@ -49,6 +49,9 @@ export default {
     return {}
   },
   computed: {},
+  mounted() {
+    console.log(this.$router.options.routes.filter(item => !item.path.includes('/en/')).sort((a, b) => a.path.localeCompare(b.path)))
+  },
   methods: {}
 }
 </script>

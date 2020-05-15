@@ -8,6 +8,7 @@ export default {
       OPEN_POPUP: 'popup/OPEN_POPUP'
     }),
     openPopup({ content, type }) {
+      console.log(content, type)
       this.SET_POPUP_TYPE(type)
       this.SET_POPUP_CONTENT(content)
       this.OPEN_POPUP()

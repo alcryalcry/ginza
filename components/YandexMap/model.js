@@ -6,7 +6,7 @@ export default (info) => {
 
   const adaptedMarkers = (markers || []).map((item) => {
     const {
-      slug = '',
+      id = '',
       type = '',
       cityId = '',
       city = '',
@@ -28,7 +28,7 @@ export default (info) => {
     })
 
     return {
-      id: slug,
+      id,
       type,
       cityId,
       city,

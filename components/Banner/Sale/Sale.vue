@@ -32,7 +32,7 @@
       </div>
       <div class="banner-col more">
         <div v-if="model.linkLabel" class="label" v-html="model.linkLabel" />
-        <nuxt-link class="more-link" :to="localePath(model.url)">
+        <nuxt-link class="more-link" :to="localePath(path)">
           <iconArrow />
         </nuxt-link>
       </div>
@@ -60,6 +60,12 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    path() {
+      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
+      return {
+        path: url
+      }
     }
   }
 }

@@ -11,10 +11,10 @@
       >
         <template v-slot:slides>
           <component
-            :is="slide.slug ? 'nuxt-link' : 'div'"
-            v-for="slide in model.values"
+            :is="slide.url ? 'nuxt-link' : 'div'"
+            v-for="(slide, index) in model.values"
             :key="slide.id"
-            :to="slide.slug ? localePath({ name: 'restaurants-slug', params: { slug: slide.slug } }) : false"
+            :to="slide.url ? localePath(path[index]) : false"
             :class="slide.mode"
             class="swiper-slide"
           >
@@ -68,10 +68,17 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    path() {
+      return this.model.values.map((item) => {
+        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
+        return {
+          path: this.$route.path + url
+        }
+      })
     }
   },
   mounted() {
-    console.log(this.$router.options.routes)
   },
   methods: {}
 }

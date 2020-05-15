@@ -17,12 +17,12 @@
             :class="slide.mode"
             class="swiper-slide"
           >
-            <HousingCard :info="slide" />
+            <HousingCard :info="slide" :is-nested="true" />
           </div>
         </template>
       </Slider>
       <div class="link-wrapper">
-        <nuxt-link v-if="model.url && model.linkLabel" class="link link--brown link--tdu" :to="localePath(model.url)" v-html="model.linkLabel" />
+        <nuxt-link v-if="model.url && model.linkLabel" class="link link--brown link--tdu" :to="localePath(path)" v-html="model.linkLabel" />
       </div>
     </Section>
   </div>
@@ -65,6 +65,12 @@ export default {
     }),
     model() {
       return MODEL(this.info)
+    },
+    path() {
+      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
+      return {
+        path: url
+      }
     }
   },
   created() {

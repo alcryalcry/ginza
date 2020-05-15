@@ -48,7 +48,7 @@ export default {
         mode: pageComponents.mode || ''
       }
     } catch (e) {
-      console.warn('ERROR FROM page (asyncData)', e)
+      console.error('ERROR FROM page (asyncData)', e)
     }
   },
   computed: {
@@ -61,6 +61,9 @@ export default {
           .catch(e => import('~/components/NotFound/NotFound.vue'))
       })
     }
+  },
+  mounted() {
+    console.log(this.$route)
   }
 }
 </script>

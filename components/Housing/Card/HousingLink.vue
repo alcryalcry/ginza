@@ -1,10 +1,10 @@
 <template>
-  <nuxt-link :to="localePath('/')" class="housing-link">
+  <nuxt-link :to="localePath(path)" class="housing-link">
     <div class="logo logo--hotels">
       <iconHotels />
     </div>
     <div class="content">
-      <div class="text" v-html="houseType ? $t(`housing.${houseType}`) : ''" />
+      <div class="text" v-html="type ? $t(`housing.${type}`) : ''" />
       <div class="logo logo--arrow">
         <iconArrow />
       </div>
@@ -28,7 +28,11 @@ export default {
     iconArrow
   },
   props: {
-    houseType: {
+    type: {
+      type: String,
+      default: ''
+    },
+    url: {
       type: String,
       required: true
     }
@@ -38,6 +42,12 @@ export default {
     }
   },
   computed: {
+    path() {
+      const url = this.url.charAt(0) === '/' ? this.url : '/' + this.url
+      return {
+        path: url
+      }
+    }
   },
   created() {
   },

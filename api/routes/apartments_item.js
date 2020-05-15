@@ -12,7 +12,7 @@ module.exports = {
         hasGallery: true
       },
       popup: {
-        type: 'video',
+        type: 'popupVideo',
         content: {
           title: 'Karavannaya 11',
           video: {
@@ -357,14 +357,14 @@ module.exports = {
       name: 'slider_see_also',
       properties: {
         title: 'Смотрите также',
-        url: '/',
+        url: 'apartments',
         linkLabel: 'Все варианты',
         id: 'apartments'
       },
       values: [
         {
           type: 'apartments',
-          slug: 'rubinsteina12',
+          url: 'rubinsteina12',
           city: 'Санкт-Петербург',
           title: 'Rubinsteina 12',
           images: [
@@ -388,7 +388,7 @@ module.exports = {
         },
         {
           type: 'apartments',
-          slug: 'karavannaya11',
+          url: 'karavannaya11',
           city: 'Санкт-Петербург',
           title: 'Karavannaya 11',
           images: [
@@ -412,7 +412,7 @@ module.exports = {
         },
         {
           type: 'apartments',
-          slug: 'moskovskiy191',
+          url: 'moskovskiy191',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
@@ -436,7 +436,7 @@ module.exports = {
         },
         {
           type: 'apartments',
-          slug: 'moskovskiy1912',
+          url: 'moskovskiy1912',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
@@ -460,7 +460,7 @@ module.exports = {
         },
         {
           type: 'apartments',
-          slug: 'moskovskiy1913',
+          url: 'moskovskiy1913',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [
@@ -484,7 +484,7 @@ module.exports = {
         },
         {
           type: 'apartments',
-          slug: 'moskovskiy1914',
+          url: 'moskovskiy1914',
           city: 'Санкт-Петербург',
           title: 'Moskovskiy 191',
           images: [

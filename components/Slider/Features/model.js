@@ -16,14 +16,14 @@ export default (info) => {
   const adaptedSlides = (values || []).map((item) => {
     const {
       id = null,
-      slug = '',
+      url = '',
       name = '',
       image = '',
       mode = ''
     } = item
     return {
       id,
-      slug,
+      url,
       name,
       image,
       mode

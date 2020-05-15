@@ -2,7 +2,7 @@
   <Section class="section--apartment see-also">
     <div class="see-also-content">
       <div class="label" v-html="$t('seeAlso.label')" />
-      <nuxt-link class="see-also-link link title--h2" :to="localePath({ path: model.slug })">
+      <nuxt-link class="see-also-link link title--h2" :to="localePath(path)">
         <div class="title" v-html="model.linkLabel" />
         <div class="icon">
           <iconArrow />
@@ -35,6 +35,12 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    path() {
+      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
+      return {
+        path: url
+      }
     }
   }
 }

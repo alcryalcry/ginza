@@ -18,8 +18,8 @@
             <div class="housing-list">
               <transition name="list-fade" mode="out-in">
                 <div :key="selectedFilter.id" class="row">
-                  <div v-for="card in filteredItems" :key="card.slug" class="col-6 col-t-6 housing-list-item">
-                    <HousingCard :info="card" :is-nested="true" />
+                  <div v-for="card in filteredItems" :key="card.id" class="col-6 col-t-6 housing-list-item">
+                    <HousingCard :info="card" />
                   </div>
                 </div>
               </transition>

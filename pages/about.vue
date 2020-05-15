@@ -36,7 +36,7 @@ export default {
         mode: pageComponents.mode || ''
       }
     } catch (e) {
-      console.warn('ERROR FROM page (asyncData)', e)
+      console.error('ERROR FROM page (asyncData)', e)
     }
   },
   computed: {

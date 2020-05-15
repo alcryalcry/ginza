@@ -1,6 +1,7 @@
 export default (info) => {
   const {
-    slug = '',
+    id = '',
+    url = '',
     type = '',
     cityId = '',
     city = '',
@@ -22,7 +23,8 @@ export default (info) => {
   })
 
   return {
-    slug,
+    id,
+    url,
     type,
     cityId,
     city,

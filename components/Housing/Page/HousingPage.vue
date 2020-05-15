@@ -21,9 +21,10 @@
             <div :key="transitionKey" class="housing-cards">
               <div class="housing-list">
                 <div class="row">
-                  <div v-for="card in filteredCards" :key="card.slug" class="col-6 col-t-6 housing-list-item">
+                  <div v-for="card in filteredCards" :key="card.id" class="col-6 col-t-6 housing-list-item">
                     <HousingCard
                       :info="card"
+                      :is-nested="true"
                       @mouseenter.native="setActiveMarker(card)"
                       @mouseleave.native="removeActiveMarker"
                     />
@@ -102,7 +103,9 @@ export default {
   },
   watch: {
     GET_CURRENT_HOUSING_TYPE(type) {
-      // TODO:менять роут при смене типа жилья
+      if (process.browser) {
+        history.pushState({}, {}, type.id)
+      }
     },
     GET_HOUSING_STATUS(val) {
       if (!val) {
@@ -115,7 +118,7 @@ export default {
       this.activeView = view
     },
     setActiveMarker(card) {
-      this.activeMarker = card.slug
+      this.activeMarker = card.id
     },
     removeActiveMarker() {
       this.activeMarker = null

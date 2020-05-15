@@ -74,7 +74,7 @@ module.exports = {
           title: 'Karavannaya 11',
           city: 'Санкт-Петербург',
           category: 'Апартаменты',
-          url: '/',
+          url: 'apartments/karabannaya11',
           linkLabel: 'Посмотреть',
           image: '/images/main/main-1.jpg'
         },
@@ -82,7 +82,7 @@ module.exports = {
           title: 'Rubinsteina 12',
           city: 'Санкт-Петербург',
           category: 'Апартаменты',
-          url: '/',
+          url: 'apartments/rubinsteina12',
           linkLabel: 'Посмотреть',
           image: '/images/main/main-2.jpg'
         },
@@ -90,7 +90,7 @@ module.exports = {
           title: 'Khedi',
           city: 'Тбилиси',
           category: 'Отель',
-          url: '/',
+          url: 'hotels/khedi',
           linkLabel: 'Посмотреть',
           image: '/images/main/main-3.jpg'
         }
@@ -150,149 +150,7 @@ module.exports = {
       ]
     },
     {
-      name: 'Housing',
-      values: [
-        {
-          title: 'Апартаменты',
-          id: 'apartments',
-          linkLabel: 'Все апартаменты',
-          list: [
-            {
-              slug: 'rubinsteina12',
-              city: 'Санкт-Петербург',
-              title: 'Rubinsteina 12',
-              images: [
-                '/images/apartment/apartment-preview-1.jpg',
-                '/images/apartment/apartment-preview-2.jpg',
-                '/images/apartment/apartment-preview-3.jpg'
-              ],
-              coords: [59.932211, 30.346072],
-              params: [
-                {
-                  type: 'beds',
-                  value: '3'
-                },
-                {
-                  type: 'adult',
-                  value: '4'
-                },
-                {
-                  type: 'size',
-                  value: '57м'
-                }
-              ]
-            },
-            {
-              slug: 'karavannaya11',
-              city: 'Санкт-Петербург',
-              title: 'Karavannaya 11',
-              images: [
-                '/images/apartment/apartment-preview-2.jpg',
-                '/images/apartment/apartment-preview-1.jpg',
-                '/images/apartment/apartment-preview-3.jpg'
-              ],
-              coords: [59.032211, 30.446072],
-              params: [
-                {
-                  type: 'beds',
-                  value: '3'
-                },
-                {
-                  type: 'adult',
-                  value: '4-6'
-                },
-                {
-                  type: 'size',
-                  value: '100м'
-                }
-              ]
-            },
-            {
-              slug: 'moskovskiy191',
-              city: 'Санкт-Петербург',
-              title: 'Moskovskiy 191',
-              images: [
-                '/images/apartment/apartment-preview-3.jpg',
-                '/images/apartment/apartment-preview-2.jpg',
-                '/images/apartment/apartment-preview-1.jpg'
-              ],
-              coords: [59.232211, 30.906072],
-              params: [
-                {
-                  type: 'beds',
-                  value: '3'
-                },
-                {
-                  type: 'adult',
-                  value: '4'
-                },
-                {
-                  type: 'size',
-                  value: '60м'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          title: 'Отели',
-          id: 'hotels',
-          linkLabel: 'Все отели',
-          list: [
-            {
-              slug: 'dom16',
-              city: 'Санкт-Петербург',
-              title: 'Dom 16',
-              images: [
-                '/images/hotel/hotel-preview-1.jpg',
-                '/images/hotel/hotel-preview-2.jpg',
-                '/images/hotel/hotel-preview-3.jpg'
-              ],
-              coords: [59.532211, 30.99072],
-              params: [
-                {
-                  type: 'text',
-                  value: '1 номер'
-                }
-              ]
-            },
-            {
-              slug: 'kvartira14',
-              city: 'Санкт-Петербург',
-              title: 'Kvartira 14',
-              images: [
-                '/images/hotel/hotel-preview-2.jpg',
-                '/images/hotel/hotel-preview-1.jpg',
-                '/images/hotel/hotel-preview-3.jpg'
-              ],
-              coords: [59.552211, 30.096072],
-              params: [
-                {
-                  type: 'text',
-                  value: '3 номера'
-                }
-              ]
-            },
-            {
-              slug: 'khedi',
-              city: 'Тбилиси, Грузия',
-              title: 'Khedi',
-              images: [
-                '/images/hotel/hotel-preview-3.jpg',
-                '/images/hotel/hotel-preview-2.jpg',
-                '/images/hotel/hotel-preview-1.jpg'
-              ],
-              coords: [59.792211, 30.556072],
-              params: [
-                {
-                  type: 'text',
-                  value: '60 номеров'
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      name: 'Housing'
     },
     {
       name: 'banner_sale',

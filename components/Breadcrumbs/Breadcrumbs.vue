@@ -6,8 +6,8 @@
           <iconCorona />
         </div>
       </li>
-      <li v-for="item in model" :key="item.linkLabel" class="breadcrumbs-item">
-        <nuxt-link class="link text--14 link--gray" :to="localePath(item.url)" target="_blank" v-html="item.linkLabel" />
+      <li v-for="(item, index) in model" :key="item.linkLabel" class="breadcrumbs-item">
+        <nuxt-link class="link text--14 link--gray" :to="localePath(path[index])" target="_blank" v-html="item.linkLabel" />
       </li>
     </ul>
   </Section>
@@ -36,6 +36,14 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    path() {
+      return this.model.map((item) => {
+        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
+        return {
+          path: url
+        }
+      })
     }
   },
   created() {

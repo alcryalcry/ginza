@@ -19,7 +19,7 @@
 
 <script>
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_RESTAURANTS_ROOT } from '~/config/constants'
+import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
 import Popup from '~/components/Utils/Popup'
 import PopupVideo from '~/components/Popup/Video/PopupVideo'
 import PopupBooking from '~/components/Popup/Booking/PopupBooking'
@@ -41,8 +41,10 @@ export default {
         footer = {},
         pageComponents = {}
       } = await getAsyncData(context,
-        API_ROUTES_RESTAURANTS_ROOT + '/' +
-        context.route.params.slug
+        API_ROUTES_HOTELS_ROOT + '/' +
+        context.route.params.slug + '/' +
+        'restaurants' + '/' +
+        context.route.params.id
       )
       return {
         header,
@@ -51,7 +53,7 @@ export default {
         mode: pageComponents.mode || ''
       }
     } catch (e) {
-      console.warn('ERROR FROM page (asyncData)', e)
+      console.error('ERROR FROM page (asyncData)', e)
     }
   },
   computed: {

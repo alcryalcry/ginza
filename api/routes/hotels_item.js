@@ -48,8 +48,9 @@ module.exports = {
       },
       values: [
         {
+          id: 'standart',
           type: 'hotels',
-          slug: 'standart',
+          url: 'rooms/standart',
           title: 'Standart',
           images: [
             '/images/room/room-preview-1.jpg',
@@ -68,7 +69,8 @@ module.exports = {
         },
         {
           type: 'hotels',
-          slug: 'business',
+          id: 'business',
+          url: 'rooms/business',
           title: 'Business',
           images: [
             '/images/room/room-preview-2.jpg',
@@ -87,7 +89,8 @@ module.exports = {
         },
         {
           type: 'hotels',
-          slug: 'business_city_view',
+          id: 'business_city_view',
+          url: 'rooms/business_city_view',
           title: 'Business City View',
           images: [
             '/images/room/room-preview-3.jpg',
@@ -106,7 +109,8 @@ module.exports = {
         },
         {
           type: 'hotels',
-          slug: 'corner_suite',
+          id: 'corner_suite',
+          url: 'rooms/corner_suite',
           title: 'Corner Suite',
           images: [
             '/images/room/room-preview-4.jpg',
@@ -125,7 +129,8 @@ module.exports = {
         },
         {
           type: 'hotels',
-          slug: 'duplex_city_view',
+          id: 'duplex_city_view',
+          url: 'rooms/duplex_city_view',
           title: 'Duplex City View',
           images: [
             '/images/room/room-preview-5.jpg',
@@ -144,7 +149,8 @@ module.exports = {
         },
         {
           type: 'hotels',
-          slug: 'royal_suite',
+          id: 'royal_suite',
+          url: 'rooms/royal_suite',
           title: 'Royal Suite',
           images: [
             '/images/room/room-preview-6.jpg',
@@ -173,49 +179,49 @@ module.exports = {
       values: [
         {
           id: 1,
-          slug: 'gastro_space',
+          url: 'restaurants/gastro_space',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
         },
         {
           id: 2,
-          slug: 'lilo',
+          url: 'restaurants/lilo',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-2.jpg',
           name: 'Lilo'
         },
         {
           id: 3,
-          slug: 'ten_june',
+          url: 'restaurants/ten_june',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-3.jpg',
           name: 'Ten June'
         },
         {
           id: 4,
-          slug: 'rest4',
+          url: 'restaurants/rest4',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-2.jpg',
           name: 'Gastro Space'
         },
         {
           id: 5,
-          slug: 'rest5',
+          url: 'restaurants/rest5',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
         },
         {
           id: 6,
-          slug: 'rest6',
+          url: 'restaurants/rest6',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-3.jpg',
           name: 'Gastro Space'
         },
         {
           id: 7,
-          slug: 'rest7',
+          url: 'restaurants/rest7',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
@@ -241,7 +247,7 @@ module.exports = {
           id: 1,
           name: 'Встречи и мероприятия',
           title: 'Встречи и мероприятия',
-          url: '/',
+          url: 'halls/meeting',
           linkLabel: 'Посмотреть',
           image: '/images/hall/hall-preview-1.jpg'
         },
@@ -250,7 +256,7 @@ module.exports = {
           name: 'Банкетный зал',
           title: 'Банкетный зал',
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы.',
-          url: '/',
+          url: 'halls/banquet',
           linkLabel: 'Посмотреть',
           image: '/images/hall/hall-1.jpg'
         },
@@ -259,7 +265,7 @@ module.exports = {
           name: 'Конференц-зал',
           title: 'Конференц-зал',
           description: 'Все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
-          url: '/',
+          url: 'halls/banquet',
           linkLabel: 'Посмотреть',
           image: '/images/restaurant/restaurant-1.jpg'
         }
@@ -465,7 +471,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        slug: '2',
+        url: 'hotels/2',
         linkLabel: 'Отель Gastro Space'
       }
     },

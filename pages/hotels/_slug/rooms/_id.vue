@@ -40,7 +40,8 @@ export default {
       } = await getAsyncData(context,
         API_ROUTES_HOTELS_ROOT + '/' +
         context.route.params.slug + '/' +
-        context.route.params.room
+        'rooms' + '/' +
+        context.route.params.id
       )
       return {
         header,
@@ -49,7 +50,7 @@ export default {
         mode: pageComponents.mode || ''
       }
     } catch (e) {
-      console.warn('ERROR FROM page (asyncData)', e)
+      console.error('ERROR FROM page (asyncData)', e)
     }
   },
   computed: {

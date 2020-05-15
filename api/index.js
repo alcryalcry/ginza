@@ -80,12 +80,12 @@ app.get('/get-page/hotels/:slug/halls/:id', (req, res) => {
   res.send(reponseJson('hotels_item_halls_item'))
 })
 
-app.get('/get-page/hotels/:slug/:room', (req, res) => {
-  res.send(reponseJson('hotels_room'))
+app.get('/get-page/hotels/:slug/rooms/:id', (req, res) => {
+  res.send(reponseJson('hotels_item_room'))
 })
 
-app.get('/get-page/restaurants/:slug', (req, res) => {
-  res.send(reponseJson('restaurants_item'))
+app.get('/get-page/hotels/:slug/restaurants/:id', (req, res) => {
+  res.send(reponseJson('hotels_item_restaurant'))
 })
 
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {

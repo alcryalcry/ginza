@@ -39,8 +39,10 @@ export default {
     },
     scrollToSection(id) {
       this.setSizes()
+      const currentId = typeof id === 'object' ? id.id : id
       this.$nextTick(() => {
-        const currentElement = this.sections.find(section => section.id === id)
+        const currentElement = this.sections.find(section => section.id === currentId)
+        console.log(currentId)
         if (currentElement) {
           // window.scrollTo({
           //   top: currentElement.position,
