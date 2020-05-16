@@ -3,7 +3,9 @@ export default (info) => {
     title = '',
     description = '',
     subtext = '',
-    url = '#',
+    url = '',
+    links = [],
+    features = {},
     linkLabel = ''
   } = info || {}
 
@@ -12,6 +14,8 @@ export default (info) => {
     description,
     subtext,
     url,
+    links,
+    features,
     linkLabel
   }
 }

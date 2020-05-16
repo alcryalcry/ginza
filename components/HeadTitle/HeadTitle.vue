@@ -11,9 +11,13 @@
         <p class="text--16" v-html="model.subtext" />
       </div>
       <nuxt-link v-if="model.url && model.linkLabel" class="link link--brown link--tdu" :to="localePath(model.url)" v-html="model.linkLabel" />
+      <div v-if="model.links.length" class="links">
+        <nuxt-link v-for="(link, index) in model.links" :key="link.url + index" class="link link--brown link--tdu" :to="localePath(linksPath[index])" v-html="link.linkLabel" />
+      </div>
     </div>
-    <div v-if="model.description" class="description">
-      <p class="text--24" v-html="model.description" />
+    <div v-if="model.description || model.features.values" class="description">
+      <p v-if="model.description" class="text--24" v-html="model.description" />
+      <FeaturesList v-if="model.features.values" :is-one-col="true" :info="model.features" />
     </div>
   </div>
 </template>
@@ -21,11 +25,13 @@
 <script>
 import MODEL from './model'
 import iconArrow from '~/assets/svg/arrow.svg'
+import FeaturesList from '~/components/Features/List/FeaturesList'
 
 export default {
   name: 'HeadTitle',
   components: {
-    iconArrow
+    iconArrow,
+    FeaturesList
   },
   props: {
     info: {
@@ -36,6 +42,14 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    linksPath() {
+      return this.model.links.map((item) => {
+        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
+        return {
+          path: this.$route.path + url
+        }
+      })
     }
   }
 }
@@ -68,6 +82,32 @@ export default {
       padding-right: 16rem;
       @include mobile {
         padding-right: 4rem;
+      }
+    }
+  }
+
+  .features-list {
+    &::v-deep {
+      .list {
+        padding-right: 0;
+      }
+      .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    @include mobile {
+      margin-top: 4rem;
+    }
+    .link {
+      & + .link {
+        margin-top: 2rem;
       }
     }
   }

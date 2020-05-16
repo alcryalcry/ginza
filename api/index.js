@@ -56,6 +56,10 @@ app.get('/get-page/about', (req, res) => {
   res.send(reponseJson('about'))
 })
 
+app.get('/get-page/privacy', (req, res) => {
+  res.send(reponseJson('privacy'))
+})
+
 app.get('/get-page/housing', (req, res) => {
   res.send(reponseJson('housing'))
 })

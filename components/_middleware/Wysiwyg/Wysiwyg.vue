@@ -1,14 +1,14 @@
 <template>
-  <AboutNumbers :info="model" :class="model.mode" :data-anchor="model.anchor" />
+  <TextBlock :info="model" :class="model.mode" :data-anchor="model.anchor" />
 </template>
 
 <script>
-import AboutNumbers from '~/components/About/Numbers/AboutNumbers'
+import TextBlock from '~/components/TextBlock/TextBlock'
 
 export default {
-  name: 'MiddlewareAboutNumbers',
+  name: 'MiddlewareWysiwyg',
   components: {
-    AboutNumbers
+    TextBlock
   },
   props: {
     data: {

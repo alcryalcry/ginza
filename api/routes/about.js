@@ -22,6 +22,7 @@ module.exports = {
     {
       name: 'about_numbers',
       properties: {
+        image: '/images/logo-min.svg',
         anchor: 'ginza-project'
       },
       values: [

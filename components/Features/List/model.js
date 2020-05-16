@@ -2,6 +2,7 @@ export default (info) => {
   const {
     title = '',
     description = '',
+    properties = {},
     values = []
   } = info
   const adaptedValues = (values || []).map((item) => {
@@ -21,6 +22,7 @@ export default (info) => {
   return {
     title,
     description,
+    ...properties,
     values: adaptedValues
   }
 }

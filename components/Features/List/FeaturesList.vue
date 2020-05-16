@@ -2,7 +2,7 @@
   <Section class="section--min features-list">
     <HeadTitleMini :info="model" />
     <div class="row list">
-      <div v-for="(item, index) in model.values" :key="item.id" class="col-6 col-t-6">
+      <div v-for="(item, index) in model.values" :key="item.id" :class="isOneCol ? 'col-12 col-t-12 col-m-12' : 'col-6 col-t-6 col-m-12'">
         <div class="feature">
           <div class="icon">
             <component :is="generatedComps[index]" />
@@ -29,6 +29,10 @@ export default {
     info: {
       type: Object,
       default: () => ({})
+    },
+    isOneCol: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

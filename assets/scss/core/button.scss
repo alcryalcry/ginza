@@ -34,7 +34,7 @@ button {
     }
   }
 
-  &--active {
+  &.button--active {
     background: $brown;
     color: $white;
     border-color: $brown;
@@ -50,7 +50,7 @@ button {
     }
   }
 
-  &--arrow {
+  &.button--arrow {
     .icon {
       display: flex;
       margin-left: -1rem;
@@ -60,7 +60,7 @@ button {
     }
   }
 
-  &--full {
+  &.button--full {
     width: 100%;
   }
 }

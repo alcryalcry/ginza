@@ -1,4 +1,7 @@
 {
+  "error": {
+    "text": "The page you are looking for is not available."
+  },
   "booking": {
     "title": "Booking",
     "btnLabelTravelLine": "Find",
