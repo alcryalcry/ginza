@@ -22,7 +22,7 @@ export const {
       //   housing: API_ROUTES_HOUSING = 'housing'
       // } = {},
       post: {
-        feedback: API_ROUTES_FEEDBACK = 'feedback'
+        booking: API_ROUTES_BOOKING = 'booking'
       } = {}
     } = {}
   } = {}

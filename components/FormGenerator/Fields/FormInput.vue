@@ -2,9 +2,9 @@
   <label
     class="input-label"
     :class="{
-      'is-filled': model.length > 0,
-      'is-invalid': isInvalid,
-      'is-disabled': disabled,
+      isFilled: model.length > 0,
+      isInvalid,
+      disabled,
       visually_hidden: type === 'hidden'
     }"
   >
@@ -70,7 +70,7 @@ export default {
   position: relative;
   display: block;
   width: 100%;
-  &.is-invalid {
+  &.isInvalid {
     color: $red;
     .input-placeholder {
       color: $red;
@@ -79,10 +79,10 @@ export default {
       opacity: 1;
     }
   }
-  &.is-disabled {
+  &.disabled {
     opacity: 0.5;
   }
-  &.is-filled {
+  &.isFilled {
     .input-placeholder {
       top: 0;
       transform: scale(0.8);
@@ -99,6 +99,9 @@ export default {
     background: $red;
     opacity: 0;
     transition: opacity .3s ease;
+    @include mobile {
+      content: none;
+    }
   }
 }
 

@@ -13,6 +13,7 @@
         <component
           :is="field.componentName"
           :is-invalid="checkError(field.name)"
+          :disabled="isLoading"
           v-bind="field"
           @input-change="changeValue(field.name, $event)"
           @input="changeValue(field.name, $event)"
@@ -32,6 +33,7 @@ import { debounce } from 'throttle-debounce'
 import FormInput from '~/components/FormGenerator/Fields/FormInput'
 import FormPhone from '~/components/FormGenerator/Fields/FormPhone'
 import FormCounter from '~/components/FormGenerator/Fields/FormCounter'
+import FormDatepicker from '~/components/FormGenerator/Fields/FormDatepicker'
 
 const validateFunctions = {
   required,
@@ -59,6 +61,10 @@ const COMPONENTS = [
   {
     type: 'counter',
     componentName: 'FormCounter'
+  },
+  {
+    type: 'date',
+    componentName: 'FormDatepicker'
   }
 ]
 
@@ -67,12 +73,17 @@ export default {
   components: {
     FormInput,
     FormPhone,
-    FormCounter
+    FormCounter,
+    FormDatepicker
   },
   props: {
     info: {
       type: Array,
       default: () => []
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
     },
     btnLabel: {
       type: String,

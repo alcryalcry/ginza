@@ -92,6 +92,12 @@ app.get('/get-page/hotels/:slug/restaurants/:id', (req, res) => {
   res.send(reponseJson('hotels_item_restaurant'))
 })
 
+app.post('/booking', (req, res) => {
+  res.send({
+    status: true
+  })
+})
+
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
   module.exports = {
     path: '/api',

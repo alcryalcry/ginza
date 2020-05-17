@@ -64,7 +64,12 @@ module.exports = {
                 {
                   type: 'date',
                   label: 'Дата',
-                  name: 'date'
+                  name: 'date',
+                  validate: [
+                    {
+                      rule: 'required'
+                    }
+                  ]
                 }
               ]
             }

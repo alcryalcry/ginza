@@ -1,10 +1,7 @@
 <template>
   <div
     class="input-label"
-    :class="{
-      'is-invalid': isInvalid,
-      'is-disabled': disabled,
-    }"
+    :class="{ isInvalid, disabled, }"
   >
     <div class="input-placeholder text--16">
       <span>{{ label }}</span>
@@ -115,6 +112,7 @@ export default {
 }
 .input-placeholder {
   flex: 1 1 auto;
+  transition: 0.3s;
 }
 .counter-btn {
   position: relative;
@@ -140,7 +138,7 @@ export default {
   align-items: center;
   border-bottom: 1px solid $border;
 
-  &.is-invalid {
+  &.isInvalid {
     color: $red;
     .input-placeholder {
       color: $red;
@@ -149,7 +147,7 @@ export default {
       opacity: 1;
     }
   }
-  &.is-disabled {
+  &.disabled {
     opacity: 0.5;
   }
   &::before {
@@ -163,6 +161,9 @@ export default {
     background: $red;
     opacity: 0;
     transition: opacity .3s ease;
+    @include mobile {
+      content: none;
+    }
   }
 }
 
