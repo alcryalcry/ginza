@@ -15,6 +15,7 @@ export const {
         API_ROUTES_ABOUT = 'get-page/about',
         API_ROUTES_PRIVACY = 'get-page/privacy',
         API_ROUTES_HOUSING = 'get-page/housing',
+        API_ROUTES_SERVICES_ROOT = 'get-page/services',
         API_ROUTES_APARTMENTS_ROOT = 'get-page/apartments',
         API_ROUTES_HOTELS_ROOT = 'get-page/hotels'
       } = {},

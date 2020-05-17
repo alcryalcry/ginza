@@ -92,6 +92,14 @@ app.get('/get-page/hotels/:slug/restaurants/:id', (req, res) => {
   res.send(reponseJson('hotels_item_restaurant'))
 })
 
+app.get('/get-page/services', (req, res) => {
+  res.send(reponseJson('services'))
+})
+
+app.get('/get-page/services/:slug', (req, res) => {
+  res.send(reponseJson('services_item'))
+})
+
 app.post('/booking', (req, res) => {
   res.send({
     status: true
