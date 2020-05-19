@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import MODEL from './model'
+import { mapGetters } from 'vuex'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'

@@ -21,8 +21,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
+import { mapGetters, mapMutations } from 'vuex'
 import Section from '~/components/Utils/Section'
 import CitiesDropdown from '~/components/Cities/CitiesDropdown'
 

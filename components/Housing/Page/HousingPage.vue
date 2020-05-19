@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import MODEL from './model'
+import { mapGetters } from 'vuex'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
 import HousingCard from '~/components/Housing/Card/HousingCard'
 import YandexMap from '~/components/YandexMap/YandexMap'

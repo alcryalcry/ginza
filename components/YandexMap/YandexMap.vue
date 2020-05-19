@@ -24,9 +24,9 @@
 </template>
 
 <script>
+import MODEL from './model'
 import { mapGetters } from 'vuex'
 import { ymapMarker, yandexMap, loadYmap } from 'vue-yandex-maps'
-import MODEL from './model'
 import HousingCardBalloon from '~/components/Housing/CardBalloon/HousingCardBalloon'
 
 export default {
