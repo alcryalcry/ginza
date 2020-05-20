@@ -3,6 +3,7 @@ export default (info) => {
     mode = '',
     modeSlider = '',
     title = '',
+    isArrow = false,
     description = '',
     subtext = '',
     afterText = '',
@@ -32,6 +33,7 @@ export default (info) => {
 
   return {
     mode,
+    isArrow,
     modeSlider,
     title,
     description,

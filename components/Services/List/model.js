@@ -2,11 +2,13 @@ export default (info) => {
   return (info || []).map((item) => {
     const {
       id = '',
-      label = ''
+      label = '',
+      url = ''
     } = item
     return {
       id,
-      label
+      label,
+      url
     }
   })
 }

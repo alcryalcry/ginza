@@ -6,7 +6,8 @@ export default (info) => {
     url = '',
     links = [],
     features = {},
-    linkLabel = ''
+    linkLabel = '',
+    isArrow = false
   } = info || {}
 
   return {
@@ -16,6 +17,7 @@ export default (info) => {
     url,
     links,
     features,
-    linkLabel
+    linkLabel,
+    isArrow
   }
 }

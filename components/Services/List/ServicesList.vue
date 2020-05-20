@@ -1,7 +1,7 @@
 <template>
   <ul class="services-list row">
-    <li v-for="item in checkComponents" :key="item.name" class="col-t-3 col-m-4">
-      <nuxt-link class="services-item" :to="localePath('/')">
+    <li v-for="(item, index) in checkComponents" :key="item.name" class="col-t-3 col-m-4">
+      <ExternalLink class="services-item" :url="item.url" :to="localePath(linksPath[index])">
         <div class="icon">
           <component :is="item.id" />
         </div>
@@ -9,30 +9,32 @@
           <iconGinza />
         </div>
         <div v-if="item.label" class="label text--18" v-html="item.label" />
-      </nuxt-link>
+      </ExternalLink>
     </li>
   </ul>
 </template>
 
 <script>
 import MODEL from './model'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 import iconGinza from '~/assets/svg/logo-ginza.svg'
 import catering from '~/assets/svg/services/catering.svg'
 import delivery from '~/assets/svg/services/delivery.svg'
 import flower from '~/assets/svg/services/flower.svg'
 import fitness from '~/assets/svg/services/fitness.svg'
-import tuor from '~/assets/svg/services/tuor.svg'
+import tour from '~/assets/svg/services/tour.svg'
 import prime from '~/assets/svg/services/prime.svg'
 import sky from '~/assets/svg/services/sky.svg'
 
 export default {
   components: {
+    ExternalLink,
     iconGinza,
     catering,
     delivery,
     flower,
     fitness,
-    tuor,
+    tour,
     prime,
     sky
   },
@@ -52,6 +54,13 @@ export default {
     },
     checkComponents() {
       return this.model.filter(item => !!this.$options.components[item.id])
+    },
+    linksPath() {
+      return this.model.map((item) => {
+        return {
+          path: item.url
+        }
+      })
     }
   },
   mounted() {},

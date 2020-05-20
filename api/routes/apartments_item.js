@@ -322,32 +322,32 @@ module.exports = {
       },
       values: [
         {
-          url: '/',
+          url: 'services/weddings',
           title: 'Свадебные предложения',
           image: '/images/service-additional/service-additional-1.jpg'
         },
         {
-          url: '/',
+          url: 'services/tour',
           title: 'Экскурсии и туры',
           image: '/images/service-additional/service-additional-2.jpg'
         },
         {
-          url: '/',
+          url: 'services/beauty',
           title: 'Beauty Concierge',
           image: '/images/service-additional/service-additional-3.jpg'
         },
         {
-          url: '/',
+          url: 'services/drive',
           title: 'Личный водитель',
           image: '/images/service-additional/service-additional-full.jpg'
         },
         {
-          url: '/',
+          url: 'services/flower',
           title: 'Цветочный домик',
           image: '/images/gallery/gallery-2-12.jpg'
         },
         {
-          url: '/',
+          url: 'services/chisto',
           title: 'Прачечная и химчистка',
           image: '/images/gallery/gallery-2-10.jpg'
         }

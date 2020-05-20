@@ -233,7 +233,7 @@ module.exports = {
       properties: {
         title: 'Организация событий',
         description: 'ARKA Hotel - многофункциональный деловой комплекс для организации событий самого высокого уровня: конференции, деловые встречи, мероприятия, свадьбы.',
-        url: '/',
+        url: 'hotels/arka/halls',
         linkLabel: 'Подробнее'
       }
     },
@@ -306,22 +306,22 @@ module.exports = {
       },
       values: [
         {
-          url: '/',
+          url: 'services/weddings',
           title: 'Свадебные предложения',
           image: '/images/service-additional/service-additional-1.jpg'
         },
         {
-          url: '/',
+          url: 'services/tour',
           title: 'Экскурсии и туры',
           image: '/images/service-additional/service-additional-2.jpg'
         },
         {
-          url: '/',
+          url: 'services/beauty',
           title: 'Beauty Concierge',
           image: '/images/service-additional/service-additional-3.jpg'
         },
         {
-          url: '/',
+          url: 'services/drive',
           title: 'Личный водитель',
           mode: 'size-full',
           image: '/images/service-additional/service-additional-full.jpg'

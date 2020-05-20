@@ -100,7 +100,7 @@ module.exports = {
       name: 'slider_features',
       properties: {
         title: 'Продуманный дизайн до мелочей для комфортного пребывания.',
-        url: '/',
+        url: 'services',
         linkLabel: 'Подробнее',
         mode: ''
       },
@@ -180,7 +180,7 @@ module.exports = {
       properties: {
         title: 'Индивидуальный сервиc',
         description: 'Мы очень любим своих гостей и делаем все, чтобы они провели свой отдых в Санкт-Петербурге незабываемо. Для лучшего обслуживания мы подготовили для Вас премиальный сервис, услуги которого постоянно обновляются.',
-        url: '/',
+        url: 'services',
         linkLabel: 'Подробнее'
       }
     },
@@ -192,7 +192,7 @@ module.exports = {
           name: 'Экскурсии и туры',
           title: 'Незабываемые экскурсии',
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы, отменное обслуживание — все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
-          url: '/',
+          url: 'services/tours',
           linkLabel: 'Посмотреть',
           image: '/images/feature/feature-big.jpg'
         },
@@ -201,7 +201,7 @@ module.exports = {
           name: 'Свадебные пакеты',
           title: 'Незабываемые моменты',
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы.',
-          url: '/',
+          url: 'services/weddings',
           linkLabel: 'Посмотреть',
           image: '/images/main/main-2.jpg'
         },
@@ -210,7 +210,7 @@ module.exports = {
           name: 'Beauty concierge',
           title: 'Незабываемый Beauty concierge',
           description: 'Все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
-          url: '/',
+          url: 'services/beauty',
           linkLabel: 'Посмотреть',
           image: '/images/main/main-3.jpg'
         }
@@ -220,7 +220,7 @@ module.exports = {
       name: 'slider_news',
       properties: {
         title: 'Блог',
-        url: '/',
+        url: 'blog',
         linkLabel: 'Подробнее'
       },
       values: [

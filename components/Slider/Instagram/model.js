@@ -1,7 +1,7 @@
 export default (info) => {
   const {
     title = '',
-    url = '',
+    isArrow = false,
     values = []
   } = info || {}
 
@@ -20,7 +20,7 @@ export default (info) => {
 
   return {
     title,
-    url,
+    isArrow,
     values: adaptedSlides
   }
 }

@@ -21,7 +21,7 @@
             <div class="content">
               <div v-if="slide.title" class="title text--24" data-swiper-parallax-y="-50" v-html="slide.title" />
               <div v-if="slide.description" class="description text--16" data-swiper-parallax-y="-50" v-html="slide.description" />
-              <nuxt-link class="link link--white link--tdu" :to="localePath(path[index])" v-html="slide.linkLabel" />
+              <ExternalLink class="link link--white link--tdu" :url="slide.url" :to="localePath(path[index])" v-html="slide.linkLabel" />
             </div>
           </Section>
         </div>
@@ -76,12 +76,14 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import iconArrowCircle from '~/assets/svg/arrow-circle.svg'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
     Section,
     Slider,
-    iconArrowCircle
+    iconArrowCircle,
+    ExternalLink
   },
   props: {
     info: {
@@ -118,7 +120,7 @@ export default {
     },
     path() {
       return this.model.values.map((item) => {
-        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
+        const url = String(item.url.charAt(0)) === '/' ? item.url : '/' + item.url
         return {
           path: this.$route.path + url
         }

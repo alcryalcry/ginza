@@ -1,18 +1,31 @@
 <template>
-  <div class="head-title" :class="{ isArrow: model.url && !model.linkLabel }">
+  <div class="head-title" :class="{ isArrow: model.isArrow }">
     <div class="content">
       <div class="title title--h2">
         <p v-if="model.title" v-html="model.title" />
-        <nuxt-link v-if="model.url && !model.linkLabel" class="head-title-link" :to="localePath(model.url)">
+        <div v-if="model.isArrow" class="head-title-link">
           <iconArrow class="icon" />
-        </nuxt-link>
+        </div>
       </div>
       <div v-if="model.subtext" class="subtext">
         <p class="text--16" v-html="model.subtext" />
       </div>
-      <nuxt-link v-if="model.url && model.linkLabel" class="link link--brown link--tdu" :to="localePath(model.url)" v-html="model.linkLabel" />
+      <ExternalLink
+        v-if="model.url && model.linkLabel"
+        class="link link--brown link--tdu"
+        :url="model.url"
+        :to="localePath(path)"
+        v-html="model.linkLabel"
+      />
       <div v-if="model.links.length" class="links">
-        <nuxt-link v-for="(link, index) in model.links" :key="link.url + index" class="link link--brown link--tdu" :to="localePath(linksPath[index])" v-html="link.linkLabel" />
+        <ExternalLink
+          v-for="(link, index) in model.links"
+          :key="link.url + index"
+          class="link link--brown link--tdu"
+          :url="link.url"
+          :to="localePath(linksPath[index])"
+          v-html="link.linkLabel"
+        />
       </div>
     </div>
     <div v-if="model.description || model.features.values" class="description">
@@ -26,12 +39,14 @@
 import MODEL from './model'
 import iconArrow from '~/assets/svg/arrow.svg'
 import FeaturesList from '~/components/Features/List/FeaturesList'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   name: 'HeadTitle',
   components: {
     iconArrow,
-    FeaturesList
+    FeaturesList,
+    ExternalLink
   },
   props: {
     info: {
@@ -42,6 +57,12 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    path() {
+      const url = String(this.model.url.charAt(0)) === '/' ? this.model.url : '/' + this.model.url
+      return {
+        path: url
+      }
     },
     linksPath() {
       return this.model.links.map((item) => {
@@ -140,13 +161,6 @@ export default {
     height: 5.4rem;
     padding: 1.9rem;
     transition: color .2s ease, background-color .2s ease, border-color .2s ease;
-    @include desktop {
-      &:hover {
-        color: $white;
-        border-color: $brown;
-        background-color: $brown;
-      }
-    }
     @include mobile {
       top: calc(50% - 2rem);
       right: 0;
