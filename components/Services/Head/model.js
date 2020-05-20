@@ -1,6 +1,7 @@
 export default (info) => {
   const {
     tag = '',
+    label = '',
     title = '',
     description = '',
     image = '',
@@ -9,6 +10,7 @@ export default (info) => {
 
   return {
     tag,
+    label,
     title,
     description,
     image,

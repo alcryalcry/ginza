@@ -100,6 +100,14 @@ app.get('/get-page/services/:slug', (req, res) => {
   res.send(reponseJson('services_item'))
 })
 
+app.get('/get-page/blog', (req, res) => {
+  res.send(reponseJson('blog'))
+})
+
+app.get('/get-page/blog/:slug', (req, res) => {
+  res.send(reponseJson('blog_item'))
+})
+
 app.post('/booking', (req, res) => {
   res.send({
     status: true

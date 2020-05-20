@@ -3,6 +3,7 @@
     <Section class="section--min section--no-p">
       <h5 v-if="model.tag" class="tag text--12 ttu regular" v-html="model.tag" />
       <h2 v-if="model.title" class="title title--h2" v-html="model.title" />
+      <div v-if="model.label" class="label text--12 ttu regular" v-html="model.label" />
     </Section>
 
     <Section v-if="model.image" class="section--min section--no-p">
@@ -77,6 +78,14 @@ export default {
     text-align: center;
     color: $gray69;
     letter-spacing: 0.1rem;
+  }
+  .label {
+    margin-top: .5rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    text-align: center;
+    color: $gray69;
+    letter-spacing: 0.2rem;
   }
   .description {
     margin: 6rem auto 0;

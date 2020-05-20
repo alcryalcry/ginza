@@ -1,0 +1,53 @@
+<template>
+  <Section v-if="model.values.length" class="grid">
+    <div class="grid-list">
+      <GridItem
+        v-for="item in model.values"
+        :key="item.id"
+        :class="item.mode"
+        :info="item"
+        class="grid-list-item"
+      />
+    </div>
+  </Section>
+</template>
+
+<script>
+import MODEL from './model'
+import Section from '~/components/Utils/Section'
+import GridItem from '~/components/Grid/Item/GridItem'
+
+export default {
+  components: {
+    Section,
+    GridItem
+  },
+  props: {
+    info: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  computed: {
+    model() {
+      return MODEL(this.info)
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.grid {
+  .grid-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin: -5rem -9rem;
+    @include tablet {
+      margin: -4rem -2rem;
+    }
+    @include mobile {
+      margin: 0;
+    }
+  }
+}
+</style>

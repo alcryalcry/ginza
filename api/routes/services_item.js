@@ -30,6 +30,35 @@ module.exports = {
       ]
     },
     {
+      name: 'grid_list',
+      values: [
+        {
+          id: 1,
+          mode: 'size-half',
+          title: 'Эрмитаж',
+          image: '/images/gallery/gallery-1-4.jpg',
+          url: 'blog/hermitage',
+          linkLabel: 'Подробнее'
+        },
+        {
+          id: 2,
+          mode: 'size-half',
+          title: 'Эрмитаж',
+          image: '/images/gallery/gallery-1-5.jpg',
+          url: 'blog/hermitage',
+          linkLabel: 'Подробнее'
+        },
+        {
+          id: 3,
+          mode: 'size-full',
+          title: 'Эрмитаж',
+          image: '/images/gallery/gallery-1-1.jpg',
+          url: 'blog/hermitage',
+          linkLabel: 'Подробнее'
+        }
+      ]
+    },
+    {
       name: 'see_also',
       properties: {
         url: 'services/beauty',
