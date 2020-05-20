@@ -31,7 +31,7 @@ module.exports = {
         },
         {
           label: 'Сервис',
-          url: '/service'
+          url: '/services'
         },
         {
           label: 'Спецпредложения',
@@ -88,7 +88,7 @@ module.exports = {
       },
       {
         label: 'Сервис',
-        url: '/service'
+        url: '/services'
       },
       {
         label: 'Спецпредложения',

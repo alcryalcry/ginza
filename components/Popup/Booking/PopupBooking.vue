@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import MODEL from './model'
 import { mapGetters, mapMutations } from 'vuex'
+import MODEL from './model'
 import axios from '~/plugins/axios'
 import { API_ROUTES_BOOKING } from '~/config/constants'
 

@@ -1,12 +1,32 @@
 export default (info) => {
-  return (info || []).map((item) => {
+  const {
+    values = []
+  } = info
+
+  const adaptedValues = (values || []).map((item) => {
     const {
-      id = '',
-      label = ''
+      title = '',
+      description = '',
+      linkLabel = '',
+      url = '',
+      tag = '',
+      image = '',
+      color = '',
+      isInverted = false
     } = item
+
     return {
-      id,
-      label
+      title,
+      description,
+      linkLabel,
+      url,
+      tag,
+      image,
+      color,
+      isInverted
     }
   })
+  return {
+    values: adaptedValues
+  }
 }

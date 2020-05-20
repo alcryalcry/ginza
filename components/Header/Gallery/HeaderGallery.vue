@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import MODEL from './model'
 import { mapGetters, mapMutations } from 'vuex'
+import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import MenuGallery from '~/components/Menu/Gallery/MenuGallery'
 

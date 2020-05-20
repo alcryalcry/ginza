@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import MODEL from './model'
 import { mapGetters } from 'vuex'
+import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import GalleryGrid from '~/components/GalleryGrid/GalleryGrid'
 import stickyMenu from '~/mixins/stickyMenu'

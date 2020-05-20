@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "devapi": "kill-port 3000 && concurrently -c \"cyan,green\" -n nuxt,api --handle-input \"nuxt\" \"npm run api\" -k",
+    "devapi": "npx kill-port 3000 && concurrently -c \"cyan,green\" -n nuxt,api --handle-input \"nuxt\" \"npm run api\" -k",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

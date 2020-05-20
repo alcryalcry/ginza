@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import MODEL from './model'
 import { throttle } from 'throttle-debounce'
 import { mapGetters, mapMutations } from 'vuex'
+import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Menu from '~/components/Menu/Menu'
 import iconLogo from '~/assets/svg/logo.svg'

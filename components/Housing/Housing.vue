@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import MODEL from './model'
 import { mapGetters, mapActions } from 'vuex'
+import MODEL from './model'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
 import HousingTypes from '~/components/Housing/Types/HousingTypes'
 import HousingCard from '~/components/Housing/Card/HousingCard'

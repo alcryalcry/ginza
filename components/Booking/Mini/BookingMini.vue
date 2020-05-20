@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import MODEL from './model'
 import { mapGetters } from 'vuex'
+import MODEL from './model'
 import Section from '~/components/Utils/Section'
 // import iconLove from '~/assets/svg/love.svg'
 
