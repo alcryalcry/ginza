@@ -46,10 +46,20 @@ export default {
       }
     }
   }
+  &.section--no-pb {
+    >.container {
+      padding-bottom: 0;
+    }
+  }
   &.section--no-p {
     >.container {
       padding-top: 0;
       padding-bottom: 0;
+    }
+  }
+  &.section--no-p-full {
+    >.container {
+      padding: 0;
     }
   }
   &.section--p6 {
