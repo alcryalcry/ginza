@@ -26,7 +26,13 @@
       </div>
       <div class="footer-row isInfo">
         <div class="privacy">
-          <a v-if="model.privacy" class="link" :href="model.privacy">{{ $t('footer.privacy') }}</a>
+          <ExternalLink
+            v-if="model.privacy"
+            class="link"
+            :url="model.privacy"
+            :to="localePath(privacyPath)"
+            v-html="$t('footer.privacy')"
+          />
         </div>
         <div class="footer-info">
           <div v-if="model.phone" class="phone">
@@ -47,13 +53,15 @@ import Section from '~/components/Utils/Section'
 import Social from '~/components/Social/Social'
 import iconLogo from '~/assets/svg/logo.svg'
 import iconLogoMin from '~/assets/svg/logo-min.svg'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
     Social,
     Section,
     iconLogo,
-    iconLogoMin
+    iconLogoMin,
+    ExternalLink
   },
   props: {
     info: {
@@ -64,6 +72,12 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    privacyPath() {
+      const url = String(this.model.privacy.charAt(0)) === '/' ? this.model.privacy : '/' + this.model.privacy
+      return {
+        path: url
+      }
     }
   }
 }

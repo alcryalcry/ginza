@@ -54,7 +54,7 @@ module.exports = {
   },
   footer: {
     phone: '8 800 500–33–00',
-    privacy: '#',
+    privacy: 'privacy',
     social: [
       {
         name: 'instagram',
