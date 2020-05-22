@@ -99,6 +99,7 @@ export default {
       position: absolute;
       top: .5rem;
       left: 0;
+      pointer-events: none;
       transition: color .3s ease;
     }
     &.isInvalid {

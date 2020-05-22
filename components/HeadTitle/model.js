@@ -7,7 +7,10 @@ export default (info) => {
     links = [],
     features = {},
     linkLabel = '',
-    isArrow = false
+    tag = '',
+    isPopupContacts = false,
+    isArrow = false,
+    popup = {}
   } = info || {}
 
   return {
@@ -18,6 +21,9 @@ export default (info) => {
     links,
     features,
     linkLabel,
-    isArrow
+    tag,
+    isPopupContacts,
+    isArrow,
+    popup
   }
 }

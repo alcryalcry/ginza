@@ -11,6 +11,7 @@
     <template v-slot:popup>
       <Popup>
         <PopupVideo />
+        <PopupManager />
       </Popup>
     </template>
   </Layout>
@@ -21,6 +22,7 @@ import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_SERVICES_ROOT } from '~/config/constants'
 import Popup from '~/components/Utils/Popup'
 import PopupVideo from '~/components/Popup/Video/PopupVideo'
+import PopupManager from '~/components/Popup/Manager/PopupManager'
 
 import Layout from '~/components/Layout/Layout'
 
@@ -29,7 +31,8 @@ export default {
   components: {
     Layout,
     Popup,
-    PopupVideo
+    PopupVideo,
+    PopupManager
   },
   async asyncData(context) {
     try {

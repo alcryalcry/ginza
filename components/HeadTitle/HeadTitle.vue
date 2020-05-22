@@ -30,6 +30,14 @@
     </div>
     <div v-if="model.description || model.features.values" class="description">
       <p v-if="model.description" class="text--24" v-html="model.description" />
+      <button
+        v-if="model.popup.content"
+        class="popup-btn link link--brown link--tdu"
+        @click="openPopup(model.popup)"
+      >
+        <span class="text">{{ $t('popup.manager') }}</span>
+      </button>
+      <p v-if="model.tag" class="tag text--14 ttu" v-html="model.tag" />
       <FeaturesList v-if="model.features.values" :is-one-col="true" :info="model.features" />
     </div>
   </div>
@@ -40,6 +48,7 @@ import MODEL from './model'
 import iconArrow from '~/assets/svg/arrow.svg'
 import FeaturesList from '~/components/Features/List/FeaturesList'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
+import popupMethods from '~/mixins/popupMethods'
 
 export default {
   name: 'HeadTitle',
@@ -48,6 +57,7 @@ export default {
     FeaturesList,
     ExternalLink
   },
+  mixins: [popupMethods],
   props: {
     info: {
       type: Object,
@@ -119,6 +129,30 @@ export default {
     }
   }
 
+  .popup-btn {
+    margin-top: 3rem;
+  }
+
+  .tag {
+    margin-top: 2rem;
+    color: $gray69;
+    letter-spacing: 0.1rem;
+    &::v-deep {
+      a {
+        font-weight: $medium;
+        transition: color .2s ease, border-color .2s ease;
+        &:active {
+          color: $brown;
+        }
+        @include desktop {
+          &:hover {
+            color: $brown;
+          }
+        }
+      }
+    }
+  }
+
   .links {
     display: flex;
     flex-flow: column nowrap;
@@ -143,7 +177,6 @@ export default {
     margin-bottom: 3rem;
     @include mobile {
       padding-right: 0;
-      // padding-right: 4rem;
       margin-bottom: 1rem;
     }
   }

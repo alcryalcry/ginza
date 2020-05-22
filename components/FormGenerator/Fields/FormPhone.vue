@@ -165,6 +165,7 @@ export default {
   left: 0;
   display: flex;
   color: $black17;
+  pointer-events: none;
   transition: 0.3s;
   transform-origin: left;
 }

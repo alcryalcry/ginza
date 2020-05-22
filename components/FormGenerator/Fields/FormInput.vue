@@ -139,5 +139,6 @@ export default {
   color: $black17;
   transition: 0.3s;
   transform-origin: left;
+  pointer-events: none;
 }
 </style>

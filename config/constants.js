@@ -24,7 +24,8 @@ export const {
       //   housing: API_ROUTES_HOUSING = 'housing'
       // } = {},
       post: {
-        booking: API_ROUTES_BOOKING = 'booking'
+        booking: API_ROUTES_BOOKING = 'booking',
+        manager: API_ROUTES_MANAGER = 'manager'
       } = {}
     } = {}
   } = {}

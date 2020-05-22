@@ -44,7 +44,7 @@
   "footer": {
     "privacy": "Политика конфиденциальности"
   },
-  "feedback": {
-    "placeholder_name": "Ваше имя"
+  "popup": {
+    "manager": "Отправить сообщение"
   }
 }

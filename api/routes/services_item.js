@@ -59,6 +59,51 @@ module.exports = {
       ]
     },
     {
+      name: 'banner_text',
+      properties: {
+        tag: 'ИЛИ ПОЗВОНИТЕ: <a href="tel:88005003300">8-800-500-33-00</a>',
+        linkLabel: 'Отправить сообщение',
+        isPopupContacts: true
+      },
+      description: 'Наш менеджер ответит на все Ваши вопросы (какой тур выбрать или куда сходить), а также поможет в организации собственного тура, если у Вас есть идеи',
+      popup: {
+        type: 'popupManager',
+        content: {
+          title: 'Связаться с менеджером',
+          image: '/images/restaurant/restaurant-full.jpg',
+          tag: 'ИЛИ ПОЗВОНИТЕ: <a href="tel:88005003300">8-800-500-33-00</a>',
+          fields: [
+            {
+              type: 'text',
+              label: 'Имя',
+              name: 'userName',
+              validate: [
+                {
+                  rule: 'required'
+                }
+              ]
+            },
+            {
+              type: 'phone',
+              label: 'Телефон',
+              name: 'userPhone',
+              validate: [
+                {
+                  rule: 'phone'
+                }
+              ]
+            },
+            {
+              type: 'text',
+              label: 'Сообщение (необязательно)',
+              name: 'userMessage',
+              validate: []
+            }
+          ]
+        }
+      }
+    },
+    {
       name: 'see_also',
       properties: {
         url: 'services/beauty',

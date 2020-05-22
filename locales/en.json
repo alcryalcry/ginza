@@ -44,7 +44,7 @@
   "footer": {
     "privacy": "Privacy Policy"
   },
-  "feedback": {
-    "placeholder_name": "Your name"
+  "popup": {
+    "manager": "Send message"
   }
 }
