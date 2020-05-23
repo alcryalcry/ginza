@@ -5,26 +5,44 @@
     </Section>
     <Section class="section--no-p slider-section" :class="model.modeSlider">
       <HeadTitle v-if="model.beforeText" :info="{ description: model.beforeText, url: false }" />
-      <Slider
-        v-if="model.values.length"
-        :custom-options="customOptions"
-      >
-        <template v-slot:slides>
-          <component
-            :is="slide.url ? 'nuxt-link' : 'div'"
-            v-for="(slide, index) in model.values"
-            :key="slide.id"
-            :to="slide.url ? localePath(path[index]) : false"
-            :class="slide.mode"
-            class="swiper-slide"
+      <div v-if="model.hasTabs && model.values.length" class="tabs">
+        <div class="tabs-content">
+          <button
+            v-for="item in model.values"
+            :key="item.id"
+            :class="{ isActive: item.id === activeId }"
+            class="tabs-item"
+            type="button"
+            @click="setActiveId(item.id)"
           >
-            <picture class="image">
-              <img :src="slide.image" :alt="slide.name" data-manual-lazy>
-            </picture>
-            <div v-if="slide.name" class="text text--16" v-html="slide.name" />
-          </component>
-        </template>
-      </Slider>
+            <div v-if="item.name" class="name ttu text--24 bold" v-html="item.name" />
+            <nuxt-link v-if="item.linkLabel" class="link link--brown link--tdu" :to="localePath(item.url)" v-html="item.linkLabel" />
+          </button>
+        </div>
+      </div>
+      <transition mode="out-in" name="list-fade">
+        <Slider
+          v-if="model.hasTabs ? activeSlider.id : model.values.length"
+          :key="activeId"
+          :custom-options="customOptions"
+        >
+          <template v-slot:slides>
+            <component
+              :is="slide.url ? 'nuxt-link' : 'div'"
+              v-for="(slide, index) in model.hasTabs ? activeSlider.slides : model.values"
+              :key="slide.id"
+              :to="slide.url ? localePath(path[index]) : false"
+              :class="slide.mode"
+              class="swiper-slide"
+            >
+              <picture class="image">
+                <img :src="slide.image" :alt="slide.name" data-manual-lazy>
+              </picture>
+              <div v-if="slide.name" class="text text--16" v-html="slide.name" />
+            </component>
+          </template>
+        </Slider>
+      </transition>
       <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" />
     </Section>
     <Section v-if="model.services" class="section--no-p section--big">
@@ -55,6 +73,7 @@ export default {
   },
   data() {
     return {
+      activeId: null,
       customOptions: {
         spaceBetween: 80,
         breakpoints: {
@@ -69,6 +88,9 @@ export default {
     model() {
       return MODEL(this.info)
     },
+    activeSlider() {
+      return ((this.model.values || []).find(item => item.id === this.activeId) || {})
+    },
     path() {
       return this.model.values.map((item) => {
         const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
@@ -79,14 +101,72 @@ export default {
     }
   },
   mounted() {
+    if (this.model.hasTabs) {
+      this.activeId = (this.model.values[0] || {}).id
+    }
   },
-  methods: {}
+  methods: {
+    setActiveId(id) {
+      this.activeId = id
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .slider-features {
   overflow: hidden;
+
+  .tabs {
+    margin: 0 -5rem;
+    margin-bottom: 6rem;
+    overflow: hidden;
+    @include tablet {
+      padding: 0 3rem;
+      margin: 0 -3rem 4rem;
+    }
+    @include mobile {
+      padding: 0 2rem;
+      margin: 0 -2rem 4rem;
+    }
+    .tabs-content {
+      display: flex;
+      flex-flow: row nowrap;
+      overflow-x: auto;
+      padding: 2rem 0;
+    }
+    .tabs-item {
+      display: flex;
+      flex-flow: column nowrap;
+      white-space: nowrap;
+      margin: 0 5rem;
+      color: $gray69;
+      transition: color .2s ease;
+      @include tablet {
+        margin: 0 3rem;
+      }
+      @include mobile {
+        margin: 0 2rem;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+      &.isActive {
+        color: $black17;
+        .link {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+      .link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: .2s ease;
+      }
+    }
+  }
 
   .head-title {
     margin-bottom: 6rem;

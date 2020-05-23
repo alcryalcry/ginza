@@ -3,6 +3,7 @@ export default (info) => {
     mode = '',
     modeSlider = '',
     title = '',
+    hasTabs = false,
     isArrow = false,
     description = '',
     subtext = '',
@@ -18,6 +19,8 @@ export default (info) => {
     const {
       id = null,
       url = '',
+      linkLabel = '',
+      slides = [],
       name = '',
       image = '',
       mode = ''
@@ -25,6 +28,8 @@ export default (info) => {
     return {
       id,
       url,
+      linkLabel,
+      slides,
       name,
       image,
       mode
@@ -35,6 +40,7 @@ export default (info) => {
     mode,
     isArrow,
     modeSlider,
+    hasTabs,
     title,
     description,
     subtext,

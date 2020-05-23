@@ -570,6 +570,62 @@ module.exports = {
       }
     },
     {
+      name: 'slider_features',
+      properties: {
+        mode: 'section--min',
+        modeSlider: 'section--min',
+        hasTabs: true
+      },
+      values: [
+        {
+          id: 1,
+          name: 'Dom 16',
+          linkLabel: 'Посмотреть',
+          url: '/',
+          slides: [
+            {
+              id: 1,
+              mode: 'vertical',
+              image: '/images/feature/feature-preview-3-1.jpg'
+            },
+            {
+              id: 2,
+              mode: 'horizontal',
+              image: '/images/feature/feature-preview-3-2.jpg'
+            },
+            {
+              id: 3,
+              mode: 'vertical',
+              image: '/images/feature/feature-preview-3-3.jpg'
+            }
+          ]
+        },
+        {
+          id: 2,
+          name: 'Karavannaya 17',
+          linkLabel: 'Посмотреть',
+          url: '/',
+          slides: [
+            {
+              id: 3,
+              mode: 'vertical',
+              image: '/images/feature/feature-preview-3-3.jpg'
+            },
+            {
+              id: 1,
+              mode: 'vertical',
+              image: '/images/feature/feature-preview-3-1.jpg'
+            },
+            {
+              id: 2,
+              mode: 'horizontal',
+              image: '/images/feature/feature-preview-3-2.jpg'
+            }
+          ]
+        }
+      ]
+    },
+    {
       name: 'see_also',
       properties: {
         url: 'services/beauty',
