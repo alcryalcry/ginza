@@ -8,12 +8,14 @@ export default (info) => {
     const {
       id = null,
       title = '',
-      text = ''
+      text = '',
+      table = {}
     } = item
     return {
       id,
       title,
-      text
+      text,
+      table
     }
   })
   return {

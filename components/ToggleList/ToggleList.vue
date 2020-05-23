@@ -20,7 +20,8 @@
               </div>
             </div>
             <vue-slide-toggle :open="activeItem === item.id">
-              <p class="toggle-text" v-html="item.text" />
+              <p v-if="item.text" class="toggle-text" v-html="item.text" />
+              <Table v-if="item.table" :info="item.table" />
             </vue-slide-toggle>
           </Section>
         </div>
@@ -33,13 +34,15 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitleMini from '~/components/HeadTitle/Mini/HeadTitleMini'
+import Table from '~/components/Table/Table'
 import iconPlus from '~/assets/svg/plus.svg'
 
 export default {
   components: {
     Section,
     HeadTitleMini,
-    iconPlus
+    iconPlus,
+    Table
   },
   props: {
     info: {

@@ -59,6 +59,23 @@ module.exports = {
       ]
     },
     {
+      name: 'toggle_list',
+      properties: {
+        mode: '',
+        title: 'Спецпредложения',
+        description: 'Скидки и специальные предложения для наших гостей от Ginza Hotels&Apartments.'
+      },
+      values: [
+        {
+          id: 1,
+          title: '20% на меню ресторанов Gizna',
+          table: {
+
+          }
+        }
+      ]
+    },
+    {
       name: 'banner_text',
       properties: {
         tag: 'ИЛИ ПОЗВОНИТЕ: <a href="tel:88005003300">8-800-500-33-00</a>',
