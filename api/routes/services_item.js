@@ -61,17 +61,349 @@ module.exports = {
     {
       name: 'toggle_list',
       properties: {
-        mode: '',
-        title: 'Спецпредложения',
-        description: 'Скидки и специальные предложения для наших гостей от Ginza Hotels&Apartments.'
+        mode: 'section'
       },
       values: [
         {
           id: 1,
-          title: '20% на меню ресторанов Gizna',
-          table: {
-
-          }
+          title: 'Для девушек',
+          tables: [
+            {
+              id: 1,
+              columns: [
+                {
+                  id: 1,
+                  mode: '',
+                  label: ['Стрижка']
+                },
+                {
+                  id: 2,
+                  mode: '',
+                  label: ['Pro Мастер']
+                },
+                {
+                  id: 3,
+                  mode: '',
+                  label: ['Top Мастер']
+                }
+              ],
+              rows: [
+                [
+                  {
+                    columnId: 1,
+                    mode: 'tag',
+                    label: ''
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'tag',
+                    label: ['Короткие <br/>волосы', 'Длинные <br/>волосы']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'tag',
+                    label: ['Короткие <br/>волосы', 'Длинные <br/>волосы']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Укладка']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['2 000', '3 000']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: ['3 000', '4 000']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Укладка De Luxe <br/>(лечение и уход)']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 000', '4 000']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: ['4 000', '5 000']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Укладка вечерняя <br/>(прическа)']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 500', '5 000']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: ['4 000', '6 000']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Стрижка с укладкой']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 000', '4 000']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: ['4 000', '5 000']
+                  }
+                ]
+              ]
+            },
+            {
+              id: 2,
+              columns: [
+                {
+                  id: 1,
+                  mode: '',
+                  label: ['Макияж']
+                },
+                {
+                  id: 2,
+                  mode: '',
+                  label: ['']
+                },
+                {
+                  id: 3,
+                  mode: '',
+                  label: ['']
+                }
+              ],
+              rows: [
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Экспресс - макияж']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['2 000', '']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: []
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Макияж вечерний']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 000', '']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Окрашивание бровей <br/>(доп. услуги с макияжем)']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 500', '']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Коррекция формы бровей']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 000', '']
+                  }
+                ]
+              ]
+            }
+          ],
+          descriptionTables: 'Вы сможете пригласить мастера в номер, позвонив по номеру: <a href="tel:+7 (921) 938-38-80">+7 (921) 938-38-80</a>'
+        },
+        {
+          id: 2,
+          title: 'Для мужчин',
+          tables: [
+            {
+              id: 1,
+              columns: [
+                {
+                  id: 1,
+                  mode: '',
+                  label: ['Стрижка']
+                },
+                {
+                  id: 2,
+                  mode: '',
+                  label: ['Pro Мастер']
+                },
+                {
+                  id: 3,
+                  mode: '',
+                  label: ['Top Мастер']
+                }
+              ],
+              rows: [
+                [
+                  {
+                    columnId: 1,
+                    mode: 'tag',
+                    label: ''
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'tag',
+                    label: ['Короткие <br/>волосы', 'Длинные <br/>волосы']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'tag',
+                    label: ['Короткие <br/>волосы', 'Длинные <br/>волосы']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Укладка']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['2 000', '3 000']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: ['3 000', '4 000']
+                  }
+                ]
+              ]
+            }
+          ],
+          descriptionTables: 'Вы сможете пригласить мастера в номер, позвонив по номеру: <a href="tel:+7 (921) 938-38-80">+7 (921) 938-38-80</a>'
+        },
+        {
+          id: 3,
+          title: 'Для детей',
+          tables: [
+            {
+              id: 1,
+              columns: [
+                {
+                  id: 1,
+                  mode: '',
+                  label: ['Стрижка']
+                },
+                {
+                  id: 2,
+                  mode: '',
+                  label: ['Pro Мастер']
+                }
+              ],
+              rows: [
+                [
+                  {
+                    columnId: 1,
+                    mode: 'tag',
+                    label: ''
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'tag',
+                    label: ['Короткие <br/>волосы', '']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Экспресс - макияж']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['2 000', '']
+                  },
+                  {
+                    columnId: 3,
+                    mode: 'bold',
+                    label: []
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Макияж вечерний']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 000', '']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Окрашивание бровей <br/>(доп. услуги с макияжем)']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 500', '']
+                  }
+                ],
+                [
+                  {
+                    columnId: 1,
+                    mode: '',
+                    label: ['Коррекция формы бровей']
+                  },
+                  {
+                    columnId: 2,
+                    mode: 'bold',
+                    label: ['3 000', '']
+                  }
+                ]
+              ]
+            }
+          ],
+          descriptionTables: 'Вы сможете пригласить мастера в номер, позвонив по номеру: <a href="tel:+7 (921) 938-38-80">+7 (921) 938-38-80</a>'
         }
       ]
     },

@@ -1,6 +1,7 @@
 export default (info) => {
   const {
     title = '',
+    mode = '',
     description = '',
     values = []
   } = info
@@ -9,17 +10,20 @@ export default (info) => {
       id = null,
       title = '',
       text = '',
-      table = {}
+      tables = [],
+      descriptionTables = ''
     } = item
     return {
       id,
       title,
       text,
-      table
+      tables,
+      descriptionTables
     }
   })
   return {
     title,
+    mode,
     description,
     values: adaptedValues
   }

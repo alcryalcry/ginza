@@ -1,6 +1,6 @@
 <template>
   <div class="toggle-list">
-    <Section class="section--no-p section--min section--apartment">
+    <Section v-if="model.title || model.description" class="section--no-p section--min section--apartment">
       <HeadTitleMini :info="model" />
     </Section>
     <Section class="section--no-p section--full">
@@ -10,20 +10,24 @@
           :key="item.id"
           class="toggle-item"
           :class="{ isActive: activeItem === item.id }"
-          @click="setActiveItem(item.id)"
         >
-          <Section class="section--no-p section--min">
+          <Section class="section--no-p section-btn" :class="model.mode || 'section--min'" @click.native="setActiveItem(item.id)">
             <div class="toggle-button">
               <div class="text text--24 bold" v-html="item.title" />
               <div class="icon">
                 <iconPlus />
               </div>
             </div>
-            <vue-slide-toggle :open="activeItem === item.id">
-              <p v-if="item.text" class="toggle-text" v-html="item.text" />
-              <Table v-if="item.table" :info="item.table" />
-            </vue-slide-toggle>
           </Section>
+          <vue-slide-toggle :open="activeItem === item.id">
+            <Section class="section--no-p" :class="model.mode || 'section--min'">
+              <p v-if="item.text" class="toggle-text" v-html="item.text" />
+              <div v-if="item.tables.length" class="tables">
+                <Table v-for="table in item.tables" :key="table.id" :info="table" />
+                <div v-if="item.descriptionTables" class="table-description" v-html="item.descriptionTables" />
+              </div>
+            </Section>
+          </vue-slide-toggle>
         </div>
       </div>
     </Section>
@@ -72,12 +76,37 @@ export default {
 
 <style lang="scss" scoped>
 .toggle-list {
+  .tables {
+    overflow-x: auto;
+    padding: 2rem 0;
+    .table {
+      & + .table {
+        margin-top: 4rem;
+      }
+    }
+    .table-description {
+      margin-top: 4rem;
+      &::v-deep {
+        a {
+          color: $white;
+          transition: color .2s ease;
+          &:active {
+            color: $border;
+          }
+          @include desktop {
+            &:hover {
+              color: $border;
+            }
+          }
+        }
+      }
+    }
+  }
   .head-title-mini {
     margin-bottom: 0;
   }
   .toggle-item {
     border-bottom: 1px solid $border;
-    cursor: pointer;
     transition: background-color .2s ease, color .2s ease;
     &:first-child {
       border-top: 1px solid $border;
@@ -89,6 +118,9 @@ export default {
         transform: rotate(45deg);
       }
     }
+  }
+  .section-btn {
+    cursor: pointer;
   }
   .toggle-button {
     display: flex;
