@@ -1,22 +1,26 @@
 export default (info) => {
   const {
     type = '',
-    values = []
+    values = [],
+    popup = {}
   } = info
 
   const adaptedValues = (values || []).map((item) => {
     const {
       url = '',
-      linkLabel = ''
+      linkLabel = '',
+      isPopupLink = false
     } = item
     return {
       url,
-      linkLabel
+      linkLabel,
+      isPopupLink
     }
   })
 
   return {
     type,
-    values: adaptedValues
+    values: adaptedValues,
+    popup
   }
 }

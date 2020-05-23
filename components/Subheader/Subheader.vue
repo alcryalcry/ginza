@@ -7,8 +7,8 @@
         ref="stickyMenuItems"
         class="subheader-link text--18"
         type="button"
-        :class="{ isActive: activeLink === link.url }"
-        @click="toAnchor(link.url)"
+        :class="{ isActive: link.isPopupLink ? false : activeLink === link.url }"
+        @click="link.isPopupLink ? openPopup(model.popup) : toAnchor(link.url)"
         v-html="link.linkLabel"
       />
     </div>
@@ -18,11 +18,12 @@
 <script>
 import MODEL from './model'
 import stickyMenu from '~/mixins/stickyMenu'
+import popupMethods from '~/mixins/popupMethods'
 
 export default {
   components: {
   },
-  mixins: [stickyMenu],
+  mixins: [stickyMenu, popupMethods],
   props: {
     info: {
       type: Object,

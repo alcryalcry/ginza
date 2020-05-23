@@ -4,6 +4,57 @@ module.exports = {
   keywords: '',
   components: [
     {
+      name: 'sub_header',
+      properties: {
+        type: 'anchors'
+      },
+      values: [
+        {
+          linkLabel: 'Связаться с менеджером',
+          isPopupLink: true
+        }
+      ],
+      popup: {
+        type: 'popupManager',
+        content: {
+          title: 'Связаться с менеджером',
+          resultTitle: 'Сообщение отправлено.',
+          resultDescription: 'Через несколько минут с Вами свяжется менеджер.',
+          image: '/images/popup-manager.jpg',
+          tag: 'ИЛИ ПОЗВОНИТЕ: <a href="tel:88005003300">8-800-500-33-00</a>',
+          disclaimer: '*Нажимая “отправить” Вы даете согласие <br/>на <a href="/privacy" target="_blank">обработку персональных данных</a>',
+          fields: [
+            {
+              type: 'text',
+              label: 'Имя',
+              name: 'userName',
+              validate: [
+                {
+                  rule: 'required'
+                }
+              ]
+            },
+            {
+              type: 'phone',
+              label: 'Телефон',
+              name: 'userPhone',
+              validate: [
+                {
+                  rule: 'phone'
+                }
+              ]
+            },
+            {
+              type: 'text',
+              label: 'Сообщение (необязательно)',
+              name: 'userMessage',
+              validate: []
+            }
+          ]
+        }
+      }
+    },
+    {
       name: 'services_head',
       properties: {
         tag: 'Сервис',
