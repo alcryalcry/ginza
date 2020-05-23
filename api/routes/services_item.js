@@ -70,8 +70,11 @@ module.exports = {
         type: 'popupManager',
         content: {
           title: 'Связаться с менеджером',
-          image: '/images/restaurant/restaurant-full.jpg',
+          resultTitle: 'Сообщение отправлено.',
+          resultDescription: 'Через несколько минут с Вами свяжется менеджер.',
+          image: '/images/popup-manager.jpg',
           tag: 'ИЛИ ПОЗВОНИТЕ: <a href="tel:88005003300">8-800-500-33-00</a>',
+          disclaimer: '*Нажимая “отправить” Вы даете согласие <br/>на <a href="/privacy" target="_blank">обработку персональных данных</a>',
           fields: [
             {
               type: 'text',

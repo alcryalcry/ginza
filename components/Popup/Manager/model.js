@@ -3,6 +3,7 @@ export default (info) => {
     title = '',
     image = '',
     tag = '',
+    disclaimer = '',
     resultTitle = '',
     resultDescription = '',
     fields = []
@@ -12,6 +13,7 @@ export default (info) => {
     title,
     image,
     tag,
+    disclaimer,
     resultTitle,
     resultDescription,
     fields

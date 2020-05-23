@@ -39,7 +39,7 @@ module.exports = {
         },
         {
           label: 'Культура & События',
-          url: '/events'
+          url: '/blog'
         },
         {
           label: 'Инвесторам',

@@ -1,7 +1,10 @@
 <template>
-  <div v-if="GET_POPUP_TYPE === 'popupManager'" v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-booking">
+  <div v-if="GET_POPUP_TYPE === 'popupManager'" v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-manager">
     <div class="popup-content">
       <div class="popup-head-row">
+        <div class="logo">
+          <iconLogo />
+        </div>
         <div class="popup-close">
           <button class="burger" type="button" @click="CLOSE_POPUP">
             <div class="burger-button">
@@ -11,13 +14,26 @@
             </div>
           </button>
         </div>
-        <transition mode="out-in" name="fade-reversed">
-          <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" />
-        </transition>
       </div>
-      <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
+      <div class="popup-manager-container" :class="{ isShowResult, isLoading }">
+        <div class="title-block">
+          <h1 v-if="model.title" class="title title--h2" v-html="model.title" />
+          <p v-if="model.tag" class="tag text--14" v-html="model.tag" />
+        </div>
         <transition mode="out-in" name="list-fade">
-          <FormGenerator v-if="!isShowResult" key="form" :is-loading="isLoading" :info="model.fields" @formSubmit="formSubmit" />
+          <div v-if="!isShowResult" key="form" class="form-content">
+            <FormGenerator
+              :btn-label="$t('popup.submit')"
+              :btn-submit-class="'link link--brown link--tdu'"
+              :is-loading="isLoading"
+              :info="model.fields"
+              @formSubmit="formSubmit"
+            />
+            <div class="logo-love">
+              <iconLove />
+            </div>
+            <p v-if="model.disclaimer" class="disclaimer text--12" v-html="model.disclaimer" />
+          </div>
           <div v-else key="result" class="result">
             <div class="result-icon">
               <div class="icon">
@@ -50,12 +66,16 @@ import { API_ROUTES_MANAGER } from '~/config/constants'
 
 import FormGenerator from '~/components/FormGenerator/FormGenerator'
 import iconCheck from '~/assets/svg/check.svg'
+import iconLogo from '~/assets/svg/logo.svg'
+import iconLove from '~/assets/svg/love.svg'
 
 export default {
   name: 'PopupManager',
   components: {
     FormGenerator,
-    iconCheck
+    iconCheck,
+    iconLogo,
+    iconLove
   },
   data() {
     return {
@@ -105,7 +125,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.popup-booking {
+.popup-manager {
   position: relative;
   display: flex;
   flex: 1;
@@ -118,7 +138,23 @@ export default {
     margin-bottom: 6rem;
   }
 
-  .popup-booking-container {
+  &::v-deep {
+    .submit-container {
+      @include mobile {
+        margin-top: 4rem;
+      }
+    }
+    .input-placeholder {
+      font-weight: $light;
+      color: $gray69;
+      letter-spacing: 0.025rem;
+    }
+  }
+
+  .popup-manager-container {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
     transition: opacity .3s ease;
     &.isLoading {
       opacity: .5;
@@ -149,109 +185,41 @@ export default {
       padding: 4rem $sectionOffsetHorizontalTablet;
     }
     @include desktop {
-      max-width: 49rem;
-      padding: 6rem 8rem 6rem 13rem;
+      margin-left: auto;
+      max-width: calc(100% - 48rem);
+      padding: 2rem 8rem 6rem 10rem;
     }
   }
 
   &::v-deep {
     .form {
-      .submit-container {
-        @include desktop {
-          position: sticky;
-          bottom: 0;
-        }
+      @include desktop {
+        max-width: 32rem;
       }
       .submit-btn {
-        background: $black17;
-        color: $white;
-        &:active {
-          background: $brown;
-          color: $white;
-        }
-        @include desktop {
-          &:hover {
-            background: $brown;
-            color: $white;
-          }
-        }
+        width: auto;
+        height: auto;
+        text-transform: none;
       }
     }
-  }
-}
-
-.result {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  flex: 1;
-  text-align: center;
-  @include desktop {
-    margin: auto 0;
-  }
-  .result-title {
-    margin-bottom: 1.5rem;
-  }
-  .result-link {
-    padding-top: 4rem;
-    margin-top: auto;
-    transition: color .2s ease;
-    &:active {
-      color: $brown;
-    }
-    @include desktop {
-      &:hover {
-        color: $brown;
-      }
-    }
-  }
-  .result-description {
-    margin-top: auto;
-    margin-bottom: 1.5rem;
-  }
-  .result-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 auto;
-    width: 11rem;
-    height: 11rem;
-    margin-top: 3rem;
-    margin-bottom: 4.5rem;
-    padding: 4rem;
-    border-radius: 50%;
-    background: $gray30;
-    color: $green;
-    @include desktop {
-      margin-top: auto;
-    }
-  }
-  .icon {
-    display: flex;
   }
 }
 
 .popup-image {
   position: relative;
+  display: none;
   order: -1;
   z-index: 1;
-  @include tablet {
-    height: 50rem;
-    z-index: 0;
-  }
-  @include mobile {
-    height: 40rem;
-    z-index: 0;
-  }
+  pointer-events: none;
   @include desktop {
     position: fixed;
     top: 0;
     bottom: 0;
-    right: 0;
-    width: calc(100% - 49rem);
+    left: 0;
+    display: flex;
+    width: 48rem;
     order: 2;
   }
-  pointer-events: none;
   .image {
     display: flex;
     height: 100%;
@@ -285,7 +253,6 @@ export default {
     left: 0;
     right: 0;
     padding: 2rem 4rem;
-    background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
     z-index: 1;
   }
   @include mobile {
@@ -294,7 +261,6 @@ export default {
     left: 0;
     right: 0;
     padding: 1.5rem 2rem;
-    background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
     z-index: 2;
   }
 }
@@ -302,7 +268,7 @@ export default {
 .burger {
   display: flex;
   align-items: center;
-  margin-left: -1rem;
+  margin-right: -1rem;
   cursor: pointer;
   &:active {
     color: $brown;
@@ -311,6 +277,136 @@ export default {
   @include desktop {
     &:hover {
       color: $brown;
+    }
+  }
+}
+
+.tag {
+  margin-top: 1rem;
+  color: $gray69;
+  letter-spacing: 0.1rem;
+  &::v-deep {
+    a {
+      font-weight: $medium;
+      transition: color .2s ease, border-color .2s ease;
+      &:active {
+        color: $brown;
+      }
+      @include desktop {
+        &:hover {
+          color: $brown;
+        }
+      }
+    }
+  }
+}
+
+.result {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  @include tablet_desktop {
+    justify-content: center;
+    margin: auto;
+    max-width: 32rem;
+  }
+  .result-title {
+    margin-bottom: 1.5rem;
+  }
+  .result-link {
+    padding-top: 4rem;
+    margin-top: auto;
+    transition: color .2s ease;
+    &:active {
+      color: $brown;
+    }
+    @include desktop {
+      &:hover {
+        color: $brown;
+      }
+    }
+  }
+  .result-description {
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+  }
+  .result-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    width: 11rem;
+    height: 11rem;
+    margin-top: 3rem;
+    margin-bottom: 4.5rem;
+    padding: 4rem;
+    border-radius: 50%;
+    background: $brown;
+    color: $white;
+    @include desktop {
+      // margin-top: auto;
+    }
+  }
+  .icon {
+    display: flex;
+  }
+}
+
+.title-block {
+  margin-top: 6rem;
+}
+
+.form-content {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  margin-top: 6rem;
+  @include mobile {
+    margin-top: 4rem;
+  }
+}
+
+.logo {
+  display: block;
+  width: 11rem;
+  height: 4rem;
+  @include mobile {
+    width: 8.7rem;
+    height: 3rem;
+  }
+}
+
+.logo-love {
+  margin-top: 2rem;
+  padding: 3rem 0;
+  width: 20rem;
+  height: 12rem;
+  // @include mobile {
+  //   width: 25rem;
+  //   height: 7rem;
+  // }
+}
+
+.disclaimer {
+  color: $gray69;
+  letter-spacing: 0.02rem;
+  margin-top: auto;
+  line-height: 1.5;
+  padding-top: 3rem;
+  &::v-deep {
+    a {
+      color: $brown;
+      transition: color .2s ease;
+      &:active {
+        color: $brownHover;
+      }
+      @include desktop {
+        &:hover {
+          color: $brownHover;
+        }
+      }
     }
   }
 }

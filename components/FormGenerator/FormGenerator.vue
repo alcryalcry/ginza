@@ -22,7 +22,7 @@
       <slot :name="field.name" />
     </div>
     <div class="submit-container">
-      <button class="button submit-btn" type="submit">{{ btnLabel || $t('booking.btnLabel') }}</button>
+      <button class="submit-btn" :class="btnSubmitClass" type="submit">{{ btnLabel || $t('booking.btnLabel') }}</button>
     </div>
   </form>
 </template>
@@ -84,6 +84,10 @@ export default {
     isLoading: {
       type: Boolean,
       default: false
+    },
+    btnSubmitClass: {
+      type: String,
+      default: 'button'
     },
     btnLabel: {
       type: String,

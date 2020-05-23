@@ -45,6 +45,7 @@
     "privacy": "Privacy Policy"
   },
   "popup": {
-    "manager": "Send message"
+    "manager": "Send message",
+    "submit": "Submit"
   }
 }

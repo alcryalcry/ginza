@@ -25,8 +25,8 @@
                     <HousingCard
                       :info="card"
                       :is-nested="true"
-                      @mouseenter.native="setActiveMarker(card)"
-                      @mouseleave.native="removeActiveMarker"
+                      @mouseenter.native="debouncedSetActiveMarker(card)"
+                      @mouseleave.native="debouncedRemoveActiveMarker"
                     />
                   </div>
                 </div>
@@ -46,6 +46,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { debounce } from 'throttle-debounce'
 import MODEL from './model'
 import HousingViewChanger from '~/components/Housing/ViewChanger/HousingViewChanger'
 import HousingCard from '~/components/Housing/Card/HousingCard'
@@ -112,6 +113,14 @@ export default {
         this.transitionKey++
       }
     }
+  },
+  mounted() {
+    this.debouncedSetActiveMarker = debounce(400, (e) => {
+      this.setActiveMarker(e)
+    })
+    this.debouncedRemoveActiveMarker = debounce(400, (e) => {
+      this.removeActiveMarker(e)
+    })
   },
   methods: {
     setView(view) {

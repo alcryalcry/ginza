@@ -114,6 +114,12 @@ app.post('/booking', (req, res) => {
   })
 })
 
+app.post('/manager', (req, res) => {
+  res.send({
+    status: true
+  })
+})
+
 if (process.env.IS_SERVER_MIDDLEWARE === 'true') {
   module.exports = {
     path: '/api',
