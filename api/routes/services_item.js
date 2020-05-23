@@ -61,6 +61,69 @@ module.exports = {
     {
       name: 'toggle_list',
       properties: {
+        mode: 'section',
+        linkLabel: 'Связаться с менеджером'
+      },
+      popup: {
+        type: 'popupManager',
+        content: {
+          title: 'Связаться с менеджером',
+          resultTitle: 'Сообщение отправлено.',
+          resultDescription: 'Через несколько минут с Вами свяжется менеджер.',
+          image: '/images/popup-manager.jpg',
+          tag: 'ИЛИ ПОЗВОНИТЕ: <a href="tel:88005003300">8-800-500-33-00</a>',
+          disclaimer: '*Нажимая “отправить” Вы даете согласие <br/>на <a href="/privacy" target="_blank">обработку персональных данных</a>',
+          fields: [
+            {
+              type: 'text',
+              label: 'Имя',
+              name: 'userName',
+              validate: [
+                {
+                  rule: 'required'
+                }
+              ]
+            },
+            {
+              type: 'phone',
+              label: 'Телефон',
+              name: 'userPhone',
+              validate: [
+                {
+                  rule: 'phone'
+                }
+              ]
+            },
+            {
+              type: 'text',
+              label: 'Сообщение (необязательно)',
+              name: 'userMessage',
+              validate: []
+            }
+          ]
+        }
+      },
+      values: [
+        {
+          id: 1,
+          title: 'Heavenly Suite',
+          menu: {
+            list: [
+              'Игристое',
+              'Десерты',
+              'Фруктовая корзина',
+              'Букет цветов',
+              'Лепестки роз',
+              'Романтические свечи'
+            ],
+            sum: 'Стоимость: 9 900 руб.'
+          }
+        }
+      ]
+    },
+    {
+      name: 'toggle_list',
+      properties: {
         mode: 'section'
       },
       values: [

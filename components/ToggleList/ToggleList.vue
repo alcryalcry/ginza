@@ -26,6 +26,20 @@
                 <Table v-for="table in item.tables" :key="table.id" :info="table" />
                 <div v-if="item.descriptionTables" class="table-description" v-html="item.descriptionTables" />
               </div>
+              <div v-if="item.menu.list.length" class="menu">
+                <div class="menu-list">
+                  <div v-for="(listItem, index) in item.menu.list" :key="index" class="menu-item" v-html="listItem" />
+                </div>
+                <div v-if="item.menu.sum || model.popup.content" class="menu-bottom">
+                  <span v-if="item.menu.sum" class="text ttu" v-html="item.menu.sum" />
+                  <button
+                    v-if="model.popup.content"
+                    class="popup-btn link link--tdu link--white"
+                    @click="openPopup(model.popup)"
+                    v-html="model.linkLabel"
+                  />
+                </div>
+              </div>
             </Section>
           </vue-slide-toggle>
         </div>
@@ -39,6 +53,7 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import HeadTitleMini from '~/components/HeadTitle/Mini/HeadTitleMini'
 import Table from '~/components/Table/Table'
+import popupMethods from '~/mixins/popupMethods'
 import iconPlus from '~/assets/svg/plus.svg'
 
 export default {
@@ -48,6 +63,7 @@ export default {
     iconPlus,
     Table
   },
+  mixins: [popupMethods],
   props: {
     info: {
       type: Object,
@@ -76,6 +92,26 @@ export default {
 
 <style lang="scss" scoped>
 .toggle-list {
+  .menu {
+    padding: 2rem 0;
+    overflow: hidden;
+    .menu-item {
+      margin-top: .5rem;
+    }
+    .menu-bottom {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      margin: 3rem -3rem 0;
+      .text {
+        margin: 1rem 3rem;
+        letter-spacing: 0.15rem;
+      }
+      .link {
+        margin: 1rem 3rem;
+      }
+    }
+  }
   .tables {
     overflow-x: auto;
     padding: 2rem 0;

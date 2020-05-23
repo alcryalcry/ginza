@@ -3,11 +3,17 @@ export default (info) => {
     title = '',
     mode = '',
     description = '',
-    values = []
+    values = [],
+    linkLabel = '',
+    popup = {}
   } = info
   const adaptedValues = (values || []).map((item) => {
     const {
       id = null,
+      menu = {
+        list: [],
+        sum: ''
+      },
       title = '',
       text = '',
       tables = [],
@@ -15,6 +21,7 @@ export default (info) => {
     } = item
     return {
       id,
+      menu,
       title,
       text,
       tables,
@@ -24,7 +31,9 @@ export default (info) => {
   return {
     title,
     mode,
+    linkLabel,
     description,
-    values: adaptedValues
+    values: adaptedValues,
+    popup
   }
 }
