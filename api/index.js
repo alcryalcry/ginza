@@ -97,7 +97,13 @@ app.get('/get-page/services', (req, res) => {
 })
 
 app.get('/get-page/services/:slug', (req, res) => {
-  res.send(reponseJson('services_item'))
+  console.warn(req.params.slug)
+  try {
+    const obj = reponseJson(`services_item_${req.params.slug}`)
+    res.send(obj)
+  } catch (e) {
+    res.send(reponseJson('services_item'))
+  }
 })
 
 app.get('/get-page/blog', (req, res) => {

@@ -134,6 +134,10 @@ export default {
       flex-flow: row nowrap;
       overflow-x: auto;
       padding: 2rem 0;
+      @include desktop {
+        padding-right: 5rem;
+        padding-left: 5rem;
+      }
     }
     .tabs-item {
       display: flex;
@@ -142,6 +146,14 @@ export default {
       margin: 0 5rem;
       color: $gray69;
       transition: color .2s ease;
+      &:active {
+        color: $black17;
+      }
+      @include desktop {
+        &:hover {
+          color: $black17;
+        }
+      }
       @include tablet {
         margin: 0 3rem;
       }
