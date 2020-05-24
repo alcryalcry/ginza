@@ -27,6 +27,9 @@ export default {
         ...(this.data.properties || {})
       }
     }
+  },
+  methods: {
+
   }
 }
 </script>

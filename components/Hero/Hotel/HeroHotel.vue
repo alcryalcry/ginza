@@ -2,11 +2,17 @@
   <div class="hero-hotel">
     <div class="hero-hotel-row">
       <picture v-if="model.image" class="image">
-        <img :src="model.image" alt="">
+        <img :src="model.image" alt>
       </picture>
       <div class="hero-hotel-content">
         <h4 class="title">
-          <span v-if="model.type" class="type" v-html="model.type" />
+          <span
+            v-if="model.type"
+            contenteditable="true"
+            class="type"
+            @input="(ev) => TEST(ev, 'type')"
+            v-html="model.type"
+          />
           <span v-if="model.placeName" class="name" v-html="model.placeName" />
         </h4>
         <h5 target="_blank" class="place text--13">
@@ -14,7 +20,11 @@
         </h5>
         <p class="description text--24" v-html="model.description" />
         <div v-if="model.anchorLink" class="hero-anchor">
-          <button class="link link--brown link--tdu" @click="scrollToSection" v-html="$t('hotels.anchorLabel')" />
+          <button
+            class="link link--brown link--tdu"
+            @click="scrollToSection"
+            v-html="$t('hotels.anchorLabel')"
+          />
         </div>
       </div>
     </div>
@@ -22,6 +32,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import MODEL from './model'
 
 export default {
@@ -48,7 +59,11 @@ export default {
           behavior: 'smooth'
         })
       }
-    }
+    },
+    TEST(ev, path) {
+      this.huy({ name: this.$parent.$options.name, value: ev.target.textContent, path })
+    },
+    ...mapMutations({ huy: 'adminStore/TEST' })
   }
 }
 </script>
@@ -115,7 +130,7 @@ export default {
   .type {
     font-weight: $light;
     &::after {
-      content: ' ';
+      content: " ";
     }
   }
   .name {
@@ -128,5 +143,4 @@ export default {
   letter-spacing: 0.1rem;
   font-weight: $medium;
 }
-
 </style>
