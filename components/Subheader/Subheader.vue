@@ -1,5 +1,5 @@
 <template>
-  <div class="subheader">
+  <div class="subheader" :class="{ isScrolled: GET_HEADER_STATUS }">
     <div v-if="model.type === 'anchors'" ref="stickyMenuWrapper" class="subheader-top">
       <button
         v-for="link in model.values"
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import stickyMenu from '~/mixins/stickyMenu'
 import popupMethods from '~/mixins/popupMethods'
@@ -35,6 +36,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS'
+    }),
     model() {
       return MODEL(this.info)
     },
@@ -73,6 +77,12 @@ export default {
   }
   @include mobile {
     top: calc(#{$headerHeightMobile} - .1rem);
+  }
+
+  &.isScrolled {
+    .subheader-link {
+      color: $gray;
+    }
   }
 
   .subheader-top {

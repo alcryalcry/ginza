@@ -1,5 +1,9 @@
 <template>
-  <Section class="section--no-p section--big subheader" container-class-names="subheader-container">
+  <Section
+    class="section--no-p section--big subheader"
+    container-class-names="subheader-container"
+    :class="{isScrolled: GET_HEADER_STATUS}"
+  >
     <div class="cities">
       <CitiesDropdown />
     </div>
@@ -48,6 +52,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS',
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
       GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
     }),
@@ -85,6 +90,12 @@ export default {
   }
   @include mobile {
     top: calc(#{$headerHeightMobile} - .1rem);
+  }
+
+  &.isScrolled {
+    .subheader-link {
+      color: $gray;
+    }
   }
 
   &::v-deep {

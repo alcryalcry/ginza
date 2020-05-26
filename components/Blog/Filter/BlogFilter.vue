@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-filter" :class="{ isLoading }">
+  <div class="blog-filter" :class="{ isLoading, isScrolled: GET_HEADER_STATUS }">
     <div class="subheader">
       <div class="subheader-menu">
         <div ref="stickyMenuWrapper" class="subheader-top">
@@ -35,6 +35,7 @@
 <script>
 import smoothscroll from 'smoothscroll-polyfill'
 import { debounce } from 'throttle-debounce'
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import axios from '~/plugins/axios'
 import GridList from '~/components/Grid/List/GridList'
@@ -64,6 +65,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS'
+    }),
     model() {
       return MODEL(this.info)
     },
@@ -155,6 +159,13 @@ export default {
 <style lang="scss" scoped>
 .blog-filter {
   transition: opacity .2s ease;
+  &.isScrolled {
+    .subheader {
+      .subheader-link {
+        color: $gray;
+      }
+    }
+  }
   .title {
     margin: 7rem 0 3rem;
     text-align: center;
