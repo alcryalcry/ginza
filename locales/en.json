@@ -1,4 +1,7 @@
 {
+  "filters": {
+    "all": "All"
+  },
   "error": {
     "text": "The page you are looking for is not available."
   },
