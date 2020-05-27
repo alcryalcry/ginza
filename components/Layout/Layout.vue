@@ -11,7 +11,7 @@
       <slot name="popup" />
     </main>
 
-    <Footer :info="footer" />
+    <Footer v-if="footer.menuList" :info="footer" />
   </div>
 </template>
 

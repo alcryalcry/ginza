@@ -14,6 +14,7 @@ export const {
       pages: {
         API_ROUTES_INDEX = 'get-page/index',
         API_ROUTES_ABOUT = 'get-page/about',
+        API_ROUTES_INVESTORS = 'get-page/investors',
         API_ROUTES_PRIVACY = 'get-page/privacy',
         API_ROUTES_HOUSING = 'get-page/housing',
         API_ROUTES_SERVICES_ROOT = 'get-page/services',
@@ -25,8 +26,9 @@ export const {
       //   housing: API_ROUTES_HOUSING = 'housing'
       // } = {},
       post: {
-        booking: API_ROUTES_BOOKING = 'booking',
-        manager: API_ROUTES_MANAGER = 'manager'
+        booking_form: API_ROUTES_BOOKING_FORM = 'form/booking',
+        manager_form: API_ROUTES_MANAGER_FORM = 'form/manager',
+        investors_form: API_ROUTES_INVESTORS_FORM = 'form/investors'
       } = {}
     } = {}
   } = {}

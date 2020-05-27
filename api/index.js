@@ -61,6 +61,10 @@ app.get('/get-page/about', (req, res) => {
   res.send(reponseJson('about'))
 })
 
+app.get('/get-page/investors', (req, res) => {
+  res.send(reponseJson('investors'))
+})
+
 app.get('/get-page/privacy', (req, res) => {
   res.send(reponseJson('privacy'))
 })
@@ -119,13 +123,19 @@ app.get('/get-page/blog/:slug', (req, res) => {
   res.send(reponseJson('blog_item'))
 })
 
-app.post('/booking', (req, res) => {
+app.post('/form/booking', (req, res) => {
   res.send({
     status: true
   })
 })
 
-app.post('/manager', (req, res) => {
+app.post('/form/manager', (req, res) => {
+  res.send({
+    status: true
+  })
+})
+
+app.post('/form/investors', (req, res) => {
   res.send({
     status: true
   })

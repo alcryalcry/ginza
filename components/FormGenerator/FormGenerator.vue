@@ -51,6 +51,10 @@ const COMPONENTS = [
     componentName: 'FormInput'
   },
   {
+    type: 'email',
+    componentName: 'FormInput'
+  },
+  {
     type: 'hidden',
     componentName: 'FormInput'
   },

@@ -46,7 +46,7 @@
 import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import axios from '~/plugins/axios'
-import { API_ROUTES_BOOKING } from '~/config/constants'
+import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
 
 import FormGenerator from '~/components/FormGenerator/FormGenerator'
 import iconCheck from '~/assets/svg/check.svg'
@@ -89,13 +89,13 @@ export default {
           formData.set(key, data[key])
         }
       }
-      axios.post(API_ROUTES_BOOKING, formData)
+      axios.post(API_ROUTES_BOOKING_FORM, formData)
         .then(({ data }) => {
           if (data.status) {
             this.isShowResult = true
           }
         }).catch((e) => {
-          console.error(e, API_ROUTES_BOOKING)
+          console.error(e, API_ROUTES_BOOKING_FORM)
         }).then(() => {
           this.isLoading = false
         })

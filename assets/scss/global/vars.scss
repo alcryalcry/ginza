@@ -39,7 +39,6 @@ $tablet-desktop: 'screen and (min-width: 768px)';
 $desktop: 'screen and (min-width: 1025px)';
 
 
-
 $headerHeight: 8.2rem;
 $headerHeightBig: 12.8rem;
 $headerHeightTablet: 8.2rem;
@@ -63,6 +62,7 @@ $sectionOffsetVerticalTablet: 6rem;
 $sectionOffsetVerticalMobile: 4rem;
 $sectionOffsetHorizontalMobile: 2rem;
 
+$desktopOffset: calc((100vw - #{$containerWidth}) / 2 );
 
 
 $zLayerHide: -1;
