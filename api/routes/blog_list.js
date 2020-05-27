@@ -5,12 +5,6 @@ module.exports = function (params, res) {
     category = ''
   } = params
 
-  console.log({
-    limit,
-    skip,
-    category
-  })
-
   const values = []
   const titles = ['Эрмитаж', 'Заголовок блога', 'Заголовок новости']
   const labels = [
