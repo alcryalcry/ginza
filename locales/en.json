@@ -1,4 +1,8 @@
 {
+  "contacts": {
+    "submit": "Submit*",
+    "investors": "Investors"
+  },
   "investors": {
     "submit": "Get a presentation*"
   },

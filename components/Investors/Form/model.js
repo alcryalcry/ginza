@@ -2,7 +2,6 @@ export default (info) => {
   const {
     url = '/',
     linkLabel = 'О проекте',
-    downloadLinkLabel = 'Получить презентацию',
     downloadUrl = '/',
     description = '',
     image = '',
@@ -17,7 +16,6 @@ export default (info) => {
     image,
     url,
     linkLabel,
-    downloadLinkLabel,
     downloadUrl,
     disclaimer,
     resultTitle,

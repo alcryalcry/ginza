@@ -34,6 +34,7 @@ import FormInput from '~/components/FormGenerator/Fields/FormInput'
 import FormPhone from '~/components/FormGenerator/Fields/FormPhone'
 import FormCounter from '~/components/FormGenerator/Fields/FormCounter'
 import FormDatepicker from '~/components/FormGenerator/Fields/FormDatepicker'
+import FormPseudoSelect from '~/components/FormGenerator/Fields/FormPseudoSelect'
 
 const validateFunctions = {
   required,
@@ -69,6 +70,10 @@ const COMPONENTS = [
   {
     type: 'date',
     componentName: 'FormDatepicker'
+  },
+  {
+    type: 'select',
+    componentName: 'FormPseudoSelect'
   }
 ]
 
@@ -78,7 +83,8 @@ export default {
     FormInput,
     FormPhone,
     FormCounter,
-    FormDatepicker
+    FormDatepicker,
+    FormPseudoSelect
   },
   props: {
     info: {

@@ -65,6 +65,10 @@ app.get('/get-page/investors', (req, res) => {
   res.send(reponseJson('investors'))
 })
 
+app.get('/get-page/contacts', (req, res) => {
+  res.send(reponseJson('contacts'))
+})
+
 app.get('/get-page/privacy', (req, res) => {
   res.send(reponseJson('privacy'))
 })
@@ -136,6 +140,12 @@ app.post('/form/manager', (req, res) => {
 })
 
 app.post('/form/investors', (req, res) => {
+  res.send({
+    status: true
+  })
+})
+
+app.post('/form/contacts', (req, res) => {
   res.send({
     status: true
   })

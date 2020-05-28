@@ -15,6 +15,7 @@ export const {
         API_ROUTES_INDEX = 'get-page/index',
         API_ROUTES_ABOUT = 'get-page/about',
         API_ROUTES_INVESTORS = 'get-page/investors',
+        API_ROUTES_CONTACTS = 'get-page/contacts',
         API_ROUTES_PRIVACY = 'get-page/privacy',
         API_ROUTES_HOUSING = 'get-page/housing',
         API_ROUTES_SERVICES_ROOT = 'get-page/services',
@@ -28,7 +29,8 @@ export const {
       post: {
         booking_form: API_ROUTES_BOOKING_FORM = 'form/booking',
         manager_form: API_ROUTES_MANAGER_FORM = 'form/manager',
-        investors_form: API_ROUTES_INVESTORS_FORM = 'form/investors'
+        investors_form: API_ROUTES_INVESTORS_FORM = 'form/investors',
+        contacts_form: API_ROUTES_CONTACTS_FORM = 'form/contacts'
       } = {}
     } = {}
   } = {}

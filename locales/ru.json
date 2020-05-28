@@ -1,4 +1,8 @@
 {
+  "contacts": {
+    "submit": "Отправить*",
+    "investors": "Инвесторам"
+  },
   "investors": {
     "submit": "Получить презентацию*"
   },
