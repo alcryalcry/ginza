@@ -3,6 +3,7 @@
     <div
       class="input-label"
       :class="{
+        isOpen,
         isFilled,
         isInvalid,
       }"
@@ -13,12 +14,12 @@
         @click="toggleList"
       >
         <transition mode="out-in" name="fade-reversed">
-          <span :key="model.id" v-html="model.label" />
+          <span :key="model.id" v-html="model.label || label" />
         </transition>
+        <span class="icon">
+          <iconArrow />
+        </span>
       </button>
-      <span class="input-placeholder">
-        <span>{{ label }}</span>
-      </span>
     </div>
     <transition mode="out-in" name="list-fade-reversed">
       <ul v-if="isOpen" :key="1" v-on-clickaway="closeList" class="dropdown-list">
@@ -42,9 +43,13 @@
 
 <script>
 import { mixin as clickaway } from 'vue-clickaway'
+import iconArrow from '~/assets/svg/arrow-border.svg'
 
 export default {
   name: 'FormPseudoSelect',
+  components: {
+    iconArrow
+  },
   mixins: [ clickaway ],
   props: {
     label: {
@@ -174,9 +179,23 @@ export default {
   position: relative;
   display: block;
   width: 100%;
+  &.isOpen {
+    .icon {
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  &.isFilled {
+    .input {
+      color: $black17;
+      font-weight: $regular;
+      letter-spacing: 0.02rem;
+    }
+  }
   &.isInvalid {
     color: $red;
-    .input-placeholder {
+    .input {
       color: $red;
     }
     &::before {
@@ -185,12 +204,6 @@ export default {
   }
   &.disabled {
     opacity: 0.5;
-  }
-  &.isFilled {
-    .input-placeholder {
-      top: 0;
-      transform: scale(0.8);
-    }
   }
   &::before {
     content: '';
@@ -210,7 +223,9 @@ export default {
 }
 
 .input {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   text-align: left;
   box-sizing: border-box;
@@ -219,7 +234,6 @@ export default {
   border-bottom: 1px solid $border;
   border-radius: 0;
   background: transparent;
-  color: $black;
   font-size: 1.6rem;
   line-height: 2.2rem;
   letter-spacing: 0.02rem;
@@ -227,23 +241,23 @@ export default {
   transition: 0.3s ease;
   appearance: none;
 
-  &:focus {
-    outline: none;
-    & + .input-placeholder {
-      top: 0;
-      transform: scale(0.8);
+  color: $gray69;
+  font-weight: $light;
+  letter-spacing: 0.025rem;
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: .8rem;
+    color: $gray69;
+    svg {
+      transform: rotate(90deg);
+      transition: transform .2s ease;
     }
   }
-}
-
-.input-placeholder {
-  position: absolute;
-  top: 2rem;
-  left: 0;
-  display: flex;
-  color: $black17;
-  transition: 0.3s;
-  transform-origin: left;
-  pointer-events: none;
+  &:focus {
+    outline: none;
+  }
 }
 </style>
