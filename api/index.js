@@ -110,7 +110,6 @@ app.get('/get-page/services', (req, res) => {
 })
 
 app.get('/get-page/services/:slug', (req, res) => {
-  console.warn(req.params.slug)
   try {
     const obj = reponseJson(`services_item_${req.params.slug}`)
     res.send(obj)

@@ -1,6 +1,5 @@
 <template>
-  <nuxt-link
-    :to="localePath(path)"
+  <div
     :class="isReady"
     class="housing-card"
   >
@@ -22,7 +21,7 @@
         </div>
       </div>
     </div>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
@@ -55,19 +54,12 @@ export default {
     },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
-    },
-    path() {
-      return { path: `${this.model.type}/${this.model.slug || this.model.id}` }
     }
-  },
-  created() {
   },
   mounted() {
     this.$nextTick(() => {
       this.isReady = true
     })
-  },
-  methods: {
   }
 }
 </script>
@@ -79,6 +71,7 @@ export default {
   overflow: hidden;
   width: 21rem;
   background: $white;
+  cursor: pointer;
   .images {
     position: relative;
   }

@@ -12,11 +12,11 @@
         :marker-id="marker.id"
         :coords="marker.coords"
         :icon="activeMarker === marker.id ? iconMarkerActive : iconMarker"
-        @balloonopen="balloonOpen"
-        @balloonclose="balloonClose"
+        @balloonopen="balloonOpen(marker)"
+        @balloonclose="balloonClose(marker)"
       >
         <template v-if="isBalloonNeed" slot="balloon">
-          <HousingCardBalloon :info="marker" />
+          <HousingCardBalloon :id="marker.id" :info="marker" />
         </template>
       </ymap-marker>
     </yandex-map>
@@ -125,18 +125,40 @@ export default {
   async mounted() {
     this.setDefaultCoords()
     await loadYmap({ ...this.settings })
+    this.initListeners()
   },
   methods: {
+    changeRoute({ url }) {
+      if (url) {
+        this.$router.push(url)
+      }
+    },
+    initListeners(marker) {
+      if (marker) {
+        document.getElementById(marker.id).addEventListener('click', () => {
+          this.changeRoute(marker)
+        })
+      }
+    },
+    removeListerers(marker) {
+      if (marker) {
+        document.getElementById(marker.id).removeEventListener('click', () => {
+          this.changeRoute(marker)
+        })
+      }
+    },
     setDefaultCoords() {
       this.coords = (this.markers[0] || {}).coords || this.model.coords
     },
-    balloonOpen() {
+    balloonOpen(marker) {
+      this.initListeners(marker)
       setTimeout(() => {
         this.isBalloonReady = true
       }, 100)
     },
-    balloonClose() {
+    balloonClose(marker) {
       this.isBalloonReady = false
+      this.removeListerers(marker)
     },
     closeBalloon(e) {
       const myMap = e.originalEvent.map

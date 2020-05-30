@@ -36,7 +36,13 @@
             </button>
           </div>
           <div class="header-link m-hide">
-            <div class="lang" v-html="GET_LANG" />
+            <nuxt-link
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              class="lang"
+              :to="switchLocalePath(locale.code)"
+              v-html="locale.name"
+            />
           </div>
         </div>
       </div>
@@ -98,7 +104,11 @@ export default {
     },
     model() {
       return MODEL(this.info)
+    },
+    availableLocales () {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }
+
   },
   mounted() {
     if (process.browser) {

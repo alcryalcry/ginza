@@ -1,5 +1,6 @@
 export default (info) => {
   const {
+    url = '',
     id = '',
     slug = '',
     type = '',
@@ -22,6 +23,7 @@ export default (info) => {
   })
 
   return {
+    url,
     id,
     slug,
     type,

@@ -20,7 +20,12 @@
           <h2 v-if="item.title" class="title--main ttu light" v-html="item.title" />
           <p v-if="item.description" class="description text--16" v-html="item.description" />
           <div class="link-block">
-            <nuxt-link v-if="item.url && item.linkLabel" class="link link--brown link--tdu" :to="localePath(path[index])" v-html="item.linkLabel" />
+            <ExternalLink
+              v-if="item.url && item.linkLabel"
+              class="link link--brown link--tdu"
+              :to="item.url"
+              v-html="item.linkLabel"
+            />
           </div>
         </div>
       </Section>
@@ -31,10 +36,12 @@
 <script>
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
-    Section
+    Section,
+    ExternalLink
   },
   props: {
     info: {
@@ -42,25 +49,11 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      return this.model.values.map((item) => {
-        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
-        return {
-          path: this.$route.path + url
-        }
-      })
     }
-  },
-  mounted() {},
-  methods: {}
+  }
 }
 </script>
 

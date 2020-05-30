@@ -1,5 +1,5 @@
 <template>
-  <a v-if="isUrlExternal" :href="url" target="_blank">
+  <a v-if="isUrlExternal" :href="to" target="_blank">
     <slot />
   </a>
   <nuxt-link v-else :to="checkedPath">
@@ -14,13 +14,9 @@ export default {
   components: {
   },
   props: {
-    url: {
-      type: String,
-      required: true
-    },
     to: {
       type: String,
-      default: ''
+      required: true
     }
   },
   data() {
@@ -32,14 +28,14 @@ export default {
   mounted() {
     if (process.browser) {
       this.isUrlExternal = window.location.hostname !== (() => {
-        if (/^https?:\/\//.test(this.url)) {
+        if (/^https?:\/\//.test(this.to)) {
           const parser = document.createElement('a')
-          parser.href = this.url
+          parser.href = this.to
           return parser.hostname
         }
         return window.location.hostname
       })()
-      this.checkedPath = (this.to || this.url).replace(window.location.origin, '')
+      this.checkedPath = this.to.replace(window.location.origin, '')
     }
   }
 }

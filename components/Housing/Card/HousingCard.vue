@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localePath(path)" class="housing-card">
+  <ExternalLink :to="model.url" class="housing-card">
     <transition-group
       v-if="model.images.length"
       tag="div"
@@ -30,11 +30,13 @@
         </div>
       </div>
     </div>
-  </nuxt-link>
+  </ExternalLink>
 </template>
 
 <script>
 import MODEL from './model'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
+
 import beds from '~/assets/svg/icon-beds.svg'
 import adult from '~/assets/svg/icon-adult.svg'
 import size from '~/assets/svg/icon-size.svg'
@@ -42,6 +44,7 @@ import size from '~/assets/svg/icon-size.svg'
 export default {
   name: 'HousingCard',
   components: {
+    ExternalLink,
     beds,
     adult,
     size
@@ -71,14 +74,6 @@ export default {
     },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
-    },
-    path() {
-      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
-      return {
-        path: this.isNested
-          ? this.model.url
-          : this.$route.path + url
-      }
     }
   },
   methods: {

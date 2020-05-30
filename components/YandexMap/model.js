@@ -6,6 +6,7 @@ export default (info) => {
 
   const adaptedMarkers = (markers || []).map((item) => {
     const {
+      url = '',
       id = '',
       type = '',
       cityId = '',
@@ -28,6 +29,7 @@ export default (info) => {
     })
 
     return {
+      url,
       id,
       type,
       cityId,
