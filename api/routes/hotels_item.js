@@ -50,7 +50,7 @@ module.exports = {
         {
           id: 'standart',
           type: 'hotels',
-          url: 'rooms/standart',
+          url: 'arka/rooms/standart',
           title: 'Standart',
           images: [
             '/images/room/room-preview-1.jpg',
@@ -70,7 +70,7 @@ module.exports = {
         {
           type: 'hotels',
           id: 'business',
-          url: 'rooms/business',
+          url: 'arka/rooms/business',
           title: 'Business',
           images: [
             '/images/room/room-preview-2.jpg',
@@ -90,7 +90,7 @@ module.exports = {
         {
           type: 'hotels',
           id: 'business_city_view',
-          url: 'rooms/business_city_view',
+          url: 'arka/rooms/business_city_view',
           title: 'Business City View',
           images: [
             '/images/room/room-preview-3.jpg',
@@ -110,7 +110,7 @@ module.exports = {
         {
           type: 'hotels',
           id: 'corner_suite',
-          url: 'rooms/corner_suite',
+          url: 'arka/rooms/corner_suite',
           title: 'Corner Suite',
           images: [
             '/images/room/room-preview-4.jpg',
@@ -130,7 +130,7 @@ module.exports = {
         {
           type: 'hotels',
           id: 'duplex_city_view',
-          url: 'rooms/duplex_city_view',
+          url: 'arka/rooms/duplex_city_view',
           title: 'Duplex City View',
           images: [
             '/images/room/room-preview-5.jpg',
@@ -150,7 +150,7 @@ module.exports = {
         {
           type: 'hotels',
           id: 'royal_suite',
-          url: 'rooms/royal_suite',
+          url: 'arka/rooms/royal_suite',
           title: 'Royal Suite',
           images: [
             '/images/room/room-preview-6.jpg',
