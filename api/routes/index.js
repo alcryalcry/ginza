@@ -34,32 +34,54 @@ module.exports = {
           popup: {
             type: 'popupTravelLine',
             content: {
+              image: '/images/restaurant/restaurant-full.jpg',
+              logo: '/images/restaurant-logo.svg',
+              resultTitle: 'Вы забронировали столик',
+              resultDescription: 'Через несколько минут с Вами свяжется менеджер для уточнения деталей.',
+              resultLink: {
+                href: 'tel:88002012173',
+                label: '8 800 201-21-73'
+              },
               fields: [
                 {
                   type: 'text',
                   label: 'Имя',
                   name: 'userName',
-                  validate: {
-                    required: true
-                  }
+                  validate: [
+                    {
+                      rule: 'required'
+                    }
+                  ]
                 },
                 {
                   type: 'phone',
                   label: 'Телефон',
                   name: 'userPhone',
-                  validate: {
-                    phone: true
-                  }
+                  validate: [
+                    {
+                      rule: 'phone'
+                    }
+                  ]
                 },
                 {
                   type: 'counter',
                   label: 'Гостей',
-                  name: 'count'
+                  name: 'count',
+                  validate: [
+                    {
+                      rule: 'counter'
+                    }
+                  ]
                 },
                 {
                   type: 'date',
                   label: 'Дата',
-                  name: 'date'
+                  name: 'date',
+                  validate: [
+                    {
+                      rule: 'required'
+                    }
+                  ]
                 }
               ]
             }

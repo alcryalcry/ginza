@@ -8,6 +8,14 @@
         :data="components[index]"
       />
     </template>
+    <template v-slot:popup>
+      <Popup>
+        <PopupVideo />
+        <PopupBooking />
+        <PopupManager />
+        <PopupTravelLine />
+      </Popup>
+    </template>
   </Layout>
 </template>
 
@@ -15,13 +23,23 @@
 import { mapGetters, mapMutations } from 'vuex'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_HOUSING } from '~/config/constants'
+import Popup from '~/components/Utils/Popup'
+import PopupVideo from '~/components/Popup/Video/PopupVideo'
+import PopupBooking from '~/components/Popup/Booking/PopupBooking'
+import PopupManager from '~/components/Popup/Manager/PopupManager'
+import PopupTravelLine from '~/components/Popup/TravelLine/PopupTravelLine'
 
 import Layout from '~/components/Layout/Layout'
 
 export default {
   name: 'Apartments',
   components: {
-    Layout
+    Layout,
+    Popup,
+    PopupVideo,
+    PopupBooking,
+    PopupManager,
+    PopupTravelLine
   },
   async asyncData(context) {
     try {

@@ -11,6 +11,9 @@
     <template v-slot:popup>
       <Popup>
         <PopupVideo />
+        <PopupBooking />
+        <PopupManager />
+        <PopupTravelLine />
       </Popup>
     </template>
   </Layout>
@@ -21,6 +24,9 @@ import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
 import Popup from '~/components/Utils/Popup'
 import PopupVideo from '~/components/Popup/Video/PopupVideo'
+import PopupBooking from '~/components/Popup/Booking/PopupBooking'
+import PopupManager from '~/components/Popup/Manager/PopupManager'
+import PopupTravelLine from '~/components/Popup/TravelLine/PopupTravelLine'
 
 import Layout from '~/components/Layout/Layout'
 
@@ -29,7 +35,10 @@ export default {
   components: {
     Layout,
     Popup,
-    PopupVideo
+    PopupVideo,
+    PopupBooking,
+    PopupManager,
+    PopupTravelLine
   },
   async asyncData(context) {
     try {
