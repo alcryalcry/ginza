@@ -9,7 +9,7 @@
     >
       <template v-slot:slides>
         <div
-          v-for="(slide, index) in model.values"
+          v-for="slide in model.values"
           :key="slide.id"
           :class="slide.mode"
           class="swiper-slide"
@@ -21,7 +21,7 @@
             <div class="content">
               <div v-if="slide.title" class="title text--24" data-swiper-parallax-y="-50" v-html="slide.title" />
               <div v-if="slide.description" class="description text--16" data-swiper-parallax-y="-50" v-html="slide.description" />
-              <ExternalLink class="link link--white link--tdu" :url="slide.url" :to="localePath(path[index])" v-html="slide.linkLabel" />
+              <ExternalLink class="link link--white link--tdu" :to="slide.url" v-html="slide.linkLabel" />
             </div>
           </Section>
         </div>
@@ -97,7 +97,7 @@ export default {
       customOptions: {
         effect: 'fade',
         speed: 700,
-        loop: true,
+        loop: false,
         parallax: true,
         breakpoints: {
           767: {
@@ -117,17 +117,7 @@ export default {
         current: this.model.values[this.activeIndex] || {},
         next: this.model.values[this.activeIndex + 1] || this.model.values[0]
       }
-    },
-    path() {
-      return this.model.values.map((item) => {
-        const url = String(item.url.charAt(0)) === '/' ? item.url : '/' + item.url
-        return {
-          path: this.$route.path + url
-        }
-      })
     }
-  },
-  mounted() {
   },
   methods: {
     setAactiveIndex(index) {
@@ -154,8 +144,12 @@ export default {
       flex-flow: column nowrap;
       width: 100%;
       min-height: 50rem;
+      pointer-events: none;
       @include desktop {
         min-height: 70rem;
+      }
+      &.swiper-slide-active {
+        pointer-events: auto;
       }
     }
   }

@@ -142,7 +142,7 @@ module.exports = {
       name: 'slider_see_also',
       properties: {
         title: 'Смотрите также',
-        url: 'hotels/2',
+        url: 'other-hotel-slug',
         linkLabel: 'Все варианты',
         id: 'apartments'
       },

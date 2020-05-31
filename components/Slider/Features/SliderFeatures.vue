@@ -16,7 +16,7 @@
             @click="setActiveId(item.id)"
           >
             <div v-if="item.name" class="name ttu text--24 bold" v-html="item.name" />
-            <nuxt-link v-if="item.linkLabel" class="link link--brown link--tdu" :to="localePath(item.url)" v-html="item.linkLabel" />
+            <ExternalLink v-if="item.linkLabel" class="link link--brown link--tdu" :to="item.url" v-html="item.linkLabel" />
           </button>
         </div>
       </div>
@@ -28,10 +28,10 @@
         >
           <template v-slot:slides>
             <component
-              :is="slide.url ? 'nuxt-link' : 'div'"
-              v-for="(slide, index) in model.hasTabs ? activeSlider.slides : model.values"
+              :is="slide.url ? 'ExternalLink' : 'div'"
+              v-for="slide in model.hasTabs ? activeSlider.slides : model.values"
               :key="slide.id"
-              :to="slide.url ? localePath(path[index]) : false"
+              :to="slide.url ? slide.url : false"
               :class="slide.mode"
               class="swiper-slide"
             >
@@ -57,9 +57,11 @@ import Section from '~/components/Utils/Section'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
 import Slider from '~/components/Slider/Slider'
 import ServicesList from '~/components/Services/List/ServicesList'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
+    ExternalLink,
     HeadTitle,
     Section,
     ServicesList,
@@ -90,14 +92,6 @@ export default {
     },
     activeSlider() {
       return ((this.model.values || []).find(item => item.id === this.activeId) || {})
-    },
-    path() {
-      return this.model.values.map((item) => {
-        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
-        return {
-          path: this.$route.path + url
-        }
-      })
     }
   },
   mounted() {

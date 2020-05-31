@@ -9,7 +9,7 @@
         <div v-if="!isShowResult" key="form" class="form-content">
           <div class="title-block">
             <p v-if="model.description" class="description text--18" v-html="model.description" />
-            <a v-if="model.url" class="link link--brown link--tdu" :href="model.url" target="_blank" v-html="model.linkLabel" /></a>
+            <ExternalLink v-if="model.url" class="link link--brown link--tdu" :to="model.url" target="_blank" v-html="model.linkLabel" />
           </div>
           <FormGenerator
             :btn-label="$t('investors.submit')"
@@ -39,6 +39,7 @@
 import MODEL from './model'
 import axios from '~/plugins/axios'
 import { API_ROUTES_INVESTORS_FORM } from '~/config/constants'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 import FormGenerator from '~/components/FormGenerator/FormGenerator'
 import iconCheck from '~/assets/svg/check.svg'
@@ -46,6 +47,7 @@ import iconCheck from '~/assets/svg/check.svg'
 export default {
   name: 'InvestorsForm',
   components: {
+    ExternalLink,
     FormGenerator,
     iconCheck
   },

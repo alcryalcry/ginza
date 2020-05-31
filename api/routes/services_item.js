@@ -627,7 +627,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'services/beauty',
+        url: 'beauty',
         linkLabel: 'Beauty Concierge'
       }
     }

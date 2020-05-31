@@ -55,7 +55,7 @@ module.exports = {
         {
           id: 'catering',
           label: 'Catering',
-          url: 'services/catering'
+          url: 'https://translate.google.com/?hl=ru' // могут быть внешние ссылки
         },
         {
           id: 'delivery',
@@ -218,7 +218,7 @@ module.exports = {
         title: 'Вечеринки с Ginza Hotels & Apartments',
         mode: 'section--min',
         modeSlider: '',
-        url: '/',
+        url: 'services',
         linkLabel: 'Подробнее'
       },
       values: [

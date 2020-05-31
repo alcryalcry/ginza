@@ -17,7 +17,7 @@
             <div class="footer-menu">
               <div class="row isNoGut">
                 <div v-for="item in model.menuList" :key="item.url" class="isNoGut col-4 col-t-4 col-m-6">
-                  <nuxt-link :to="localePath(item.url)" class="text--18 link footer-link" v-html="item.label" />
+                  <ExternalLink :to="item.url" class="text--18 link footer-link" v-html="item.label" />
                 </div>
               </div>
             </div>
@@ -29,8 +29,7 @@
           <ExternalLink
             v-if="model.privacy"
             class="link"
-            :url="model.privacy"
-            :to="localePath(privacyPath)"
+            :to="model.privacy"
             v-html="$t('footer.privacy')"
           />
         </div>
@@ -72,12 +71,6 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    privacyPath() {
-      const url = String(this.model.privacy.charAt(0)) === '/' ? this.model.privacy : '/' + this.model.privacy
-      return {
-        path: url
-      }
     }
   }
 }

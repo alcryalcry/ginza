@@ -1,10 +1,6 @@
 <template>
   <div class="grid-item">
-    <div
-      :url="path.url"
-      :to="localePath(path)"
-      class="grid-content"
-    >
+    <div class="grid-content">
       <picture v-if="model.image" class="image">
         <img :src="model.image" alt="">
       </picture>
@@ -14,8 +10,7 @@
         <ExternalLink
           v-if="model.url && model.linkLabel"
           class="link link--brown link--tdu"
-          :to="localePath(path)"
-          :url="model.url"
+          :to="model.url"
           v-html="model.linkLabel"
         />
       </div>
@@ -40,13 +35,6 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      // TODO: чекнуть урлы
-      const url = String(this.model.url.charAt(0)) === '/' ? this.model.url : '/' + this.model.url
-      return {
-        path: url
-      }
     }
   }
 }

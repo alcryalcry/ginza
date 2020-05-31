@@ -1,7 +1,7 @@
 <template>
   <ul class="services-list row">
-    <li v-for="(item, index) in checkComponents" :key="item.name" class="col-t-3 col-m-4">
-      <ExternalLink class="services-item" :url="item.url" :to="localePath(linksPath[index])">
+    <li v-for="item in checkComponents" :key="item.name" class="col-t-3 col-m-4">
+      <ExternalLink class="services-item" :url="item.url" :to="item.url">
         <div class="icon">
           <component :is="item.id" />
         </div>
@@ -54,13 +54,6 @@ export default {
     },
     checkComponents() {
       return this.model.filter(item => !!this.$options.components[item.id])
-    },
-    linksPath() {
-      return this.model.map((item) => {
-        return {
-          path: item.url
-        }
-      })
     }
   },
   mounted() {},

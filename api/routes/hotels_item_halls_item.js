@@ -171,7 +171,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'hotels/1/halls/2',
+        url: 'other-hotel-hall-slug',
         linkLabel: 'Банкетный зал'
       }
     },

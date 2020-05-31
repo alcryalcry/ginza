@@ -5,8 +5,8 @@
     </Section>
     <Section class="section--no-p section--min">
       <div class="row">
-        <div v-for="(item, index) in model.values" :key="item.title + item.url" :class="item.mode" class="service-col col-4 col-t-6">
-          <ExternalLink :url="item.url" :to="localePath(linksPath[index])" class="card">
+        <div v-for="item in model.values" :key="item.title + item.url" :class="item.mode" class="service-col col-4 col-t-6">
+          <ExternalLink :url="item.url" :to="item.url" class="card">
             <div class="card-image">
               <picture v-if="item.image" class="image">
                 <img :src="item.image" alt="">
@@ -38,26 +38,10 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    linksPath() {
-      return this.model.values.map((item) => {
-        const url = String(item.url.charAt(0)) === '/' ? item.url : '/' + item.url
-        return {
-          path: url
-        }
-      })
     }
-  },
-  created() {
-  },
-  methods: {
   }
 }
 </script>

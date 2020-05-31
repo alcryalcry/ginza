@@ -13,8 +13,7 @@
       <ExternalLink
         v-if="model.url && model.linkLabel"
         class="link link--brown link--tdu"
-        :url="model.url"
-        :to="localePath(path)"
+        :to="model.url"
         v-html="model.linkLabel"
       />
       <div v-if="model.links.length" class="links">
@@ -22,8 +21,7 @@
           v-for="(link, index) in model.links"
           :key="link.url + index"
           class="link link--brown link--tdu"
-          :url="link.url"
-          :to="localePath(linksPath[index])"
+          :to="link.url"
           v-html="link.linkLabel"
         />
       </div>
@@ -67,20 +65,6 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      const url = String(this.model.url.charAt(0)) === '/' ? this.model.url : '/' + this.model.url
-      return {
-        path: url
-      }
-    },
-    linksPath() {
-      return this.model.links.map((item) => {
-        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
-        return {
-          path: this.$route.path + url
-        }
-      })
     }
   }
 }

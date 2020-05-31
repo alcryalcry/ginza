@@ -1,12 +1,12 @@
 <template>
   <Section class="section--min about-numbers">
     <div v-if="model.url" class="about-numbers-main-route">
-      <nuxt-link class="link light link--arrow" :to="localePath(path)">
+      <ExternalLink class="link light link--arrow" :to="model.url">
         <span v-html="model.linkLabel" />
         <span class="icon">
           <iconArrowBorder />
         </span>
-      </nuxt-link>
+      </ExternalLink>
       <div v-if="model.description" class="description text--28 light" v-html="model.description" />
     </div>
     <div class="about-numbers-list">
@@ -35,18 +35,20 @@
       <a v-for="link in model.links" :key="link.url" class="link text--28 light" :href="link.url" v-html="link.linkLabel" />
     </div>
     <div v-if="model.url" class="about-numbers-route">
-      <nuxt-link class="link link--brown text--28 light link--arrow" :to="localePath(path)">
+      <ExternalLink class="link link--brown text--28 light link--arrow" :to="model.url">
         <span v-html="$t('booking.btnLabel')" />
         <span class="icon">
           <iconArrow />
         </span>
-      </nuxt-link>
+      </ExternalLink>
     </div>
   </Section>
 </template>
 
 <script>
 import MODEL from './model'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
+
 import Section from '~/components/Utils/Section'
 import iconArrowBorder from '~/assets/svg/arrow-border.svg'
 import iconArrow from '~/assets/svg/arrow.svg'
@@ -54,6 +56,7 @@ import iconArrow from '~/assets/svg/arrow.svg'
 export default {
   name: 'AboutNumbers',
   components: {
+    ExternalLink,
     Section,
     iconArrowBorder,
     iconArrow
@@ -73,12 +76,6 @@ export default {
     },
     numbers() {
       return this.model.values.filter(item => item.mode !== 'main')
-    },
-    path() {
-      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
-      return {
-        path: this.$route.path + url
-      }
     }
   }
 }

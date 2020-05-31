@@ -6,7 +6,13 @@
           <div class="sidebar-content ">
             <div class="sidebar-row sidebar-list housing-types-list">
               <HousingTypes @select-type="selectType" />
-              <nuxt-link class="link link--brown" :to="localePath('apartments')">{{ $t('housing.all') }}</nuxt-link>
+              <ExternalLink
+                :key="GET_CURRENT_HOUSING_TYPE.id"
+                class="link link--brown"
+                :to="'/' + GET_CURRENT_HOUSING_TYPE.id"
+              >
+                {{ $t('housing.all') }}
+              </ExternalLink>
             </div>
             <div class="sidebar-row sidebar-list">
               <Cities />
@@ -58,10 +64,12 @@ import YandexMap from '~/components/YandexMap/YandexMap'
 import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'
 import stickyMenu from '~/mixins/stickyMenu'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   name: 'Housing',
   components: {
+    ExternalLink,
     Section,
     YandexMap,
     HousingTypes,
@@ -97,7 +105,7 @@ export default {
       return this.GET_HOUSING_TYPES.map((type) => {
         return {
           id: type.id,
-          url: type.id,
+          url: '/' + type.id,
           linkLabel: type.name,
           list: this.GET_HOUSING_LIST.filter(item => item.type === type.id).splice(0, 3)
         }

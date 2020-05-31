@@ -6,7 +6,7 @@
     >
       <template v-slot:slides>
         <div
-          v-for="(slide, index) in model.values"
+          v-for="slide in model.values"
           :key="slide.title"
           class="swiper-slide"
         >
@@ -21,7 +21,7 @@
               </div>
               <div class="title title--main">{{ slide.title }}</div>
               <div class="slider-main-link">
-                <nuxt-link class="text--16" :to="localePath(path[index])" v-html="slide.linkLabel" />
+                <ExternalLink class="text--16" :to="slide.url" v-html="slide.linkLabel" />
               </div>
             </Section>
           </div>
@@ -35,10 +35,12 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   name: 'SliderMain',
   components: {
+    ExternalLink,
     Section,
     Slider
   },
@@ -63,19 +65,7 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      return this.model.values.map((item) => {
-        const url = item.url.charAt(0) === '/' ? item.url : '/' + item.url
-        return {
-          path: url
-        }
-      })
     }
-  },
-  mounted() {
-  },
-  methods: {
   }
 }
 </script>

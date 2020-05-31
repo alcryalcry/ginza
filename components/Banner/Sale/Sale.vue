@@ -32,9 +32,9 @@
       </div>
       <div class="banner-col more">
         <div v-if="model.linkLabel" class="label" v-html="model.linkLabel" />
-        <nuxt-link class="more-link" :to="localePath(path)">
+        <ExternalLink class="more-link" :to="model.url">
           <iconArrow />
-        </nuxt-link>
+        </ExternalLink>
       </div>
     </div>
   </Section>
@@ -42,12 +42,15 @@
 
 <script>
 import MODEL from './model'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
+
 import Section from '~/components/Utils/Section'
 import iconArrow from '~/assets/svg/arrow.svg'
 
 export default {
   name: 'BannerSale',
   components: {
+    ExternalLink,
     iconArrow,
     Section
   },
@@ -60,12 +63,6 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
-      return {
-        path: url
-      }
     }
   }
 }

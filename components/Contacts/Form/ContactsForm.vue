@@ -10,8 +10,7 @@
       <div class="contacts-item investors">
         <ExternalLink
           class="link"
-          :to="localePath({ path: 'investors' })"
-          :url="'investors'"
+          to="investors"
           v-html="$t('contacts.investors')"
         />
       </div>

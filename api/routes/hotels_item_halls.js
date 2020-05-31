@@ -10,11 +10,11 @@ module.exports = {
         description: 'ARKA Hotel - многофункциональный деловой комплекс для организации событий самого высокого уровня: конференции, деловые встречи, мероприятия, свадьбы.',
         links: [
           {
-            url: 'conference',
+            url: 'halls/conference',
             linkLabel: 'Конференц-зал'
           },
           {
-            url: 'banquet',
+            url: 'halls/banquet',
             linkLabel: 'Банкетный зал'
           }
         ],
@@ -76,7 +76,7 @@ module.exports = {
       properties: {
         image: '/images/hall-scheme.svg',
         imageDescription: '160 кв. метров общая <br/>площадь зала',
-        url: 'conference',
+        url: 'halls/conference',
         linkLabel: 'Конференц-зал',
         description: 'Для проведения мероприятий и&nbsp;профессиональных встреч',
         links: [
@@ -106,7 +106,7 @@ module.exports = {
       properties: {
         image: '/images/hall-scheme.svg',
         imageDescription: '160 кв. метров общая <br/>площадь зала',
-        url: 'conference',
+        url: 'halls/banquet',
         linkLabel: 'Банкетный зал',
         description: 'Для проведения мероприятий и&nbsp;профессиональных встреч',
         links: [
@@ -134,7 +134,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'hotels/2',
+        url: 'halls/other-hotel-slug',
         linkLabel: 'Рестораны и бары'
       }
     },

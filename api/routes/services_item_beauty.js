@@ -431,7 +431,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'services/tours',
+        url: 'tours',
         linkLabel: 'Экскурсии и туры'
       }
     }

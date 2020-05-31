@@ -35,6 +35,10 @@ export default {
         }
         return window.location.hostname
       })()
+      if (this.to.charAt(0) === '/') {
+        this.checkedPath = this.localePath(this.to.replace(window.location.origin, ''))
+        return
+      }
       this.checkedPath = this.to.replace(window.location.origin, '')
     }
   }

@@ -32,9 +32,9 @@
           </div>
           <span class="text">{{ $t('apartment.showVideo') }}</span>
         </button>
-        <nuxt-link v-if="model.hasGallery" :to="localePath(path)" class="button">
+        <div v-if="model.hasGallery" class="button" @click="$router.push($route.path + '/gallery')">
           {{ $t('apartment.excursion') }}
-        </nuxt-link>
+        </div>
       </div>
     </Section>
   </div>
@@ -76,16 +76,7 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      return {
-        path: this.$route.params.slug + '/' + 'gallery'
-      }
     }
-  },
-  mounted() {
-  },
-  methods: {
   }
 }
 </script>

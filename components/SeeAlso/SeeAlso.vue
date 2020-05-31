@@ -2,12 +2,12 @@
   <Section class="section--apartment see-also">
     <div class="see-also-content">
       <div class="label" v-html="$t('seeAlso.label')" />
-      <nuxt-link class="see-also-link link title--h2" :to="localePath(path)">
+      <ExternalLink class="see-also-link link title--h2" :to="model.url">
         <div class="title" v-html="model.linkLabel" />
         <div class="icon">
           <iconArrow />
         </div>
-      </nuxt-link>
+      </ExternalLink>
     </div>
   </Section>
 </template>
@@ -16,9 +16,11 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import iconArrow from '~/assets/svg/arrow.svg'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
+    ExternalLink,
     Section,
     iconArrow
   },
@@ -28,19 +30,9 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    path() {
-      const url = this.model.url.charAt(0) === '/' ? this.model.url : '/' + this.model.url
-      return {
-        path: url
-      }
     }
   }
 }

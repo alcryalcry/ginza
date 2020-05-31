@@ -70,7 +70,7 @@ module.exports = {
           mode: 'size-half',
           title: 'Эрмитаж',
           image: '/images/gallery/gallery-1-4.jpg',
-          url: 'blog/hermitage',
+          url: '/blog/hermitage',
           linkLabel: 'Подробнее'
         },
         {
@@ -78,7 +78,7 @@ module.exports = {
           mode: 'size-half',
           title: 'Эрмитаж',
           image: '/images/gallery/gallery-1-5.jpg',
-          url: 'blog/hermitage',
+          url: '/blog/hermitage',
           linkLabel: 'Подробнее'
         },
         {
@@ -86,7 +86,7 @@ module.exports = {
           mode: 'size-full',
           title: 'Эрмитаж',
           image: '/images/gallery/gallery-1-1.jpg',
-          url: 'blog/hermitage',
+          url: '/blog/hermitage',
           linkLabel: 'Подробнее'
         }
       ]
@@ -142,7 +142,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'services/beauty',
+        url: 'beauty',
         linkLabel: 'Beauty Concierge'
       }
     }

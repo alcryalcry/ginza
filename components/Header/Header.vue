@@ -86,10 +86,6 @@ export default {
       default: () => ({})
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     ...mapGetters({
       GET_LANG: 'GET_LANG',

@@ -26,6 +26,7 @@ module.exports = {
     {
       name: 'filter_rooms',
       properties: {
+        anchor: 'rooms-list',
         filterType: 'adult',
         filters: [
           {
@@ -179,49 +180,49 @@ module.exports = {
       values: [
         {
           id: 1,
-          url: 'restaurants/gastro_space',
+          url: 'khedi/restaurants/gastro_space',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
         },
         {
           id: 2,
-          url: 'restaurants/lilo',
+          url: 'khedi/restaurants/lilo',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-2.jpg',
           name: 'Lilo'
         },
         {
           id: 3,
-          url: 'restaurants/ten_june',
+          url: 'khedi/restaurants/ten_june',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-3.jpg',
           name: 'Ten June'
         },
         {
           id: 4,
-          url: 'restaurants/rest4',
+          url: 'khedi/restaurants/rest4',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-2.jpg',
           name: 'Gastro Space'
         },
         {
           id: 5,
-          url: 'restaurants/rest5',
+          url: 'khedi/restaurants/rest5',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
         },
         {
           id: 6,
-          url: 'restaurants/rest6',
+          url: 'khedi/restaurants/rest6',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-3.jpg',
           name: 'Gastro Space'
         },
         {
           id: 7,
-          url: 'restaurants/rest7',
+          url: 'khedi/restaurants/rest7',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
@@ -233,7 +234,7 @@ module.exports = {
       properties: {
         title: 'Организация событий',
         description: 'ARKA Hotel - многофункциональный деловой комплекс для организации событий самого высокого уровня: конференции, деловые встречи, мероприятия, свадьбы.',
-        url: 'hotels/arka/halls',
+        url: 'khedi/halls',
         linkLabel: 'Подробнее'
       }
     },
@@ -247,7 +248,7 @@ module.exports = {
           id: 1,
           name: 'Встречи и мероприятия',
           title: 'Встречи и мероприятия',
-          url: 'halls/meeting',
+          url: 'khedi/halls/meeting',
           linkLabel: 'Посмотреть',
           image: '/images/hall/hall-preview-1.jpg'
         },
@@ -256,7 +257,7 @@ module.exports = {
           name: 'Банкетный зал',
           title: 'Банкетный зал',
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы.',
-          url: 'halls/banquet',
+          url: 'khedi/halls/banquet',
           linkLabel: 'Посмотреть',
           image: '/images/hall/hall-1.jpg'
         },
@@ -265,7 +266,7 @@ module.exports = {
           name: 'Конференц-зал',
           title: 'Конференц-зал',
           description: 'Все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
-          url: 'halls/banquet',
+          url: 'khedi/halls/conference',
           linkLabel: 'Посмотреть',
           image: '/images/restaurant/restaurant-1.jpg'
         }
@@ -306,22 +307,22 @@ module.exports = {
       },
       values: [
         {
-          url: 'services/weddings',
+          url: '/services/weddings',
           title: 'Свадебные предложения',
           image: '/images/service-additional/service-additional-1.jpg'
         },
         {
-          url: 'services/tour',
+          url: '/services/tour',
           title: 'Экскурсии и туры',
           image: '/images/service-additional/service-additional-2.jpg'
         },
         {
-          url: 'services/beauty',
+          url: '/services/beauty',
           title: 'Beauty Concierge',
           image: '/images/service-additional/service-additional-3.jpg'
         },
         {
-          url: 'services/drive',
+          url: '/services/drive',
           title: 'Личный водитель',
           mode: 'size-full',
           image: '/images/service-additional/service-additional-full.jpg'
@@ -471,7 +472,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'hotels/2',
+        url: 'other-hotel-slug',
         linkLabel: 'Отель Gastro Space'
       }
     },

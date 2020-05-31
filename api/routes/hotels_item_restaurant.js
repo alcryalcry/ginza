@@ -116,7 +116,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'hotels/2/restaurants/2',
+        url: 'other-restaurant-slug',
         linkLabel: 'Ресторан Gastro Space'
       }
     },

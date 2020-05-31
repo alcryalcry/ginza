@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localePath(path)" class="housing-link">
+  <ExternalLink :to="url" class="housing-link">
     <div class="logo logo--hotels">
       <iconHotels />
     </div>
@@ -12,17 +12,19 @@
     <div class="logo logo--love">
       <iconLove />
     </div>
-  </nuxt-link>
+  </ExternalLink>
 </template>
 
 <script>
 import iconLove from '~/assets/svg/love.svg'
 import iconHotels from '~/assets/svg/logo-hotels.svg'
 import iconArrow from '~/assets/svg/arrow.svg'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   name: 'HousingLink',
   components: {
+    ExternalLink,
     iconLove,
     iconHotels,
     iconArrow
@@ -36,22 +38,6 @@ export default {
       type: String,
       required: true
     }
-  },
-  data() {
-    return {
-    }
-  },
-  computed: {
-    path() {
-      const url = this.url.charAt(0) === '/' ? this.url : '/' + this.url
-      return {
-        path: url
-      }
-    }
-  },
-  created() {
-  },
-  methods: {
   }
 }
 </script>

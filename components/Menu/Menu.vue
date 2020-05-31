@@ -9,9 +9,9 @@
               :key="item.label"
               class="list-item"
             >
-              <nuxt-link class="title--h1 link menu-link" :to="localePath(item.url)">
+              <ExternalLink class="title--h1 link menu-link" :to="item.url">
                 {{ item.label }}
-              </nuxt-link>
+              </ExternalLink>
             </li>
           </ul>
         </div>
@@ -34,9 +34,11 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Cities from '~/components/Cities/Cities'
 import Social from '~/components/Social/Social'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
+    ExternalLink,
     Section,
     Social,
     Cities
