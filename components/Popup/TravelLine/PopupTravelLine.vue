@@ -19,7 +19,15 @@
         </div>
         <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
           <transition mode="out-in" name="list-fade">
-            <FormGenerator v-if="!isShowResult" key="form" :is-loading="isLoading" :info="model.fields" @formSubmit="formSubmit" />
+            <FormGenerator
+              v-if="!isShowResult"
+              key="form"
+              class="form-travelline"
+              :is-loading="isLoading"
+              :info="model.fields"
+              @formSubmit="formSubmit"
+            />
+
             <div v-else key="result" class="result">
               <div class="result-icon">
                 <div class="icon">
@@ -68,8 +76,8 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
-import axios from '~/plugins/axios'
-import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
+// import axios from '~/plugins/axios'
+// import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
 
 import FormGenerator from '~/components/FormGenerator/FormGenerator'
 import iconCheck from '~/assets/svg/check.svg'
@@ -96,14 +104,14 @@ export default {
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT'
     })
   },
-  watch: {
-    GET_POPUP_STATUS(isOpen) {
-      if (isOpen && this.GET_POPUP_TYPE === 'popupTravelLine') {
-        console.log('isOpen && popupType')
-        this.initWidget()
-      }
-    }
-  },
+  // watch: {
+  //   GET_POPUP_STATUS(isOpen) {
+  //     if (isOpen && this.GET_POPUP_TYPE === 'popupTravelLine') {
+  //       console.log('isOpen && popupType')
+  //       this.initWidget()
+  //     }
+  //   }
+  // },
   methods: {
     ...mapMutations({
       CLOSE_POPUP: 'popup/CLOSE_POPUP'
@@ -146,16 +154,17 @@ export default {
           formData.set(key, data[key])
         }
       }
-      axios.post(API_ROUTES_BOOKING_FORM, formData)
-        .then(({ data }) => {
-          if (data.status) {
-            this.isShowResult = true
-          }
-        }).catch((e) => {
-          console.error(e, API_ROUTES_BOOKING_FORM)
-        }).then(() => {
-          this.isLoading = false
-        })
+      console.log('go to travelline')
+      // axios.post(API_ROUTES_BOOKING_FORM, formData)
+      //   .then(({ data }) => {
+      //     if (data.status) {
+      //       this.isShowResult = true
+      //     }
+      //   }).catch((e) => {
+      //     console.error(e, API_ROUTES_BOOKING_FORM)
+      //   }).then(() => {
+      //     this.isLoading = false
+      //   })
     }
   }
 }
@@ -207,6 +216,7 @@ export default {
     }
     @include desktop {
       max-width: 100rem;
+      justify-content: space-between;
       padding: 6rem 8rem 6rem 13rem;
     }
   }
@@ -215,6 +225,7 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
+    max-width: 30rem;
   }
 
   &::v-deep {
@@ -283,8 +294,8 @@ export default {
     margin-bottom: 4.5rem;
     padding: 4rem;
     border-radius: 50%;
-    background: $gray30;
-    color: $green;
+    background: $brown;
+    color: white;
     @include desktop {
       margin-top: auto;
     }

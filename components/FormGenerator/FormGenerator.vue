@@ -7,6 +7,7 @@
     <div
       v-for="(field, index) in parsedComponents"
       :key="field.name + index"
+      :class="field.mode"
       class="field-wrapper"
     >
       <div class="field">
@@ -34,7 +35,9 @@ import FormInput from '~/components/FormGenerator/Fields/FormInput'
 import FormPhone from '~/components/FormGenerator/Fields/FormPhone'
 import FormCounter from '~/components/FormGenerator/Fields/FormCounter'
 import FormDatepicker from '~/components/FormGenerator/Fields/FormDatepicker'
+import FormDatepickerRange from '~/components/FormGenerator/Fields/FormDatepickerRange'
 import FormPseudoSelect from '~/components/FormGenerator/Fields/FormPseudoSelect'
+import CitiesDropdown from '~/components/Cities/CitiesDropdown'
 
 const validateFunctions = {
   required,
@@ -72,8 +75,16 @@ const COMPONENTS = [
     componentName: 'FormDatepicker'
   },
   {
+    type: 'datesRange',
+    componentName: 'FormDatepickerRange'
+  },
+  {
     type: 'select',
     componentName: 'FormPseudoSelect'
+  },
+  {
+    type: 'cities',
+    componentName: 'CitiesDropdown'
   }
 ]
 
@@ -84,7 +95,9 @@ export default {
     FormPhone,
     FormCounter,
     FormDatepicker,
-    FormPseudoSelect
+    FormDatepickerRange,
+    FormPseudoSelect,
+    CitiesDropdown
   },
   props: {
     info: {
@@ -198,10 +211,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.form-travelline {
+  .field-wrapper {
+    &.half {
+      padding-top: 4rem;
+      .input-label {
+        padding-bottom: 2rem;
+      }
+    }
+    & + .field-wrapper {
+      margin-top: 4rem;
+      &.half {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
 .field-wrapper {
   position: relative;
+  &.half {
+    display: inline-flex;
+    width: 50%;
+    padding-top: 2rem;
+  }
   & + .field-wrapper {
     margin-top: 2rem;
+    &.half {
+      padding-top: 2rem;
+    }
   }
 }
 
@@ -224,6 +262,19 @@ export default {
 .btn-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.cities-dropdown {
+  padding: 4rem 0;
+  border-bottom: 1px solid $border;
+  &::v-deep {
+    .cities-item.isActive {
+      padding-left: 0;
+      .icon {
+        display: none;
+      }
+    }
+  }
 }
 
 </style>

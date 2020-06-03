@@ -44,9 +44,9 @@ module.exports = {
               },
               fields: [
                 {
-                  type: 'text',
-                  label: 'Имя',
-                  name: 'userName',
+                  type: 'cities',
+                  label: 'Выберите город',
+                  name: 'cities',
                   validate: [
                     {
                       rule: 'required'
@@ -54,19 +54,11 @@ module.exports = {
                   ]
                 },
                 {
-                  type: 'phone',
-                  label: 'Телефон',
-                  name: 'userPhone',
-                  validate: [
-                    {
-                      rule: 'phone'
-                    }
-                  ]
-                },
-                {
                   type: 'counter',
-                  label: 'Гостей',
-                  name: 'count',
+                  label: 'Взрослых',
+                  name: 'adult',
+                  minValue: 1,
+                  mode: 'half',
                   validate: [
                     {
                       rule: 'counter'
@@ -74,9 +66,21 @@ module.exports = {
                   ]
                 },
                 {
-                  type: 'date',
-                  label: 'Дата',
-                  name: 'date',
+                  type: 'counter',
+                  label: 'Детей',
+                  name: 'child',
+                  minValue: 0,
+                  mode: 'half',
+                  validate: [
+                    {
+                      rule: 'counter'
+                    }
+                  ]
+                },
+                {
+                  type: 'datesRange',
+                  label: 'Даты',
+                  name: 'datesRange',
                   validate: [
                     {
                       rule: 'required'

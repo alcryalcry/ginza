@@ -138,6 +138,12 @@ export default {
   display: flex;
   align-items: center;
   border-bottom: 1px solid $border;
+  .half & {
+    flex-flow: column nowrap;
+    &::before {
+      content: none;
+    }
+  }
 
   &.isInvalid {
     color: $red;

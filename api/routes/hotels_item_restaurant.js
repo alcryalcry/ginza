@@ -55,6 +55,7 @@ module.exports = {
                   type: 'counter',
                   label: 'Гостей',
                   name: 'count',
+                  minValue: 1,
                   validate: [
                     {
                       rule: 'counter'

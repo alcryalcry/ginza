@@ -65,12 +65,18 @@ export default {
       return this.GET_CITIES.filter(item => item.id !== this.GET_CURRENT_CITY.id)
     }
   },
+  created() {
+    if (process.browser) {
+      this.$emit('input-change', this.GET_CURRENT_CITY.name)
+    }
+  },
   methods: {
     ...mapActions({
       UPDATE_CURRENT_CITY: 'cities/UPDATE_CURRENT_CITY'
     }),
-    selectCity(city) {
+    selectCity(city = {}) {
       this.UPDATE_CURRENT_CITY(city)
+      this.$emit('input-change', city.name)
       this.closeList()
     },
     toggleList() {
