@@ -56,10 +56,6 @@ export default {
       default: false
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     ...mapGetters({
       GET_MQ: 'mediaQuery/GET_MQ'
@@ -93,10 +89,6 @@ export default {
         }
       } : {}
     }
-  },
-  mounted() {
-  },
-  methods: {
   }
 }
 </script>

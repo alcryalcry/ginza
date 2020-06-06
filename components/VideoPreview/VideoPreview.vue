@@ -2,9 +2,9 @@
   <div v-if="model.videoSrc" class="video">
     <div class="video-container">
       <transition mode="out-in" name="fade-reversed">
-        <button v-if="!isActive" key="1" class="video-preview" @click="isActive = true">
+        <button v-if="!isActive" key="1" class="video-preview" @click="setActive">
           <picture v-if="model.image" class="image">
-            <img :src="model.image" alt="">
+            <img :src="model.image" alt="" data-not-lazy>
           </picture>
         </button>
         <div v-else class="iframe">
@@ -27,8 +27,6 @@
 import MODEL from './model.js'
 
 export default {
-  components: {
-  },
   props: {
     info: {
       type: Object,
@@ -43,6 +41,11 @@ export default {
   computed: {
     model () {
       return MODEL(this.info)
+    }
+  },
+  methods: {
+    setActive() {
+      this.isActive = true
     }
   }
 }

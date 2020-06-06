@@ -5,6 +5,8 @@ export default (info) => {
 
   const adaptedSlides = (values || []).map((item) => {
     const {
+      type = '',
+      videoSrc = '',
       title = '',
       city = '',
       category = '',
@@ -13,6 +15,8 @@ export default (info) => {
       image = ''
     } = item
     return {
+      type,
+      videoSrc,
       title,
       city,
       category,

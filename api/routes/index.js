@@ -105,6 +105,16 @@ module.exports = {
           image: '/images/main/main-1.jpg'
         },
         {
+          type: 'video',
+          title: '',
+          city: '',
+          category: '',
+          url: '',
+          linkLabel: '',
+          videoSrc: 'https://player.vimeo.com/video/76979871',
+          image: '/images/gallery/gallery-2-5.jpg'
+        },
+        {
           title: 'Rubinsteina 12',
           city: 'Санкт-Петербург',
           category: 'Апартаменты',

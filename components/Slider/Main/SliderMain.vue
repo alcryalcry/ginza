@@ -1,16 +1,21 @@
 <template>
   <div class="slider-main">
     <Slider
-      v-if="model.values.length"
+      v-if="generatedSlides.length"
       :custom-options="customOptions"
+      @active-index="activeIndex = $event"
     >
       <template v-slot:slides>
         <div
-          v-for="slide in model.values"
-          :key="slide.title"
+          v-for="(slide, index) in generatedSlides"
+          :key="slide.title + index"
           class="swiper-slide"
+          :class="slide.type"
         >
-          <div class="slider-main-slide">
+          <template v-if="slide.type === 'video' && slide.videoSrc">
+            <VideoPreview :key="videoKeys[index]" :info="slide" />
+          </template>
+          <div v-else class="slider-main-slide">
             <picture class="image">
               <img data-manual-lazy :src="slide.image" :alt="slide.title">
             </picture>
@@ -36,13 +41,15 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
+import VideoPreview from '~/components/VideoPreview/VideoPreview'
 
 export default {
   name: 'SliderMain',
   components: {
     ExternalLink,
     Section,
-    Slider
+    Slider,
+    VideoPreview
   },
   props: {
     info: {
@@ -52,19 +59,51 @@ export default {
   },
   data() {
     return {
+      activeIndex: 0,
+      videoKeys: [],
       customOptions: {
         autoplay: true,
-        loop: true,
+        loop: false,
         speed: 700,
-        parallax: true,
-        breakpoints: {
-        }
+        parallax: true
       }
     }
   },
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    generatedSlides() {
+      return this.model.values.map((slide) => {
+        if (slide.type === 'video' && slide.videoSrc) {
+          return {
+            ...slide,
+            videoSrc: `${slide.videoSrc}?byline=0&portrait=0&title=0&controls=0&autoplay=1&muted=1`
+          }
+        }
+        return {
+          ...slide
+        }
+      })
+    }
+  },
+  watch: {
+    activeIndex(val, prev) {
+      if (this.generatedSlides[prev].type === 'video') {
+        setTimeout(() => {
+          this.$set(this.videoKeys, prev, +new Date())
+        }, 700)
+      }
+    }
+  },
+  created() {
+    if (process.browser) {
+      this.videoKeys = this.generatedSlides.map((slide, index) => {
+        if (slide.type === 'video' && slide.videoSrc) {
+          return index
+        }
+        return null
+      })
     }
   }
 }
@@ -74,6 +113,23 @@ export default {
 .swiper-slide {
   flex: 1 0 auto;
   width: 100%;
+  &.video {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    min-height: 90rem;
+    height: 100%;
+    .video {
+      flex: 1;
+      width: auto;
+      height: auto;
+      &::v-deep {
+        .iframe {
+          pointer-events: none;
+        }
+      }
+    }
+  }
 }
 .slider-main {
   overflow: hidden;
