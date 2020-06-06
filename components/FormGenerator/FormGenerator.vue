@@ -268,6 +268,11 @@ export default {
   padding: 4rem 0;
   border-bottom: 1px solid $border;
   &::v-deep {
+    .dropdown-list {
+      @include mobile_tablet {
+        top: 100%;
+      }
+    }
     .cities-item.isActive {
       padding-left: 0;
       .icon {

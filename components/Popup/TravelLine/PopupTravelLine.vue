@@ -13,8 +13,7 @@
             </button>
           </div>
           <transition mode="out-in" name="fade-reversed">
-            <!-- <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" /> -->
-            <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="'TravelLine'" />
+            <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" />
           </transition>
         </div>
         <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
@@ -41,21 +40,11 @@
           </transition>
         </div>
       </div>
-      <div class="popup-content-col">
+      <div class="popup-content-col widget">
         <div class="popup-head-row">
-          <div class="popup-close">
-            <button class="burger" type="button" @click="CLOSE_POPUP">
-              <div class="burger-button">
-                <div class="line" />
-                <div class="line" />
-                <div class="line" />
-              </div>
-            </button>
+          <div class="logo">
+            <iconLogo />
           </div>
-          <transition mode="out-in" name="fade-reversed">
-            <!-- <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" /> -->
-            <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="'TravelLine'" />
-          </transition>
         </div>
         <div class="popup-booking-container">
           <div id="tl-booking-form" />
@@ -76,6 +65,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
+import iconLogo from '~/assets/svg/logo.svg'
 // import axios from '~/plugins/axios'
 // import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
 
@@ -86,7 +76,8 @@ export default {
   name: 'PopupTravelLine',
   components: {
     FormGenerator,
-    iconCheck
+    iconCheck,
+    iconLogo
   },
   data() {
     return {
@@ -204,7 +195,7 @@ export default {
 
   .popup-content {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     flex: 1;
     padding: 3rem $sectionOffsetHorizontalMobile;
     overflow: unset;
@@ -216,8 +207,9 @@ export default {
     }
     @include desktop {
       max-width: 100rem;
+      flex-flow: row nowrap;
       justify-content: space-between;
-      padding: 6rem 8rem 6rem 13rem;
+      padding: 0 0 0 13rem;
     }
   }
 
@@ -225,7 +217,42 @@ export default {
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
-    max-width: 30rem;
+    max-width: 37.5rem;
+    padding: 0;
+    @include tablet {
+      max-width: 100%;
+    }
+    @include desktop {
+      padding: 6rem 7.5rem 6rem 0;
+    }
+
+    &.widget {
+      max-width: 48rem;
+      padding-top: 4rem;
+      @include tablet {
+        max-width: 100%;
+      }
+      @include desktop {
+        border-left: 1px solid $border;
+        padding-top: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .logo {
+        display: none;
+        @include desktop {
+          display: flex;
+          width: 11.5rem;
+          height: 4rem;
+          margin: 0 auto 6rem;
+        }
+      }
+      .popup-head-row {
+        @include mobile_tablet {
+          display: none;
+        }
+      }
+    }
   }
 
   &::v-deep {
@@ -359,6 +386,7 @@ export default {
     left: 0;
     right: 0;
     padding: 2rem 4rem;
+    color: $white;
     background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
     z-index: 1;
   }
@@ -368,6 +396,7 @@ export default {
     left: 0;
     right: 0;
     padding: 1.5rem 2rem;
+    color: $white;
     background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
     z-index: 2;
   }
@@ -382,13 +411,15 @@ export default {
     color: $brown;
     outline: none;
   }
+  @include mobile_tablet {
+    color: $white;
+  }
   @include desktop {
     &:hover {
       color: $brown;
     }
   }
+  @include burger_btn;
 }
-
-@include burger_btn;
 
 </style>
