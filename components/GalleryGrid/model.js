@@ -13,6 +13,7 @@ export default (info) => {
     } = row
     const adaptedCols = (cols || []).map((col) => {
       const {
+        labels = [],
         url = '',
         videoSrc = '',
         mode = '',
@@ -20,6 +21,7 @@ export default (info) => {
         values = []
       } = col
       return {
+        labels,
         url,
         videoSrc,
         mode,

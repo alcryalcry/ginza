@@ -118,7 +118,7 @@ module.exports = {
           title: 'Дизайн',
           image_rows: [
             {
-              type: 'video',
+              type: 'image',
               cols: [
                 {
                   videoSrc: 'https://player.vimeo.com/video/76979871',

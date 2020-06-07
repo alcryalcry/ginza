@@ -15,21 +15,23 @@ module.exports = {
           anchor: 'living-room',
           image_rows: [
             {
-              type: 'video',
-              cols: [
-                {
-                  videoSrc: 'https://player.vimeo.com/video/76979871',
-                  mode: 'size-full',
-                  image: '/images/gallery/gallery-1-1.jpg'
-                }
-              ]
-            },
-            {
               type: 'image',
               cols: [
                 {
                   mode: 'size-full',
-                  image: '/images/gallery/gallery-2-1.jpg'
+                  image: '/images/gallery/gallery-2-1.jpg',
+                  labels: [
+                    {
+                      x: 60,
+                      y: 40,
+                      text: 'шкаф 18 века'
+                    },
+                    {
+                      x: 80,
+                      y: 80,
+                      text: 'кожаный диван'
+                    }
+                  ]
                 }
               ]
             },

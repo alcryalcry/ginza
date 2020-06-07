@@ -5,14 +5,12 @@
       <div v-for="(row, index) in model.imageRows" :key="row.type + index" class="gallery-row">
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
           <template v-if="row.type === 'image'">
-            <picture v-if="col.image" class="image">
-              <img :src="col.image" alt="">
-            </picture>
+            <PictureLabels :info="col" />
           </template>
           <template v-else-if="row.type === 'slider'">
             <SliderGrid :info="col.values" />
           </template>
-          <template v-else-if="row.type === 'video'">
+          <template v-else-if="row.type === 'image' && col.videoSrc">
             <VideoPreview :info="col" />
           </template>
         </div>
@@ -20,14 +18,12 @@
       <div v-for="(row, index) in model.sliderRows" :key="row.type + index" class="gallery-row">
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
           <template v-if="row.type === 'image'">
-            <picture v-if="col.image" class="image">
-              <img :src="col.image" alt="">
-            </picture>
+            <PictureLabels :info="col" />
           </template>
           <template v-else-if="row.type === 'slider'">
             <SliderGrid :info="col.values" />
           </template>
-          <template v-else-if="row.type === 'video'">
+          <template v-else-if="row.type === 'image' && col.videoSrc">
             <VideoPreview :info="col" />
           </template>
         </div>
@@ -40,12 +36,14 @@
 import MODEL from './model'
 import VideoPreview from '~/components/VideoPreview/VideoPreview'
 import SliderGrid from '~/components/Slider/Grid/SliderGrid'
+import PictureLabels from '~/components/PictureLabels/PictureLabels'
 
 export default {
   name: 'GalleryGrid',
   components: {
     VideoPreview,
-    SliderGrid
+    SliderGrid,
+    PictureLabels
   },
   props: {
     titleClassNames: {
