@@ -119,11 +119,53 @@ export default {
     align-items: stretch;
     min-height: 90rem;
     height: 100%;
+    @include tablet {
+      min-height: 90vh
+    }
+    @include mobile {
+      min-height: 70vh
+    }
     .video {
-      flex: 1;
-      width: auto;
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
       height: auto;
       &::v-deep {
+        .video-container {
+          flex: 1;
+          display: flex;
+          flex-flow: column nowrap;
+          width: auto;
+          height: auto;
+          background: rgba($brown, .75)
+        }
+        .video-preview {
+          flex: 1;
+          display: flex;
+          flex-flow: column nowrap;
+          &::before {
+            width: 4rem;
+            height: 4rem;
+            left: 50%;
+            top: 50%;
+            right: auto;
+            bottom: auto;
+            transform: translate3d(-50%, -50%, 0)
+          }
+        }
+        .image {
+          flex: 1;
+          display: flex;
+          flex-flow: column nowrap;
+          width: auto;
+          height: auto;
+          img {
+            flex: 1;
+            width: auto;
+            height: auto;
+          }
+        }
         .iframe {
           pointer-events: none;
         }
@@ -133,9 +175,20 @@ export default {
 }
 .slider-main {
   overflow: hidden;
+  &::v-deep {
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: stretch;
+    }
+  }
 }
 .slider-main-slide {
   position: relative;
+  flex: 1;
+  width: 100px;
   display: flex;
   flex-flow: column nowrap;
   min-height: 90rem;

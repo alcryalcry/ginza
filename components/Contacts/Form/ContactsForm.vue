@@ -120,6 +120,18 @@ export default {
     margin-top: 4rem;
   }
 
+  &::v-deep {
+    .cities-dropdown {
+      padding: 0;
+      border: none;
+      .dropdown-list {
+        @include mobile_tablet {
+          top: auto;
+        }
+      }
+    }
+  }
+
   .contacts-col {
     margin: auto 0;
     padding-right: 8.5rem;

@@ -27,33 +27,22 @@
 import MODEL from './model'
 
 export default {
-  components: {
-  },
   props: {
     info: {
       type: Object,
       default: () => ({})
     }
   },
-  data() {
-    return {
-    }
-  },
   computed: {
     model() {
       return MODEL(this.info)
     }
-  },
-  created() {
-  },
-  methods: {
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .table {
-  // overflow-x: auto;
   .td-content {
     display: flex;
     text-align: center;

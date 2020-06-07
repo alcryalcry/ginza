@@ -108,6 +108,8 @@ export default {
         position: sticky;
         position: -webkit-sticky;
         top: $headerHeightMobile;
+        left: 0;
+        right: 0;
         z-index: 2;
         margin: 0;
         flex-flow: row nowrap;
@@ -122,12 +124,14 @@ export default {
     .sidebar-content {
       @include mobile {
         overflow: hidden;
-        margin: 0 -2rem;
+        margin: 0 -1rem;
+        height: 4rem;
         @include backdrop;
       }
     }
     .housing-types-list {
       @include mobile {
+        padding-bottom: 2rem;
         overflow-x: auto;
       }
     }

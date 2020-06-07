@@ -115,13 +115,22 @@ export default {
   .tables {
     overflow-x: auto;
     padding: 2rem 0;
+    @include mobile {
+      margin: 0 -2rem;
+    }
     .table {
+      @include mobile {
+        padding: 0 2rem;
+      }
       & + .table {
         margin-top: 4rem;
       }
     }
     .table-description {
       margin-top: 4rem;
+      @include mobile {
+        padding: 0 2rem;
+      }
       &::v-deep {
         a {
           color: $white;

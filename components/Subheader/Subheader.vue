@@ -74,9 +74,17 @@ export default {
   overflow: hidden;
   @include tablet {
     top: calc(#{$headerHeightTablet} - .1rem);
+    height: 4.6rem;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid $border;
   }
   @include mobile {
     top: calc(#{$headerHeightMobile} - .1rem);
+    left: 0;
+    right: 0;
+    height: 4rem;
+    border-bottom: 1px solid $border;
   }
 
   &.isScrolled {
@@ -92,11 +100,12 @@ export default {
     border-bottom: 1px solid $border;
     width: 100%;
     overflow-x: auto;
+    justify-content: center;
     -webkit-overflow-scrolling: touch;
     @include backdrop;
 
-    @include tablet_desktop {
-      justify-content: center;
+    @include mobile {
+      padding-bottom: 2rem;
     }
   }
 

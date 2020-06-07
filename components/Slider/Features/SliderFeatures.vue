@@ -200,7 +200,7 @@ export default {
     &.vertical {
       width: 30rem;
       @include mobile {
-        width: 33.5rem;
+        width: 30rem;
       }
       .image {
         width: 100%;
@@ -213,7 +213,7 @@ export default {
     &.horizontal {
       width: 54rem;
       @include mobile {
-        width: 33.5rem;
+        width: 30rem;
       }
       .image {
         width: 100%;

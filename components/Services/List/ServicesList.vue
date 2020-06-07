@@ -107,6 +107,7 @@ export default {
       @include mobile {
         width: 7rem;
         height: 7rem;
+        padding: 1rem;
       }
     }
 

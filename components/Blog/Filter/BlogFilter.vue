@@ -224,9 +224,17 @@ export default {
     overflow: hidden;
     @include tablet {
       top: calc(#{$headerHeightTablet} - .1rem);
+      height: 4.6rem;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid $border;
     }
     @include mobile {
       top: calc(#{$headerHeightMobile} - .1rem);
+      left: 0;
+      right: 0;
+      height: 4rem;
+      border-bottom: 1px solid $border;
     }
 
     .subheader-top {
@@ -238,6 +246,14 @@ export default {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       @include backdrop;
+
+      @include tablet {
+        padding-bottom: 2rem;
+      }
+
+      @include mobile {
+        padding-bottom: 2rem;
+      }
 
       @include tablet_desktop {
         justify-content: center;
