@@ -1,4 +1,11 @@
 {
+  "breadcrumbs": {
+    "main": "Main",
+    "hotels": "Hotels",
+    "hotels-slug": "Hotel One",
+    "hotels-slug-halls": "Event organization",
+    "hotels-slug-halls-id": "hotel hall"
+  },
   "contacts": {
     "submit": "Submit*",
     "investors": "Investors"

@@ -1,4 +1,11 @@
 {
+  "breadcrumbs": {
+    "main": "Главная",
+    "hotels": "Отели",
+    "hotels-slug": "Отель",
+    "hotels-slug-halls": "Организация событий",
+    "hotels-slug-halls-id": "Зал отеля"
+  },
   "contacts": {
     "submit": "Отправить*",
     "investors": "Инвесторам"
