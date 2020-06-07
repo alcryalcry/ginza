@@ -12,16 +12,13 @@
 </template>
 
 <script>
+import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_PRIVACY } from '~/config/constants'
 
-import Layout from '~/components/Layout/Layout'
-
 export default {
   name: 'Privacy',
-  components: {
-    Layout
-  },
+  mixins: [page],
   async asyncData(context) {
     try {
       const {
@@ -33,21 +30,11 @@ export default {
         header,
         footer,
         components: pageComponents.components,
+        page: pageComponents,
         mode: pageComponents.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)
-    }
-  },
-  computed: {
-    generatedComps() {
-      const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
-      return (this.components || []).map((component) => {
-        const componentName = capitalize(component.name)
-        return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
-          .then(m => m.default)
-          .catch(e => import('~/components/NotFound/NotFound.vue'))
-      })
     }
   }
 }

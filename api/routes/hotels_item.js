@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Apartment one',
   description: 'Описание страницы',
+  image: '/images/logo-min.svg',
   keywords: '',
   components: [
     {
