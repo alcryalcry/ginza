@@ -13,7 +13,17 @@ module.exports = {
           name: 'gallery_grid',
           title: 'Гостиная',
           anchor: 'living-room',
-          rows: [
+          image_rows: [
+            {
+              type: 'video',
+              cols: [
+                {
+                  videoSrc: 'https://player.vimeo.com/video/76979871',
+                  mode: 'size-full',
+                  image: '/images/gallery/gallery-1-1.jpg'
+                }
+              ]
+            },
             {
               type: 'image',
               cols: [
@@ -35,7 +45,9 @@ module.exports = {
                   image: '/images/gallery/gallery-2-aaa.jpg'
                 }
               ]
-            },
+            }
+          ],
+          slider_rows: [
             {
               type: 'slider',
               cols: [
@@ -64,7 +76,22 @@ module.exports = {
           name: 'gallery_grid',
           title: 'Кухня',
           anchor: 'kitchen',
-          rows: [
+          image_rows: [
+            {
+              type: 'image',
+              cols: [
+                {
+                  mode: 'size-one',
+                  image: '/images/gallery/gallery-2-16.jpg'
+                },
+                {
+                  mode: 'size-two',
+                  image: '/images/gallery/gallery-2-15.jpg'
+                }
+              ]
+            }
+          ],
+          slider_rows: [
             {
               type: 'slider',
               cols: [
@@ -86,19 +113,6 @@ module.exports = {
                   ]
                 }
               ]
-            },
-            {
-              type: 'image',
-              cols: [
-                {
-                  mode: 'size-one',
-                  image: '/images/gallery/gallery-2-16.jpg'
-                },
-                {
-                  mode: 'size-two',
-                  image: '/images/gallery/gallery-2-15.jpg'
-                }
-              ]
             }
           ]
         },
@@ -106,7 +120,7 @@ module.exports = {
           name: 'gallery_grid',
           title: 'Балкон',
           anchor: 'balcony',
-          rows: [
+          image_rows: [
             {
               type: 'image',
               cols: [
@@ -148,7 +162,7 @@ module.exports = {
           name: 'gallery_grid',
           title: 'Прихожая',
           anchor: 'hallway',
-          rows: [
+          image_rows: [
             {
               type: 'image',
               cols: [

@@ -1,10 +1,39 @@
+/* eslint-disable camelcase */
 export default (info) => {
   const {
     title = '',
-    rows = []
+    image_rows = [],
+    slider_rows = []
   } = info || {}
 
-  const adaptedRows = (rows || []).map((row) => {
+  const adaptedImageRows = (image_rows || []).map((row) => {
+    const {
+      type = '',
+      cols = []
+    } = row
+    const adaptedCols = (cols || []).map((col) => {
+      const {
+        url = '',
+        videoSrc = '',
+        mode = '',
+        image = '',
+        values = []
+      } = col
+      return {
+        url,
+        videoSrc,
+        mode,
+        image,
+        values
+      }
+    })
+    return {
+      type,
+      cols: adaptedCols
+    }
+  })
+
+  const adaptedSliderRows = (slider_rows || []).map((row) => {
     const {
       type = '',
       cols = []
@@ -33,6 +62,7 @@ export default (info) => {
 
   return {
     title,
-    rows: adaptedRows
+    imageRows: adaptedImageRows,
+    sliderRows: adaptedSliderRows
   }
 }

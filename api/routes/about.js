@@ -116,7 +116,7 @@ module.exports = {
         {
           name: 'gallery_grid',
           title: 'Дизайн',
-          rows: [
+          image_rows: [
             {
               type: 'video',
               cols: [
@@ -148,7 +148,7 @@ module.exports = {
         },
         {
           name: 'gallery_grid',
-          rows: [
+          image_rows: [
             {
               type: 'image',
               cols: [
@@ -163,7 +163,7 @@ module.exports = {
         {
           name: 'gallery_grid',
           title: 'Для отдыха <br/>с детьми',
-          rows: [
+          image_rows: [
             {
               type: 'image',
               cols: [
@@ -198,7 +198,7 @@ module.exports = {
         },
         {
           name: 'gallery_grid',
-          rows: [
+          image_rows: [
             {
               type: 'image',
               cols: [

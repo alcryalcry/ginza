@@ -2,7 +2,22 @@
   <div class="gallery-grid">
     <div v-if="model.title" class="title bold" :class="titleClassNames" v-html="model.title" />
     <div class="gallery-rows">
-      <div v-for="(row, index) in model.rows" :key="row.type + index" class="gallery-row">
+      <div v-for="(row, index) in model.imageRows" :key="row.type + index" class="gallery-row">
+        <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
+          <template v-if="row.type === 'image'">
+            <picture v-if="col.image" class="image">
+              <img :src="col.image" alt="">
+            </picture>
+          </template>
+          <template v-else-if="row.type === 'slider'">
+            <SliderGrid :info="col.values" />
+          </template>
+          <template v-else-if="row.type === 'video'">
+            <VideoPreview :info="col" />
+          </template>
+        </div>
+      </div>
+      <div v-for="(row, index) in model.sliderRows" :key="row.type + index" class="gallery-row">
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
           <template v-if="row.type === 'image'">
             <picture v-if="col.image" class="image">
