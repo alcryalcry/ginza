@@ -3,13 +3,13 @@
     <Section class="section--big section--no-p popup-head">
       <div class="popup-head-row">
         <div class="popup-close">
-          <ExternalLink class="burger" :to="parentPath">
+          <nuxt-link class="burger" :to="parentPath">
             <div class="burger-button isActive">
               <div class="line" />
               <div class="line" />
               <div class="line" />
             </div>
-          </ExternalLink>
+          </nuxt-link>
         </div>
         <div v-if="model.title" class="title text--16 ttu" v-html="model.title" />
         <div class="gallery-burger">
@@ -51,11 +51,9 @@ import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import MenuGallery from '~/components/Menu/Gallery/MenuGallery'
-import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
-    ExternalLink,
     Section,
     MenuGallery
   },
