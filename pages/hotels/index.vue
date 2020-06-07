@@ -76,8 +76,8 @@ export default {
     })
   },
   created() {
-    const type = this.GET_HOUSING_TYPES.find(item => item.id === this.$route.path.replace('/', ''))
-    if (type !== this.GET_CURRENT_HOUSING_TYPE) {
+    const type = this.GET_HOUSING_TYPES.find(item => this.$route.path.includes(item.id)) || {}
+    if (type.id && type.id !== this.GET_CURRENT_HOUSING_TYPE.id) {
       this.SET_CURRENT_HOUSING_TYPE(type)
     }
   },

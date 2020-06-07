@@ -33,10 +33,10 @@ module.exports = {
           label: 'Сервис',
           url: '/services'
         },
-        {
-          label: 'Спецпредложения',
-          url: '/special'
-        },
+        // {
+        //   label: 'Спецпредложения',
+        //   url: '/special'
+        // },
         {
           label: 'Культура & События',
           url: '/blog'

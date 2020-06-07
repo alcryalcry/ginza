@@ -19,7 +19,7 @@ export const getters = {
 }
 
 export const actions = {
-  async nuxtServerInit({ dispatch }) {
+  async init({ dispatch }) {
     try {
       const {
         data: {
@@ -32,5 +32,8 @@ export const actions = {
     } catch (e) {
       return console.error(API_ROUTES_SETTINGS, e)
     }
+  },
+  nuxtServerInit({ dispatch }) {
+    dispatch('init')
   }
 }

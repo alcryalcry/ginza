@@ -30,11 +30,11 @@
           </nuxt-link>
         </div>
         <div class="header-col right">
-          <div class="header-link">
+          <!-- <div class="header-link">
             <button class="search">
               <iconSearch />
             </button>
-          </div>
+          </div> -->
           <div class="header-link m-hide">
             <nuxt-link
               v-for="locale in availableLocales"
@@ -66,14 +66,14 @@ import Section from '~/components/Utils/Section'
 import Menu from '~/components/Menu/Menu'
 import iconLogo from '~/assets/svg/logo.svg'
 import iconBack from '~/assets/svg/back.svg'
-import iconSearch from '~/assets/svg/search.svg'
+// import iconSearch from '~/assets/svg/search.svg'
 
 export default {
   components: {
     Section,
     iconLogo,
     iconBack,
-    iconSearch,
+    // iconSearch,
     Menu
   },
   props: {
