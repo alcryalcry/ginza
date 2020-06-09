@@ -20,6 +20,7 @@ module.exports = function (params, res) {
 
   const list = [
     {
+      TLHotelId: '123',
       id: 'rubinsteina12',
       url: 'apartments/rubinsteina12',
       type: 'apartments',

@@ -107,16 +107,27 @@ export default {
     ...mapMutations({
       CLOSE_POPUP: 'popup/CLOSE_POPUP'
     }),
+    aaa(e) {
+      // 'bookingNumber', 'providerName', 'price', 'currency', 'roomTypes'
+      // + tlhotelid
+      console.log(e);
+    },
     initWidget() {
       /* eslint-disable eqeqeq */
 
       function initForm() {
         (function (w) {
           const q = [
+            // TODO: прокинуть сюда TLHotelId
+            // перейти на страницу, параметры: booking/?date=2020-06-08&nights=1&adults=1
+            // поля для onBookingSuccess:
+            // TLHotelId, (bookingNumber, guests, id)
+            // 
             ['setContext', 'TL-INT-ladoga-hotel', 'ru'],
             ['embed', 'booking-form', {
               container: 'tl-booking-form',
-              onBookingSuccessProps: ['bookingNumber', 'providerName', 'price', 'currency']
+              onBookingSuccess: this.aaa,
+              onBookingSuccessProps: ['bookingNumber', 'providerName', 'price', 'currency', 'roomTypes']
             }]
           ]
           const t = w.travelline = (w.travelline || {}); const ti = t.integration = (t.integration || {})

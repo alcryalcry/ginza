@@ -1,5 +1,6 @@
 export default (info) => {
   const {
+    TLHotelId = '',
     id = '',
     url = '',
     type = '',
@@ -23,6 +24,7 @@ export default (info) => {
   })
 
   return {
+    TLHotelId,
     id,
     url,
     type,
