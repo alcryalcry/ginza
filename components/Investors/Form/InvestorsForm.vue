@@ -9,7 +9,7 @@
         <div v-if="!isShowResult" key="form" class="form-content">
           <div class="title-block">
             <p v-if="model.description" class="description text--18" v-html="model.description" />
-            <ExternalLink v-if="model.url" class="link link--brown link--tdu" :to="model.url" target="_blank" v-html="model.linkLabel" />
+            <ExternalLink v-if="model.url" class="link link--brown link--tdu" :to="model.url" v-html="model.linkLabel" />
           </div>
           <FormGenerator
             :btn-label="$t('investors.submit')"

@@ -71,6 +71,19 @@ module.exports = {
         url: 'services/special',
         linkLabel: 'Спецпредложения'
       }
+    },
+    {
+      name: 'breadcrumbs',
+      values: [
+        {
+          url: '/',
+          linkLabel: 'Главная'
+        },
+        {
+          url: null,
+          linkLabel: 'Сервисы'
+        }
+      ]
     }
   ]
 }

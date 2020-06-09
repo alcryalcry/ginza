@@ -235,6 +235,23 @@ module.exports = {
         url: 'beauty',
         linkLabel: 'Индивидуальный сервис'
       }
+    },
+    {
+      name: 'breadcrumbs',
+      values: [
+        {
+          url: '/',
+          linkLabel: 'Главная'
+        },
+        {
+          url: '/services',
+          linkLabel: 'Сервисы'
+        },
+        {
+          url: null,
+          linkLabel: 'Свадебные предложения'
+        }
+      ]
     }
   ]
 }

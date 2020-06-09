@@ -35,6 +35,19 @@ module.exports = {
           }
         ]
       }
+    },
+    {
+      name: 'breadcrumbs',
+      values: [
+        {
+          url: '/',
+          linkLabel: 'Главная'
+        },
+        {
+          url: null,
+          linkLabel: 'Культура & События'
+        }
+      ]
     }
   ]
 }

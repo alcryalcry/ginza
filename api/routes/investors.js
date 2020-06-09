@@ -7,7 +7,7 @@ module.exports = {
       name: 'investors_form',
       description: 'Станьте инвестором в федеральную сеть отелей и апартаментов совместно с Ginza Hotels & Apartments и получайте доход от инвестиций. Оставьте свои контакты, чтобы получить подробную презентацию.',
       properties: {
-        url: '/',
+        url: '/about',
         resultTitle: 'Сообщение отправлено.',
         resultDescription: 'Через несколько минут с Вами свяжется менеджер.',
         image: '/images/investors.jpg',

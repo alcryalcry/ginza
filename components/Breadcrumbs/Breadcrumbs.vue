@@ -6,12 +6,12 @@
           <iconCorona />
         </div>
       </li>
-      <li v-for="(item, i) in crumbs" :key="i" class="breadcrumbs-item" :class="item.classes">
-        <!-- <ExternalLink class="link text--14 link--gray" :to="item.url" target="_blank" v-html="item.linkLabel" /> -->
-        <nuxt-link
+      <li v-for="item in model" :key="item.linkLabel" class="breadcrumbs-item">
+        <component
+          :is="item.url ? 'ExternalLink' : 'div'"
           class="link text--14 link--gray"
-          :to="item.path"
-          v-html="item.name"
+          :to="item.url || ''"
+          v-html="item.linkLabel"
         />
       </li>
     </ul>
@@ -20,13 +20,13 @@
 
 <script>
 import MODEL from './model'
-// import ExternalLink from '~/components/ExternalLink/ExternalLink'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 import iconCorona from '~/assets/svg/logo-corona.svg'
 import Section from '~/components/Utils/Section'
 
 export default {
   components: {
-    // ExternalLink,
+    ExternalLink,
     Section,
     iconCorona
   },
@@ -39,38 +39,6 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    crumbs() {
-      const crumbs = [
-        {
-          name: this.$i18n.t('breadcrumbs.main'),
-          path: this.localePath('/')
-        }
-      ]
-      this.$route.matched.map((item, i, { length }) => {
-        const crumb = {}
-        // crumb.path = item.path
-        // crumb.name = this.$i18n.t('breadcrumbs.' + item.name)
-        // is last item?
-        if (i === length - 1) {
-          // is param route? .../.../:id
-          if (item.regex.keys.length > 0) {
-            crumbs.push({
-              path: item.path.replace(/\/:[^/:]*$/, ''),
-              name: this.$i18n.t('breadcrumbs.' + item.name.replace(/((___ru|___en)*$)|(-[^-]*$)/, ''))
-            })
-            console.warn(item.name)
-            crumb.path = this.$route.path
-            crumb.name = this.$i18n.t('breadcrumbs.' + this.$route.name.replace(/(___ru|___en)*$/, ''), [
-              crumb.path.match(/[^/]*$/)[0]
-            ])
-          }
-          crumb.classes = 'isActive'
-        }
-        crumbs.push(crumb)
-      })
-
-      return crumbs
     }
   }
 }
@@ -94,6 +62,11 @@ export default {
     display: flex;
     flex: 0 0 auto;
     padding-right: 2rem;
+
+    &:last-child {
+      pointer-events: none;
+      user-select: auto;
+    }
 
     & + .breadcrumbs-item {
       padding-left: 4rem;

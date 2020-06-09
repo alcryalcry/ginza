@@ -313,7 +313,7 @@ module.exports = {
           linkLabel: 'Главная'
         },
         {
-          url: '/about',
+          url: null,
           linkLabel: 'О нас'
         }
       ]

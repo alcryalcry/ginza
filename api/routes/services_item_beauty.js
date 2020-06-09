@@ -434,6 +434,23 @@ module.exports = {
         url: 'tours',
         linkLabel: 'Экскурсии и туры'
       }
+    },
+    {
+      name: 'breadcrumbs',
+      values: [
+        {
+          url: '/',
+          linkLabel: 'Главная'
+        },
+        {
+          url: '/services',
+          linkLabel: 'Сервисы'
+        },
+        {
+          url: null,
+          linkLabel: 'Beauty Concierge'
+        }
+      ]
     }
   ]
 }

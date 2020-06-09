@@ -110,7 +110,7 @@ export default {
     aaa(e) {
       // 'bookingNumber', 'providerName', 'price', 'currency', 'roomTypes'
       // + tlhotelid
-      console.log(e);
+      console.log(e)
     },
     initWidget() {
       /* eslint-disable eqeqeq */
@@ -122,7 +122,7 @@ export default {
             // перейти на страницу, параметры: booking/?date=2020-06-08&nights=1&adults=1
             // поля для onBookingSuccess:
             // TLHotelId, (bookingNumber, guests, id)
-            // 
+            //
             ['setContext', 'TL-INT-ladoga-hotel', 'ru'],
             ['embed', 'booking-form', {
               container: 'tl-booking-form',

@@ -181,49 +181,49 @@ module.exports = {
       values: [
         {
           id: 1,
-          url: 'khedi/restaurants/gastro_space',
+          url: 'arka/restaurants/gastro_space',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
         },
         {
           id: 2,
-          url: 'khedi/restaurants/lilo',
+          url: 'arka/restaurants/lilo',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-2.jpg',
           name: 'Lilo'
         },
         {
           id: 3,
-          url: 'khedi/restaurants/ten_june',
+          url: 'arka/restaurants/ten_june',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-3.jpg',
           name: 'Ten June'
         },
         {
           id: 4,
-          url: 'khedi/restaurants/rest4',
+          url: 'arka/restaurants/rest4',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-2.jpg',
           name: 'Gastro Space'
         },
         {
           id: 5,
-          url: 'khedi/restaurants/rest5',
+          url: 'arka/restaurants/rest5',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
         },
         {
           id: 6,
-          url: 'khedi/restaurants/rest6',
+          url: 'arka/restaurants/rest6',
           mode: 'horizontal',
           image: '/images/restaurant/restaurant-preview-3.jpg',
           name: 'Gastro Space'
         },
         {
           id: 7,
-          url: 'khedi/restaurants/rest7',
+          url: 'arka/restaurants/rest7',
           mode: 'vertical',
           image: '/images/restaurant/restaurant-preview-1.jpg',
           name: 'Gastro Space'
@@ -235,7 +235,7 @@ module.exports = {
       properties: {
         title: 'Организация событий',
         description: 'ARKA Hotel - многофункциональный деловой комплекс для организации событий самого высокого уровня: конференции, деловые встречи, мероприятия, свадьбы.',
-        url: 'khedi/halls',
+        url: 'arka/halls',
         linkLabel: 'Подробнее'
       }
     },
@@ -249,7 +249,7 @@ module.exports = {
           id: 1,
           name: 'Встречи и мероприятия',
           title: 'Встречи и мероприятия',
-          url: 'khedi/halls/meeting',
+          url: 'arka/halls',
           linkLabel: 'Посмотреть',
           image: '/images/hall/hall-preview-1.jpg'
         },
@@ -258,7 +258,7 @@ module.exports = {
           name: 'Банкетный зал',
           title: 'Банкетный зал',
           description: 'Романтичная обстановка, уютные номера, приятные сюрпризы.',
-          url: 'khedi/halls/banquet',
+          url: 'arka/halls/banquet',
           linkLabel: 'Посмотреть',
           image: '/images/hall/hall-1.jpg'
         },
@@ -267,7 +267,7 @@ module.exports = {
           name: 'Конференц-зал',
           title: 'Конференц-зал',
           description: 'Все это обеспечит уединенный и незабываемый отдых в Ginza Hotels & Apartments.',
-          url: 'khedi/halls/conference',
+          url: 'arka/halls/conference',
           linkLabel: 'Посмотреть',
           image: '/images/restaurant/restaurant-1.jpg'
         }
@@ -485,8 +485,12 @@ module.exports = {
           linkLabel: 'Апарт'
         },
         {
-          url: '/about',
-          linkLabel: 'О нас'
+          url: '/hotels',
+          linkLabel: 'Отели'
+        },
+        {
+          url: null,
+          linkLabel: 'Отель Arka'
         }
       ]
     }

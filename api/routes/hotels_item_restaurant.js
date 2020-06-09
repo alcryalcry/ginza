@@ -126,11 +126,19 @@ module.exports = {
       values: [
         {
           url: '/',
-          linkLabel: 'Апарт'
+          linkLabel: 'Главная'
         },
         {
-          url: '/about',
-          linkLabel: 'О нас'
+          url: '/hotels',
+          linkLabel: 'Отели'
+        },
+        {
+          url: '/hotels/arka',
+          linkLabel: 'Отель Arka'
+        },
+        {
+          url: null,
+          linkLabel: 'Ресторан Lilo'
         }
       ]
     }

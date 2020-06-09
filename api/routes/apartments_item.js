@@ -513,11 +513,15 @@ module.exports = {
       values: [
         {
           url: '/',
-          linkLabel: 'Апарт'
+          linkLabel: 'Главная'
         },
         {
-          url: '/about',
-          linkLabel: 'О нас'
+          url: '/apartments',
+          linkLabel: 'Апартаменты'
+        },
+        {
+          url: null,
+          linkLabel: 'KARAVANNAYA 11'
         }
       ]
     }

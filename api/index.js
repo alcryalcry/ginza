@@ -93,8 +93,12 @@ app.get('/get-page/hotels/:slug/halls', (req, res) => {
   res.send(reponseJson('hotels_item_halls'))
 })
 
-app.get('/get-page/hotels/:slug/halls/:id', (req, res) => {
-  res.send(reponseJson('hotels_item_halls_item'))
+app.get('/get-page/hotels/:slug/halls/conference', (req, res) => {
+  res.send(reponseJson('hotels_item_halls_item_conference'))
+})
+
+app.get('/get-page/hotels/:slug/halls/banquet', (req, res) => {
+  res.send(reponseJson('hotels_item_halls_item_banquet'))
 })
 
 app.get('/get-page/hotels/:slug/rooms/:id', (req, res) => {

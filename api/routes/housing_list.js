@@ -106,11 +106,11 @@ module.exports = function (params, res) {
     },
     {
       id: 'dom16',
-      url: 'hotels/dom16',
+      url: 'hotels/arka',
       type: 'hotels',
       cityId: currentCity.id,
       city: currentCity.name,
-      title: 'Dom 16',
+      title: 'Arka',
       images: [
         '/images/hotel/hotel-preview-1.jpg',
         '/images/hotel/hotel-preview-2.jpg',

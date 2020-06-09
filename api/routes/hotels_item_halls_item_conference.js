@@ -171,7 +171,7 @@ module.exports = {
     {
       name: 'see_also',
       properties: {
-        url: 'other-hotel-hall-slug',
+        url: 'banquet',
         linkLabel: 'Банкетный зал'
       }
     },
@@ -180,11 +180,23 @@ module.exports = {
       values: [
         {
           url: '/',
-          linkLabel: 'Апарт'
+          linkLabel: 'Главная'
         },
         {
-          url: '/about',
-          linkLabel: 'О нас'
+          url: '/hotels',
+          linkLabel: 'Отели'
+        },
+        {
+          url: '/hotels/arka',
+          linkLabel: 'Отель Arka'
+        },
+        {
+          url: '/hotels/arka/halls',
+          linkLabel: 'Встречи & Мероприятия'
+        },
+        {
+          url: null,
+          linkLabel: 'Конференц-зал'
         }
       ]
     }
