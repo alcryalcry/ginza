@@ -116,7 +116,11 @@ export default {
       backface-visibility: hidden !important;
       transform-style: preserve-3d !important;
       transition-delay: 0.1s !important;
-      // -webkit-perspective: 9000 !important;
+    }
+    .swiper-slide {
+      transform: translate3d(0,0,0);
+      transform-style: preserve-3d !important;
+      -webkit-backface-visibility: hidden;
     }
   }
 }

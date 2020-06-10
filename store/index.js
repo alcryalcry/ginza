@@ -33,7 +33,7 @@ export const actions = {
       return console.error(API_ROUTES_SETTINGS, e)
     }
   },
-  nuxtServerInit({ dispatch }) {
-    dispatch('init')
+  async nuxtServerInit({ dispatch }) {
+    await dispatch('init')
   }
 }

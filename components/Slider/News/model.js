@@ -10,12 +10,14 @@ export default (info) => {
     const {
       id = null,
       name = '',
-      image = ''
+      image = '',
+      title = ''
     } = item
     return {
       id,
       name,
-      image
+      image,
+      title
     }
   })
 

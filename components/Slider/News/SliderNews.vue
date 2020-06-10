@@ -12,8 +12,8 @@
       >
         <template v-slot:slides>
           <div
-            v-for="slide in model.values"
-            :key="slide.id"
+            v-for="(slide, index) in model.values"
+            :key="index"
             :class="slide.mode"
             class="swiper-slide"
           >
@@ -50,6 +50,8 @@ export default {
     return {
       customOptions: {
         spaceBetween: 20,
+        loop: true,
+        slidesPerView: 3,
         breakpoints: {
           767: {
             slidesOffsetAfter: 90
@@ -70,6 +72,18 @@ export default {
 .slider-news {
   overflow: hidden;
   user-select: none;
+  &::v-deep {
+    // .swiper-wrapper {
+    //   backface-visibility: hidden !important;
+    //   transform-style: preserve-3d !important;
+    //   transition-delay: 0.1s !important;
+    // }
+    .swiper-slide {
+      transform: translate3d(0,0,0);
+      transform-style: preserve-3d !important;
+      -webkit-backface-visibility: hidden;
+    }
+  }
 
   .slider-pre-wrapper {
     @include desktop {

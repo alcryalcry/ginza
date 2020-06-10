@@ -11,7 +11,7 @@ module.exports = {
           id: 1,
           mode: 'size-half',
           title: 'Свадебные предложения',
-          image: '/images/gallery/gallery-1-4.jpg',
+          image: '/images/big/weddings.png',
           url: '/special/weddings',
           linkLabel: 'Подробнее'
         },
@@ -19,7 +19,7 @@ module.exports = {
           id: 2,
           mode: 'size-half',
           title: 'Индивидуальный сервис',
-          image: '/images/gallery/gallery-1-5.jpg',
+          image: '/images/big/ind.jpg',
           url: '/special/individual',
           linkLabel: 'Подробнее'
         }

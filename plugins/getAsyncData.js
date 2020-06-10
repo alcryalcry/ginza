@@ -37,8 +37,8 @@ export default async function get(context, route) {
     console.warn('ERROR FROM getAsyncData')
     console.error(error)
     console.warn(error.response)
-    return context.redirect('/error', {
-      statusCode: error.response ? error.response.status : '500'
-    })
+    // return context.redirect('/error', {
+    //   statusCode: error.response ? error.response.status : '500'
+    // })
   }
 }

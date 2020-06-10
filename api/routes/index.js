@@ -107,16 +107,6 @@ module.exports = {
           image: '/images/main/main-1.jpg'
         },
         {
-          type: 'video',
-          title: '',
-          city: '',
-          category: '',
-          url: '',
-          linkLabel: '',
-          videoSrc: 'https://player.vimeo.com/video/76979871',
-          image: '/images/gallery/gallery-2-5.jpg'
-        },
-        {
           title: 'Rubinsteina 12',
           city: 'Санкт-Петербург',
           category: 'Апартаменты',
@@ -131,6 +121,16 @@ module.exports = {
           url: 'hotels/khedi',
           linkLabel: 'Посмотреть',
           image: '/images/main/main-3.jpg'
+        },
+        {
+          type: 'video',
+          title: '',
+          city: '',
+          category: '',
+          url: '',
+          linkLabel: '',
+          videoSrc: 'https://player.vimeo.com/video/76979871',
+          image: '/images/big/weddings.png'
         }
       ]
     },
@@ -147,37 +147,25 @@ module.exports = {
           id: 1,
           mode: 'vertical',
           name: 'Завтраки в постель',
-          image: '/images/feature/feature-preview-1.jpg'
+          image: '/images/big/feature-1.jpg'
         },
         {
           id: 2,
           mode: 'horizontal',
           name: '20% скидка в ресторанах Ginza Project ',
-          image: '/images/feature/feature-preview-2.jpg'
+          image: '/images/big/feature-2.jpg'
         },
         {
           id: 3,
           mode: 'vertical',
           name: 'Сервис 24/7',
-          image: '/images/feature/feature-preview-3.jpg'
+          image: '/images/big/feature-3.jpg'
         },
         {
           id: 4,
           mode: 'vertical',
           name: 'Расположение в центре города',
           image: '/images/feature/feature-preview-4.jpg'
-        },
-        {
-          id: 5,
-          mode: 'horizontal',
-          name: 'Стильные интерьеры',
-          image: '/images/feature/feature-preview-5.jpg'
-        },
-        {
-          id: 6,
-          mode: 'horizontal',
-          name: 'Персональный вход',
-          image: '/images/feature/feature-preview-6.jpg'
         },
         {
           id: 7,

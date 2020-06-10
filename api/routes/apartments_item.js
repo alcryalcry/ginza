@@ -324,7 +324,7 @@ module.exports = {
         {
           url: '/services/weddings',
           title: 'Свадебные предложения',
-          image: '/images/service-additional/service-additional-1.jpg'
+          image: '/images/big/weddings.png'
         },
         {
           url: '/services/tour',

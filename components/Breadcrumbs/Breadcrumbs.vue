@@ -49,6 +49,7 @@ export default {
   border-top: 1px solid $border;
   border-bottom: 1px solid $border;
   overflow: hidden;
+  margin-top: auto;
   &::v-deep {
     .container {
       @include mobile {

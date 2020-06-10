@@ -17,16 +17,27 @@
           <span v-if="model.city" class="city" v-html="model.city" />
         </a>
       </div>
+      <!-- TODO: прокинуть данные меню ресторана -->
+      <div class="mobile-link">
+        <a class="link link--brown text--28 light link--arrow" href="/dummy.pdf" target="_blank">
+          <span>Меню ресторана</span>
+          <span class="icon">
+            <iconArrow />
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import MODEL from './model'
+import iconArrow from '~/assets/svg/arrow.svg'
 
 export default {
   name: 'HeroRestaurant',
   components: {
+    iconArrow
   },
   props: {
     info: {
@@ -43,6 +54,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mobile-link {
+  margin-top: 4rem;
+  @include desktop {
+    display: none !important;
+  }
+}
 .hero-restaurant {
   position: relative;
   display: flex;

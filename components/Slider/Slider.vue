@@ -1,5 +1,5 @@
 <template>
-  <div v-swiper:mySwiper="options" class="mySwiper">
+  <div v-swiper:mySwiper="options" class="mySwiper" :class="{ hasNavigation }">
     <div ref="sliderWrapper" class="swiper-wrapper">
       <slot name="slides" />
     </div>
@@ -94,7 +94,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page--dark {
+  .mySwiper {
+    &:not(.hasNavigation) {
+      cursor: url('/svg/cursor-white.svg'), pointer;
+    }
+  }
+}
 .mySwiper {
+  &:not(.hasNavigation) {
+    cursor: url('/svg/cursor-black.svg'), pointer;
+  }
+
   .swiper-wrapper {
     position: relative;
     display: flex;
@@ -137,6 +148,9 @@ export default {
       cursor: pointer;
       opacity: 1;
       z-index: 1;
+      transform: translate3d(0,0,0);
+      transform-style: preserve-3d !important;
+      -webkit-backface-visibility: hidden;
       transition: background-color .2s ease, color .2s ease, opacity .2s ease, border-color .2s ease;
       @include desktop {
         &:hover {
