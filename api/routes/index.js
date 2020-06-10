@@ -58,6 +58,7 @@ module.exports = {
                   label: 'Взрослых',
                   name: 'adult',
                   minValue: 1,
+                  value: 2,
                   mode: 'half',
                   validate: [
                     {
@@ -70,6 +71,7 @@ module.exports = {
                   label: 'Детей',
                   name: 'child',
                   minValue: 0,
+                  value: 0,
                   mode: 'half',
                   validate: [
                     {

@@ -40,6 +40,7 @@ export default {
         return
       }
       this.checkedPath = this.to.replace(window.location.origin, '')
+      this.$emit('is-external', this.isUrlExternal)
     }
   }
 }

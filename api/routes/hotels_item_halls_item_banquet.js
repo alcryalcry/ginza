@@ -46,7 +46,9 @@ module.exports = {
                 {
                   type: 'counter',
                   label: 'Гостей',
-                  name: 'count'
+                  name: 'count',
+                  value: 2,
+                  minValue: 1
                 },
                 {
                   type: 'date',

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export default (info) => {
   const {
     description = '',
@@ -8,12 +9,14 @@ export default (info) => {
     const {
       name = '',
       title = '',
-      rows = []
+      image_rows = [],
+      slider_rows = []
     } = item
     return {
       name,
       title,
-      rows
+      image_rows,
+      slider_rows
     }
   })
 

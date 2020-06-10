@@ -15,7 +15,7 @@
         :key="index + 1"
         class="image"
       >
-        <img :src="image" :alt="model.title">
+        <img :src="image" :alt="model.title" data-not-lazy>
       </picture>
     </transition-group>
     <div class="content">

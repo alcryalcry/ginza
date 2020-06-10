@@ -77,6 +77,18 @@ export default {
       padding-left: 1rem;
       margin-left: -1rem;
       margin-right: -1rem;
+      @include tablet {
+        padding-right: 4rem;
+        padding-left: 4rem;
+        margin-left: -4rem;
+        margin-right: -4rem;
+      }
+      @include mobile {
+        padding-right: 2rem;
+        padding-left: 2rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+      }
     }
     .swiper-wrapper {
       display: flex;

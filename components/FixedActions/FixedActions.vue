@@ -8,6 +8,7 @@
             class="actions-button"
             :href="item.href"
             :download="item.isDownload"
+            target="_blank"
           >
             <span v-html="item.label" />
           </a>

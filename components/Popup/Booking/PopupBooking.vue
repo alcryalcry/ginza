@@ -120,6 +120,9 @@ export default {
 
   .popup-booking-container {
     transition: opacity .3s ease;
+    @include mobile_tablet {
+      padding-top: 4rem;
+    }
     &.isLoading {
       opacity: .5;
       pointer-events: none;
@@ -236,12 +239,14 @@ export default {
   order: -1;
   z-index: 1;
   @include tablet {
-    height: 50rem;
-    z-index: 0;
+    display: none;
+    // height: 50rem;
+    // z-index: 0;
   }
   @include mobile {
-    height: 40rem;
-    z-index: 0;
+    display: none;
+    // height: 40rem;
+    // z-index: 0;
   }
   @include desktop {
     position: fixed;
@@ -285,7 +290,8 @@ export default {
     left: 0;
     right: 0;
     padding: 2rem 4rem;
-    background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
+    color: $black17;
+    // background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
     z-index: 1;
   }
   @include mobile {
@@ -294,7 +300,8 @@ export default {
     left: 0;
     right: 0;
     padding: 1.5rem 2rem;
-    background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
+    color: $black17;
+    // background: linear-gradient(180deg, rgba($black17,1) 0%, rgba($black17,.5) 75%, rgba($black17,0) 100%);
     z-index: 2;
   }
 }
@@ -304,6 +311,9 @@ export default {
   align-items: center;
   margin-left: -1rem;
   cursor: pointer;
+  @include mobile_tablet {
+    color: $black17;
+  }
   &:active {
     color: $brown;
     outline: none;

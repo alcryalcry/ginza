@@ -47,7 +47,7 @@ module.exports = {
           title: 'Цветочный домик',
           description: 'Повод не нужен для того, чтобы порадовать себя и своих близких. Флористы Цветочного домика Ginza соберут для Вас авторский букет, который станет отличным подарком для тех, кого Вы любите. А по карте гостя Ginza Hotels & Apartments предоставляется скидка - 10%.',
           linkLabel: 'Заказать доставку',
-          url: 'services/flowers',
+          url: 'https://ginza.ru/spb/project/cvetochnij_domik',
           tag: 'Ginza Flowers',
           image: '/images/gallery/gallery-2-12.jpg',
           color: '#F1F8FA',

@@ -7,7 +7,9 @@
       <span>{{ label }}</span>
     </div>
     <div class="form-counter">
-      <button class="counter-btn" type="button" @click="count(-1)">—</button>
+      <button class="counter-btn" type="button" @click="count(-1)">
+        <iconCircleMinus />
+      </button>
       <input
         :value="model"
         class="input"
@@ -16,14 +18,23 @@
         :disabled="disabled"
         @input="changeValue"
       >
-      <button class="counter-btn" type="button" @click="count(1)">+</button>
+      <button class="counter-btn" type="button" @click="count(1)">
+        <iconCirclePlus />
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import iconCircleMinus from '~/assets/svg/circle-minus.svg'
+import iconCirclePlus from '~/assets/svg/circle-plus.svg'
+
 export default {
   name: 'FormCounter',
+  components: {
+    iconCircleMinus,
+    iconCirclePlus
+  },
   props: {
     label: {
       type: String,
@@ -127,11 +138,14 @@ export default {
   font-weight: $bold;
   width: 1.8rem;
   height: 1.8rem;
-  &::before {
-    content: '';
-    @include absolute;
-    border-radius: 50%;
-    border: 1px solid $border;
+  .text {
+    .page--dark & {
+      fill: $white;
+    }
+    fill: $black17;
+  }
+  .border {
+    stroke: rgba($border, .4);
   }
 }
 .input-label {

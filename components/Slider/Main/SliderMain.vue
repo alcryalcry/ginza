@@ -17,7 +17,7 @@
           </template>
           <div v-else class="slider-main-slide">
             <picture class="image">
-              <img data-manual-lazy :src="slide.image" :alt="slide.title">
+              <img data-not-lazy :src="slide.image" :alt="slide.title">
             </picture>
             <Section class="content section--no-p section--min" data-swiper-parallax="-400">
               <div class="labels">
@@ -110,6 +110,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.slider-main {
+  &::v-deep {
+    .swiper-wrapper {
+      backface-visibility: hidden !important;
+      transform-style: preserve-3d !important;
+      transition-delay: 0.1s !important;
+      // -webkit-perspective: 9000 !important;
+    }
+  }
+}
 .swiper-slide {
   flex: 1 0 auto;
   width: 100%;
@@ -144,6 +154,7 @@ export default {
           flex: 1;
           display: flex;
           flex-flow: column nowrap;
+          align-items: stretch;
           &::before {
             width: 4rem;
             height: 4rem;
@@ -151,7 +162,7 @@ export default {
             top: 50%;
             right: auto;
             bottom: auto;
-            transform: translate3d(-50%, -50%, 0)
+            transform: translate3d(-50%, -50%, 0);
           }
         }
         .image {

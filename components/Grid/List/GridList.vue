@@ -1,5 +1,6 @@
 <template>
   <Section v-if="model.values.length" class="grid">
+    <div v-if="model.title" class="title title--h2" v-html="model.title" />
     <div class="grid-list">
       <GridItem
         v-for="item in model.values"
@@ -38,6 +39,13 @@ export default {
 
 <style lang="scss" scoped>
 .grid {
+  .title {
+    margin: 0 0 8rem;
+    text-align: center;
+    @include mobile {
+      margin: 0 0 4rem;
+    }
+  }
   .grid-list {
     display: flex;
     flex-flow: row wrap;

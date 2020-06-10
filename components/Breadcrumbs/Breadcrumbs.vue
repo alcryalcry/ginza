@@ -49,12 +49,29 @@ export default {
   border-top: 1px solid $border;
   border-bottom: 1px solid $border;
   overflow: hidden;
+  &::v-deep {
+    .container {
+      @include mobile {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+  @include mobile {
+    height: 7rem;
+  }
   .breadcrumbs-list {
     display: flex;
     align-items: center;
     padding: 2.5rem 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    @include mobile {
+      height: 9rem;
+      padding-bottom: 4.5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .breadcrumbs-item {

@@ -24,8 +24,13 @@
               v-if="item.url && item.linkLabel"
               class="link link--brown link--tdu"
               :to="item.url"
+              :target="arrows[index] ? '_blank' : ''"
+              @is-external="showArrow"
               v-html="item.linkLabel"
             />
+            <div v-if="arrows[index]" class="arrow">
+              <iconArrow class="icon" />
+            </div>
           </div>
         </div>
       </Section>
@@ -37,11 +42,13 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
+import iconArrow from '~/assets/svg/arrow.svg'
 
 export default {
   components: {
     Section,
-    ExternalLink
+    ExternalLink,
+    iconArrow
   },
   props: {
     info: {
@@ -49,9 +56,19 @@ export default {
       default: () => ({})
     }
   },
+  data() {
+    return {
+      arrows: []
+    }
+  },
   computed: {
     model() {
       return MODEL(this.info)
+    }
+  },
+  methods: {
+    showArrow(val) {
+      this.arrows.push(val)
     }
   }
 }
@@ -59,6 +76,36 @@ export default {
 
 <style lang="scss" scoped>
 .services-page {
+  .link-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    .arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 4rem;
+      border-radius: 50%;
+      border: 1px solid $border;
+      width: 5.4rem;
+      height: 5.4rem;
+      padding: 1.9rem;
+      transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+      @include mobile {
+        top: calc(50% - 2rem);
+        right: 0;
+        width: 4rem;
+        height: 4rem;
+        padding: 1.2rem;
+      }
+
+      .icon {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
   .services-item {
     position: relative;
     display: flex;
@@ -221,9 +268,6 @@ export default {
         writing-mode: vertical-rl;
       }
     }
-  }
-  .link-block {
-    margin-top: 3rem;
   }
 }
 </style>

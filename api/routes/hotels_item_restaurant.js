@@ -10,8 +10,7 @@ module.exports = {
         {
           id: 'menu',
           type: 'link',
-          href: '/',
-          isDownload: true,
+          href: '/dummy.pdf',
           label: 'Меню ресторана'
         },
         {
@@ -55,6 +54,7 @@ module.exports = {
                   type: 'counter',
                   label: 'Гостей',
                   name: 'count',
+                  value: 2,
                   minValue: 1,
                   validate: [
                     {

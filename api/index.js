@@ -118,7 +118,20 @@ app.get('/get-page/services/:slug', (req, res) => {
     const obj = reponseJson(`services_item_${req.params.slug}`)
     res.send(obj)
   } catch (e) {
-    res.send(reponseJson('services_item'))
+    res.status(404).end('error')
+  }
+})
+
+app.get('/get-page/special', (req, res) => {
+  res.send(reponseJson('special'))
+})
+
+app.get('/get-page/special/:slug', (req, res) => {
+  try {
+    const obj = reponseJson(`special_item_${req.params.slug}`)
+    res.send(obj)
+  } catch (e) {
+    res.status(404).end('error')
   }
 })
 

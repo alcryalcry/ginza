@@ -50,19 +50,55 @@ export default {
 
 <style lang="scss" scoped>
 .features-comfort {
+  &::v-deep {
+    .title {
+      @include tablet {
+        padding-right: 4rem;
+        padding-left: 4rem;
+      }
+      @include mobile {
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
+    }
+    .container {
+      @include mobile {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      @include tablet {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
   .list {
-    margin: -1rem;
+    margin: -1rem 0 -2rem;
     overflow: hidden;
+    @include desktop {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
   }
   .list-scrolled {
     display: flex;
     align-items: flex-start;
+    padding-bottom: 2rem;
+    margin-bottom: -2rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     @include desktop {
       justify-content: flex-start;
       flex-flow: row wrap;
     }
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    @include tablet {
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
+    @include mobile {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
   }
   .comfort-item {
     flex: 0 0 auto;

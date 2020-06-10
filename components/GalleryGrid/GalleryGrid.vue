@@ -1,6 +1,6 @@
 <template>
   <div class="gallery-grid">
-    <div v-if="model.title" class="title bold" :class="titleClassNames" v-html="model.title" />
+    <div v-if="model.title" class="title" :class="titleClassNames" v-html="model.title" />
     <div class="gallery-rows">
       <div v-for="(row, index) in model.imageRows" :key="row.type + index" class="gallery-row">
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">

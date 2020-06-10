@@ -269,6 +269,11 @@ export default {
       @include desktop {
         margin: 0 3rem;
       }
+      &:last-child {
+        @include mobile {
+          padding-right: 2rem;
+        }
+      }
 
       &.isActive,
       &:active {

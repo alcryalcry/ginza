@@ -63,6 +63,13 @@ export default {
   border-top: 1px solid $border;
 }
 .review {
+  .gallery-grid {
+    &::v-deep {
+      .title {
+        font-weight: $bold;
+      }
+    }
+  }
   .review-head {
     .review-head-row {
       @include desktop {

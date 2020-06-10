@@ -122,6 +122,7 @@ export default {
 }
 
 .form-container {
+  position: relative;
   flex: 0 1 auto;
   display: flex;
   flex-flow: column nowrap;
@@ -179,8 +180,10 @@ export default {
   flex: 1;
   text-align: center;
   @include tablet_desktop {
-    justify-content: center;
+    @include absolute;
     margin: auto;
+    justify-content: center;
+    // margin: auto;
     max-width: 32rem;
   }
   .result-title {
