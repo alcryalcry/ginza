@@ -133,7 +133,7 @@ export default {
       }
       .vdp-datepicker__calendar {
         max-width: 100%;
-        margin-left: auto;
+        margin: 0 auto;
         background: transparent;
         border: none;
 

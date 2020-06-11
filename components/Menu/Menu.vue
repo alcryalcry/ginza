@@ -119,14 +119,13 @@ export default {
     padding-left: 3rem;
   }
   &:active {
-    &::before {
-      opacity: 1;
-    }
+    color: $brown;
   }
   &.nuxt-link-active {
     &::before {
       opacity: 1;
     }
+    color: $brown;
   }
   &::before {
     content: '';

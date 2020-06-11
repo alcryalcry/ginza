@@ -117,7 +117,7 @@ export default {
     .input-placeholder {
       position: absolute;
       top: .5rem;
-      left: 0;
+      left: 1.5rem;
       pointer-events: none;
       transition: color .3s ease;
     }
@@ -152,9 +152,13 @@ export default {
       }
       .vdp-datepicker__calendar {
         max-width: 100%;
-        margin-left: auto;
         background: transparent;
         border: none;
+        width: 100%;
+        margin: 0 auto;
+        @include tablet {
+          width: 32rem;
+        }
 
         header {
           display: flex;
@@ -205,6 +209,12 @@ export default {
         }
 
         .cell {
+          height: 4.5rem;
+          line-height: 4.3rem;
+          @include mobile {
+            height: 4.8rem;
+            line-height: 4.6rem;
+          }
           &.blank {
             pointer-events: none;
           }

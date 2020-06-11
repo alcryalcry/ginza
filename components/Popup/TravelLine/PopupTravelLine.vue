@@ -272,9 +272,10 @@ export default {
   &::v-deep {
     .form {
       .submit-container {
-        @include desktop {
-          position: sticky;
-          bottom: 0;
+        position: sticky;
+        bottom: 0;
+        @include mobile {
+          bottom: 2rem;
         }
       }
       .submit-btn {

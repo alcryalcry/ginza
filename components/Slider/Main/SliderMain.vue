@@ -115,7 +115,9 @@ export default {
     .swiper-wrapper {
       backface-visibility: hidden !important;
       transform-style: preserve-3d !important;
-      transition-delay: 0.1s !important;
+      @include desktop {
+        transition-delay: 0.1s !important;
+      }
     }
     .swiper-slide {
       transform: translate3d(0,0,0);
@@ -145,6 +147,9 @@ export default {
       flex-flow: column nowrap;
       width: 100%;
       height: auto;
+      @include mobile {
+        height: 70vh;
+      }
       &::v-deep {
         .video-container {
           flex: 1;
