@@ -1,26 +1,34 @@
 <template>
-  <ExternalLink :to="model.url" class="housing-card">
-    <transition-group
-      v-if="model.images.length"
-      tag="div"
-      class="images"
-      mode="out-in"
-      name="fade-reversed-long"
-      @mouseenter.native="startChanger"
-      @mouseleave.native="stopChanger"
-    >
-      <picture
-        v-for="(image, index) in model.images"
-        v-show="index === activeIndex"
-        :key="index + 1"
-        class="image"
+  <ExternalLink :to="model.pageId" class="housing-card">
+    <template v-if="model.images.length">
+      <transition-group
+        tag="div"
+        class="images"
+        mode="out-in"
+        name="fade-reversed-long"
+        @mouseenter.native="startChanger"
+        @mouseleave.native="stopChanger"
       >
-        <img :src="image" :alt="model.title" data-not-lazy>
-      </picture>
-    </transition-group>
+        <picture
+          v-for="(image, index) in model.images"
+          v-show="index === activeIndex"
+          :key="index + 1"
+          class="image"
+        >
+          <img :src="image" :alt="model.name" data-not-lazy>
+        </picture>
+      </transition-group>
+    </template>
+    <template v-else-if="model.preview">
+      <div class="images">
+        <picture class="image">
+          <img :src="model.preview" :alt="model.name" data-not-lazy>
+        </picture>
+      </div>
+    </template>
     <div class="content">
       <div v-if="model.city" class="city text--13 ls1" v-html="model.city" />
-      <div v-if="model.title" class="title text--24" v-html="model.title" />
+      <div v-if="model.name" class="title text--24" v-html="model.name" />
       <div class="params">
         <div v-for="(param, index) in model.params" :key="param.type" class="params-item">
           <div v-if="checkComponents[index]" class="params-icon">

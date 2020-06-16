@@ -1,5 +1,5 @@
 import axios from '~/plugins/axios'
-import { API_ROUTES_HOUSING_LIST } from '~/config/constants'
+import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
 
 export const state = () => ({
   types: [],
@@ -33,22 +33,42 @@ export const getters = {
 export const actions = {
   async UPDATE_HOUSING_LIST ({ commit, rootState }) {
     const {
-      cities: {
-        city: { id = '' }
-      }
+      // cities: {
+      //   city: { id = '' }
+      // },
+      locale = ''
     } = rootState
     commit('SET_HOUSING_STATUS', true)
     try {
-      const {
-        data: { list = [] }
-      } = await axios.get(API_ROUTES_HOUSING_LIST, {
-        params: { city: id }
+      const hotelsResp = await axios.get(API_ROUTES_HOTELS_ROOT, {
+        params: { lang: locale }
       })
-      commit('SET_HOUSING_LIST', list)
+      const hotels = (hotelsResp || { data: [] }).data.map((item) => {
+        return {
+          ...item,
+          type: 'hotels'
+        }
+      })
+
+      const apartmentsResp = await axios.get(API_ROUTES_HOTELS_ROOT, {
+        params: { lang: locale }
+      })
+
+      const apartments = (apartmentsResp || { data: [] }).data.map((item) => {
+        return {
+          ...item,
+          type: 'apartments'
+        }
+      })
+
+      commit('SET_HOUSING_LIST', [
+        ...hotels,
+        ...apartments
+      ])
       commit('SET_HOUSING_STATUS', false)
     } catch (e) {
       commit('SET_HOUSING_STATUS', false)
-      return console.error(API_ROUTES_HOUSING_LIST, e)
+      return console.error(API_ROUTES_HOTELS_ROOT, e)
     }
   },
   UPDATE_HOUSING_TYPES ({ commit, state }, payload = []) {

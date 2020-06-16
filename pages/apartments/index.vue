@@ -1,12 +1,7 @@
 <template>
-  <Layout :header="header" :footer="footer" :class="mode">
+  <Layout :footer="false">
     <template v-slot:page-content>
-      <component
-        :is="item"
-        v-for="(item, index) in generatedComps"
-        :key="index"
-        :data="components[index]"
-      />
+      <HousingPage />
     </template>
     <template v-slot:popup>
       <Popup>
@@ -22,30 +17,14 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import page from '~/mixins/page'
-import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_HOUSING } from '~/config/constants'
+import HousingPage from '~/components/Housing/Page/HousingPage'
 
 export default {
-  name: 'Apartments',
-  mixins: [page],
-  async asyncData(context) {
-    try {
-      const {
-        header = {},
-        footer = {},
-        pageComponents = {}
-      } = await getAsyncData(context, API_ROUTES_HOUSING)
-      return {
-        header,
-        footer,
-        components: pageComponents.components,
-        page: pageComponents,
-        mode: pageComponents.mode || ''
-      }
-    } catch (e) {
-      console.error('ERROR FROM page (asyncData)', e)
-    }
+  name: 'Hotels',
+  components: {
+    HousingPage
   },
+  mixins: [page],
   computed: {
     ...mapGetters({
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',

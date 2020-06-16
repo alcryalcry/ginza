@@ -1,26 +1,29 @@
 <template>
-  <div class="map" :class="{ isBalloonReady }">
-    <yandex-map
-      ref="myMap"
-      v-bind="mapSettings"
-      :coords="coords"
-      @click="closeBalloon"
-    >
-      <ymap-marker
-        v-for="marker in markers"
-        :key="marker.id"
-        :marker-id="marker.id"
-        :coords="marker.coords"
-        :icon="activeMarker === marker.id ? iconMarkerActive : iconMarker"
-        @balloonopen="balloonOpen(marker)"
-        @balloonclose="balloonClose(marker)"
+  <client-only>
+    <div class="map" :class="{ isBalloonReady }">
+      <yandex-map
+        ref="myMap"
+        class="myMap"
+        v-bind="mapSettings"
+        :coords="coords"
+        @click="closeBalloon"
       >
-        <template v-if="isBalloonNeed" slot="balloon">
-          <HousingCardBalloon :id="marker.id" :info="marker" />
-        </template>
-      </ymap-marker>
-    </yandex-map>
-  </div>
+        <ymap-marker
+          v-for="marker in markers"
+          :key="marker.id"
+          :marker-id="marker.id"
+          :coords="marker.coords"
+          :icon="activeMarker === marker.id ? iconMarkerActive : iconMarker"
+          @balloonopen="balloonOpen(marker)"
+          @balloonclose="balloonClose(marker)"
+        >
+          <template v-if="isBalloonNeed" slot="balloon">
+            <HousingCardBalloon :id="marker.id" :info="marker" />
+          </template>
+        </ymap-marker>
+      </yandex-map>
+    </div>
+  </client-only>
 </template>
 
 <script>
@@ -41,7 +44,7 @@ export default {
       default: () => ({})
     },
     activeMarkerId: {
-      type: String,
+      type: (String, Number),
       default: ''
     },
     isMarkerDefault: {
@@ -73,7 +76,7 @@ export default {
           id: 'place',
           coords: this.model.coords
         }
-      ] : this.model.markers
+      ] : this.model.markers.filter(item => Array.isArray(item.coords) && item.coords.length === 2)
     },
     iconMarker() {
       return {
@@ -128,9 +131,9 @@ export default {
     this.initListeners()
   },
   methods: {
-    changeRoute({ url }) {
-      if (url) {
-        this.$router.push(url)
+    changeRoute({ pageId }) {
+      if (pageId) {
+        this.$router.push({ path: pageId })
       }
     },
     initListeners(marker) {

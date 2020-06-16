@@ -1,4 +1,48 @@
 {
+  "menuList": [
+    {
+      "label": "About",
+      "url": "/about"
+    },
+    {
+      "label": "Apartments ",
+      "url": "/apartments"
+    },
+    {
+      "label": "Hotels",
+      "url": "/hotels"
+    },
+    {
+      "label": "Services",
+      "url": "/services"
+    },
+    {
+      "label": "Special",
+      "url": "/special"
+    },
+    {
+      "label": "Culture & Events",
+      "url": "/blog"
+    },
+    {
+      "label": "Investors",
+      "url": "/investors"
+    },
+    {
+      "label": "Contacts",
+      "url": "/contacts"
+    }
+  ],
+  "housingTypes": [
+    {
+      "id": "apartments",
+      "name": "Apartments"
+    },
+    {
+      "id": "hotels",
+      "name": "Hotels"
+    }
+  ],
   "breadcrumbs": {
     "main": "Main",
     "hotels": "Hotels",
@@ -59,6 +103,7 @@
     "next": "Next"
   },
   "footer": {
+    "privacyUrl": "/privacy",
     "privacy": "Privacy Policy"
   },
   "popup": {

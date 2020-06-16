@@ -6,12 +6,12 @@ export default (info) => {
 
   const adaptedMarkers = (markers || []).map((item) => {
     const {
-      url = '',
+      pageId = '',
       id = '',
       type = '',
       cityId = '',
       city = '',
-      title = '',
+      name = '',
       images = [],
       coords = [],
       params = []
@@ -29,12 +29,12 @@ export default (info) => {
     })
 
     return {
-      url,
+      pageId,
       id,
       type,
       cityId,
       city,
-      title,
+      name,
       images,
       coords,
       params: adaptedParams

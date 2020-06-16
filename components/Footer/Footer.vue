@@ -16,7 +16,7 @@
           <div class="col-9 col-t-12 col-m-12 isNoGut">
             <div class="footer-menu">
               <div class="row isNoGut">
-                <div v-for="item in model.menuList" :key="item.url" class="isNoGut col-4 col-t-4 col-m-6">
+                <div v-for="item in $t('menuList')" :key="item.url" class="isNoGut col-4 col-t-4 col-m-6">
                   <ExternalLink :to="item.url" class="text--18 link footer-link" v-html="item.label" />
                 </div>
               </div>
@@ -27,18 +27,17 @@
       <div class="footer-row isInfo">
         <div class="privacy">
           <ExternalLink
-            v-if="model.privacy"
             class="link"
-            :to="model.privacy"
+            :to="$t('footer.privacyUrl')"
             v-html="$t('footer.privacy')"
           />
         </div>
         <div class="footer-info">
-          <div v-if="model.phone" class="phone">
-            <a class="link" :href="`tel:${model.phone}`">{{ model.phone }}</a>
+          <div v-if="GET_SOCIAL.phone" class="phone">
+            <a class="link" :href="`tel:${GET_SOCIAL.phone}`">{{ GET_SOCIAL.phone }}</a>
           </div>
           <div class="footer-social">
-            <Social v-if="model.social" :info="model.social" />
+            <Social />
           </div>
         </div>
       </div>
@@ -47,7 +46,7 @@
 </template>
 
 <script>
-import MODEL from './model'
+import { mapGetters } from 'vuex'
 import Section from '~/components/Utils/Section'
 import Social from '~/components/Social/Social'
 import iconLogo from '~/assets/svg/logo.svg'
@@ -62,16 +61,10 @@ export default {
     iconLogoMin,
     ExternalLink
   },
-  props: {
-    info: {
-      type: Object,
-      default: () => ({})
-    }
-  },
   computed: {
-    model() {
-      return MODEL(this.info)
-    }
+    ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL'
+    })
   }
 }
 </script>

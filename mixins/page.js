@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex'
 import Popup from '~/components/Utils/Popup'
 import PopupVideo from '~/components/Popup/Video/PopupVideo'
 import PopupBooking from '~/components/Popup/Booking/PopupBooking'
@@ -16,6 +17,9 @@ export default {
     PopupTravelLine
   },
   computed: {
+    ...mapGetters({
+      GET_LANG: 'GET_LANG'
+    }),
     generatedComps() {
       const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
       return (this.components || []).map((component) => {

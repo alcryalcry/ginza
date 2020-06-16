@@ -1,18 +1,15 @@
 <template>
-  <div
-    :class="isReady"
-    class="housing-card"
-  >
+  <div :class="isReady" class="housing-card">
     <div
-      v-if="model.images.length"
+      v-if="model.images.length || model.preview"
       tag="div"
       class="images"
     >
-      <img class="image" data-not-lazy :src="model.images[0]" :alt="model.title">
+      <img class="image" data-not-lazy :src="model.images[0] || model.preview" :alt="model.name">
     </div>
     <div class="content">
-      <div v-if="model.title" class="title text--16" v-html="model.title" />
-      <div class="params">
+      <div v-if="model.name" class="title text--16" v-html="model.name" />
+      <div v-if="model.params.length" class="params">
         <div v-for="(param, index) in model.params" :key="param.type" class="params-item">
           <div v-if="checkComponents[index]" class="params-icon">
             <component :is="param.type" />

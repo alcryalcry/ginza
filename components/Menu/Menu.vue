@@ -5,7 +5,7 @@
         <div class="col-9 col-t-12 col-m-12">
           <ul class="list">
             <li
-              v-for="item in model.menuList"
+              v-for="item in $t('menuList')"
               :key="item.label"
               class="list-item"
             >
@@ -18,10 +18,10 @@
         <div class="col-3 col-t-12 col-m-12 sidebar">
           <Cities />
           <div class="menu-social">
-            <div v-if="model.phone" class="phone">
-              <a class="link" :href="`tel:${model.phone}`">{{ model.phone }}</a>
+            <div v-if="GET_SOCIAL.phone" class="phone">
+              <a class="link" :href="`tel:${GET_SOCIAL.phone}`">{{ GET_SOCIAL.phone }}</a>
             </div>
-            <Social v-if="model.social" :info="model.social" />
+            <Social />
           </div>
         </div>
       </div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Cities from '~/components/Cities/Cities'
@@ -57,7 +58,10 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
-    }
+    },
+    ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL'
+    })
   },
   mounted() {
     if (process.browser) {

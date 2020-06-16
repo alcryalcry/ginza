@@ -1,7 +1,7 @@
 <template>
   <ul class="social">
-    <li v-for="(item, index) in model" :key="item.name" class="social-item">
-      <a class="link" :href="item.url" target="_blank">
+    <li v-for="(value, key, index) in GET_SOCIAL" :key="key" class="social-item">
+      <a class="link" :href="value" target="_blank">
         <component :is="generatedComps[index]" />
       </a>
     </li>
@@ -9,13 +9,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 import instagram from '~/assets/svg/social/instagram.svg'
 import facebook from '~/assets/svg/social/facebook.svg'
 import tripadvisor from '~/assets/svg/social/tripadvisor.svg'
 
 export default {
   components: {
+    ExternalLink,
     instagram,
     facebook,
     tripadvisor
@@ -30,10 +33,13 @@ export default {
     model() {
       return MODEL(this.info)
     },
+    ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL'
+    }),
     generatedComps() {
       const capitalize = (string = '') => string.charAt(0).toLowerCase() + string.slice(1)
-      return this.model.map((component) => {
-        const componentName = capitalize(component.name)
+      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'phone').map(([ key, value ]) => {
+        const componentName = capitalize(key)
         return () => import('~/assets/svg/social/' + componentName + '.svg')
           .then(m => m.default)
           .catch(e => import('~/assets/svg/social/default.svg'))

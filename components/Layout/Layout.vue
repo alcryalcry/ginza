@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <Header :is-main="isHeaderMain && !!header" :info="header" />
+    <Header :is-main="isHeaderMain && header" />
 
     <main class="page-content">
       <slot name="page-content" :value="value">
@@ -11,7 +11,7 @@
       <slot name="popup" />
     </main>
 
-    <Footer v-if="footer.menuList" :info="footer" />
+    <Footer v-if="footer" />
   </div>
 </template>
 
@@ -29,12 +29,12 @@ export default {
   },
   props: {
     header: {
-      type: Object,
-      default: () => ({})
+      type: Boolean,
+      default: true
     },
     footer: {
-      type: Object,
-      default: () => ({})
+      type: Boolean,
+      default: true
     },
     value: {
       type: Object,

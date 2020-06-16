@@ -1,11 +1,12 @@
 export default (info) => {
   const {
-    url = '',
+    pageId = '',
     id = '',
     slug = '',
     type = '',
     city = '',
-    title = '',
+    name = '',
+    preview = '',
     images = [],
     coords = [],
     params = []
@@ -23,12 +24,13 @@ export default (info) => {
   })
 
   return {
-    url,
+    pageId,
     id,
     slug,
     type,
     city,
-    title,
+    name,
+    preview,
     images,
     coords,
     params: adaptedParams

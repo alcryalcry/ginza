@@ -2,12 +2,13 @@ export default (info) => {
   const {
     TLHotelId = '',
     id = '',
-    url = '',
+    pageId = '',
     type = '',
     cityId = '',
     city = '',
-    title = '',
+    name = '',
     images = [],
+    preview = '',
     coords = [],
     params = []
   } = info
@@ -26,12 +27,13 @@ export default (info) => {
   return {
     TLHotelId,
     id,
-    url,
+    pageId,
     type,
     cityId,
     city,
-    title,
+    name,
     images,
+    preview,
     coords,
     params: adaptedParams
   }

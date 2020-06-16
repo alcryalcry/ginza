@@ -51,7 +51,6 @@
       <Menu
         v-if="GET_MENU_STATUS"
         key="1"
-        :info="model.menu"
         class="header-menu"
       />
     </transition>
@@ -61,7 +60,6 @@
 <script>
 import { throttle } from 'throttle-debounce'
 import { mapGetters, mapMutations } from 'vuex'
-import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Menu from '~/components/Menu/Menu'
 import iconLogo from '~/assets/svg/logo.svg'
@@ -80,10 +78,6 @@ export default {
     isMain: {
       type: Boolean,
       default: false
-    },
-    info: {
-      type: Object,
-      default: () => ({})
     }
   },
   computed: {
@@ -97,9 +91,6 @@ export default {
         return window.history.length > 2 && this.$route.path !== '/'
       }
       return false
-    },
-    model() {
-      return MODEL(this.info)
     },
     availableLocales () {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)

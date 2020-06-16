@@ -1,4 +1,48 @@
 {
+  "menuList": [
+    {
+      "label": "О нас",
+      "url": "/about"
+    },
+    {
+      "label": "Апартаменты ",
+      "url": "/apartments"
+    },
+    {
+      "label": "Отели",
+      "url": "/hotels"
+    },
+    {
+      "label": "Сервис",
+      "url": "/services"
+    },
+    {
+      "label": "Спецпредложения",
+      "url": "/special"
+    },
+    {
+      "label": "Культура & События",
+      "url": "/blog"
+    },
+    {
+      "label": "Инвесторам",
+      "url": "/investors"
+    },
+    {
+      "label": "Контакты",
+      "url": "/contacts"
+    }
+  ],
+  "housingTypes": [
+    {
+      "id": "apartments",
+      "name": "Апартаменты"
+    },
+    {
+      "id": "hotels",
+      "name": "Отели"
+    }
+  ],
   "breadcrumbs": {
     "main": "Главная",
     "hotels": "Отели",
@@ -59,6 +103,7 @@
     "next": "Вперед"
   },
   "footer": {
+    "privacyUrl": "/privacy",
     "privacy": "Политика конфиденциальности"
   },
   "popup": {
