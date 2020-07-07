@@ -29,6 +29,7 @@
         </div>
       </div>
     </div>
+    <div v-if="model.text" class="review-text text--24" v-html="model.text" />
   </div>
 </template>
 
@@ -68,6 +69,13 @@ $sizeDesktop: 1rem;
 $sizeTablet: 1rem;
 $sizeMobile: 1rem;
 
+.review-text {
+  max-width: 50rem;
+  margin: 10rem auto 0;
+  font-weight: $light;
+  text-align: center;
+}
+
 .gallery-grid {
   .title {
     margin-bottom: 6rem;
@@ -88,6 +96,11 @@ $sizeMobile: 1rem;
   .gallery-col {
     display: flex;
     height: 48rem;
+
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: $sizeDesktop;
+
     @include tablet {
       height: 42rem;
     }
@@ -96,6 +109,10 @@ $sizeMobile: 1rem;
       flex: 0 0 100%;
       height: 36rem;
       max-width: 100%;
+
+      flex: 1 0 auto;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .image {

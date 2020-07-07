@@ -8,15 +8,15 @@ export const {
   api: {
     routes: {
       social: API_ROUTES_SOCIAL = 'social',
-      // layout: API_ROUTES_LAYOUT = 'get-layout',
       housing: API_ROUTES_HOUSING_LIST = 'get-housing-list',
       blog: API_ROUTES_BLOG_LIST = 'get-blog-list',
       pages: {
+        API_ROUTES_ABOUT = 'about',
+
         API_ROUTES_APARTMENTS_ROOT = 'apartments',
         API_ROUTES_HOTELS_ROOT = 'hotels',
         API_ROUTES_HOUSING = 'get-page/housing',
         API_ROUTES_INDEX = 'get-page/index',
-        API_ROUTES_ABOUT = 'about',
         API_ROUTES_INVESTORS = 'get-page/investors',
         API_ROUTES_CONTACTS = 'get-page/contacts',
         API_ROUTES_PRIVACY = 'get-page/privacy',

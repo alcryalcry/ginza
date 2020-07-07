@@ -6,8 +6,7 @@
         <h5 v-if="item.title" class="title text--22" v-html="item.title" />
         <h5 v-if="item.adult" class="adult text--14" v-html="item.adult" />
         <picture v-if="item.image" class="image">
-          <img :src="item.image" :alt="item.title">
-        </picture>
+          <app-image :src="item.image" :alt="item.title" /></picture>
       </li>
     </ul>
   </Section>

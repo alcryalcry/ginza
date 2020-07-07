@@ -2,8 +2,7 @@
   <div class="grid-item">
     <div class="grid-content">
       <picture v-if="model.image" class="image">
-        <img :src="model.image" alt="">
-      </picture>
+        <app-image :src="model.image" alt="" /></picture>
       <div v-if="model.label" class="label text--12 ttu regular" v-html="model.label" />
       <h5 v-if="model.title" class="title text--20 regular" v-html="model.title" />
       <div class="grid-link">

@@ -36,7 +36,7 @@
               class="swiper-slide"
             >
               <picture class="image">
-                <img :src="slide.image" :alt="slide.name" data-manual-lazy>
+                <app-image :src="slide.image" :alt="slide.name" data-manual-lazy />
               </picture>
               <div v-if="slide.name" class="text text--16" v-html="slide.name" />
             </component>

@@ -13,8 +13,7 @@
           class="swiper-slide"
         >
           <picture v-if="slide.image" class="image">
-            <img data-not-lazy :src="slide.image" alt="">
-          </picture>
+            <app-image data-not-lazy :src="slide.image" alt="" /></picture>
         </div>
       </template>
     </Slider>

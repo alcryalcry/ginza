@@ -2,6 +2,7 @@
 export default (info) => {
   const {
     title = '',
+    text = '',
     image_rows = [],
     slider_rows = []
   } = info || {}
@@ -64,6 +65,7 @@ export default (info) => {
 
   return {
     title,
+    text,
     imageRows: adaptedImageRows,
     sliderRows: adaptedSliderRows
   }

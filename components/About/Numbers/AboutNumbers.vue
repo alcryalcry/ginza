@@ -24,8 +24,7 @@
         <div class="isNoGut col-icon col-5 col-t-12 col-m-12">
           <div class="media">
             <picture v-if="model.image" class="image">
-              <img :src="model.image" alt="">
-            </picture>
+              <app-image :src="model.image" alt="" /></picture>
             <p v-if="model.imageDescription" class="text--18 thin image-description" v-html="model.imageDescription" />
           </div>
         </div>

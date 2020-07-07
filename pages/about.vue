@@ -1,5 +1,4 @@
 <template>
-  <!-- <Layout :header="header" :footer="footer" :class="mode"> -->
   <Layout>
     <template v-slot:page-content>
       <component
@@ -31,19 +30,15 @@ export default {
   async asyncData(context) {
     try {
       const {
-        // header = {},
-        // footer = {},
         components = {}
       } = await getAsyncData(context, API_ROUTES_ABOUT + '/' + context.store.state.locale)
       return {
-        // header,
-        // footer,
         components: components.components,
         page: components,
         mode: components.mode || ''
       }
     } catch (e) {
-      // console.error('ERROR FROM page (asyncData)', e)
+      console.error('ERROR FROM page (asyncData)', e)
     }
   }
 }

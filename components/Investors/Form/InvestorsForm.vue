@@ -1,8 +1,7 @@
 <template>
   <div class="investors-form">
     <picture v-if="model.image" class="image">
-      <img :src="model.image" alt="">
-    </picture>
+      <app-image :src="model.image" alt="" /></picture>
 
     <div class="form-container" :class="{ isShowResult, isLoading }">
       <transition mode="out-in" name="list-fade">

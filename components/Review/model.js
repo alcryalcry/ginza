@@ -9,12 +9,14 @@ export default (info) => {
     const {
       name = '',
       title = '',
+      text = '',
       image_rows = [],
       slider_rows = []
     } = item
     return {
       name,
       title,
+      text,
       image_rows,
       slider_rows
     }

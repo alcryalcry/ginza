@@ -93,6 +93,10 @@ const config = {
     {
       src: '~/plugins/vuejs-datepicker.js',
       ssr: false
+    },
+    {
+      src: '~/plugins/image.js',
+      ssr: false
     }
   ],
   buildModules: [
@@ -101,7 +105,7 @@ const config = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    'nuxt-lazy-load',
+    // 'nuxt-lazy-load',
     [
       'nuxt-i18n',
       {

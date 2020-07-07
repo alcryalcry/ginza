@@ -50,10 +50,10 @@ export default {
       this.activeIndex = this.mySwiper.realIndex
     },
     updateLazySlides() {
-      if (this.$refs.sliderWrapper) {
-        const slides = this.$refs.sliderWrapper.querySelectorAll('[data-manual-lazy]')
-        slides.forEach(m => this.$lazyLoad(m))
-      }
+      // if (this.$refs.sliderWrapper) {
+      //   const slides = this.$refs.sliderWrapper.querySelectorAll('[data-manual-lazy]')
+      //   slides.forEach(m => this.$lazyLoad(m))
+      // }
     }
   }
 }

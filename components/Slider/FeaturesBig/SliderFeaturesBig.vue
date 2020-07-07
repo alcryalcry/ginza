@@ -15,8 +15,7 @@
           class="swiper-slide"
         >
           <picture class="image">
-            <img :src="slide.image" :alt="slide.name" data-manual-lazy>
-          </picture>
+            <app-image :src="slide.image" :alt="slide.name" data-manual-lazy /></picture>
           <Section class="section--min slider-text">
             <div class="content">
               <div v-if="slide.title" class="title text--24" data-swiper-parallax-y="-50" v-html="slide.title" />

@@ -1,12 +1,10 @@
 <template>
   <div class="hero-restaurant">
     <picture v-if="model.image" class="image">
-      <img :src="model.image" alt="">
-    </picture>
+      <app-image :src="model.image" alt="" /></picture>
     <div class="hero-restaurant-content">
       <picture v-if="model.logo" class="logo">
-        <img :src="model.logo" alt="">
-      </picture>
+        <app-image :src="model.logo" alt="" /></picture>
       <h4 class="title">
         <span v-if="model.type" class="type" v-html="model.type" />
         <span v-if="model.placeName" class="name" v-html="model.placeName" />

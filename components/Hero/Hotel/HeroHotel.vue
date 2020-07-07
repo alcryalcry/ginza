@@ -2,8 +2,7 @@
   <div class="hero-hotel">
     <div class="hero-hotel-row">
       <picture v-if="model.image" class="image">
-        <img :src="model.image" alt="">
-      </picture>
+        <app-image :src="model.image" alt="" /></picture>
       <div class="hero-hotel-content">
         <h4 class="title">
           <span v-if="model.type" class="type" v-html="model.type" />

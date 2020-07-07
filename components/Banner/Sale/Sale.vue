@@ -3,11 +3,9 @@
     <div class="banner-sale">
       <div v-if="model.values[0]" class="banner-col first">
         <picture v-if="model.values[0]" class="logo">
-          <img :src="model.values[0].logo" :alt="model.values[0].description">
-        </picture>
+          <app-image :src="model.values[0].logo" :alt="model.values[0].description" /></picture>
         <picture v-if="model.values[0]" class="image">
-          <img :src="model.values[0].image" :alt="model.values[0].description">
-        </picture>
+          <app-image :src="model.values[0].image" :alt="model.values[0].description" /></picture>
         <div class="content">
           <div v-if="model.values[0].sale" class="sale" v-html="model.values[0].sale" />
           <div v-if="model.values[0].label" class="label" v-html="model.values[0].label" />
@@ -19,11 +17,9 @@
       </div>
       <div v-if="model.values[1]" class="banner-col third">
         <picture v-if="model.values[1]" class="logo">
-          <img :src="model.values[1].logo" :alt="model.values[1].description">
-        </picture>
+          <app-image :src="model.values[1].logo" :alt="model.values[1].description" /></picture>
         <picture v-if="model.values[1]" class="image">
-          <img :src="model.values[1].image" :alt="model.values[1].description">
-        </picture>
+          <app-image :src="model.values[1].image" :alt="model.values[1].description" /></picture>
         <div class="content">
           <div v-if="model.values[1].sale" class="sale" v-html="model.values[1].sale" />
           <div v-if="model.values[1].label" class="label" v-html="model.values[1].label" />

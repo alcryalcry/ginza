@@ -1,6 +1,6 @@
 <template>
   <Section class="section--full slider-instagram">
-    <Section class="section--no-p section--min">
+    <Section v-if="model.title" class="section--no-p section--min">
       <HeadTitle class="" :info="model" />
     </Section>
     <Section class="section--no-p section--full">
@@ -19,8 +19,7 @@
             class="swiper-slide"
           >
             <picture class="image">
-              <img :src="slide.image" :alt="slide.name" data-manual-lazy>
-            </picture>
+              <app-image :src="slide.image" :alt="slide.name" data-manual-lazy /></picture>
             <div class="icon">
               <iconInstagram />
             </div>

@@ -53,11 +53,9 @@
     </div>
     <div class="popup-image">
       <picture v-if="model.image" class="image">
-        <img :src="model.image" alt="">
-      </picture>
+        <app-image :src="model.image" alt="" /></picture>
       <picture v-if="model.logo" class="logo">
-        <img :src="model.logo" alt="">
-      </picture>
+        <app-image :src="model.logo" alt="" /></picture>
     </div>
   </div>
 </template>

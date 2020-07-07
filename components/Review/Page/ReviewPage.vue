@@ -5,7 +5,6 @@
       <Section class="review-content section--min">
         <div v-for="(item, index) in model.values" :key="item.name + index" :data-anchor="item.anchor" class="review-row">
           <GalleryGrid v-if="item.name === 'gallery_grid'" :info="item" title-class-names="text--24" />
-          <div v-else-if="item.name === 'text'" class="review-text text--24" v-html="item.title" />
         </div>
       </Section>
     </Section>
@@ -96,12 +95,6 @@ export default {
     & + .review-row {
       padding-top: 10rem;
     }
-  }
-  .review-text {
-    max-width: 50rem;
-    margin: 0 auto;
-    font-weight: $light;
-    text-align: center;
   }
 }
 </style>

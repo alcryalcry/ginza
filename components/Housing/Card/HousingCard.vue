@@ -15,15 +15,13 @@
           :key="index + 1"
           class="image"
         >
-          <img :src="image" :alt="model.name" data-not-lazy>
-        </picture>
+          <app-image :src="image" :alt="model.name" data-not-lazy /></picture>
       </transition-group>
     </template>
     <template v-else-if="model.preview">
       <div class="images">
         <picture class="image">
-          <img :src="model.preview" :alt="model.name" data-not-lazy>
-        </picture>
+          <app-image :src="model.preview" :alt="model.name" data-not-lazy /></picture>
       </div>
     </template>
     <div class="content">

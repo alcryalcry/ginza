@@ -8,8 +8,7 @@
 
     <Section v-if="model.image" class="section--min section--no-p">
       <picture class="image">
-        <img :src="model.image" alt="">
-      </picture>
+        <app-image :src="model.image" alt="" /></picture>
     </Section>
 
     <SliderFeatures v-if="model.values.length" :data="{ modeSlider: 'section--min', values: model.values }" />

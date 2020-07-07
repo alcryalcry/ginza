@@ -5,7 +5,7 @@
       tag="div"
       class="images"
     >
-      <img class="image" data-not-lazy :src="model.images[0] || model.preview" :alt="model.name">
+      <app-image class="image" data-not-lazy :src="model.images[0] || model.preview" :alt="model.name" />
     </div>
     <div class="content">
       <div v-if="model.name" class="title text--16" v-html="model.name" />

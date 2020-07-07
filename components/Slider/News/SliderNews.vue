@@ -18,8 +18,7 @@
             class="swiper-slide"
           >
             <picture class="image">
-              <img data-not-lazy :src="slide.image" :alt="slide.name">
-            </picture>
+              <app-image data-not-lazy :src="slide.image" :alt="slide.name" /></picture>
             <div v-if="slide.title" class="text text--16" v-html="slide.title" />
           </div>
         </template>

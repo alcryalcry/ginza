@@ -4,8 +4,7 @@
       <transition mode="out-in" name="fade-reversed">
         <button v-if="!isActive" key="1" class="video-preview" @click="setActive">
           <picture v-if="model.image" class="image">
-            <img :src="model.image" alt="" data-not-lazy>
-          </picture>
+            <app-image :src="model.image" alt="" data-not-lazy /></picture>
         </button>
         <div v-else class="iframe">
           <iframe

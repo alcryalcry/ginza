@@ -9,8 +9,7 @@
     >
       <div v-if="item.image" class="image-block">
         <picture class="image">
-          <img :src="item.image" alt="">
-        </picture>
+          <app-image :src="item.image" alt="" /></picture>
         <div v-if="item.tag" class="tag text--14 ttu">
           <span v-html="item.tag" />
         </div>

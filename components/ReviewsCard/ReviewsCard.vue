@@ -2,8 +2,7 @@
   <div class="reviews-card">
     <div class="head">
       <picture class="image">
-        <img :src="model.image" :alt="model.name" data-manual-lazy>
-      </picture>
+        <app-image :src="model.image" :alt="model.name" data-manual-lazy /></picture>
       <div v-if="model.userName" class="name title--16 bold" v-html="model.userName" />
     </div>
     <div v-if="model.text" class="wrapper">

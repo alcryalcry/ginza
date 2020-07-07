@@ -9,8 +9,7 @@
           <ExternalLink :url="item.url" :to="item.url" class="card">
             <div class="card-image">
               <picture v-if="item.image" class="image">
-                <img :src="item.image" alt="">
-              </picture>
+                <app-image :src="item.image" alt="" /></picture>
             </div>
             <h5 v-if="item.title" class="title text--12 bold ttu" v-html="item.title" />
           </ExternalLink>

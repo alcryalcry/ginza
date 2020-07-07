@@ -17,8 +17,7 @@
           </template>
           <div v-else class="slider-main-slide">
             <picture class="image">
-              <img data-not-lazy :src="slide.image" :alt="slide.title">
-            </picture>
+              <app-image data-not-lazy :src="slide.image" :alt="slide.title" /></picture>
             <Section class="content section--no-p section--min" data-swiper-parallax="-400">
               <div class="labels">
                 <div v-if="slide.city" class="text--13 city" v-html="slide.city" />
