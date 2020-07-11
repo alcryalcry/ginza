@@ -178,7 +178,8 @@ const config = {
   },
   env: {
     apiRoot: process.env.API_ROOT,
-    appEnv: process.env.APP_ENV
+    appEnv: process.env.APP_ENV,
+    appImageRoot: process.env.APP_IMAGE_ROOT
   }
 }
 

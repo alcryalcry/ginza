@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     adaptedSrc() {
-      return `http://84.201.134.251:8000${this.src}`
+      return `${process.env.appImageRoot}${this.src}`
     }
   }
 }
