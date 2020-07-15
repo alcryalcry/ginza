@@ -43,19 +43,82 @@
       "name": "Отели"
     }
   ],
-  "breadcrumbs": {
-    "main": "Главная",
-    "hotels": "Отели",
-    "hotels-slug": "Отель",
-    "hotels-slug-halls": "Организация событий",
-    "hotels-slug-halls-id": "Зал отеля"
+  "services": {
+    "linkLabel": "Подробнее"
   },
   "contacts": {
+    "social": [
+      {
+        "field": "phone",
+        "title": "Телефон",
+        "prefix": "tel:"
+      },
+      {
+        "field": "email",
+        "title": "E-mail",
+        "prefix": "mailto:"
+      }
+    ],
     "submit": "Отправить*",
-    "investors": "Инвесторам"
-  },
-  "investors": {
-    "submit": "Получить презентацию*"
+    "investors": "Инвесторам",
+    "resultTitle": "Сообщение отправлено.",
+    "resultDescription": "Через несколько минут с Вами свяжется менеджер.",
+    "disclaimer": "*Нажимая “отправить” Вы даете согласие <br/>на <a href=\"/privacy\" target=\"_blank\">обработку персональных данных</a>",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Имя",
+        "name": "userName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Телефон",
+        "name": "userPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "email",
+        "label": "E-mail",
+        "name": "userEmail",
+        "validate": [
+          {
+            "rule": "required"
+          },
+          {
+            "rule": "email"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Тема обращения",
+        "name": "messageSubject",
+        "options": [
+          {
+            "id": "subject 1",
+            "label": "Пример темы 1"
+          },
+          {
+            "id": "subject 2",
+            "label": "Пример темы 2"
+          }
+        ],
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      }
+    ]
   },
   "filters": {
     "all": "Все"
@@ -109,5 +172,48 @@
   "popup": {
     "manager": "Отправить сообщение",
     "submit": "Отправить"
+  },
+  "investors": {
+    "url": "/about",
+    "submit": "Получить презентацию*",
+    "resultTitle": "Сообщение отправлено.",
+    "resultDescription": "Через несколько минут с Вами свяжется менеджер.",
+    "linkLabel": "О проекте",
+    "disclaimer": "*Нажимая “отправить” Вы даете согласие <br/>на <a href=\"/privacy\" target=\"_blank\">обработку персональных данных</a>",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Имя",
+        "name": "userName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Телефон",
+        "name": "userPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "email",
+        "label": "E-mail",
+        "name": "userEmail",
+        "validate": [
+          {
+            "rule": "required"
+          },
+          {
+            "rule": "email"
+          }
+        ]
+      }
+    ]
   }
 }

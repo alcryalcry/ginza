@@ -8,16 +8,16 @@
         <div v-if="!isShowResult" key="form" class="form-content">
           <div class="title-block">
             <p v-if="model.description" class="description text--18" v-html="model.description" />
-            <ExternalLink v-if="model.url" class="link link--brown link--tdu" :to="model.url" v-html="model.linkLabel" />
+            <ExternalLink v-if="$t('investors.url')" class="link link--brown link--tdu" :to="$t('investors.url')" v-html="$t('investors.linkLabel')" />
           </div>
           <FormGenerator
             :btn-label="$t('investors.submit')"
             :btn-submit-class="'link link--brown link--tdu'"
             :is-loading="isLoading"
-            :info="model.fields"
+            :info="$t('investors.fields')"
             @formSubmit="formSubmit"
           />
-          <p v-if="model.disclaimer" class="disclaimer text--12" v-html="model.disclaimer" />
+          <p v-if="$t('investors.disclaimer')" class="disclaimer text--12" v-html="$t('investors.disclaimer')" />
         </div>
         <div v-else key="result" class="result">
           <div class="result-icon">
@@ -25,9 +25,9 @@
               <iconCheck />
             </div>
           </div>
-          <h5 v-if="model.resultTitle" class="result-title" v-html="model.resultTitle" />
-          <p v-if="model.resultDescription" class="result-desc" v-html="model.resultDescription" />
-          <a v-if="model.resultLink" :href="model.resultLink.href" class="result-link" v-html="model.resultLink.label" />
+          <h5 v-if="$t('investors.resultTitle')" class="result-title" v-html="$t('investors.resultTitle')" />
+          <p v-if="$t('investors.resultDescription')" class="result-desc" v-html="$t('investors.resultDescription')" />
+          <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
         </div>
       </transition>
     </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import axios from '~/plugins/axios'
 import { API_ROUTES_INVESTORS_FORM } from '~/config/constants'
@@ -63,6 +64,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL'
+    }),
     model() {
       return MODEL(this.info)
     }
@@ -190,6 +194,7 @@ export default {
   }
   .result-link {
     padding-top: 4rem;
+    padding-bottom: 4rem;
     margin-top: auto;
     transition: color .2s ease;
     &:active {
@@ -212,7 +217,7 @@ export default {
     flex: 0 0 auto;
     width: 11rem;
     height: 11rem;
-    margin-top: 3rem;
+    margin-top: auto;
     margin-bottom: 4.5rem;
     padding: 4rem;
     border-radius: 50%;

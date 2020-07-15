@@ -43,19 +43,82 @@
       "name": "Hotels"
     }
   ],
-  "breadcrumbs": {
-    "main": "Main",
-    "hotels": "Hotels",
-    "hotels-slug": "Hotel One",
-    "hotels-slug-halls": "Event organization",
-    "hotels-slug-halls-id": "hotel hall"
+  "services": {
+    "linkLabel": "Read more"
   },
   "contacts": {
+    "social": [
+      {
+        "field": "phone",
+        "title": "Phone",
+        "prefix": "tel:"
+      },
+      {
+        "field": "email",
+        "title": "E-mail",
+        "prefix": "mailto:"
+      }
+    ],
     "submit": "Submit*",
-    "investors": "Investors"
-  },
-  "investors": {
-    "submit": "Get a presentation*"
+    "investors": "Investors",
+    "resultTitle": "Message sent.",
+    "resultDescription": "The manager will contact you in a few minutes.",
+    "disclaimer": "*By clicking “send” you consent <br/>to <a href=\"/privacy\" target=\"_blank\">the processing of personal data</a>",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Name",
+        "name": "userName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Phone",
+        "name": "userPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "email",
+        "label": "E-mail",
+        "name": "userEmail",
+        "validate": [
+          {
+            "rule": "required"
+          },
+          {
+            "rule": "email"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Subject of message",
+        "name": "messageSubject",
+        "options": [
+          {
+            "id": "subject 1",
+            "label": "Theme example 1"
+          },
+          {
+            "id": "subject 2",
+            "label": "Theme example 2"
+          }
+        ],
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      }
+    ]
   },
   "filters": {
     "all": "All"
@@ -109,5 +172,48 @@
   "popup": {
     "manager": "Send message",
     "submit": "Submit"
+  },
+  "investors": {
+    "url": "/about",
+    "submit": "Get a presentation*",
+    "resultTitle": "Message sent.",
+    "resultDescription": "The manager will contact you in a few minutes.",
+    "linkLabel": "About project",
+    "disclaimer": "*By clicking “send” you consent <br/>to <a href=\"/privacy\" target=\"_blank\">the processing of personal data</a>",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Name",
+        "name": "userName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Phone",
+        "name": "userPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "email",
+        "label": "E-mail",
+        "name": "userEmail",
+        "validate": [
+          {
+            "rule": "required"
+          },
+          {
+            "rule": "email"
+          }
+        ]
+      }
+    ]
   }
 }

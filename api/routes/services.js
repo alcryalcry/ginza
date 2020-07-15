@@ -19,9 +19,7 @@ module.exports = {
           linkLabel: 'Подробнее',
           url: 'services/beauty',
           tag: 'Ginza Beauty',
-          image: '/images/services/services-preview-1.jpg',
-          color: '#FAF3F7',
-          isInverted: false
+          image: '/images/services/services-preview-1.jpg'
         },
         {
           title: 'Экскурсии и туры',
@@ -29,9 +27,7 @@ module.exports = {
           linkLabel: 'Подробнее',
           url: 'services/tours',
           tag: 'Ginza Tours',
-          image: '/images/services/services-preview-2.jpg',
-          color: '#FFF7F4',
-          isInverted: true
+          image: '/images/services/services-preview-2.jpg'
         },
         {
           title: 'Личный водитель',
@@ -39,9 +35,7 @@ module.exports = {
           linkLabel: 'Связаться с менеджером',
           url: 'services/drive',
           tag: 'Ginza Drive',
-          image: '/images/services/services-preview-3.jpg',
-          color: '#F9F9F9',
-          isInverted: false
+          image: '/images/services/services-preview-3.jpg'
         },
         {
           title: 'Цветочный домик',
@@ -49,9 +43,7 @@ module.exports = {
           linkLabel: 'Заказать доставку',
           url: 'https://ginza.ru/spb/project/cvetochnij_domik',
           tag: 'Ginza Flowers',
-          image: '/images/gallery/gallery-2-12.jpg',
-          color: '#F1F8FA',
-          isInverted: true
+          image: '/images/gallery/gallery-2-12.jpg'
         },
         {
           title: 'Прачечная и химчистка',
@@ -59,9 +51,7 @@ module.exports = {
           linkLabel: 'Связаться с менеджером',
           url: 'services/chisto',
           tag: 'Ginza Chisto',
-          image: '/images/gallery/gallery-2-4.jpg',
-          color: '#F5F2F9',
-          isInverted: false
+          image: '/images/gallery/gallery-2-4.jpg'
         }
       ]
     },

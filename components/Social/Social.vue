@@ -1,7 +1,7 @@
 <template>
   <ul class="social">
-    <li v-for="(value, key, index) in GET_SOCIAL" :key="key" class="social-item">
-      <a class="link" :href="value" target="_blank">
+    <li v-for="(item, index) in generatedList" :key="item.key" class="social-item">
+      <a class="link" :href="'//' + item.value" target="_blank">
         <component :is="generatedComps[index]" />
       </a>
     </li>
@@ -36,9 +36,17 @@ export default {
     ...mapGetters({
       GET_SOCIAL: 'GET_SOCIAL'
     }),
+    generatedList() {
+      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'id').map(([key, value]) => {
+        return {
+          key,
+          value
+        }
+      })
+    },
     generatedComps() {
       const capitalize = (string = '') => string.charAt(0).toLowerCase() + string.slice(1)
-      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'phone').map(([ key, value ]) => {
+      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'phone' && key !== 'id').map(([ key, value ]) => {
         const componentName = capitalize(key)
         return () => import('~/assets/svg/social/' + componentName + '.svg')
           .then(m => m.default)

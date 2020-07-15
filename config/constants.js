@@ -11,16 +11,18 @@ export const {
       housing: API_ROUTES_HOUSING_LIST = 'get-housing-list',
       blog: API_ROUTES_BLOG_LIST = 'get-blog-list',
       pages: {
-        API_ROUTES_ABOUT = 'about',
+        API_ROUTES_ABOUT = 'about', // done
+        API_ROUTES_INVESTORS = 'investors', // done
+        API_ROUTES_CITIES = 'cities', // done
+        API_ROUTES_CONTACTS = 'contact_us', // done
+
+        API_ROUTES_SERVICES_ROOT = 'services', // добавить локаль и остальные компоненты
 
         API_ROUTES_APARTMENTS_ROOT = 'apartments',
         API_ROUTES_HOTELS_ROOT = 'hotels',
         API_ROUTES_HOUSING = 'get-page/housing',
         API_ROUTES_INDEX = 'get-page/index',
-        API_ROUTES_INVESTORS = 'get-page/investors',
-        API_ROUTES_CONTACTS = 'get-page/contacts',
         API_ROUTES_PRIVACY = 'get-page/privacy',
-        API_ROUTES_SERVICES_ROOT = 'get-page/services',
         API_ROUTES_SPECIAL_ROOT = 'get-page/special',
         API_ROUTES_BLOG_ROOT = 'get-page/blog'
       } = {},
@@ -28,9 +30,10 @@ export const {
       //   housing: API_ROUTES_HOUSING = 'housing'
       // } = {},
       post: {
+        investors_form: API_ROUTES_INVESTORS_FORM = 'request_presentation', // done
+
         booking_form: API_ROUTES_BOOKING_FORM = 'form/booking',
         manager_form: API_ROUTES_MANAGER_FORM = 'form/manager',
-        investors_form: API_ROUTES_INVESTORS_FORM = 'form/investors',
         contacts_form: API_ROUTES_CONTACTS_FORM = 'form/contacts'
       } = {}
     } = {}

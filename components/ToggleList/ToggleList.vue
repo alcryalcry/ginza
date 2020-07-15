@@ -6,12 +6,12 @@
     <Section class="section--no-p section--full">
       <div class="list">
         <div
-          v-for="item in model.values"
+          v-for="(item, index) in model.values"
           :key="item.id"
           class="toggle-item"
-          :class="{ isActive: activeItem === item.id }"
+          :class="{ isActive: activeItem === item.id + index }"
         >
-          <Section class="section--no-p section-btn" :class="model.mode || 'section--min'" @click.native="setActiveItem(item.id)">
+          <Section class="section--no-p section-btn" :class="model.mode || 'section--min'" @click.native="setActiveItem(item.id + index)">
             <div class="toggle-button">
               <div class="text text--24 bold" v-html="item.title" />
               <div class="icon">
@@ -19,16 +19,16 @@
               </div>
             </div>
           </Section>
-          <vue-slide-toggle :open="activeItem === item.id">
+          <vue-slide-toggle :open="activeItem === item.id + index">
             <Section class="section--no-p" :class="model.mode || 'section--min'">
               <p v-if="item.text" class="toggle-text" v-html="item.text" />
-              <div v-if="item.tables.length" class="tables">
-                <Table v-for="table in item.tables" :key="table.id" :info="table" />
+              <div v-if="item.table.length" class="tables">
+                <Table v-for="(table, i) in item.table" :key="table.id + i" :info="table" />
                 <div v-if="item.descriptionTables" class="table-description" v-html="item.descriptionTables" />
               </div>
               <div v-if="item.menu.list.length" class="menu">
                 <div class="menu-list">
-                  <div v-for="(listItem, index) in item.menu.list" :key="index" class="menu-item" v-html="listItem" />
+                  <div v-for="(listItem, indexMenu) in item.menu.list" :key="indexMenu" class="menu-item" v-html="listItem" />
                 </div>
                 <div v-if="item.menu.sum || model.popup.content" class="menu-bottom">
                   <span v-if="item.menu.sum" class="text ttu" v-html="item.menu.sum" />

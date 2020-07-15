@@ -1,15 +1,15 @@
 <template>
   <Section class="section--1440 services-page">
     <div
-      v-for="(item, index) in model.values"
+      v-for="(item, index) in generatedList"
       :key="item.title + index"
       class="services-item"
       :style="{ color: item.color }"
       :class="{ isInverted: item.isInverted }"
     >
-      <div v-if="item.image" class="image-block">
+      <div v-if="item.preview" class="image-block">
         <picture class="image">
-          <app-image :src="item.image" alt="" /></picture>
+          <app-image :src="item.preview" alt="" /></picture>
         <div v-if="item.tag" class="tag text--14 ttu">
           <span v-html="item.tag" />
         </div>
@@ -20,12 +20,12 @@
           <p v-if="item.description" class="description text--16" v-html="item.description" />
           <div class="link-block">
             <ExternalLink
-              v-if="item.url && item.linkLabel"
+              v-if="item.url"
               class="link link--brown link--tdu"
               :to="item.url"
               :target="arrows[index] ? '_blank' : ''"
               @is-external="showArrow"
-              v-html="item.linkLabel"
+              v-html="item.linkLabel || $t('services.linkLabel')"
             />
             <div v-if="arrows[index]" class="arrow">
               <iconArrow class="icon" />
@@ -42,6 +42,14 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
 import iconArrow from '~/assets/svg/arrow.svg'
+
+const colors = [
+  '#FAF3F7',
+  '#FFF7F4',
+  '#F9F9F9',
+  '#F1F8FA',
+  '#F5F2F9'
+]
 
 export default {
   components: {
@@ -63,6 +71,15 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    generatedList() {
+      return this.model.values.map((item, index) => {
+        return {
+          ...item,
+          color: colors[index % colors.length],
+          isInverted: !!(index % 2)
+        }
+      })
     }
   },
   methods: {

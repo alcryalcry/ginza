@@ -1,5 +1,6 @@
 <template>
-  <Layout :header="header" :footer="footer" :class="mode">
+  <!-- TODO: подумать как получить данные через slug (разные pageId для разных локалей ) -->
+  <Layout>
     <template v-slot:page-content>
       <component
         :is="item"
@@ -21,32 +22,137 @@
 
 <script>
 import page from '~/mixins/page'
-import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_SERVICES_ROOT } from '~/config/constants'
+import Subheader from '~/components/Subheader/Subheader'
+// import getAsyncData from '~/plugins/getAsyncData'
+// import { API_ROUTES_SERVICES_ROOT } from '~/config/constants'
 
 export default {
   name: 'ServicesOne',
+  components: {
+    Subheader
+  },
   mixins: [page],
-  async asyncData(context) {
-    try {
-      const {
-        header = {},
-        footer = {},
-        pageComponents = {}
-      } = await getAsyncData(context,
-        API_ROUTES_SERVICES_ROOT + '/' +
-        context.route.params.slug
-      )
-      return {
-        header,
-        footer,
-        components: pageComponents.components,
-        page: pageComponents,
-        mode: pageComponents.mode || ''
-      }
-    } catch (e) {
-      console.error('ERROR FROM page (asyncData)', e)
+  data() {
+    return {
+      subheaderValues: [
+        {
+          linkLabel: 'Связаться с менеджером',
+          isPopupLink: true
+        }
+      ],
+      components: [
+        {
+          'id': 1131,
+          'name': 'sub_header',
+          'properties': {
+            'type': 'anchor'
+          },
+          'values': [
+            {
+              'isPopupLink': true,
+              'linkLabel': 'Связаться с менеджером'
+            }
+          ],
+          'description': null,
+          'coords': null,
+          'services': null,
+          'rows': null,
+          'popup': {
+            'type': 'popupManager',
+            'content': {
+              'tag': '23982103812',
+              'image': '/static/images/upload/service_7_popup_image_image.jpeg',
+              'title': 'Какой-то заголовок',
+              'resultTitle': 'Успешное обращение',
+              'resultDescription': 'Вот это тоже успешно'
+            }
+          },
+          'params': null
+        },
+        {
+          'id': 1132,
+          'name': 'services_head',
+          'properties': {
+            'tag': 'Отели и ывырвфлы',
+            'image': '/static/images/upload/service_preview_7_image.jpeg',
+            'title': 'услуга муслуга',
+            'description': 'Совершенный свадебный день и запоминающийся вечер перед главным событием в апартаментах от Ginza Project.\nЕсли Вы в поиске идеальной локации для самого важного события, Вас ждут в Ginza Hotels & Apartments - дизайнерских апартаментах в центре города с высоким уровнем сервиса и особыми предложениями для будущих молодоженов. Именно детали создают настроение праздника. В Ginza Hotels & Apartments продумано все до мелочей, чтобы Вы наслаждались самим событием.'
+          },
+          'values': [
+            {
+              'mode': 'vertical',
+              'image': '/static/images/upload/service_7_gallery_0_image.jpeg'
+            },
+            {
+              'mode': 'horizontal',
+              'image': '/static/images/upload/service_7_gallery_1_image.jpeg'
+            },
+            {
+              'mode': 'vertical',
+              'image': '/static/images/upload/service_7_gallery_2_image.jpeg'
+            }
+          ],
+          'description': null,
+          'coords': null,
+          'services': null,
+          'rows': null,
+          'popup': null,
+          'params': null
+        },
+        {
+          'id': 1133,
+          'name': 'toggle_list',
+          'properties': {
+            'mode': 'section'
+          },
+          'values': [
+            {
+              'table': [
+                [
+                  {
+                    'name': 'услуга 1',
+                    'group': 'услуга 1',
+                    'price': '3000',
+                    'category': 'услуга',
+                    'sub_category': 'кака'
+                  },
+                  {
+                    'name': 'услуга 2',
+                    'group': 'услуга 2',
+                    'price': '4000',
+                    'category': 'муслуга',
+                    'sub_category': 'бака'
+                  }
+                ]
+              ],
+              'title': 'Этт',
+              'descriptionTables': 'Вы сможете пригласить мастера в номер, позвонив по номеру: +7 (921) 938-38-80'
+            }
+          ],
+          'description': null,
+          'coords': null,
+          'services': null,
+          'rows': null,
+          'popup': null,
+          'params': null
+        }
+      ]
     }
   }
+  // async asyncData(context) {
+  //   try {
+  //     const {
+  //       pageComponents = {}
+  //     } = await getAsyncData(context,
+  //       API_ROUTES_SERVICES_ROOT + '/' +
+  //       context.route.params.slug
+  //     )
+  //     return {
+  //       components: pageComponents.components,
+  //     }
+  //   } catch (e) {
+  //     console.error('ERROR FROM page (asyncData)', e)
+  //   }
+  // }
 }
 </script>

@@ -3,18 +3,18 @@
     <table>
       <thead>
         <tr>
-          <th v-for="column in model.columns" :key="column.id">
+          <th v-for="(column, type) in columns" :key="type">
             <div class="td-content">
-              <span v-for="(label, index) in column.label" :key="index" class="label" v-html="label" />
+              <span class="label" v-html="column" />
             </div>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(row, index) in model.rows" :key="index">
-          <td v-for="rowColumn in row" :key="rowColumn.columnId" :class="rowColumn.mode">
+        <tr v-for="(row, index) in rows" :key="index">
+          <td v-for="(rowColumn, ii) in row" :key="ii" :class="rowColumn.mode">
             <div class="td-content">
-              <span v-for="(label, indexx) in rowColumn.label" :key="indexx" class="label" v-html="label" />
+              <span class="label" v-html="rowColumn" />
             </div>
           </td>
         </tr>
@@ -29,13 +29,19 @@ import MODEL from './model'
 export default {
   props: {
     info: {
-      type: Object,
-      default: () => ({})
+      type: Array,
+      default: () => ([])
     }
   },
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    columns() {
+      return this.model[0] || []
+    },
+    rows() {
+      return this.model.slice(1) || []
     }
   }
 }

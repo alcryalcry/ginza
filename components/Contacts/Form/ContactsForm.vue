@@ -1,7 +1,7 @@
 <template>
   <div class="contacts-form">
     <div class="contacts-col">
-      <div v-for="item in model.contacts" :key="item.href" class="contacts-item">
+      <div v-for="item in generatedSocial" :key="item.href" class="contacts-item">
         <div v-if="item.title" class="title text--12 gray ttu" v-html="item.title" />
         <div class="contacts-link">
           <a v-if="item.label" class="link" :href="item.href" v-html="item.label" />
@@ -23,10 +23,10 @@
             :btn-label="$t('contacts.submit')"
             :btn-submit-class="'link link--brown link--tdu'"
             :is-loading="isLoading"
-            :info="model.fields"
+            :info="$t('contacts.fields')"
             @formSubmit="formSubmit"
           />
-          <p v-if="model.disclaimer" class="disclaimer text--12" v-html="model.disclaimer" />
+          <p v-if="$t('contacts.disclaimer')" class="disclaimer text--12" v-html="$t('contacts.disclaimer')" />
         </div>
         <div v-else key="result" class="result">
           <div class="result-icon">
@@ -34,9 +34,8 @@
               <iconCheck />
             </div>
           </div>
-          <h5 v-if="model.resultTitle" class="result-title" v-html="model.resultTitle" />
-          <p v-if="model.resultDescription" class="result-desc" v-html="model.resultDescription" />
-          <a v-if="model.resultLink" :href="model.resultLink.href" class="result-link" v-html="model.resultLink.label" />
+          <h5 v-if="$t('contacts.resultTitle')" class="result-title" v-html="$t('contacts.resultTitle')" />
+          <p v-if="$t('contacts.disclaimer')" class="result-desc" v-html="$t('contacts.disclaimer')" />
         </div>
       </transition>
     </div>
@@ -44,6 +43,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import axios from '~/plugins/axios'
 import { API_ROUTES_CONTACTS_FORM } from '~/config/constants'
@@ -76,6 +76,18 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL'
+    }),
+    generatedSocial() {
+      return this.$t('contacts.social').filter(item => this.GET_SOCIAL[item.field]).map((item) => {
+        return {
+          ...item,
+          label: this.GET_SOCIAL[item.field],
+          href: `${item.prefix}${this.GET_SOCIAL[item.field]}`
+        }
+      })
     }
   },
   methods: {

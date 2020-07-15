@@ -16,7 +16,7 @@ export default (info) => {
       },
       title = '',
       text = '',
-      tables = [],
+      table = [],
       descriptionTables = ''
     } = item
     return {
@@ -24,7 +24,7 @@ export default (info) => {
       menu,
       title,
       text,
-      tables,
+      table,
       descriptionTables
     }
   })

@@ -10,9 +10,7 @@ export default (info) => {
       linkLabel = '',
       url = '',
       tag = '',
-      image = '',
-      color = '',
-      isInverted = false
+      preview = ''
     } = item
 
     return {
@@ -21,9 +19,7 @@ export default (info) => {
       linkLabel,
       url,
       tag,
-      image,
-      color,
-      isInverted
+      preview
     }
   })
   return {

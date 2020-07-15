@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: раскидать данные филдов и других полей по аналогии с investorsform -->
   <div v-if="GET_POPUP_TYPE === 'popupManager'" v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-manager">
     <div class="popup-content">
       <div class="popup-head-row">

@@ -29,7 +29,7 @@
     <div v-if="model.description || model.features.values" class="description">
       <p v-if="model.description" class="text--24" v-html="model.description" />
       <button
-        v-if="model.popup.content"
+        v-if="model.popup && model.popup.content"
         class="popup-btn link link--brown link--tdu"
         @click="openPopup(model.popup)"
       >

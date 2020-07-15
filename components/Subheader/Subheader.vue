@@ -1,6 +1,6 @@
 <template>
   <div class="subheader" :class="{ isScrolled: GET_HEADER_STATUS }">
-    <div v-if="model.type === 'anchors'" ref="stickyMenuWrapper" class="subheader-top">
+    <div ref="stickyMenuWrapper" class="subheader-top">
       <button
         v-for="link in model.values"
         :key="link.url"
