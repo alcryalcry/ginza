@@ -45,12 +45,11 @@ export default {
           'id': 1131,
           'name': 'sub_header',
           'properties': {
-            'type': 'anchor'
+            'type': 'anchors'
           },
           'values': [
             {
-              'isPopupLink': true,
-              'linkLabel': 'Связаться с менеджером'
+              'linkLabel': ''
             }
           ],
           'description': null,
@@ -76,6 +75,7 @@ export default {
             'tag': 'Отели и ывырвфлы',
             'image': '/static/images/upload/service_preview_7_image.jpeg',
             'title': 'услуга муслуга',
+            'url_label': 'test',
             'description': 'Совершенный свадебный день и запоминающийся вечер перед главным событием в апартаментах от Ginza Project.\nЕсли Вы в поиске идеальной локации для самого важного события, Вас ждут в Ginza Hotels & Apartments - дизайнерских апартаментах в центре города с высоким уровнем сервиса и особыми предложениями для будущих молодоженов. Именно детали создают настроение праздника. В Ginza Hotels & Apartments продумано все до мелочей, чтобы Вы наслаждались самим событием.'
           },
           'values': [
@@ -110,22 +110,43 @@ export default {
               'table': [
                 [
                   {
-                    'name': 'услуга 1',
-                    'group': 'услуга 1',
-                    'price': '3000',
-                    'category': 'услуга',
-                    'sub_category': 'кака'
+                    'name': 'укладка',
+                    'group': 'Стрижка',
+                    'price': '2000',
+                    'category': 'Pro master',
+                    'sub_category': 'короткие волосы'
                   },
                   {
-                    'name': 'услуга 2',
-                    'group': 'услуга 2',
-                    'price': '4000',
-                    'category': 'муслуга',
-                    'sub_category': 'бака'
+                    'name': 'укладка',
+                    'group': 'Стрижка',
+                    'price': '3000',
+                    'category': 'Pro master',
+                    'sub_category': 'длинные волосы'
+                  },
+                  {
+                    'name': 'Стрижка с укладкой',
+                    'group': 'Стрижка',
+                    'price': '7000',
+                    'category': 'Pro master',
+                    'sub_category': 'длинные волосы'
+                  },
+                  {
+                    'name': 'Экспресс-макияж',
+                    'group': 'МАКИЯЖ',
+                    'price': '6000',
+                    'category': 'Pro master',
+                    'sub_category': 'короткие волосы'
+                  },
+                  {
+                    'name': 'Окрашивание бровей',
+                    'group': 'МАКИЯЖ',
+                    'price': '7000',
+                    'category': 'Pro master',
+                    'sub_category': 'короткие волосы'
                   }
                 ]
               ],
-              'title': 'Этт',
+              'title': 'Для девушек',
               'descriptionTables': 'Вы сможете пригласить мастера в номер, позвонив по номеру: +7 (921) 938-38-80'
             }
           ],
@@ -136,6 +157,7 @@ export default {
           'popup': null,
           'params': null
         }
+
       ]
     }
   }

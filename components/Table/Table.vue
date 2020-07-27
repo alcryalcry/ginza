@@ -1,20 +1,35 @@
 <template>
   <div class="table">
-    <table>
+    <table v-for="(group, groupIndex) in groups" :key="group.name">
       <thead>
         <tr>
-          <th v-for="(column, type) in columns" :key="type">
+          <th>
             <div class="td-content">
-              <span class="label" v-html="column" />
+              <span class="label" v-html="group.name" />
             </div>
+          </th>
+          <th v-for="(category, index) in categories" :key="index">
+            <template v-if="groupIndex < 1">
+              <div class="td-content">
+                <span class="label" v-html="category" />
+              </div>
+              <div v-if="subcategories.length" class="td-content">
+                <span v-for="subcategory in subcategories" :key="subcategory" class="label tag" v-html="subcategory" />
+              </div>
+            </template>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(row, index) in rows" :key="index">
-          <td v-for="(rowColumn, ii) in row" :key="ii" :class="rowColumn.mode">
+        <tr v-for="(row, rowName) in group.rows" :key="rowName">
+          <td>
             <div class="td-content">
-              <span class="label" v-html="rowColumn" />
+              <span class="label" v-html="rowName" />
+            </div>
+          </td>
+          <td v-for="(category, index) in categories" :key="category + index">
+            <div v-if="subcategories.length" class="td-content">
+              <span v-for="subcategory in subcategories" :key="subcategory" class="label" v-html="row[subcategory]" />
             </div>
           </td>
         </tr>
@@ -36,6 +51,30 @@ export default {
   computed: {
     model() {
       return MODEL(this.info)
+    },
+    categories() {
+      return [...new Set((this.model || []).map(item => item.category))]
+    },
+    subcategories() {
+      return [...new Set((this.model || []).map(item => item.sub_category))]
+    },
+    groups() {
+      return [...new Set((this.model || []).map(item => item.group))].map((key) => {
+        const allGroupCells = (this.model || []).filter(item => item.group === key)
+        const rrr = {}
+        const rows = [...new Set((allGroupCells).map(item => item.name))]
+        rows.forEach((name) => {
+          const iii = {}
+          allGroupCells.filter(item => item.name === name).forEach((item) => {
+            iii[item.sub_category] = item.price
+          })
+          rrr[name] = iii
+        })
+        return {
+          name: key,
+          rows: rrr
+        }
+      })
     },
     columns() {
       return this.model[0] || []
@@ -61,6 +100,7 @@ export default {
     padding-bottom: 1rem;
     font-size: 1.3rem;
     line-height: 1.3rem;
+    font-weight: $regular;
     letter-spacing: 0.02rem;
     text-transform: lowercase;
   }

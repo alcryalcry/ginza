@@ -120,6 +120,7 @@ const config = {
           }
         ],
         defaultLocale: 'ru',
+        detectBrowserLanguage: false,
         vueI18n: {
           fallbackLocale: 'ru',
           messages: {
