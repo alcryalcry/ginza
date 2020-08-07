@@ -14,7 +14,7 @@
         >
           <div class="slider-main-slide">
             <picture class="image">
-              <app-image data-manual-lazy :src="slide.image" :alt="slide.title" /></picture>
+              <app-image data-manual-lazy :src="slide.images" :alt="slide.title" /></picture>
           </div>
         </div>
       </template>
@@ -22,7 +22,7 @@
     <Section class="slider-actions section--min">
       <div class="slider-actions-row">
         <button
-          v-if="model.popup.content"
+          v-if="model.popup && model.popup.content"
           class="button button--arrow"
           @click="openPopup(model.popup)"
         >

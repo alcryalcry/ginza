@@ -1,5 +1,5 @@
 <template>
-  <Layout :class="[{ isMainPage: !!header }, mode]" :header="header" :footer="footer">
+  <Layout class="isMainPage page--dark">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -30,21 +30,20 @@ export default {
   async asyncData(context) {
     try {
       const {
-        header = {},
-        footer = {},
-        pageComponents = {}
+        components = {}
       } = await getAsyncData(context,
         API_ROUTES_HOTELS_ROOT + '/' +
         context.route.params.slug + '/' +
         'restaurants' + '/' +
         context.route.params.id
       )
+      const {
+        pageId = {}
+      } = components
       return {
-        header,
-        footer,
-        components: pageComponents.components,
-        page: pageComponents,
-        mode: pageComponents.mode || ''
+        components: pageId.components,
+        page: pageId,
+        mode: pageId.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

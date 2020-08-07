@@ -12,7 +12,7 @@ export default (info) => {
       category = '',
       url = '',
       linkLabel = '',
-      image = ''
+      images = ''
     } = item
     return {
       title,
@@ -20,7 +20,7 @@ export default (info) => {
       category,
       url,
       linkLabel,
-      image
+      images
     }
   })
 

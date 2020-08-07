@@ -1,12 +1,7 @@
 <template>
-  <Layout :header="header" :footer="footer" :class="mode">
+  <Layout>
     <template v-slot:page-content>
-      <component
-        :is="item"
-        v-for="(item, index) in generatedComps"
-        :key="index"
-        :data="components[index]"
-      />
+      <BlogFilter />
     </template>
     <template v-slot:popup>
       <Popup>
@@ -23,23 +18,23 @@
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_BLOG_ROOT } from '~/config/constants'
+import BlogFilter from '~/components/Blog/Filter/BlogFilter'
 
 export default {
   name: 'Blog',
+  components: {
+    BlogFilter
+  },
   mixins: [page],
   async asyncData(context) {
     try {
       const {
-        header = {},
-        footer = {},
-        pageComponents = {}
+        components = {}
       } = await getAsyncData(context, API_ROUTES_BLOG_ROOT)
       return {
-        header,
-        footer,
-        components: pageComponents.components,
-        page: pageComponents,
-        mode: pageComponents.mode || ''
+        components: components.components,
+        page: components,
+        mode: components.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

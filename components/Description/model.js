@@ -3,7 +3,7 @@ export default (info) => {
     title = '',
     text = '',
     moreText
-  } = info
+  } = info || {}
   return {
     title,
     text,

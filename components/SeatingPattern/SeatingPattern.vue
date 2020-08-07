@@ -2,7 +2,7 @@
   <Section class="section--min seating-pattern">
     <HeadTitleMini :info="model" />
     <ul class="pattern-grid">
-      <li v-for="item in model.values" :key="item.id" class="pattern-item">
+      <li v-for="(item, index) in model.values" :key="item.adult + index" class="pattern-item">
         <h5 v-if="item.title" class="title text--22" v-html="item.title" />
         <h5 v-if="item.adult" class="adult text--14" v-html="item.adult" />
         <picture v-if="item.image" class="image">

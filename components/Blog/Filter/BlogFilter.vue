@@ -39,7 +39,7 @@ import { mapGetters } from 'vuex'
 import MODEL from './model'
 import axios from '~/plugins/axios'
 import GridList from '~/components/Grid/List/GridList'
-import { API_ROUTES_BLOG_LIST } from '~/config/constants'
+import { API_ROUTES_BLOG_ROOT } from '~/config/constants'
 
 export default {
   name: 'BlogFilter',
@@ -130,7 +130,7 @@ export default {
         params[key] = this.paginationModel[key]
       }
 
-      axios.get(API_ROUTES_BLOG_LIST, {
+      axios.get(API_ROUTES_BLOG_ROOT, {
         params
       }).then(({ data }) => {
         const {

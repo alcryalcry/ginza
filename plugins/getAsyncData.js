@@ -1,6 +1,7 @@
 import axios from '~/plugins/axios'
 
 export default async function get(context, route) {
+  console.log(route)
   try {
     const routeResp = await axios.get(route, {
     })

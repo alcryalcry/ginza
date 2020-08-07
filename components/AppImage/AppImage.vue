@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     adaptedSrc() {
-      return `${process.env.appImageRoot}${this.src}`
+      return process.env.appImageRoot + this.src
     }
   }
 }
