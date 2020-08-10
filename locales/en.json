@@ -46,6 +46,58 @@
   "services": {
     "linkLabel": "Read more"
   },
+  "fixedActions": {
+    "travelline": {
+      "values": [
+        {
+          "id": "city",
+          "type": "cities",
+          "label": "Select a city"
+        },
+        {
+          "id": "date",
+          "type": "link",
+          "href": "#",
+          "label": "Dates"
+        },
+        {
+          "id": "count",
+          "type": "link",
+          "href": "#",
+          "label": "Guests"
+        },
+        {
+          "id": "booking",
+          "type": "popup",
+          "isMobile": true,
+          "label": "Booking",
+          "popup": {
+            "type": "popupBooking"
+          }
+        }
+      ]
+    },
+    "restaurants": {
+      "values": [
+        {
+          "href": "",
+          "id": "menu",
+          "isDownload": true,
+          "label": "Restaurant menu",
+          "type": "link"
+        },
+        {
+          "id": "booking",
+          "isMobile": true,
+          "label": "Reserve a table",
+          "type": "popup",
+          "popup": {
+            "type": "popupBooking"
+          }
+        }
+      ]
+    }
+  },
   "contacts": {
     "social": [
       {
@@ -99,19 +151,9 @@
         ]
       },
       {
-        "type": "select",
+        "type": "text",
         "label": "Subject of message",
         "name": "messageSubject",
-        "options": [
-          {
-            "id": "subject 1",
-            "label": "Theme example 1"
-          },
-          {
-            "id": "subject 2",
-            "label": "Theme example 2"
-          }
-        ],
         "validate": [
           {
             "rule": "required"
@@ -129,7 +171,56 @@
   "booking": {
     "title": "Booking",
     "btnLabelTravelLine": "Find",
-    "btnLabel": "Book now"
+    "btnLabel": "Book now",
+    "resultTitle": "You made a reservation",
+    "resultDescription": "In a few minutes a manager will contact you to clarify the details.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Name",
+        "name": "clientName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Phone",
+        "name": "clientPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "counter",
+        "label": "Guests",
+        "name": "guests",
+        "value": 2,
+        "minValue": 1,
+        "validate": [
+          {
+            "rule": "counter"
+          }
+        ]
+      },
+      {
+        "type": "date",
+        "label": "Date",
+        "name": "date",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      }
+    ]
+  },
+  "restaurants": {
+    "menu": "Restaurant menu"
   },
   "hotels": {
     "anchorLabel": "Show rooms"
@@ -173,7 +264,109 @@
     "manager": "Send message",
     "submit": "Submit"
   },
+  "subheader": {
+    "services": {
+      "type": "anchors",
+      "popup": {
+        "type": "popupManager"
+      },
+      "values": [
+        {
+          "linkLabel": "Contact manager",
+          "isPopupLink": true
+        }
+      ]
+    }
+  },
+  "travelline": {
+    "resultTitle": "You made a reservation",
+    "resultDescription": "The manager will contact you in a few minutes.",
+    "fields": [
+      {
+        "type": "cities",
+        "label": "Select a city",
+        "name": "cities",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "counter",
+        "label": "Guests",
+        "name": "guests",
+        "minValue": 1,
+        "value": 2,
+        "mode": "half",
+        "validate": [
+          {
+            "rule": "counter"
+          }
+        ]
+      },
+      {
+        "type": "counter",
+        "label": "Child",
+        "name": "child",
+        "minValue": 0,
+        "value": 0,
+        "mode": "half",
+        "validate": [
+          {
+            "rule": "counter"
+          }
+        ]
+      },
+      {
+        "type": "datesRange",
+        "label": "Dates",
+        "name": "datesRange",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      }
+    ]
+  },
+  "manager": {
+    "title": "Contact manager",
+    "resultTitle": "Message sent.",
+    "resultDescription": "The manager will contact you in a few minutes.",
+    "tag": "OR CALL:",
+    "disclaimer": "*By clicking “send” you consent <br/>to <a href=\"/privacy\" target=\"_blank\">the processing of personal data</a>",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Name",
+        "name": "clientName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Phone",
+        "name": "clientPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Message (optionally)",
+        "name": "message",
+        "validate": []
+      }
+    ]
+  },
   "investors": {
+    "description": "Become an investor in a federal chain of hotels and apartments with Ginza Hotels & Apartments and get a return on your investment. Leave your contacts for a detailed presentation.",
     "url": "/about",
     "submit": "Get a presentation*",
     "resultTitle": "Message sent.",

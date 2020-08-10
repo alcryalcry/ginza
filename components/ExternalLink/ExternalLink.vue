@@ -27,19 +27,27 @@ export default {
   },
   mounted() {
     if (process.browser) {
+      let url = this.to
+
       this.isUrlExternal = window.location.hostname !== (() => {
-        if (/^https?:\/\//.test(this.to)) {
+        if (/^https?:\/\//.test(url)) {
           const parser = document.createElement('a')
-          parser.href = this.to
+          parser.href = url
           return parser.hostname
         }
         return window.location.hostname
       })()
-      if (this.to.charAt(0) === '/') {
-        this.checkedPath = this.localePath(this.to.replace(window.location.origin, ''))
+      if (url.charAt(0) !== '/') {
+        url = '/' + url
+      }
+      if (url.charAt(0) === '/') {
+        this.checkedPath = this.localePath(url.replace(window.location.origin, ''))
+        if (this.checkedPath.endsWith('/en') || this.checkedPath.endsWith('/ru')) {
+          this.checkedPath = this.checkedPath.slice(0, -3)
+        }
         return
       }
-      this.checkedPath = this.to.replace(window.location.origin, '')
+      this.checkedPath = url.replace(window.location.origin, '')
       this.$emit('is-external', this.isUrlExternal)
     }
   }

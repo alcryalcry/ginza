@@ -11,7 +11,7 @@
         <app-image :src="model.image" alt="" /></picture>
     </Section>
 
-    <SliderFeatures v-if="model.values.length" :data="{ modeSlider: 'section--min', values: model.values }" />
+    <SliderFeatures v-if="model.values && model.values.length" :data="{ modeSlider: 'section--min', values: model.values }" />
 
     <Section class="section--min section--no-p">
       <p v-if="model.description" class="description" v-html="model.description" />

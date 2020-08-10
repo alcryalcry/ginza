@@ -112,7 +112,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   .type {
-    font-weight: $light;
+    font-weight: $bold;
     &::after {
       content: ' ';
     }

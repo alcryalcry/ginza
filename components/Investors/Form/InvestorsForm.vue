@@ -1,13 +1,14 @@
 <template>
   <div class="investors-form">
-    <picture v-if="model.image" class="image">
-      <app-image :src="model.image" alt="" /></picture>
+    <picture class="image">
+      <img src="@/assets/images/investors.jpg" alt="">
+    </picture>
 
     <div class="form-container" :class="{ isShowResult, isLoading }">
       <transition mode="out-in" name="list-fade">
         <div v-if="!isShowResult" key="form" class="form-content">
           <div class="title-block">
-            <p v-if="model.description" class="description text--18" v-html="model.description" />
+            <p class="description text--18" v-html="$t('investors.description')" />
             <ExternalLink v-if="$t('investors.url')" class="link link--brown link--tdu" :to="$t('investors.url')" v-html="$t('investors.linkLabel')" />
           </div>
           <FormGenerator

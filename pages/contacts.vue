@@ -1,12 +1,7 @@
 <template>
   <Layout :footer="false">
     <template v-slot:page-content>
-      <component
-        :is="item"
-        v-for="(item, index) in generatedComps"
-        :key="index"
-        :data="components[index]"
-      />
+      <ContactsForm />
     </template>
   </Layout>
 </template>
@@ -15,9 +10,13 @@
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_CONTACTS } from '~/config/constants'
+import ContactsForm from '~/components/Contacts/Form/ContactsForm'
 
 export default {
   name: 'Contacts',
+  components: {
+    ContactsForm
+  },
   mixins: [page],
   async asyncData(context) {
     try {

@@ -1,5 +1,4 @@
 <template>
-  <!-- TODO: раскидать данные филдов и других полей по аналогии с investorsform -->
   <div v-if="GET_POPUP_TYPE === 'popupManager'" v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-manager">
     <div class="popup-content">
       <div class="popup-head-row">
@@ -18,8 +17,8 @@
       </div>
       <div class="popup-manager-container" :class="{ isShowResult, isLoading }">
         <div class="title-block">
-          <h1 v-if="model.title" class="title title--h2" v-html="model.title" />
-          <p v-if="model.tag" class="tag text--14" v-html="model.tag" />
+          <h1 v-if="$t('manager.title')" class="title title--h2" v-html="$t('manager.title')" />
+          <p v-if="$t('manager.tag')" class="tag text--14" v-html="$t('manager.tag') + ' ' + GET_SOCIAL.phone" />
         </div>
         <transition mode="out-in" name="list-fade">
           <div v-if="!isShowResult" key="form" class="form-content">
@@ -27,13 +26,13 @@
               :btn-label="$t('popup.submit')"
               :btn-submit-class="'link link--brown link--tdu'"
               :is-loading="isLoading"
-              :info="model.fields"
+              :info="$t('manager.fields')"
               @formSubmit="formSubmit"
             />
             <div class="logo-love">
               <iconLove />
             </div>
-            <p v-if="model.disclaimer" class="disclaimer text--12" v-html="model.disclaimer" />
+            <p v-if="$t('manager.disclaimer')" class="disclaimer text--12" v-html="$t('manager.disclaimer')" />
           </div>
           <div v-else key="result" class="result">
             <div class="result-icon">
@@ -41,18 +40,17 @@
                 <iconCheck />
               </div>
             </div>
-            <h5 v-if="model.resultTitle" class="result-title" v-html="model.resultTitle" />
-            <p v-if="model.resultDescription" class="result-desc" v-html="model.resultDescription" />
-            <a v-if="model.resultLink" :href="model.resultLink.href" class="result-link" v-html="model.resultLink.label" />
+            <h5 v-if="$('booking.resultTitle')" class="result-title" v-html="$t('booking.resultTitle')" />
+            <p v-if="$('booking.resultDescription')" class="result-desc" v-html="$t('booking.resultDescription')" />
+            <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
           </div>
         </transition>
       </div>
     </div>
     <div class="popup-image">
-      <picture v-if="model.image" class="image">
-        <app-image :src="model.image" alt="" /></picture>
-      <picture v-if="model.logo" class="logo">
-        <app-image :src="model.logo" alt="" /></picture>
+      <picture class="image">
+        <img src="@/assets/images/popup-manager.jpg" alt="">
+      </picture>
     </div>
   </div>
 </template>
@@ -87,6 +85,7 @@ export default {
       return MODEL(this.GET_POPUP_CONTENT)
     },
     ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL',
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',
       GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT'
@@ -102,10 +101,10 @@ export default {
       }
 
       this.isLoading = true
-      const formData = new FormData()
+      const formData = {}
       for (const key in data) {
         if (key) {
-          formData.set(key, data[key])
+          formData[key] = data[key]
         }
       }
       axios.post(API_ROUTES_MANAGER_FORM, formData)

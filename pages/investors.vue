@@ -1,20 +1,7 @@
 <template>
   <Layout :footer="false">
     <template v-slot:page-content>
-      <component
-        :is="item"
-        v-for="(item, index) in generatedComps"
-        :key="index"
-        :data="components[index]"
-      />
-    </template>
-    <template v-slot:popup>
-      <Popup>
-        <PopupVideo />
-        <PopupBooking />
-        <PopupManager />
-        <PopupTravelLine />
-      </Popup>
+      <InvestorsForm />
     </template>
   </Layout>
 </template>
@@ -23,9 +10,13 @@
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_INVESTORS } from '~/config/constants'
+import InvestorsForm from '~/components/Investors/Form/InvestorsForm'
 
 export default {
   name: 'Investors',
+  components: {
+    InvestorsForm
+  },
   mixins: [page],
   async asyncData(context) {
     try {

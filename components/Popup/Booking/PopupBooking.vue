@@ -17,25 +17,25 @@
       </div>
       <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
         <transition mode="out-in" name="list-fade">
-          <FormGenerator v-if="!isShowResult" key="form" :is-loading="isLoading" :info="model.fields" @formSubmit="formSubmit" />
+          <FormGenerator v-if="!isShowResult" key="form" :is-loading="isLoading" :info="$t('booking.fields')" @formSubmit="formSubmit" />
           <div v-else key="result" class="result">
             <div class="result-icon">
               <div class="icon">
                 <iconCheck />
               </div>
             </div>
-            <h5 v-if="model.resultTitle" class="result-title" v-html="model.resultTitle" />
-            <p v-if="model.resultDescription" class="result-desc" v-html="model.resultDescription" />
-            <a v-if="model.resultLink" :href="model.resultLink.href" class="result-link" v-html="model.resultLink.label" />
+            <h5 v-if="$('booking.resultTitle')" class="result-title" v-html="$t('booking.resultTitle')" />
+            <p v-if="$('booking.resultDescription')" class="result-desc" v-html="$t('booking.resultDescription')" />
+            <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
           </div>
         </transition>
       </div>
     </div>
     <div class="popup-image">
-      <picture v-if="model.image" class="image">
-        <app-image :src="model.image" alt="" /></picture>
-      <picture v-if="model.logo" class="logo">
-        <app-image :src="model.logo" alt="" /></picture>
+      <picture v-if="GET_POPUP_EXTEND_CONTENT.image" class="image">
+        <app-image :src="GET_POPUP_EXTEND_CONTENT.image" alt="" /></picture>
+      <picture v-if="GET_POPUP_EXTEND_CONTENT.logo" class="logo">
+        <app-image :src="GET_POPUP_EXTEND_CONTENT.logo" alt="" /></picture>
     </div>
   </div>
 </template>
@@ -66,9 +66,11 @@ export default {
       return MODEL(this.GET_POPUP_CONTENT)
     },
     ...mapGetters({
+      GET_SOCIAL: 'GET_SOCIAL',
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',
       GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
-      GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT'
+      GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
+      GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT'
     })
   },
   methods: {
@@ -81,12 +83,14 @@ export default {
       }
 
       this.isLoading = true
-      const formData = new FormData()
+      const formData = {}
       for (const key in data) {
         if (key) {
-          formData.set(key, data[key])
+          formData[key] = data[key]
         }
       }
+      formData.hotel = this.$route.params.slug
+      formData.restaurant = this.$route.params.id
       axios.post(API_ROUTES_BOOKING_FORM, formData)
         .then(({ data }) => {
           if (data.status) {

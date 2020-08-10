@@ -68,8 +68,8 @@ export default {
       }
     }
     .logo {
-      width: 21.5rem;
-      height: 7.5rem;
+      width: 25rem;
+      height: 10rem;
     }
     .col-description {
       max-width: 40rem;

@@ -66,7 +66,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS'
+      GET_HEADER_STATUS: 'header/GET_HEADER_STATUS',
+      GET_LANG: 'GET_LANG'
     }),
     model() {
       return MODEL(this.info)
@@ -131,7 +132,7 @@ export default {
       }
 
       axios.get(API_ROUTES_BLOG_ROOT, {
-        params
+        // params
       }).then(({ data }) => {
         const {
           total = 0,

@@ -15,10 +15,9 @@
           <span v-if="model.city" class="city" v-html="model.city" />
         </a>
       </div>
-      <!-- TODO: прокинуть данные меню ресторана -->
-      <div class="mobile-link">
-        <a class="link link--brown text--28 light link--arrow" href="/dummy.pdf" target="_blank">
-          <span>Меню ресторана</span>
+      <div v-if="GET_POPUP_EXTEND_CONTENT.href" class="mobile-link">
+        <a class="link link--brown text--28 light link--arrow" :href="GET_POPUP_EXTEND_CONTENT.href" download="true">
+          <span>{{ $t('restaurants.menu') }}</span>
           <span class="icon">
             <iconArrow />
           </span>
@@ -29,6 +28,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import iconArrow from '~/assets/svg/arrow.svg'
 
@@ -44,6 +44,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT'
+    }),
     model() {
       return MODEL(this.info)
     }

@@ -46,6 +46,58 @@
   "services": {
     "linkLabel": "Подробнее"
   },
+  "fixedActions": {
+    "travelline": {
+      "values": [
+        {
+          "id": "city",
+          "type": "cities",
+          "label": "Выберите город"
+        },
+        {
+          "id": "date",
+          "type": "link",
+          "href": "#",
+          "label": "Даты"
+        },
+        {
+          "id": "count",
+          "type": "link",
+          "href": "#",
+          "label": "Гостей"
+        },
+        {
+          "id": "booking",
+          "type": "popup",
+          "isMobile": true,
+          "label": "Бронировать",
+          "popup": {
+            "type": "popupBooking"
+          }
+        }
+      ]
+    },
+    "restaurants": {
+      "values": [
+        {
+          "href": "",
+          "id": "menu",
+          "isDownload": true,
+          "label": "Меню ресторана",
+          "type": "link"
+        },
+        {
+          "id": "booking",
+          "isMobile": true,
+          "label": "Забронировать столик",
+          "type": "popup",
+          "popup": {
+            "type": "popupBooking"
+          }
+        }
+      ]
+    }
+  },
   "contacts": {
     "social": [
       {
@@ -99,19 +151,9 @@
         ]
       },
       {
-        "type": "select",
+        "type": "text",
         "label": "Тема обращения",
         "name": "messageSubject",
-        "options": [
-          {
-            "id": "subject 1",
-            "label": "Пример темы 1"
-          },
-          {
-            "id": "subject 2",
-            "label": "Пример темы 2"
-          }
-        ],
         "validate": [
           {
             "rule": "required"
@@ -129,7 +171,56 @@
   "booking": {
     "title": "Бронирование",
     "btnLabelTravelLine": "Подобрать",
-    "btnLabel": "Забронировать"
+    "btnLabel": "Забронировать",
+    "resultTitle": "Вы забронировали столик",
+    "resultDescription": "Через несколько минут с Вами свяжется менеджер для уточнения деталей.",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Имя",
+        "name": "clientName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Телефон",
+        "name": "clientPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "counter",
+        "label": "Гостей",
+        "name": "guests",
+        "value": 2,
+        "minValue": 1,
+        "validate": [
+          {
+            "rule": "counter"
+          }
+        ]
+      },
+      {
+        "type": "date",
+        "label": "Дата",
+        "name": "date",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      }
+    ]
+  },
+  "restaurants": {
+    "menu": "Меню ресторана"
   },
   "hotels": {
     "anchorLabel": "Посмотреть номера"
@@ -173,7 +264,109 @@
     "manager": "Отправить сообщение",
     "submit": "Отправить"
   },
+  "subheader": {
+    "services": {
+      "type": "anchors",
+      "popup": {
+        "type": "popupManager"
+      },
+      "values": [
+        {
+          "linkLabel": "Связаться с менеджером",
+          "isPopupLink": true
+        }
+      ]
+    }
+  },
+  "travelline": {
+    "resultTitle": "Вы забронировали столик",
+    "resultDescription": "Через несколько минут с Вами свяжется менеджер для уточнения деталей.",
+    "fields": [
+      {
+        "type": "cities",
+        "label": "Выберите город",
+        "name": "cities",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "counter",
+        "label": "Взрослых",
+        "name": "guests",
+        "minValue": 1,
+        "value": 2,
+        "mode": "half",
+        "validate": [
+          {
+            "rule": "counter"
+          }
+        ]
+      },
+      {
+        "type": "counter",
+        "label": "Детей",
+        "name": "child",
+        "minValue": 0,
+        "value": 0,
+        "mode": "half",
+        "validate": [
+          {
+            "rule": "counter"
+          }
+        ]
+      },
+      {
+        "type": "datesRange",
+        "label": "Даты",
+        "name": "datesRange",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      }
+    ]
+  },
+  "manager": {
+    "title": "Связаться с менеджером",
+    "resultTitle": "Сообщение отправлено.",
+    "resultDescription": "Через несколько минут с Вами свяжется менеджер.",
+    "tag": "ИЛИ ПОЗВОНИТЕ:",
+    "disclaimer": "*Нажимая “отправить” Вы даете согласие <br/>на <a href='/privacy' target='_blank'>обработку персональных данных</a>",
+    "fields": [
+      {
+        "type": "text",
+        "label": "Имя",
+        "name": "clientName",
+        "validate": [
+          {
+            "rule": "required"
+          }
+        ]
+      },
+      {
+        "type": "phone",
+        "label": "Телефон",
+        "name": "clientPhone",
+        "validate": [
+          {
+            "rule": "phone"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "label": "Сообщение (необязательно)",
+        "name": "message",
+        "validate": []
+      }
+    ]
+  },
   "investors": {
+    "description": "Станьте инвестором в федеральную сеть отелей и апартаментов совместно с Ginza Hotels & Apartments и получайте доход от инвестиций. Оставьте свои контакты, чтобы получить подробную презентацию.",
     "url": "/about",
     "submit": "Получить презентацию*",
     "resultTitle": "Сообщение отправлено.",

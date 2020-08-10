@@ -13,6 +13,7 @@ export default {
     $route() {
       this.CLOSE_MENU()
       this.CLOSE_POPUP()
+      this.CLEAR_EXTEND()
     }
   },
   mounted() {
@@ -27,7 +28,8 @@ export default {
   methods: {
     ...mapMutations({
       CLOSE_MENU: 'header/CLOSE_MENU',
-      CLOSE_POPUP: 'popup/CLOSE_POPUP'
+      CLOSE_POPUP: 'popup/CLOSE_POPUP',
+      CLEAR_EXTEND: 'popup/CLEAR_EXTEND'
     }),
     handleResize() {
       const m = 768

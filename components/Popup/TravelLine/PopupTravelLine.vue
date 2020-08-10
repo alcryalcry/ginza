@@ -23,7 +23,7 @@
               key="form"
               class="form-travelline"
               :is-loading="isLoading"
-              :info="model.fields"
+              :info="$('travelline.fields')"
               @formSubmit="formSubmit"
             />
 
@@ -33,9 +33,9 @@
                   <iconCheck />
                 </div>
               </div>
-              <h5 v-if="model.resultTitle" class="result-title" v-html="model.resultTitle" />
-              <p v-if="model.resultDescription" class="result-desc" v-html="model.resultDescription" />
-              <a v-if="model.resultLink" :href="model.resultLink.href" class="result-link" v-html="model.resultLink.label" />
+              <h5 v-if="$('travelline.resultTitle')" class="result-title" v-html="$t('travelline.resultTitle')" />
+              <p v-if="$('travelline.resultDescription')" class="result-desc" v-html="$t('travelline.resultDescription')" />
+              <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
             </div>
           </transition>
         </div>
@@ -52,10 +52,10 @@
       </div>
     </div>
     <div class="popup-image">
-      <picture v-if="model.image" class="image">
-        <app-image :src="model.image" alt="" /></picture>
-      <picture v-if="model.logo" class="logo">
-        <app-image :src="model.logo" alt="" /></picture>
+      <picture v-if="GET_POPUP_EXTEND_CONTENT.image" class="image">
+        <app-image :src="GET_POPUP_EXTEND_CONTENT.image" alt="" /></picture>
+      <picture v-if="GET_POPUP_EXTEND_CONTENT.logo" class="logo">
+        <app-image :src="GET_POPUP_EXTEND_CONTENT.logo" alt="" /></picture>
     </div>
   </div>
 </template>
@@ -90,7 +90,8 @@ export default {
     ...mapGetters({
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',
       GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
-      GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT'
+      GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
+      GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT'
     })
   },
   // watch: {

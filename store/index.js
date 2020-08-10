@@ -28,8 +28,10 @@ export const actions = {
     try {
       const cities = await axios.get(API_ROUTES_CITIES)
       dispatch('cities/UPDATE_CITIES', (cities || {}).data)
-      const social = await axios.get(API_ROUTES_SOCIAL)
-      commit('SET_SOCIAL', (social || {}).data)
+      const {
+        data = []
+      } = await axios.get(API_ROUTES_SOCIAL)
+      commit('SET_SOCIAL', data[0])
       await dispatch('housing/UPDATE_HOUSING_TYPES', this.app.i18n.messages[rootState.locale || 'ru'].housingTypes)
       await dispatch('housing/UPDATE_HOUSING_LIST')
     } catch (e) {

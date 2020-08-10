@@ -33,15 +33,13 @@ export default {
         components = {}
       } = await getAsyncData(context,
         API_ROUTES_BLOG_ROOT + '/' +
-        context.route.params.slug
+        context.route.params.slug + '/' +
+        context.store.state.locale
       )
-      const {
-        pageId = {}
-      } = components
       return {
-        components: pageId.components,
-        page: pageId,
-        mode: pageId.mode || ''
+        components: components.components,
+        page: components,
+        mode: components.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

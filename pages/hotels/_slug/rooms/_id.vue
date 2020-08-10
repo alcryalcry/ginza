@@ -35,16 +35,14 @@ export default {
         API_ROUTES_HOTELS_ROOT + '/' +
         context.route.params.slug + '/' +
         'rooms' + '/' +
-        context.route.params.id
+        context.route.params.id + '/' +
+        context.store.state.locale
       )
-      const {
-        pageId = {}
-      } = components
 
       return {
-        components: pageId.components,
-        page: pageId,
-        mode: pageId.mode || ''
+        components: components.components,
+        page: components,
+        mode: components.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

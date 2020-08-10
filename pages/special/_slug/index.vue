@@ -35,7 +35,8 @@ export default {
         pageComponents = {}
       } = await getAsyncData(context,
         API_ROUTES_SPECIAL_ROOT + '/' +
-        context.route.params.slug
+        context.route.params.slug + '/' +
+        context.store.state.locale
       )
       return {
         header,
