@@ -2,6 +2,8 @@
 
 ## Build Setup
 
+Check .env api endpoints
+
 ```bash
 # install dependencies
 $ npm install
