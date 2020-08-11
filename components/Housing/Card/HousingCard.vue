@@ -25,7 +25,7 @@
       </div>
     </template>
     <div class="content">
-      <div v-if="model.city" class="city text--13 ls1" v-html="model.city" />
+      <div v-if="model.city" class="city text--13 ls1" v-html="model.city.name" />
       <div v-if="model.name" class="title text--24" v-html="model.name" />
       <div class="params">
         <div v-for="(param, index) in model.params" :key="param.type" class="params-item">

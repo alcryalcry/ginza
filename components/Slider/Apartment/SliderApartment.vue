@@ -14,7 +14,7 @@
         >
           <div class="slider-main-slide">
             <picture class="image">
-              <app-image data-manual-lazy :src="slide.images" :alt="slide.title" /></picture>
+              <app-image data-manual-lazy :src="slide.image" :alt="slide.title" /></picture>
           </div>
         </div>
       </template>
