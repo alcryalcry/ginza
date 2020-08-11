@@ -62,7 +62,7 @@ export default {
       videoKeys: [],
       customOptions: {
         autoplay: true,
-        loop: false,
+        loop: true,
         speed: 700,
         parallax: true
       }

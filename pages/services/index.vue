@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <template v-slot:page-content>
+      <HousingSubheader :need-menu="false" />
       <component
         :is="item"
         v-for="(item, index) in generatedComps"
@@ -23,9 +24,13 @@
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_SERVICES_ROOT } from '~/config/constants'
+import HousingSubheader from '~/components/Housing/Subheader/HousingSubheader'
 
 export default {
   name: 'Services',
+  components: {
+    HousingSubheader
+  },
   mixins: [page],
   async asyncData(context) {
     try {

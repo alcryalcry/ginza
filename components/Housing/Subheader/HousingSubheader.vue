@@ -7,7 +7,7 @@
     <div class="cities">
       <CitiesDropdown />
     </div>
-    <div class="subheader-menu">
+    <div v-if="needMenu" class="subheader-menu">
       <div ref="stickyMenuWrapper" class="subheader-top">
         <button
           v-for="type in GET_HOUSING_TYPES"
@@ -43,6 +43,10 @@ export default {
     currentActiveLink: {
       type: String,
       default: 'apartments'
+    },
+    needMenu: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -104,6 +108,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 2.6rem;
       @include desktop {
         padding: 0 25rem;
       }

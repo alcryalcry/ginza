@@ -56,21 +56,26 @@
         },
         {
           "id": "date",
-          "type": "link",
-          "href": "#",
-          "label": "Dates"
+          "type": "popup",
+          "label": "Dates",
+          "popup": {
+            "type": "popupBooking"
+          }
         },
         {
           "id": "count",
-          "type": "link",
-          "href": "#",
-          "label": "Guests"
+          "type": "popup",
+          "label": "Guests",
+          "popup": {
+            "type": "popupBooking"
+          }
         },
         {
           "id": "booking",
           "type": "popup",
           "isMobile": true,
           "label": "Booking",
+          "arrow": true,
           "popup": {
             "type": "popupBooking"
           }

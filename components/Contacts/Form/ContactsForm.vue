@@ -79,7 +79,7 @@ export default {
     },
     ...mapGetters({
       GET_SOCIAL: 'GET_SOCIAL',
-      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     generatedSocial() {
       return this.$t('contacts.social').filter(item => this.GET_SOCIAL[item.field]).map((item) => {

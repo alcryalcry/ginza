@@ -103,6 +103,7 @@ const config = {
     '@nuxtjs/style-resources'
   ],
   modules: [
+    'nuxt-vuex-localstorage',
     'nuxt-ssr-cache',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',

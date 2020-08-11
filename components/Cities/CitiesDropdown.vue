@@ -58,8 +58,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_CITIES: 'cities/GET_CITIES',
-      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
+      GET_CITIES: 'localStorage/GET_CITIES',
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     filteredCities() {
       return this.GET_CITIES.filter(item => item.id !== this.GET_CURRENT_CITY.id)
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      UPDATE_CURRENT_CITY: 'cities/UPDATE_CURRENT_CITY'
+      UPDATE_CURRENT_CITY: 'localStorage/UPDATE_CURRENT_CITY'
     }),
     selectCity(city = {}) {
       this.UPDATE_CURRENT_CITY(city)

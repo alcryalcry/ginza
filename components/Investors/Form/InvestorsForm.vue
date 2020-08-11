@@ -67,7 +67,7 @@ export default {
   computed: {
     ...mapGetters({
       GET_SOCIAL: 'GET_SOCIAL',
-      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     model() {
       return MODEL(this.info)

@@ -27,7 +27,7 @@ export const actions = {
   async init({ dispatch, commit, rootState }) {
     try {
       const cities = await axios.get(API_ROUTES_CITIES)
-      dispatch('cities/UPDATE_CITIES', (cities || {}).data)
+      dispatch('localStorage/UPDATE_CITIES', (cities || {}).data)
       const {
         data = []
       } = await axios.get(API_ROUTES_SOCIAL)

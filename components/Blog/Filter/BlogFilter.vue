@@ -131,7 +131,7 @@ export default {
         params[key] = this.paginationModel[key]
       }
 
-      axios.get(API_ROUTES_BLOG_ROOT + '/' + this.GET_LANG, {
+      axios.get(API_ROUTES_BLOG_ROOT, {
         params
       }).then(({ data }) => {
         const {

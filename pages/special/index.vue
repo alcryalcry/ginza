@@ -30,12 +30,16 @@ export default {
   async asyncData(context) {
     try {
       const {
-        components = {}
+        components = []
       } = await getAsyncData(context, API_ROUTES_SPECIAL_ROOT)
+      const {
+        pageId = {}
+      } = Array.isArray(components) ? components[0] : {}
+
       return {
-        components: components.components,
-        page: components,
-        mode: components.mode || ''
+        components: pageId.components,
+        page: pageId,
+        mode: pageId.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

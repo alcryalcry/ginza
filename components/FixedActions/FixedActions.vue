@@ -18,7 +18,7 @@
             @click="openPopup(item.popup)"
           >
             <span v-html="item.label" />
-            <span class="icon">
+            <span v-if="item.id === 'booking'" class="icon">
               <iconArrow />
             </span>
           </button>

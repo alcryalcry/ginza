@@ -56,21 +56,26 @@
         },
         {
           "id": "date",
-          "type": "link",
-          "href": "#",
-          "label": "Даты"
+          "type": "popup",
+          "label": "Даты",
+          "popup": {
+            "type": "popupBooking"
+          }
         },
         {
           "id": "count",
-          "type": "link",
-          "href": "#",
-          "label": "Гостей"
+          "type": "popup",
+          "label": "Гостей",
+          "popup": {
+            "type": "popupBooking"
+          }
         },
         {
           "id": "booking",
           "type": "popup",
           "isMobile": true,
           "label": "Бронировать",
+          "arrow": true,
           "popup": {
             "type": "popupBooking"
           }

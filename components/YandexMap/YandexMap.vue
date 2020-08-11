@@ -102,7 +102,7 @@ export default {
           version: '2.1'
         },
         controls: [],
-        zoom: 9,
+        zoom: 13,
         markers: this.markers,
         options: {
           maxZoom: 16,

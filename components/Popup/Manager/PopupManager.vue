@@ -89,7 +89,7 @@ export default {
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',
       GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
-      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     })
   },
   methods: {
