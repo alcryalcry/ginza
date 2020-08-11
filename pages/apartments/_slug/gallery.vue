@@ -1,5 +1,5 @@
 <template>
-  <LayoutGallery :class="mode">
+  <LayoutGallery>
     <template v-slot:page-content>
       <component
         :is="item"
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+/* eslint-disable camelcase */
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
@@ -27,20 +28,16 @@ export default {
   async asyncData(context) {
     try {
       const {
-        header = {},
-        footer = {},
-        pageComponents = {}
+        components = {}
       } = await getAsyncData(context,
         API_ROUTES_APARTMENTS_ROOT + '/' +
         context.route.params.slug + '/' +
-        'gallery'
+        context.store.state.locale
       )
       return {
-        header,
-        footer,
-        components: pageComponents.components,
-        page: pageComponents,
-        mode: pageComponents.mode || ''
+        components: components.gallery_components,
+        page: components,
+        mode: components.mode || ''
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

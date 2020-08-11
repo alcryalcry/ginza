@@ -1,10 +1,11 @@
 export default (info) => {
+  console.log(info)
   const {
     navigationMode = '',
     values = []
   } = info || {}
 
-  const adaptedSlides = (values || []).map((item) => {
+  const adaptedSlides = Array.isArray(values) ? (values || []).map((item) => {
     const {
       id = null,
       title = '',
@@ -23,7 +24,7 @@ export default (info) => {
       name,
       image
     }
-  })
+  }) : []
 
   return {
     navigationMode,

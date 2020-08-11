@@ -1,5 +1,5 @@
 <template>
-  <ExternalLink :to="model.pageId" class="housing-card">
+  <ExternalLink :to="model.url" class="housing-card">
     <template v-if="model.images.length">
       <transition-group
         tag="div"

@@ -78,7 +78,8 @@ export default {
       return MODEL(this.info)
     },
     ...mapGetters({
-      GET_SOCIAL: 'GET_SOCIAL'
+      GET_SOCIAL: 'GET_SOCIAL',
+      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
     }),
     generatedSocial() {
       return this.$t('contacts.social').filter(item => this.GET_SOCIAL[item.field]).map((item) => {
@@ -97,19 +98,24 @@ export default {
       }
 
       this.isLoading = true
-      const formData = new FormData()
+      const formData = {}
       for (const key in data) {
         if (key) {
-          formData.set(key, data[key])
+          formData[key] = data[key]
         }
       }
+      formData.city = this.GET_CURRENT_CITY
+
       axios.post(API_ROUTES_CONTACTS_FORM, formData)
         .then(({ data }) => {
           if (data.status) {
             this.isShowResult = true
           }
         }).catch((e) => {
-          console.error(e, API_ROUTES_CONTACTS_FORM)
+          const {
+            response = {}
+          } = e || {}
+          console.error(response, API_ROUTES_CONTACTS_FORM)
         }).then(() => {
           this.isLoading = false
         })

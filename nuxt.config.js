@@ -10,7 +10,7 @@ const config = {
   store: true,
   head,
   server: {
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
     port: 8080
   },
   serverMiddleware: [],
@@ -103,6 +103,7 @@ const config = {
     '@nuxtjs/style-resources'
   ],
   modules: [
+    'nuxt-ssr-cache',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     // 'nuxt-lazy-load',
@@ -131,6 +132,36 @@ const config = {
       }
     ]
   ],
+  cache: {
+    // if you're serving multiple host names (with differing
+    // results) from the same server, set this option to true.
+    // (cache keys will be prefixed by your host name)
+    // if your server is behind a reverse-proxy, please use
+    // express or whatever else that uses 'X-Forwarded-Host'
+    // header field to provide req.hostname (actual host name)
+    useHostPrefix: false,
+    pages: [
+      '/'
+    ],
+
+    key(route, context) {
+      // custom function to return cache key, when used previous
+      // properties (useHostPrefix, pages) are ignored. return
+      // falsy value to bypass the cache
+    },
+
+    store: {
+      type: 'memory',
+
+      // maximum number of pages to store in memory
+      // if limit is reached, least recently used page
+      // is removed.
+      max: 100,
+
+      // number of seconds to store this page in cache
+      ttl: 60
+    }
+  },
   build: {
     assetsPublicPath: '/static/',
     extend(config, ctx) {

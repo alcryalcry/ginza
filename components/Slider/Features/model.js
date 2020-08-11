@@ -15,7 +15,7 @@ export default (info) => {
     services = []
   } = info || {}
 
-  const adaptedSlides = (values || []).map((item) => {
+  const adaptedSlides = Array.isArray(values) ? (values || []).map((item) => {
     const {
       id = null,
       url = '',
@@ -34,7 +34,7 @@ export default (info) => {
       image,
       mode
     }
-  })
+  }) : []
 
   return {
     mode,

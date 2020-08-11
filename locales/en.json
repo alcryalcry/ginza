@@ -120,7 +120,7 @@
       {
         "type": "text",
         "label": "Name",
-        "name": "userName",
+        "name": "clientName",
         "validate": [
           {
             "rule": "required"
@@ -130,7 +130,7 @@
       {
         "type": "phone",
         "label": "Phone",
-        "name": "userPhone",
+        "name": "clientPhone",
         "validate": [
           {
             "rule": "phone"
@@ -140,7 +140,7 @@
       {
         "type": "email",
         "label": "E-mail",
-        "name": "userEmail",
+        "name": "clientEmail",
         "validate": [
           {
             "rule": "required"
@@ -377,7 +377,7 @@
       {
         "type": "text",
         "label": "Name",
-        "name": "userName",
+        "name": "clientName",
         "validate": [
           {
             "rule": "required"
@@ -387,7 +387,7 @@
       {
         "type": "phone",
         "label": "Phone",
-        "name": "userPhone",
+        "name": "clientPhone",
         "validate": [
           {
             "rule": "phone"
@@ -397,7 +397,7 @@
       {
         "type": "email",
         "label": "E-mail",
-        "name": "userEmail",
+        "name": "clientEmail",
         "validate": [
           {
             "rule": "required"

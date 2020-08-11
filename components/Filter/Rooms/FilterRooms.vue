@@ -32,6 +32,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import MODEL from './model'
 import HousingCard from '~/components/Housing/Card/HousingCard'
 import HousingTypes from '~/components/Housing/Types/HousingTypes'
@@ -83,7 +84,7 @@ export default {
   },
   mounted() {
     if (process.browser) {
-      this.selectedFilter = this.model.filters[0]
+      this.selectedFilter = this.model.filters[0] || {}
     }
   },
   methods: {

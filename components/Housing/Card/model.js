@@ -1,8 +1,9 @@
+/* eslint-disable camelcase */
 export default (info) => {
   const {
-    TLHotelId = '',
+    tl_id = '',
     id = '',
-    pageId = '',
+    pageId = {},
     type = '',
     cityId = '',
     city = '',
@@ -12,6 +13,11 @@ export default (info) => {
     coords = [],
     params = []
   } = info
+
+  const {
+    url = '',
+    title = ''
+  } = pageId || {}
 
   const adaptedParams = (params || []).map((param) => {
     const {
@@ -25,7 +31,7 @@ export default (info) => {
   })
 
   return {
-    TLHotelId,
+    tl_id,
     id,
     pageId,
     type,
@@ -35,6 +41,8 @@ export default (info) => {
     images,
     preview,
     coords,
-    params: adaptedParams
+    params: adaptedParams,
+    url,
+    title
   }
 }

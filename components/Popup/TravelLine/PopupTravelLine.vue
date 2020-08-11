@@ -91,7 +91,8 @@ export default {
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',
       GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
-      GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT'
+      GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT',
+      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
     })
   },
   // watch: {
@@ -149,20 +150,25 @@ export default {
       }
 
       this.isLoading = true
-      const formData = new FormData()
+      const formData = {}
       for (const key in data) {
         if (key) {
-          formData.set(key, data[key])
+          formData[key] = data[key]
         }
       }
+      formData.city = this.GET_CURRENT_CITY
+
       console.log('go to travelline')
       // axios.post(API_ROUTES_BOOKING_FORM, formData)
       //   .then(({ data }) => {
       //     if (data.status) {
       //       this.isShowResult = true
       //     }
-      //   }).catch((e) => {
-      //     console.error(e, API_ROUTES_BOOKING_FORM)
+      //  }).catch((e) => {
+      //    const {
+      //      response = {}
+      //    } = e || {}
+      //    console.error(response, API_ROUTES_BOOKING_FORM)
       //   }).then(() => {
       //     this.isLoading = false
       //   })

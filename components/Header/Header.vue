@@ -398,8 +398,8 @@ export default {
     }
     .logo {
       display: block;
-      width: 11rem;
-      height: 4rem;
+      width: 13rem;
+      height: 5rem;
       transition: color .2s ease;
       @include desktop {
         &:hover {
@@ -407,7 +407,7 @@ export default {
         }
       }
       @include mobile {
-        width: 8.7rem;
+        width: 9rem;
         height: 3rem;
       }
     }

@@ -27,7 +27,7 @@ export default {
   },
   mounted() {
     if (process.browser) {
-      let url = this.to
+      let url = String(this.to)
 
       this.isUrlExternal = window.location.hostname !== (() => {
         if (/^https?:\/\//.test(url)) {

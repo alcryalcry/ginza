@@ -131,8 +131,8 @@ export default {
         params[key] = this.paginationModel[key]
       }
 
-      axios.get(API_ROUTES_BLOG_ROOT, {
-        // params
+      axios.get(API_ROUTES_BLOG_ROOT + '/' + this.GET_LANG, {
+        params
       }).then(({ data }) => {
         const {
           total = 0,
@@ -145,7 +145,10 @@ export default {
           ...values
         ]
       }).catch((e) => {
-        console.error(e)
+        const {
+          response = {}
+        } = e || {}
+        console.error(response, API_ROUTES_BLOG_ROOT)
       }).then(() => {
         this.isReady = true
         this.isLoading = false

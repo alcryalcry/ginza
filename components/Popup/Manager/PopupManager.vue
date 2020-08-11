@@ -88,7 +88,8 @@ export default {
       GET_SOCIAL: 'GET_SOCIAL',
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',
       GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
-      GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT'
+      GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
+      GET_CURRENT_CITY: 'cities/GET_CURRENT_CITY'
     })
   },
   methods: {
@@ -107,13 +108,18 @@ export default {
           formData[key] = data[key]
         }
       }
+      formData.city = this.GET_CURRENT_CITY
+
       axios.post(API_ROUTES_MANAGER_FORM, formData)
         .then(({ data }) => {
           if (data.status) {
             this.isShowResult = true
           }
         }).catch((e) => {
-          console.error(e, API_ROUTES_MANAGER_FORM)
+          const {
+            response = {}
+          } = e || {}
+          console.error(response, API_ROUTES_MANAGER_FORM)
         }).then(() => {
           this.isLoading = false
         })

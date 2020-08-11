@@ -1,5 +1,5 @@
 import axios from '~/plugins/axios'
-import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
+import { API_ROUTES_HOTELS_ROOT, API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
 
 export const state = () => ({
   types: [],
@@ -50,7 +50,7 @@ export const actions = {
         }
       })
 
-      const apartmentsResp = await axios.get(API_ROUTES_HOTELS_ROOT, {
+      const apartmentsResp = await axios.get(API_ROUTES_APARTMENTS_ROOT, {
         params: { lang: locale }
       })
 

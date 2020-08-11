@@ -44,7 +44,7 @@ export default {
       default: () => ({})
     },
     activeMarkerId: {
-      type: (String, Number),
+      type: [String, Number],
       default: ''
     },
     isMarkerDefault: {
