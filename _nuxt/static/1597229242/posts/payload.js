@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/posts", {data:[{filterParams:["новости","tag"]}],fetch:[],mutations:[]});
