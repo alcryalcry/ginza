@@ -8,8 +8,8 @@
         <div v-for="item in model.values" :key="item.title + item.url" :class="item.mode" class="service-col col-4 col-t-6">
           <ExternalLink :url="item.url" :to="item.url" class="card">
             <div class="card-image">
-              <picture v-if="item.image" class="image">
-                <app-image :src="item.image" alt="" /></picture>
+              <picture v-if="item.image || item.preview" class="image">
+                <app-image :src="item.image || item.preview" alt="" /></picture>
             </div>
             <h5 v-if="item.title" class="title text--12 bold ttu" v-html="item.title" />
           </ExternalLink>

@@ -9,10 +9,10 @@ const config = {
   mode: 'universal',
   store: true,
   head,
-  server: {
-    // host: '0.0.0.0',
-    port: 8080
-  },
+  // server: {
+  //   // host: '0.0.0.0',
+  //   port: 8080
+  // },
   serverMiddleware: [],
   // generate: {
   //   routes: [

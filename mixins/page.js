@@ -19,17 +19,27 @@ export default {
   computed: {
     ...mapGetters({
       GET_LANG: 'GET_LANG'
-    }),
-    generatedComps() {
-      const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
-      // return (this.components || []).filter(component => component.name !== 'fixed_actions').map((component) => {
-      return (this.components || []).map((component) => {
-        const componentName = capitalize(component.name)
-        return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
-          .then(m => m.default)
-          .catch(e => import('~/components/NotFound/NotFound.vue'))
-      })
-    }
+    })
+    // generatedComps() {
+    //   const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
+    //   // return (this.components || []).filter(component => component.name !== 'fixed_actions').map((component) => {
+    //   return (this.components || []).map((component) => {
+    //     const componentName = capitalize(component.name)
+    //     return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
+    //       .then(m => m.default)
+    //       .catch(e => import('~/components/NotFound/NotFound.vue'))
+    //   })
+    // }
+  },
+  created() {
+    const capitalize = (string = '') => string.charAt(0).toUpperCase() + string.slice(1)
+    // return (this.components || []).filter(component => component.name !== 'fixed_actions').map((component) => {
+    this.generatedComps = (this.components || []).map((component) => {
+      const componentName = capitalize(component.name)
+      return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
+        .then(m => m.default)
+        .catch(e => import('~/components/NotFound/NotFound.vue'))
+    })
   },
   head() {
     const {

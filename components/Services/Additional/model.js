@@ -12,13 +12,15 @@ export default (info) => {
       url = '',
       title = '',
       mode = '',
-      image = ''
+      image = '',
+      preview = ''
     } = item
     return {
       url,
       title,
       mode,
-      image
+      image,
+      preview
     }
   })
 
