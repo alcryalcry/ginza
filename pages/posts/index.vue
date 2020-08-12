@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template v-slot:page-content>
-      <BlogFilter />
+      <BlogFilter :info="{ filterParams }" />
     </template>
     <template v-slot:popup>
       <Popup>
@@ -17,7 +17,7 @@
 <script>
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_BLOG_ROOT } from '~/config/constants'
+import { API_ROUTES_BLOG_TAGS } from '~/config/constants'
 import BlogFilter from '~/components/Blog/Filter/BlogFilter'
 
 export default {
@@ -29,12 +29,11 @@ export default {
   async asyncData(context) {
     try {
       const {
-        components = {}
-      } = await getAsyncData(context, API_ROUTES_BLOG_ROOT)
+        components = []
+      } = await getAsyncData(context, API_ROUTES_BLOG_TAGS + '/' + context.store.state.locale + '/')
+
       return {
-        components: components.components,
-        page: components,
-        mode: components.mode || ''
+        filterParams: components
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)

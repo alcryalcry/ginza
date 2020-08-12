@@ -9,12 +9,16 @@ export default (info) => {
     const {
       id = null,
       title = '',
-      description = '',
-      url = '',
       linkLabel = '',
+      pageId = {},
       name = '',
-      image = ''
+      image = '',
+      preview = ''
     } = item
+    const {
+      url = '',
+      description = ''
+    } = pageId || {}
     return {
       id,
       title,
@@ -22,7 +26,8 @@ export default (info) => {
       url,
       linkLabel,
       name,
-      image
+      image,
+      preview
     }
   }) : []
 

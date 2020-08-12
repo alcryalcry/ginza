@@ -8,7 +8,7 @@
       <template v-slot:slides>
         <div
           v-for="(slide, index) in generatedSlides"
-          :key="slide.title + index"
+          :key="index"
           class="swiper-slide"
           :class="slide.type"
         >
@@ -17,15 +17,15 @@
           </template>
           <div v-else class="slider-main-slide">
             <picture class="image">
-              <app-image data-not-lazy :src="slide.image" :alt="slide.title" /></picture>
+              <app-image data-not-lazy :src="slide.image || slide.preview" :alt="slide.name" /></picture>
             <Section class="content section--no-p section--min" data-swiper-parallax="-400">
               <div class="labels">
                 <div v-if="slide.city" class="text--13 city" v-html="slide.city" />
                 <div v-if="slide.category" class="text--13 category" v-html="slide.category" />
               </div>
-              <div class="title title--main">{{ slide.title }}</div>
+              <div class="title title--main">{{ slide.name }}</div>
               <div class="slider-main-link">
-                <ExternalLink class="text--16" :to="slide.url" v-html="slide.linkLabel" />
+                <ExternalLink class="text--16" :to="slide.url" v-html="$t('slider.show')" />
               </div>
             </Section>
           </div>
@@ -62,7 +62,7 @@ export default {
       videoKeys: [],
       customOptions: {
         autoplay: true,
-        loop: true,
+        loop: false,
         speed: 700,
         parallax: true
       }

@@ -11,10 +11,10 @@
         <p class="text--16" v-html="model.subtext" />
       </div>
       <ExternalLink
-        v-if="model.url && model.linkLabel"
+        v-if="model.url"
         class="link link--brown link--tdu"
         :to="model.url"
-        v-html="model.linkLabel"
+        v-html="model.linkLabel || $t('slider.show')"
       />
       <div v-if="model.links.length" class="links">
         <ExternalLink

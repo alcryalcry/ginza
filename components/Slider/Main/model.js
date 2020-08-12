@@ -7,22 +7,29 @@ export default (info) => {
     const {
       type = '',
       videoSrc = '',
-      title = '',
-      city = '',
+      name = '',
+      city = {},
+      pageId = {},
       category = '',
-      url = '',
       linkLabel = '',
-      image = ''
+      image = '',
+      preview = ''
     } = item
+    const cityName = (city || {}).name
+    const {
+      url = ''
+    } = pageId || {}
+
     return {
       type,
       videoSrc,
-      title,
-      city,
+      name,
+      city: cityName,
       category,
       url,
       linkLabel,
-      image
+      image,
+      preview
     }
   })
 

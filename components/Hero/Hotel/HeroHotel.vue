@@ -12,7 +12,7 @@
           <span v-if="model.city" class="city" v-html="model.city" />
         </h5>
         <p class="description text--24" v-html="model.description" />
-        <div v-if="model.anchorLink" class="hero-anchor">
+        <div class="hero-anchor">
           <button class="link link--brown link--tdu" @click="scrollToSection" v-html="$t('hotels.anchorLabel')" />
         </div>
       </div>
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     scrollToSection() {
-      const currentElement = document.querySelector(`[data-anchor="${this.model.anchorLink}"]`)
+      const currentElement = document.querySelector(`[data-anchor="rooms-list"]`)
       if (currentElement) {
         currentElement.scrollIntoView({
           block: 'start',

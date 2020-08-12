@@ -93,9 +93,10 @@ export default {
       formData.city = this.GET_CURRENT_CITY
       formData.hotel = this.$route.params.slug
       formData.restaurant = this.$route.params.id
+      formData.pageId = this.$route.params.id
       axios.post(API_ROUTES_BOOKING_FORM, formData)
-        .then(({ data }) => {
-          if (data.status) {
+        .then(({ status }) => {
+          if (status === 200 || status === 201) {
             this.isShowResult = true
           }
         }).catch((e) => {

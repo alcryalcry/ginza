@@ -3,11 +3,17 @@ export default (info) => {
     title = '',
     label = '',
     mode = '',
-    url = '',
+    // url = '',
     linkLabel = '',
     image = '',
-    tag = ''
+    preview = '',
+    tag = '',
+    pageId = {}
   } = info
+
+  const {
+    url = ''
+  } = pageId || {}
 
   return {
     title,
@@ -16,6 +22,7 @@ export default (info) => {
     url,
     linkLabel,
     image,
+    preview,
     tag
   }
 }

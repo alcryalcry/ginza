@@ -11,13 +11,20 @@ export default (info) => {
       id = null,
       name = '',
       image = '',
-      title = ''
+      preview = '',
+      title = '',
+      pageId = {}
     } = item
+    const {
+      url = ''
+    } = pageId || {}
     return {
       id,
       name,
       image,
-      title
+      preview,
+      title,
+      url
     }
   })
 

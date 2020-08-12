@@ -6,7 +6,7 @@
           <div class="sidebar-content ">
             <div class="sidebar-row sidebar-list housing-types-list">
               <HousingTypes
-                :custom-list="model.filters"
+                :custom-list="$t('hotels.filters')"
                 :selected-item="selectedFilter"
                 @select-type="selectFilter"
               />
@@ -77,14 +77,14 @@ export default {
             conditional = () => true
             break
         }
-        return this.model.values.filter(item => conditional((item.params.find(param => param.type === 'adult') || {}).value))
+        return this.model.values.filter(item => conditional(Number(item.adult)))
       }
       return this.model.values
     }
   },
   mounted() {
     if (process.browser) {
-      this.selectedFilter = this.model.filters[0] || {}
+      this.selectedFilter = this.$t('hotels.filters')[0] || {}
     }
   },
   methods: {

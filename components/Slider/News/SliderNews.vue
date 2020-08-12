@@ -11,16 +11,17 @@
         class="slider-pre-wrapper"
       >
         <template v-slot:slides>
-          <div
+          <ExternalLink
             v-for="(slide, index) in model.values"
             :key="index"
             :class="slide.mode"
+            :to="slide.url"
             class="swiper-slide"
           >
             <picture class="image">
-              <app-image data-not-lazy :src="slide.image" :alt="slide.name" /></picture>
+              <app-image data-not-lazy :src="slide.image || slide.preview" :alt="slide.name" /></picture>
             <div v-if="slide.title" class="text text--16" v-html="slide.title" />
-          </div>
+          </ExternalLink>
         </template>
       </Slider>
     </Section>
@@ -32,12 +33,14 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Slider from '~/components/Slider/Slider'
 import HeadTitle from '~/components/HeadTitle/HeadTitle'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
     Slider,
     HeadTitle,
-    Section
+    Section,
+    ExternalLink
   },
   props: {
     info: {
@@ -49,7 +52,7 @@ export default {
     return {
       customOptions: {
         spaceBetween: 20,
-        loop: true,
+        loop: false,
         slidesPerView: 3,
         breakpoints: {
           767: {

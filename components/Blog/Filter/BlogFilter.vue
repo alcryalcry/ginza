@@ -4,14 +4,22 @@
       <div class="subheader-menu">
         <div ref="stickyMenuWrapper" class="subheader-top">
           <button
-            v-for="type in generatedFilters"
-            :key="type.id"
             ref="stickyMenuItems"
             class="subheader-link text--18"
             type="button"
-            :class="{ isActive: activeFilter === type.id }"
+            :class="{ isActive: !activeFilter }"
+            @click="selectType()"
+            v-html="$t('filters.all')"
+          />
+          <button
+            v-for="type in generatedFilters"
+            :key="type"
+            ref="stickyMenuItems"
+            class="subheader-link text--18"
+            type="button"
+            :class="{ isActive: activeFilter === type }"
             @click="selectType(type)"
-            v-html="type.label"
+            v-html="type"
           />
         </div>
       </div>
@@ -82,14 +90,7 @@ export default {
       return this.total > this.values.length
     },
     generatedFilters() {
-      const arr = this.model.filterParams
-      arr.unshift(
-        {
-          id: null,
-          label: this.$t('filters.all')
-        }
-      )
-      return arr
+      return [...this.model.filterParams]
     }
   },
   created() {
@@ -103,7 +104,7 @@ export default {
     }
   },
   methods: {
-    selectType({ id }) {
+    selectType(id) {
       if (this.activeFilter !== id) {
         this.activeFilter = id
         scrollTo({
@@ -124,7 +125,7 @@ export default {
       this.page = isShowMore ? this.page + 1 : 0
       this.isLoading = true
       const params = {
-        category: this.activeFilter
+        tag: this.activeFilter
       }
 
       for (const key in this.paginationModel) {
@@ -134,6 +135,7 @@ export default {
       axios.get(API_ROUTES_BLOG_ROOT, {
         params
       }).then(({ data }) => {
+        // console.log(data)
         const {
           total = 0,
           values = []

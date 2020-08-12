@@ -1,16 +1,16 @@
 <template>
   <div class="grid-item">
     <div class="grid-content">
-      <picture v-if="model.image" class="image">
-        <app-image :src="model.image" alt="" /></picture>
+      <picture v-if="model.image || model.preview" class="image">
+        <app-image :src="model.image || model.preview" alt="" /></picture>
       <div v-if="model.label" class="label text--12 ttu regular" v-html="model.label" />
       <h5 v-if="model.title" class="title text--20 regular" v-html="model.title" />
       <div class="grid-link">
         <ExternalLink
-          v-if="model.url && model.linkLabel"
+          v-if="model.url"
           class="link link--brown link--tdu"
           :to="model.url"
-          v-html="model.linkLabel"
+          v-html="$t('blog.linkLabel')"
         />
       </div>
     </div>

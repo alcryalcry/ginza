@@ -18,13 +18,17 @@ export default (info) => {
   const adaptedSlides = Array.isArray(values) ? (values || []).map((item) => {
     const {
       id = null,
-      url = '',
       linkLabel = '',
       slides = [],
+      pageId = {},
       name = '',
       image = '',
+      preview = '',
       mode = ''
     } = item
+    const {
+      url = ''
+    } = pageId || {}
     return {
       id,
       url,
@@ -32,6 +36,7 @@ export default (info) => {
       slides,
       name,
       image,
+      preview,
       mode
     }
   }) : []

@@ -15,12 +15,12 @@
           class="swiper-slide"
         >
           <picture class="image">
-            <app-image :src="slide.image" :alt="slide.name" data-manual-lazy /></picture>
+            <app-image :src="slide.image || slide.preview" :alt="slide.name" data-manual-lazy /></picture>
           <Section class="section--min slider-text">
             <div class="content">
               <div v-if="slide.title" class="title text--24" data-swiper-parallax-y="-50" v-html="slide.title" />
               <div v-if="slide.description" class="description text--16" data-swiper-parallax-y="-50" v-html="slide.description" />
-              <ExternalLink class="link link--white link--tdu" :to="slide.url" v-html="slide.linkLabel" />
+              <ExternalLink class="link link--white link--tdu" :to="slide.url" v-html="$t('slider.show')" />
             </div>
           </Section>
         </div>

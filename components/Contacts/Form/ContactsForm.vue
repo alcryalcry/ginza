@@ -35,7 +35,7 @@
             </div>
           </div>
           <h5 v-if="$t('contacts.resultTitle')" class="result-title" v-html="$t('contacts.resultTitle')" />
-          <p v-if="$t('contacts.disclaimer')" class="result-desc" v-html="$t('contacts.disclaimer')" />
+          <p v-if="$t('contacts.resultDescription')" class="result-desc" v-html="$t('contacts.resultDescription')" />
         </div>
       </transition>
     </div>
@@ -107,8 +107,8 @@ export default {
       formData.city = this.GET_CURRENT_CITY
 
       axios.post(API_ROUTES_CONTACTS_FORM, formData)
-        .then(({ data }) => {
-          if (data.status) {
+        .then(({ status }) => {
+          if (status === 200 || status === 201) {
             this.isShowResult = true
           }
         }).catch((e) => {

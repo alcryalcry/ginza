@@ -31,12 +31,12 @@
               :is="slide.url ? 'ExternalLink' : 'div'"
               v-for="slide in model.hasTabs ? activeSlider.slides : model.values"
               :key="slide.id"
-              :to="slide.url ? slide.url : false"
+              :to="slide.url || false"
               :class="slide.mode"
               class="swiper-slide"
             >
               <picture class="image">
-                <app-image :src="slide.image" :alt="slide.name" data-manual-lazy />
+                <app-image :src="slide.image || slide.preview" :alt="slide.name" data-manual-lazy />
               </picture>
               <div v-if="slide.name" class="text text--16" v-html="slide.name" />
             </component>
