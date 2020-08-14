@@ -12,15 +12,25 @@
         @click="selectType(type)"
         v-html="type.name"
       />
+      <ExternalLink
+        v-if="type.id === curItem.id"
+        :key="GET_CURRENT_HOUSING_TYPE.id"
+        class="link link--brown"
+        :to="'/' + GET_CURRENT_HOUSING_TYPE.id"
+      >
+        {{ $t('housing.all') }}
+      </ExternalLink>
     </li>
   </ul>
 </template>
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   components: {
+    ExternalLink
   },
   props: {
     info: {
@@ -124,6 +134,10 @@ export default {
           color: $black17;
         }
       }
+    }
+
+    .link {
+      margin-left: 4rem;
     }
   }
 }
