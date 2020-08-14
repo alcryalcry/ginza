@@ -22,7 +22,7 @@
       </div>
       <transition mode="out-in" name="list-fade">
         <Slider
-          v-if="model.hasTabs ? activeSlider.id : model.values.length"
+          v-if="model.hasTabs ? (activeSlider.slides && activeSlider.slides.length) : model.values.length"
           :key="activeId"
           :custom-options="customOptions"
         >
