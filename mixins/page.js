@@ -38,7 +38,10 @@ export default {
       const componentName = capitalize(component.name)
       return () => import('~/components/_middleware/' + componentName + '/' + componentName + '.vue')
         .then(m => m.default)
-        .catch(e => import('~/components/NotFound/NotFound.vue'))
+        .catch((e) => {
+          console.log(e)
+          // import('~/components/NotFound/NotFound.vue')
+        })
     })
   },
   head() {
