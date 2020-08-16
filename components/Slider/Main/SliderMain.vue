@@ -61,10 +61,14 @@ export default {
       activeIndex: 0,
       videoKeys: [],
       customOptions: {
-        autoplay: true,
-        loop: false,
-        speed: 700,
-        parallax: true
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        loop: true,
+        parallax: true,
+        initialSlide: 0,
+        slidesPerView: 1
       }
     }
   },
@@ -109,22 +113,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slider-main {
-  &::v-deep {
-    .swiper-wrapper {
-      backface-visibility: hidden !important;
-      transform-style: preserve-3d !important;
-      @include desktop {
-        transition-delay: 0.1s !important;
-      }
-    }
-    .swiper-slide {
-      transform: translate3d(0,0,0);
-      transform-style: preserve-3d !important;
-      -webkit-backface-visibility: hidden;
-    }
-  }
-}
 .swiper-slide {
   flex: 1 0 auto;
   width: 100%;
