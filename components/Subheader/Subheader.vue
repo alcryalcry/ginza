@@ -69,18 +69,18 @@ export default {
 .subheader {
   position: sticky;
   position: -webkit-sticky;
-  top: calc(#{$headerHeight} - .1rem);
+  top: calc(#{$headerHeight} - .05rem);
   z-index: $zLayerSticky;
   overflow: hidden;
   @include tablet {
-    top: calc(#{$headerHeightTablet} - .1rem);
+    top: calc(#{$headerHeightTablet} - .05rem);
     height: 4.6rem;
     left: 0;
     right: 0;
     border-bottom: 1px solid $border;
   }
   @include mobile {
-    top: calc(#{$headerHeightMobile} - .1rem);
+    top: calc(#{$headerHeightMobile} - .05rem);
     left: 0;
     right: 0;
     height: 4rem;

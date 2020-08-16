@@ -35,7 +35,7 @@
               <iconSearch />
             </button>
           </div> -->
-          <div class="header-link m-hide">
+          <div class="header-link">
             <nuxt-link
               v-for="locale in availableLocales"
               :key="locale.code"

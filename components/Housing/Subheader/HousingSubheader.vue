@@ -83,17 +83,17 @@ export default {
 .subheader {
   position: sticky;
   position: -webkit-sticky;
-  top: calc(#{$headerHeight} - .1rem);
+  top: calc(#{$headerHeight} - .05rem);
   padding: 1rem 0;
   border-bottom: 1px solid $border;
   z-index: $zLayerSticky;
   @include backdrop;
 
   @include tablet {
-    top: calc(#{$headerHeightTablet} - .1rem);
+    top: calc(#{$headerHeightTablet} - .05rem);
   }
   @include mobile {
-    top: calc(#{$headerHeightMobile} - .1rem);
+    top: calc(#{$headerHeightMobile} - .05rem);
   }
 
   &.isScrolled {

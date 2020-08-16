@@ -54,6 +54,7 @@ export default {
       margin: -4rem -2rem;
     }
     @include mobile {
+      flex-direction: column;
       margin: 0;
     }
   }

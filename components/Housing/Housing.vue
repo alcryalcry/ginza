@@ -6,13 +6,6 @@
           <div class="sidebar-content ">
             <div class="sidebar-row sidebar-list housing-types-list">
               <HousingTypes @select-type="selectType" />
-              <ExternalLink
-                :key="GET_CURRENT_HOUSING_TYPE.id"
-                class="link link--brown"
-                :to="'/' + GET_CURRENT_HOUSING_TYPE.id"
-              >
-                {{ $t('housing.all') }}
-              </ExternalLink>
             </div>
             <div class="sidebar-row sidebar-list">
               <Cities />
@@ -64,12 +57,10 @@ import YandexMap from '~/components/YandexMap/YandexMap'
 import Cities from '~/components/Cities/Cities'
 import Section from '~/components/Utils/Section'
 import stickyMenu from '~/mixins/stickyMenu'
-import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
   name: 'Housing',
   components: {
-    ExternalLink,
     Section,
     YandexMap,
     HousingTypes,
@@ -95,7 +86,6 @@ export default {
     ...mapGetters({
       GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS',
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
-      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE',
       GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST'
     }),
     model() {
@@ -244,9 +234,6 @@ export default {
     display: flex;
     flex-flow: row nowrap;
     align-items: flex-start;
-    .link {
-      margin-left: 4rem;
-    }
   }
   .housing-actions {
     display: flex;
