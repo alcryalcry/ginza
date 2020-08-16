@@ -1,5 +1,5 @@
 <template>
-  <div :class="isReady" class="housing-card">
+  <NuxtLink :to="url" :class="isReady" class="housing-card">
     <div
       v-if="model.images.length || model.preview"
       tag="div"
@@ -8,7 +8,7 @@
       <app-image class="image" data-not-lazy :src="model.images[0] || model.preview" :alt="model.name" />
     </div>
     <div class="content">
-      <div v-if="model.name" class="title text--16" v-html="model.name" />
+      <div v-if="model.name" class="title text--16" v-text="model.name" />
       <div v-if="model.params.length" class="params">
         <div v-for="(param, index) in model.params" :key="param.type" class="params-item">
           <div v-if="checkComponents[index]" class="params-icon">
@@ -18,11 +18,12 @@
         </div>
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script>
 import MODEL from './model'
+import ExternalLink from '~/components/ExternalLink/ExternalLink'
 import beds from '~/assets/svg/icon-beds.svg'
 import adult from '~/assets/svg/icon-adult.svg'
 import size from '~/assets/svg/icon-size.svg'
@@ -32,7 +33,8 @@ export default {
   components: {
     beds,
     adult,
-    size
+    size,
+    ExternalLink
   },
   props: {
     info: {
@@ -46,6 +48,10 @@ export default {
     }
   },
   computed: {
+    url() {
+      const url = this.model.pageId.url
+      return url ? url.replace(/(\/ru|\/en)$/, '') : null
+    },
     model() {
       return MODEL(this.info)
     },
