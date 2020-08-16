@@ -37,11 +37,11 @@ export default {
         this.isSliderReady = true
         this.updateLazySlides()
 
-        if (this.GET_MQ === 'desktop' && this.isCenteredSlides) {
-          this.mySwiper.slideTo(Math.abs((this.mySwiper || {}).slides.length / 3))
-        } else {
-          this.mySwiper.slideTo(0)
-        }
+        // if (this.GET_MQ === 'desktop' && this.isCenteredSlides) {
+        //   this.mySwiper.slideTo(Math.abs((this.mySwiper || {}).slides.length / 3))
+        // } else {
+        //   this.mySwiper.slideTo(0)
+        // }
       })
     }
   },

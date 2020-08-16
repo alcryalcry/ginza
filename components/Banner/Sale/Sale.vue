@@ -237,7 +237,6 @@ export default {
     width: 7.7rem;
     height: 7.7rem;
     padding: 2.4rem;
-    margin-left: 3rem;
     transition: background-color .2s ease, border-color .2s ease, color .2s ease;
 
     &:hover {

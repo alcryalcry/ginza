@@ -106,13 +106,6 @@ export default {
 .slider-apartment {
   position: relative;
   overflow: hidden;
-  &::v-deep {
-    .swiper-wrapper {
-      backface-visibility: hidden !important;
-      transform-style: preserve-3d !important;
-      transition-delay: 0.1s !important;
-    }
-  }
 
   &::v-deep {
     .navigation {

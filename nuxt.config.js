@@ -52,7 +52,7 @@ const config = {
   //     '/blog/hermitage'
   //   ]
   // },
-  loading: { color: '#fff' },
+  loading: false,
   css: [
     '~assets/scss/app.scss'
 
