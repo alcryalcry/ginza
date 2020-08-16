@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <template v-slot:page-content>
+      <FixedActions :info="fixedData" />
       <component
         :is="item"
         v-for="(item, index) in generatedComps"
@@ -23,9 +24,13 @@
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
+import FixedActions from '~/components/FixedActions/FixedActions'
 
 export default {
   name: 'ApartmentsOne',
+  components: {
+    FixedActions
+  },
   mixins: [page],
   async asyncData(context) {
     try {
@@ -43,6 +48,13 @@ export default {
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)
+    }
+  },
+  data() {
+    return {
+      fixedData: {
+        ...this.$t('fixedActions.travelline')
+      }
     }
   }
 }
