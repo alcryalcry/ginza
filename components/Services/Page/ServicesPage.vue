@@ -194,6 +194,7 @@ export default {
       position: relative;
     }
     &::before {
+      content: '';
       position: absolute;
       top: 50%;
       right: 0;
@@ -209,7 +210,14 @@ export default {
         height: 42rem;
       }
       @include mobile_tablet {
-        content: '';
+        transform: translate3d(42%, -60%, 0);
+        width: 36rem;
+        height: 36rem;
+      }
+      @include mobile {
+        transform: translate3d(42%, -65%, 0);
+        width: 26rem;
+        height: 26rem;
       }
     }
   }
@@ -220,6 +228,9 @@ export default {
     z-index: 1;
     @include desktop {
       margin-left: auto;
+    }
+    @include mobile_tablet {
+      padding-bottom: 5rem;
     }
   }
   .description {
