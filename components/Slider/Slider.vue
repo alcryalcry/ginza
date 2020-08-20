@@ -198,6 +198,39 @@ export default {
         }
       }
     }
+    &.navigation--basic {
+      .navigation-btn {
+        top: calc(50% - 4rem);
+        @include tablet {
+          top: calc(50% - 3rem);
+          width: 6rem;
+          height: 6rem;
+        }
+        @include mobile {
+          top: calc(50% - 3rem);
+          width: 6rem;
+          height: 6rem;
+        }
+        &.swiper-button-next {
+          right: 7rem;
+          @include tablet {
+            right: $sectionOffsetHorizontalTablet;
+          }
+          @include mobile {
+            right: $sectionOffsetHorizontalMobile;
+          }
+        }
+        &.swiper-button-prev {
+          left: 7rem;
+          @include tablet {
+            left: $sectionOffsetHorizontalTablet;
+          }
+          @include mobile {
+            left: $sectionOffsetHorizontalMobile;
+          }
+        }
+      }
+    }
   }
 
   .swiper-pagination {

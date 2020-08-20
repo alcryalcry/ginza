@@ -4,7 +4,7 @@
       v-if="model.values.length"
       :custom-options="customOptions"
       :has-navigation="true"
-      navigation-mode="navigation--white"
+      navigation-mode="navigation--white navigation--basic"
     >
       <template v-slot:slides>
         <div
@@ -106,42 +106,6 @@ export default {
 .slider-apartment {
   position: relative;
   overflow: hidden;
-
-  &::v-deep {
-    .navigation {
-      .navigation-btn {
-        top: calc(50% - 4rem);
-        @include tablet {
-          top: calc(50% - 3rem);
-          width: 6rem;
-          height: 6rem;
-        }
-        @include mobile {
-          top: calc(50% - 3rem);
-          width: 6rem;
-          height: 6rem;
-        }
-        &.swiper-button-next {
-          right: 7rem;
-          @include tablet {
-            right: $sectionOffsetHorizontalTablet;
-          }
-          @include mobile {
-            right: $sectionOffsetHorizontalMobile;
-          }
-        }
-        &.swiper-button-prev {
-          left: 7rem;
-          @include tablet {
-            left: $sectionOffsetHorizontalTablet;
-          }
-          @include mobile {
-            left: $sectionOffsetHorizontalMobile;
-          }
-        }
-      }
-    }
-  }
 }
 
 .slider-main-slide {

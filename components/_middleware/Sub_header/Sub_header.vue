@@ -22,8 +22,7 @@ export default {
         mode: '',
         anchor: false,
         ...this.data,
-        ...(this.data.properties || {}),
-        ...this.$t('subheader.services')
+        ...(this.data.properties || {})
       }
     }
   }
