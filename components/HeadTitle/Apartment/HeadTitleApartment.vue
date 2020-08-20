@@ -13,7 +13,7 @@
         <div v-if="checkComponents[index]" class="params-icon">
           <component :is="param.type" />
         </div>
-        <div class="params-text">{{ param.value }}</div>
+        <div class="params-text">{{ param.value }}{{ getSize(param.type) }}</div>
       </div>
     </div>
     <Description :info="model.description" />
@@ -54,6 +54,11 @@ export default {
     },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
+    }
+  },
+  methods: {
+    getSize(type) {
+      return type === 'size' ? 'м²' : null
     }
   }
 }

@@ -151,7 +151,7 @@ export default {
       height: 60rem;
     }
     @include desktop {
-      margin-top: - $sectionOffsetVertical;
+      margin-top: - 1rem;
       height: 100%;
     }
     &::v-deep {
