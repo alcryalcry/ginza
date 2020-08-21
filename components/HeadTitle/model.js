@@ -10,7 +10,8 @@ export default (info) => {
     tag = '',
     isPopupContacts = false,
     isArrow = false,
-    popup = {}
+    popup = {},
+    properties = {}
   } = info || {}
 
   return {
@@ -24,6 +25,7 @@ export default (info) => {
     tag,
     isPopupContacts,
     isArrow,
-    popup
+    popup,
+    properties
   }
 }

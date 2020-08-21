@@ -3,9 +3,16 @@
     <div class="content">
       <div class="title title--h2">
         <p v-if="model.title" v-html="model.title" />
-        <div v-if="model.isArrow" class="head-title-link">
-          <iconArrow class="icon" />
-        </div>
+        <template v-if="url">
+          <ExternalLink v-if="model.isArrow" :to="url" class="head-title-link">
+            <iconArrow class="icon" />
+          </ExternalLink>
+        </template>
+        <template v-else>
+          <div v-if="model.isArrow" class="head-title-link">
+            <iconArrow class="icon" />
+          </div>
+        </template>
       </div>
       <div v-if="model.subtext" class="subtext">
         <p class="text--16" v-html="model.subtext" />
@@ -63,6 +70,9 @@ export default {
     }
   },
   computed: {
+    url() {
+      return this.model.properties && this.model.properties.url ? this.model.properties.url : ''
+    },
     model() {
       return MODEL(this.info)
     }
