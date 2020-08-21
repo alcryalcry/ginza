@@ -1,5 +1,4 @@
 export default (info) => {
-  console.log(info)
   const {
     navigationMode = '',
     values = []
