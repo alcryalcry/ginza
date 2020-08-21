@@ -5,8 +5,8 @@
     </Section>
     <Section class="section--no-p section--min">
       <div class="row">
-        <div v-for="item in model.values" :key="item.title + item.url" :class="item.mode" class="service-col col-4 col-t-6">
-          <ExternalLink :url="item.url" :to="item.url" class="card">
+        <div v-for="item in model.values" :key="item.title + item.id" :class="item.mode" class="service-col col-4 col-t-6">
+          <ExternalLink v-if="item.url" :to="item.url" class="card">
             <div class="card-image">
               <picture v-if="item.image || item.preview" class="image">
                 <app-image :src="item.image || item.preview" alt="" /></picture>

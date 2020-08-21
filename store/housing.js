@@ -19,6 +19,7 @@ export const mutations = {
     state.types = [...payload]
   },
   SET_CURRENT_HOUSING_TYPE (state, payload = {}) {
+    console.log('setting to ', state, 'payload: ', payload)
     state.type = { ...payload }
   }
 }

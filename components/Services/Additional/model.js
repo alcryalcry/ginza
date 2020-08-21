@@ -3,20 +3,17 @@ export default (info) => {
     title = '',
     description = '',
     descriptionIcon = false,
-    url = '',
     values = []
   } = info
 
-  const adaptedValues = (values || []).map((item) => {
+  const adaptedValues = [...values].filter(value => value).map((item) => {
     const {
-      url = '',
       title = '',
       mode = '',
       image = '',
       preview = ''
     } = item
     return {
-      url,
       title,
       mode,
       image,
@@ -28,7 +25,6 @@ export default (info) => {
     title,
     description,
     descriptionIcon,
-    url,
     values: adaptedValues
   }
 }

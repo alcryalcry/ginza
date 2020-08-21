@@ -1,4 +1,14 @@
 {
+  "COMMON": {
+    "PROPERTIES": {
+      "BED": "bed",
+      "OF_BED": "beds",
+      "BEDS": "beds",
+      "ROOM": "room",
+      "OF_ROOM": "rooms",
+      "ROOMS": "rooms"
+    }
+  },
   "CATEGORY": {
     "Apartments": "Apartments",
     "Standart": "Hotel",

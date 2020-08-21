@@ -8,7 +8,6 @@ export const mutations = {
     state.cities = [...payload]
   },
   SET_CURRENT_CITY (state, payload = {}) {
-    console.log(payload)
     state.city = { ...payload }
   }
 }

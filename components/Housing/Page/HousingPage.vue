@@ -85,13 +85,14 @@ export default {
       GET_MQ: 'mediaQuery/GET_MQ',
       GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE',
       GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS',
-      GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST'
+      GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST',
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     model() {
       return MODEL(this.GET_HOUSING_LIST)
     },
     filteredCards() {
-      return this.model.filter(item => item.type === this.GET_CURRENT_HOUSING_TYPE.id)
+      return this.model.filter(item => item.type === this.GET_CURRENT_HOUSING_TYPE.id && item.city.id === this.GET_CURRENT_CITY.id)
     },
     isDesktop() {
       return this.GET_MQ === 'desktop'

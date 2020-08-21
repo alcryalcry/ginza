@@ -36,8 +36,11 @@ export default {
     ...mapGetters({
       GET_SOCIAL: 'GET_SOCIAL'
     }),
+    filteredList() {
+      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'phone' && key !== 'id')
+    },
     generatedList() {
-      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'id').map(([key, value]) => {
+      return this.filteredList.map(([key, value]) => {
         return {
           key,
           value
@@ -46,7 +49,7 @@ export default {
     },
     generatedComps() {
       const capitalize = (string = '') => string.charAt(0).toLowerCase() + string.slice(1)
-      return Object.entries(this.GET_SOCIAL).filter(([key]) => key !== 'phone' && key !== 'id').map(([ key, value ]) => {
+      return this.filteredList.map(([ key, value ]) => {
         const componentName = capitalize(key)
         return () => import('~/assets/svg/social/' + componentName + '.svg')
           .then(m => m.default)
