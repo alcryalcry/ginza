@@ -1,4 +1,9 @@
 {
+  "CATEGORY": {
+    "Apartments": "Апартаменты",
+    "Standart": "Отель",
+    "Business": "Отель"
+  },
   "menuList": [
     {
       "label": "О нас",
