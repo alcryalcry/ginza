@@ -3,6 +3,7 @@
     <div v-if="model.title" class="title" :class="titleClassNames" v-html="model.title" />
     <div class="gallery-rows">
       <div v-for="(row, index) in model.imageRows" :key="row.type + index" class="gallery-row">
+        <div v-if="model.text && index === model.imageRows.length - 1" class="review-text text--24" v-html="model.text" />
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
           <template v-if="row.type === 'image'">
             <PictureLabels :info="col" />
@@ -29,7 +30,6 @@
         </div>
       </div>
     </div>
-    <div v-if="model.text" class="review-text text--24" v-html="model.text" />
   </div>
 </template>
 
@@ -71,7 +71,7 @@ $sizeMobile: 1rem;
 
 .review-text {
   max-width: 50rem;
-  margin: 10rem auto 0;
+  margin: 10rem auto 10rem;
   font-weight: $light;
   text-align: center;
 }

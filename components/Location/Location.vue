@@ -7,9 +7,9 @@
     <div class="list">
       <LocationItem v-for="item in visibleItems" :key="item.id" :info="item" />
       <vue-slide-toggle :open="isShowMore">
-        <LocationItem v-for="item in visibleItems" :key="item.id" :info="item" />
+        <LocationItem v-for="item in hiddenItems" :key="item.id" :info="item" />
       </vue-slide-toggle>
-      <div class="list-show-more">
+      <div v-if="showMoreComponent" class="list-show-more">
         <button
           class="link link--brown link--tdu"
           @click="isShowMore = !isShowMore"
@@ -55,10 +55,13 @@ export default {
       return MODEL(this.info)
     },
     visibleItems() {
-      return this.model.values.slice(0, this.numberOfVisible)
+      return this.model.values.slice(0, this.numberOfVisible - 1)
     },
-    hideItems() {
-      return this.model.values.slice(-this.numberOfVisible)
+    hiddenItems() {
+      return this.model.values.slice(this.numberOfVisible - 1, this.model.values.length - 1)
+    },
+    showMoreComponent() {
+      return !!(this.model.values && this.model.values.length > this.numberOfVisible)
     }
   }
 }

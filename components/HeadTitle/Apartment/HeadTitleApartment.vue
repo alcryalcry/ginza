@@ -1,12 +1,12 @@
 <template>
   <Section class="apartment-head section--min">
     <div class="labels">
-      <div v-if="model.city" class="text--13 city medium" v-html="model.city" />
-      <div v-if="model.category" class="text--13 category medium" v-html="model.category" />
+      <div v-if="model.city" class="text--13 city medium" v-text="model.city" />
+      <div v-if="model.category" class="text--13 category medium" v-text="$te(`CATEGORY.${model.category}`) ? $t(`CATEGORY.${model.category}`) : model.category" />
     </div>
     <div class="title-block">
-      <div v-if="model.title" class="title title--main bold" v-html="model.title" />
-      <div v-if="model.label" class="label" v-html="model.label" />
+      <div v-if="model.title" class="title title--main bold" v-text="model.title" />
+      <div v-if="model.label" class="label" v-text="model.label" />
     </div>
     <div class="params">
       <div v-for="(param, index) in model.params" :key="param.type" class="params-item">
