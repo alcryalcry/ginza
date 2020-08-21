@@ -1,4 +1,9 @@
 {
+  "CATEGORY": {
+    "Apartments": "Apartments",
+    "Standart": "Hotel",
+    "Business": "Hotel"
+  },
   "menuList": [
     {
       "label": "About",
