@@ -8,14 +8,7 @@
       <div v-if="model.title" class="title title--main bold" v-text="model.title" />
       <div v-if="model.label" class="label" v-text="model.label" />
     </div>
-    <div class="params">
-      <div v-for="(param, index) in model.params" :key="param.type" class="params-item">
-        <div v-if="checkComponents[index]" class="params-icon">
-          <component :is="param.type" />
-        </div>
-        <div class="params-text">{{ param.value }}{{ getSize(param.type) }}</div>
-      </div>
-    </div>
+    <ApartmentCounter :info="model.params" />
     <Description :info="model.description" />
   </Section>
 </template>
@@ -24,24 +17,23 @@
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Description from '~/components/Description/Description'
-
-import beds from '~/assets/svg/icon-beds.svg'
-import adult from '~/assets/svg/icon-adult.svg'
-import size from '~/assets/svg/icon-size.svg'
+import ApartmentCounter from '~/components/HeadTitle/Apartment/ApartmentCounter'
 
 export default {
   name: 'HeadTitleApartment',
   components: {
     Section,
     Description,
-    beds,
-    adult,
-    size
+    ApartmentCounter
   },
   props: {
     info: {
       type: Object,
       default: () => ({})
+    },
+    showText: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -57,8 +49,31 @@ export default {
     }
   },
   methods: {
-    getSize(type) {
-      return type === 'size' ? 'м²' : null
+    getTypeText(type, value) {
+      if (type === 'size') {
+        return 'м²'
+      }
+      if (type === 'beds') {
+        const getText = text => ' ' + this.$t(`COMMON.PROPERTIES.${text}`)
+        if (value === 1) {
+          return getText('BED')
+        } else if (value > 1 && value < 5) {
+          return getText('OF_BED')
+        } else {
+          return getText('BEDS')
+        }
+      }
+      if (type === 'rooms') {
+        const getText = text => ' ' + this.$t(`COMMON.PROPERTIES.${text}`)
+        if (value === 1) {
+          return getText('ROOM')
+        } else if (value > 1 && value < 5) {
+          return getText('OF_ROOM')
+        } else {
+          return getText('ROOMS')
+        }
+      }
+      return null
     }
   }
 }
@@ -109,23 +124,6 @@ export default {
     .link {
       cursor: pointer;
     }
-  }
-
-  .params {
-    display: flex;
-    flex-flow: row wrap;
-    margin: -1.25rem;
-  }
-  .params-item {
-    display: flex;
-    align-items: center;
-    margin: 1.25rem;
-  }
-  .params-icon {
-    display: flex;
-    width: 2.2rem;
-    height: 2.2rem;
-    margin-right: .75rem;
   }
 }
 </style>

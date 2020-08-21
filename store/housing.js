@@ -19,6 +19,7 @@ export const mutations = {
     state.types = [...payload]
   },
   SET_CURRENT_HOUSING_TYPE (state, payload = {}) {
+    console.log('setting to ', state, 'payload: ', payload)
     state.type = { ...payload }
   }
 }
@@ -26,8 +27,8 @@ export const mutations = {
 export const getters = {
   GET_HOUSING_STATUS: state => state.isLoading,
   GET_HOUSING_LIST: state => state.list,
-  GET_HOUSING_TYPES: state => state.types,
-  GET_CURRENT_HOUSING_TYPE: state => state.type
+  GET_HOUSING_TYPES: (state) => { console.log('types', state.types); return state.types },
+  GET_CURRENT_HOUSING_TYPE: (state) => { console.log('type', state.type); return state.type }
 }
 
 export const actions = {

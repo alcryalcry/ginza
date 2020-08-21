@@ -1,4 +1,14 @@
 {
+  "COMMON": {
+    "PROPERTIES": {
+      "BED": "кровать",
+      "OF_BED": "кровати",
+      "BEDS": "кроватей",
+      "ROOM": "номер",
+      "OF_ROOM": "номера",
+      "ROOMS": "номеров"
+    }
+  },
   "CATEGORY": {
     "Apartments": "Апартаменты",
     "Standart": "Отель",

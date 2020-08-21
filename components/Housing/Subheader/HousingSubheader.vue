@@ -58,7 +58,8 @@ export default {
     ...mapGetters({
       GET_HEADER_STATUS: 'header/GET_HEADER_STATUS',
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
-      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE',
+      SET_CURRENT_CITY: 'localStorage/SET_CURRENT_CITY'
     }),
     model() {
       return MODEL(this.info)
@@ -73,6 +74,7 @@ export default {
     }),
     selectType(type) {
       this.SET_CURRENT_HOUSING_TYPE(type)
+      this.SET_CURRENT_CITY(type)
       this.$emit('select-type', type)
     }
   }

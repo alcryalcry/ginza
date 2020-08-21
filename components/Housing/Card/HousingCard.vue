@@ -27,14 +27,7 @@
     <div class="content">
       <div v-if="model.city" class="city text--13 ls1" v-html="model.city.name" />
       <div v-if="model.name" class="title text--24" v-html="model.name" />
-      <div class="params">
-        <div v-for="(param, index) in model.params" :key="param.type" class="params-item">
-          <div v-if="checkComponents[index]" class="params-icon">
-            <component :is="param.type" />
-          </div>
-          <div class="params-text">{{ param.value }}</div>
-        </div>
-      </div>
+      <ApartmentCounter :info="model.params" color="gray" />
     </div>
   </ExternalLink>
 </template>
@@ -42,18 +35,13 @@
 <script>
 import MODEL from './model'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
-
-import beds from '~/assets/svg/icon-beds.svg'
-import adult from '~/assets/svg/icon-adult.svg'
-import size from '~/assets/svg/icon-size.svg'
+import ApartmentCounter from '~/components/HeadTitle/Apartment/ApartmentCounter'
 
 export default {
   name: 'HousingCard',
   components: {
     ExternalLink,
-    beds,
-    adult,
-    size
+    ApartmentCounter
   },
   props: {
     info: {
