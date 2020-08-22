@@ -3,10 +3,11 @@
     <HeadTitleMini :info="model" />
     <ul class="pattern-grid">
       <li v-for="(item, index) in model.values" :key="item.adult + index" class="pattern-item">
-        <h5 v-if="item.title" class="title text--22" v-html="item.title" />
-        <h5 v-if="item.adult" class="adult text--14" v-html="item.adult" />
+        <h5 v-if="item.illustration" class="title text--22" v-text="getText(item.illustration)" />
+        <h5 v-if="item.adult" class="adult text--14" v-text="`${item.adult} ${$t('COMMON.OF_PLACES')}`" />
         <picture v-if="item.image" class="image">
-          <app-image :src="item.image" :alt="item.title" /></picture>
+          <app-image :src="item.image" :alt="item.illustration" />
+        </picture>
       </li>
     </ul>
   </Section>
@@ -40,6 +41,9 @@ export default {
   created() {
   },
   methods: {
+    getText(text) {
+      return this.$t(`SEATING_PATTERN.${text}`)
+    }
   }
 }
 </script>

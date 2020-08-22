@@ -2,14 +2,14 @@
   <div class="subheader" :class="{ isScrolled: GET_HEADER_STATUS }">
     <div ref="stickyMenuWrapper" class="subheader-top">
       <button
-        v-for="link in model.values"
+        v-for="link in values"
         :key="link.url"
         ref="stickyMenuItems"
         class="subheader-link text--18"
         type="button"
         :class="{ isActive: link.isPopupLink ? false : activeLink === link.url }"
-        @click="link.isPopupLink ? openPopup(model.popup) : toAnchor(link.url)"
-        v-html="link.linkLabel"
+        @click="link.isPopupLink ? openPopup(popup) : toAnchor(link.url)"
+        v-text="link.linkLabel"
       />
     </div>
   </div>
@@ -22,6 +22,7 @@ import stickyMenu from '~/mixins/stickyMenu'
 import popupMethods from '~/mixins/popupMethods'
 
 export default {
+  name: 'Subheader',
   components: {
   },
   mixins: [stickyMenu, popupMethods],
@@ -41,6 +42,16 @@ export default {
     }),
     model() {
       return MODEL(this.info)
+    },
+    values() {
+      const values = this.model.values
+      if (values && values.length === 1 && !values[0].linkLabel && !values[0].url) {
+        return this.$t('subheader.services.values')
+      }
+      return this.model.values
+    },
+    popup() {
+      return this.model.popup ? this.model.popup : this.$t('subheader.services.popup')
     },
     stickyAnchors() {
       return this.model.values.map((anchor) => {

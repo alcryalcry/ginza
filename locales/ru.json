@@ -1,5 +1,6 @@
 {
   "COMMON": {
+    "OF_PLACES": "мест",
     "PROPERTIES": {
       "BED": "кровать",
       "OF_BED": "кровати",
@@ -14,6 +15,14 @@
     "Standart": "Отель",
     "Business": "Отель"
   },
+  "SEATING_PATTERN": {
+  "theater": "театр",
+  "banquet": "банкет",
+  "class": "класс",
+  "o_shape": "O-Shape",
+  "u_shape": "U-Shape",
+  "stand_up_meal": "Фуршет"
+},
   "menuList": [
     {
       "label": "О нас",

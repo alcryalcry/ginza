@@ -60,6 +60,7 @@ import ServicesList from '~/components/Services/List/ServicesList'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
 
 export default {
+  name: 'SliderFeatures',
   components: {
     ExternalLink,
     HeadTitle,

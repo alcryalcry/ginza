@@ -1,5 +1,6 @@
 {
   "COMMON": {
+    "OF_PLACES": "places",
     "PROPERTIES": {
       "BED": "bed",
       "OF_BED": "beds",
@@ -13,6 +14,14 @@
     "Apartments": "Apartments",
     "Standart": "Hotel",
     "Business": "Hotel"
+  },
+  "SEATING_PATTERN": {
+    "theater": "theater",
+    "banquet": "banquet",
+    "class": "class",
+    "o_shape": "O-Shape",
+    "u_shape": "U-Shape",
+    "stand_up_meal": "reception"
   },
   "menuList": [
     {
