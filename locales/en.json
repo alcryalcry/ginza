@@ -7,7 +7,11 @@
       "BEDS": "beds",
       "ROOM": "room",
       "OF_ROOM": "rooms",
-      "ROOMS": "rooms"
+      "ROOMS": "rooms",
+      "SEAT": "seat",
+      "SEATS": "seats",
+      "OF_SEAT": "seats",
+      "UP_TO": "up to"
     }
   },
   "CATEGORY": {
