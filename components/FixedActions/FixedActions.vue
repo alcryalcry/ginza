@@ -10,7 +10,14 @@
             :download="item.isDownload"
             target="_blank"
           >
-            <span v-html="item.label" />
+            <span v-text="item.label" />
+          </a>
+          <a
+            v-else-if="item.type === 'phone'"
+            class="actions-button"
+            :href="`tel:$(item.label)`"
+          >
+            <span v-text="item.label" />
           </a>
           <button
             v-else-if="item.type === 'popup'"
@@ -73,7 +80,10 @@ export default {
   },
   data() {
     return {
-      activeComponent: null
+      activeComponent: null,
+      fixedData: {
+        ...this.$t('fixedActions.travelline')
+      }
     }
   },
   computed: {
@@ -82,7 +92,7 @@ export default {
       GET_MENU_STATUS: 'header/GET_MENU_STATUS'
     }),
     model() {
-      return MODEL(this.info)
+      return this.info && this.info.values && this.info.values.length > 0 ? MODEL(this.info) : this.fixedData
     }
   },
   methods: {

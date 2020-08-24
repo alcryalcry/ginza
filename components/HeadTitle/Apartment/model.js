@@ -4,6 +4,7 @@ export default (info) => {
     label = '',
     city = '',
     category = '',
+    hotel = '',
     description = {
       text: '',
       moreText: ''
@@ -28,6 +29,7 @@ export default (info) => {
     description,
     city,
     category,
+    hotel,
     params: adaptedParams
   }
 }

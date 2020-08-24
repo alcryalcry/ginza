@@ -1,14 +1,14 @@
 <template>
-  <AboutNumbers v-if="!model.hidden" :info="model" :class="model.mode" :data-anchor="model.anchor" />
+  <FixedActions :info="model" />
 </template>
 
 <script>
-import AboutNumbers from '~/components/About/Numbers/AboutNumbers'
+import FixedActions from '~/components/FixedActions/FixedActions'
 
 export default {
-  name: 'MiddlewareAboutNumbers',
+  name: 'MiddlewareFixedActions',
   components: {
-    AboutNumbers
+    FixedActions
   },
   props: {
     data: {
