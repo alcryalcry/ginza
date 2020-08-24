@@ -2,11 +2,13 @@
   <Section class="apartment-head section--min">
     <div class="labels">
       <div v-if="model.city" class="text--13 city medium" v-text="model.city" />
-      <div v-if="model.category" class="text--13 category medium" v-text="$te(`CATEGORY.${model.category}`) ? $t(`CATEGORY.${model.category}`) : model.category" />
+      <div v-if="model.category" class="text--13 category medium" v-text="lastBreadcrumb" />
     </div>
     <div class="title-block">
       <div v-if="model.title" class="title title--main bold" v-text="model.title" />
-      <div v-if="model.label" class="label" v-text="model.label" />
+      <div class="ginza-label">
+        <GinzaLabel />
+      </div>
     </div>
     <ApartmentCounter :info="model.params" />
     <Description :info="model.description" />
@@ -18,13 +20,15 @@ import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import Description from '~/components/Description/Description'
 import ApartmentCounter from '~/components/HeadTitle/Apartment/ApartmentCounter'
+import GinzaLabel from '~/assets/svg/by-ginza-label.svg'
 
 export default {
   name: 'HeadTitleApartment',
   components: {
     Section,
     Description,
-    ApartmentCounter
+    ApartmentCounter,
+    GinzaLabel
   },
   props: {
     info: {
@@ -46,34 +50,11 @@ export default {
     },
     checkComponents() {
       return this.model.params.map(item => !!this.$options.components[item.type])
-    }
-  },
-  methods: {
-    getTypeText(type, value) {
-      if (type === 'size') {
-        return 'м²'
-      }
-      if (type === 'beds') {
-        const getText = text => ' ' + this.$t(`COMMON.PROPERTIES.${text}`)
-        if (value === 1) {
-          return getText('BED')
-        } else if (value > 1 && value < 5) {
-          return getText('OF_BED')
-        } else {
-          return getText('BEDS')
-        }
-      }
-      if (type === 'rooms') {
-        const getText = text => ' ' + this.$t(`COMMON.PROPERTIES.${text}`)
-        if (value === 1) {
-          return getText('ROOM')
-        } else if (value > 1 && value < 5) {
-          return getText('OF_ROOM')
-        } else {
-          return getText('ROOMS')
-        }
-      }
-      return null
+    },
+    lastBreadcrumb() {
+      const hasCategoryTranslate = this.$te(`CATEGORY.${this.model.category}`)
+      const objName = this.model.hotel
+      return hasCategoryTranslate ? this.$t(`CATEGORY.${this.model.category}`) : objName
     }
   }
 }
@@ -97,6 +78,10 @@ export default {
     .label {
       color: $gray69;
     }
+  }
+
+  .ginza-label svg {
+    height: fit-content;
   }
 
   .labels {

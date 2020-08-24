@@ -4,7 +4,7 @@
       <div v-if="checkComponents[index]" class="params-icon">
         <component :is="param.type" />
       </div>
-      <div class="params-text">{{ param.value }}{{ getTypeText(param.type, param.value) }}</div>
+      <div class="params-text">{{ renderText(param.type, param.value) }}</div>
     </div>
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
     beds,
     rooms: beds,
     adult,
+    seats: adult,
     size
   },
   props: {
@@ -42,31 +43,43 @@ export default {
     }
   },
   methods: {
-    getTypeText(type, value) {
+    declOfNum(n, textForms) {
+      n = Math.abs(n) % 100
+      const n1 = n % 10
+      if (n > 10 && n < 20) { return textForms[2] }
+      if (n1 > 1 && n1 < 5) { return textForms[1] }
+      if (n1 === 1) { return textForms[0] }
+      return textForms[2]
+    },
+    getTextProperty(wordForm) {
+      return ' ' + this.$t(`COMMON.PROPERTIES.${wordForm}`)
+    },
+    getSuffix(type, value) {
       if (type === 'size') {
         return 'м²'
       }
       if (type === 'beds') {
-        const getText = text => ' ' + this.$t(`COMMON.PROPERTIES.${text}`)
-        if (value === 1) {
-          return getText('BED')
-        } else if (value > 1 && value < 5) {
-          return getText('OF_BED')
-        } else {
-          return getText('BEDS')
-        }
+        const wordForm = this.declOfNum(value, ['BED', 'OF_BED', 'BEDS'])
+        return this.getTextProperty(wordForm)
       }
       if (type === 'rooms') {
-        const getText = text => ' ' + this.$t(`COMMON.PROPERTIES.${text}`)
-        if (value === 1) {
-          return getText('ROOM')
-        } else if (value > 1 && value < 5) {
-          return getText('OF_ROOM')
-        } else {
-          return getText('ROOMS')
-        }
+        const wordForm = this.declOfNum(value, ['ROOM', 'OF_ROOM', 'ROOMS'])
+        return this.getTextProperty(wordForm)
+      }
+      if (type === 'seats') {
+        const wordForm = this.declOfNum(value, ['SEAT', 'OF_SEAT', 'SEATS'])
+        return this.getTextProperty(wordForm)
       }
       return null
+    },
+    getPrefix(type) {
+      if (type === 'seats') {
+        return this.$t(`COMMON.PROPERTIES.UP_TO`) + ' '
+      }
+      return null
+    },
+    renderText(type, value) {
+      return [this.getPrefix(type, value), value, this.getSuffix(type, value)].join('')
     }
   }
 }

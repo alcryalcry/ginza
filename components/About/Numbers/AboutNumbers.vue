@@ -31,15 +31,15 @@
       </div>
     </div>
     <div v-if="model.links.length" class="about-numbers-links">
-      <a v-for="link in model.links" :key="link.url" class="link text--28 light" :href="link.url" v-html="link.linkLabel" />
+      <a v-for="link in model.links" :key="link.url" class="link text--28 light" :href="link.url" v-text="link.linkLabel" />
     </div>
-    <div v-if="model.url" class="about-numbers-route">
-      <ExternalLink class="link link--brown text--28 light link--arrow" :to="model.url">
-        <span v-html="$t('booking.btnLabel')" />
+    <div class="about-numbers-route">
+      <button class="link link--brown text--28 light link--arrow" @click="openPopup({ type: 'popupBooking' })">
+        <span v-text="$t('booking.btnLabel')" />
         <span class="icon">
           <iconArrow />
         </span>
-      </ExternalLink>
+      </button>
     </div>
   </Section>
 </template>
@@ -47,6 +47,7 @@
 <script>
 import MODEL from './model'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
+import popupMethods from '~/mixins/popupMethods'
 
 import Section from '~/components/Utils/Section'
 import iconArrowBorder from '~/assets/svg/arrow-border.svg'
@@ -60,6 +61,7 @@ export default {
     iconArrowBorder,
     iconArrow
   },
+  mixins: [popupMethods],
   props: {
     info: {
       type: Object,

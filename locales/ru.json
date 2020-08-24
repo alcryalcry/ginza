@@ -1,12 +1,17 @@
 {
   "COMMON": {
+    "OF_PLACES": "мест",
     "PROPERTIES": {
       "BED": "кровать",
       "OF_BED": "кровати",
       "BEDS": "кроватей",
       "ROOM": "номер",
       "OF_ROOM": "номера",
-      "ROOMS": "номеров"
+      "ROOMS": "номеров",
+      "SEAT": "посадочное место",
+      "SEATS": "посадочных мест",
+      "OF_SEAT": "посадочного места",
+      "UP_TO": "до"
     }
   },
   "CATEGORY": {
@@ -14,6 +19,14 @@
     "Standart": "Отель",
     "Business": "Отель"
   },
+  "SEATING_PATTERN": {
+  "theater": "театр",
+  "banquet": "банкет",
+  "class": "класс",
+  "o_shape": "O-Shape",
+  "u_shape": "U-Shape",
+  "stand_up_meal": "Фуршет"
+},
   "menuList": [
     {
       "label": "О нас",
