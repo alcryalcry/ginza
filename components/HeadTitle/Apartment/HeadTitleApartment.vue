@@ -71,6 +71,9 @@ export default {
     }
   }
   .title-block {
+    width: 100%;
+    display: block;
+    float: left;
     margin-bottom: 3rem;
     .title {
       text-transform: uppercase;
@@ -78,10 +81,12 @@ export default {
     .label {
       color: $gray69;
     }
-  }
-
-  .ginza-label svg {
-    height: fit-content;
+    .ginza-label  {
+      float: left;
+      svg {
+        float: left;
+      }
+    }
   }
 
   .labels {
