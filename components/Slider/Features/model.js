@@ -28,7 +28,7 @@ export default (info) => {
     } = item
     const {
       url = ''
-    } = pageId || {}
+    } = item || pageId || {}
     return {
       id,
       url,
