@@ -1,9 +1,12 @@
 import axios from '~/plugins/axios'
 
 export default async function get(context, route) {
-  console.log(route)
   try {
-    const routeResp = await axios.get(route)
+    const locale = context.store.getters.GET_LANG
+    const city = context.store.getters.GET_CURRENT_CITY
+    const routeResp = await axios.get(route, {
+      params: { locale, city }
+    })
 
     if (!routeResp) {
       console.error('routeResp')
@@ -15,12 +18,5 @@ export default async function get(context, route) {
     }
   } catch (error) {
     console.warn('ERROR FROM getAsyncData')
-    console.warn('ERROR FROM getAsyncData')
-    console.warn('ERROR FROM getAsyncData')
-    // console.error(error)
-    // console.warn(error.response)
-    // return context.redirect('/error', {
-    //   statusCode: error.response ? error.response.status : '500'
-    // })
   }
 }
