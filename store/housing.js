@@ -34,15 +34,13 @@ export const getters = {
 export const actions = {
   async UPDATE_HOUSING_LIST ({ commit, rootState }) {
     const {
-      // cities: {
-      //   city: { id = '' }
-      // },
       locale = ''
     } = rootState
+    const city = rootState.localStorage.city.id
     commit('SET_HOUSING_STATUS', true)
     try {
       const hotelsResp = await axios.get(API_ROUTES_HOTELS_ROOT, {
-        params: { lang: locale }
+        params: { locale, city }
       })
       const hotels = (hotelsResp || { data: [] }).data.map((item) => {
         return {
