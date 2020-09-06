@@ -69,8 +69,12 @@ export default {
   },
   props: {
     info: {
-      type: Object,
-      default: () => ({})
+      type: Array,
+      default: () => []
+    },
+    type: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -89,10 +93,10 @@ export default {
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     model() {
-      return MODEL(this.GET_HOUSING_LIST)
+      return MODEL(this.info)
     },
     filteredCards() {
-      return this.model.filter(item => item.type === this.GET_CURRENT_HOUSING_TYPE.id && item.city.id === this.GET_CURRENT_CITY.id)
+      return this.model.filter(item => item.city.id === this.GET_CURRENT_CITY.id)
     },
     isDesktop() {
       return this.GET_MQ === 'desktop'
@@ -104,11 +108,6 @@ export default {
     }
   },
   watch: {
-    GET_CURRENT_HOUSING_TYPE(type) {
-      if (process.browser) {
-        history.pushState({}, {}, type.id)
-      }
-    },
     GET_HOUSING_STATUS(val) {
       if (!val) {
         this.transitionKey++

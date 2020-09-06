@@ -17,5 +17,6 @@ module.exports = {
     "space-before-function-paren": 0,
     "vue/no-v-html": 0,
     "vue/singleline-html-element-content-newline": 0,
+    "no-unused-vars": 'off'
   },
 };

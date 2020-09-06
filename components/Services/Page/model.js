@@ -10,7 +10,8 @@ export default (info) => {
       linkLabel = '',
       url = '',
       tag = '',
-      preview = ''
+      preview = '',
+      city = {}
     } = item
 
     return {
@@ -19,7 +20,8 @@ export default (info) => {
       linkLabel,
       url,
       tag,
-      preview
+      preview,
+      city
     }
   })
   return {

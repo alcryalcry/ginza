@@ -36,7 +36,7 @@ export default {
     try {
       const {
         components = {}
-      } = await getAsyncData(context, API_ROUTES_SERVICES_ROOT + '/' + context.store.state.locale)
+      } = await getAsyncData(context, API_ROUTES_SERVICES_ROOT + '/' + context.store.state.locale + '/')
       return {
         components: components.components,
         page: components,
@@ -44,6 +44,29 @@ export default {
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)
+    }
+  },
+  data() {
+    return {
+      storeListener: null
+    }
+  },
+  mounted() {
+    this.storeListener = this.$store.subscribe((mutation) => {
+      if (mutation.type === 'localStorage/SET_CURRENT_CITY') {
+        this.updatePageData()
+      }
+    })
+  },
+  destroyed() {
+    this.storeListener()
+  },
+  methods: {
+    async updatePageData() {
+      const components = await this.$options.asyncData(this.$root.$options.context)
+      this.components = components.components
+      this.page = components
+      this.mode = components.mode || ''
     }
   }
 }
