@@ -1,7 +1,7 @@
 <template>
   <Layout :footer="false">
     <template v-slot:page-content>
-      <HousingPage />
+      <HousingPage :info="components" />
     </template>
     <template v-slot:popup>
       <Popup>
@@ -15,32 +15,46 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
 import page from '~/mixins/page'
+import getAsyncData, { getWithParams } from '~/plugins/getAsyncData'
+import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
 import HousingPage from '~/components/Housing/Page/HousingPage'
 
 export default {
-  name: 'Hotels',
+  name: 'Apartments',
   components: {
     HousingPage
   },
   mixins: [page],
-  computed: {
-    ...mapGetters({
-      GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
-      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
-    })
-  },
-  created() {
-    const type = this.GET_HOUSING_TYPES.find(item => this.$route.path.includes(item.id)) || {}
-    if (type.id && type.id !== this.GET_CURRENT_HOUSING_TYPE.id) {
-      this.SET_CURRENT_HOUSING_TYPE(type)
+  async asyncData(context) {
+    try {
+      const { components } = await getAsyncData(context, API_ROUTES_APARTMENTS_ROOT + '/')
+      return { components }
+    } catch (e) {
+      console.error('ERROR FROM page (asyncData)', e)
     }
   },
-  methods: {
-    ...mapMutations({
-      SET_CURRENT_HOUSING_TYPE: 'housing/SET_CURRENT_HOUSING_TYPE'
+  data() {
+    return {
+      components: [],
+      storeListener: null
+    }
+  },
+  mounted() {
+    this.storeListener = this.$store.subscribe((mutation) => {
+      if (mutation.type === 'localStorage/SET_CURRENT_CITY') {
+        this.updatePageData()
+      }
     })
+  },
+  destroyed() {
+    this.storeListener()
+  },
+  methods: {
+    async updatePageData() {
+      const { components } = await this.$options.asyncData(this.$root.$options.context)
+      this.components = components
+    }
   }
 }
 </script>

@@ -31,7 +31,7 @@ export default {
     try {
       const {
         components = {}
-      } = await getAsyncData(context, API_ROUTES_INDEX + '/' + context.store.state.locale)
+      } = await getAsyncData(context, API_ROUTES_INDEX + '/' + context.store.state.locale + '/')
       return {
         components: components.components,
         page: components,

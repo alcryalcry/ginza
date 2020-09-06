@@ -20,7 +20,7 @@ export const getters = {
 export const actions = {
   UPDATE_CURRENT_CITY ({ commit, dispatch }, payload) {
     commit('SET_CURRENT_CITY', payload)
-    dispatch('housing/UPDATE_HOUSING_LIST', null, { root: true })
+    // dispatch('housing/UPDATE_HOUSING_LIST', null, { root: true })
   },
   UPDATE_CITIES ({ commit, state, dispatch }, payload = []) {
     commit('SET_CITIES', payload)

@@ -86,18 +86,20 @@ export default {
     ...mapGetters({
       GET_HOUSING_STATUS: 'housing/GET_HOUSING_STATUS',
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
-      GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST'
+      GET_HOUSING_LIST: 'housing/GET_HOUSING_LIST',
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     model() {
       return MODEL(this.info)
     },
     filteredTypes() {
+      const city = this.GET_CURRENT_CITY
       return this.GET_HOUSING_TYPES.map((type) => {
         return {
           id: type.id,
           url: '/' + type.id,
           linkLabel: type.name,
-          list: this.GET_HOUSING_LIST.filter(item => item.type === type.id).splice(0, 3)
+          list: this.GET_HOUSING_LIST.filter(item => item.type === type.id && item.city.id === city.id).splice(0, 3)
         }
       })
     },
@@ -127,6 +129,9 @@ export default {
         this.transitionKey++
       }
     }
+  },
+  mounted() {
+    this.UPDATE_HOUSING_LIST()
   },
   methods: {
     ...mapActions({

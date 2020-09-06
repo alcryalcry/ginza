@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import ExternalLink from '~/components/ExternalLink/ExternalLink'
@@ -52,6 +53,7 @@ const colors = [
 ]
 
 export default {
+  name: 'ServicesPage',
   components: {
     Section,
     ExternalLink,
@@ -73,7 +75,14 @@ export default {
       return MODEL(this.info)
     },
     generatedList() {
-      return this.model.values.map((item, index) => {
+      let values = []
+      if (process.browser) {
+        const city = this.GET_CURRENT_CITY()
+        values = [...this.model.values].filter(item => item.city && item.city.id && item.city.id === city.id)
+      } else {
+        values = this.model.values
+      }
+      return values.map((item, index) => {
         return {
           ...item,
           color: colors[index % colors.length],
@@ -83,6 +92,9 @@ export default {
     }
   },
   methods: {
+    ...mapGetters({
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
+    }),
     showArrow(val) {
       this.arrows.push(val)
     }

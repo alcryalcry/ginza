@@ -19,7 +19,6 @@ export const mutations = {
     state.types = [...payload]
   },
   SET_CURRENT_HOUSING_TYPE (state, payload = {}) {
-    console.log('setting to ', state, 'payload: ', payload)
     state.type = { ...payload }
   }
 }
@@ -39,9 +38,7 @@ export const actions = {
     const city = rootState.localStorage.city.id
     commit('SET_HOUSING_STATUS', true)
     try {
-      const hotelsResp = await axios.get(API_ROUTES_HOTELS_ROOT, {
-        params: { locale, city }
-      })
+      const hotelsResp = await axios.get(API_ROUTES_HOTELS_ROOT, {})
       const hotels = (hotelsResp || { data: [] }).data.map((item) => {
         return {
           ...item,
@@ -49,10 +46,7 @@ export const actions = {
         }
       })
 
-      const apartmentsResp = await axios.get(API_ROUTES_APARTMENTS_ROOT, {
-        params: { lang: locale }
-      })
-
+      const apartmentsResp = await axios.get(API_ROUTES_APARTMENTS_ROOT, {})
       const apartments = (apartmentsResp || { data: [] }).data.map((item) => {
         return {
           ...item,
