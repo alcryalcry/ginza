@@ -11,13 +11,15 @@ export default (info) => {
       title = '',
       mode = '',
       image = '',
-      preview = ''
+      preview = '',
+      url = ''
     } = item
     return {
       title,
       mode,
       image,
-      preview
+      preview,
+      url
     }
   })
 

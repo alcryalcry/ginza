@@ -7,21 +7,21 @@
         :custom-options="customOptions"
         :has-navigation="true"
         navigation-mode="navigation--white"
-        :is-centered-slides="true"
         class="slider-pre-wrapper"
       >
         <template v-slot:slides>
-          <ExternalLink
+          <div
             v-for="(slide, index) in model.values"
             :key="index"
             :class="slide.mode"
-            :to="slide.url"
             class="swiper-slide"
           >
-            <picture class="image">
-              <app-image data-not-lazy :src="slide.image || slide.preview" :alt="slide.name" /></picture>
-            <div v-if="slide.title" class="text text--16" v-html="slide.title" />
-          </ExternalLink>
+            <ExternalLink :to="slide.url">
+              <picture class="image">
+                <app-image data-not-lazy :src="slide.image || slide.preview" :alt="slide.name" /></picture>
+              <div v-if="slide.title" class="text text--16" v-html="slide.title" />
+            </ExternalLink>
+          </div>
         </template>
       </Slider>
     </Section>
@@ -54,9 +54,12 @@ export default {
         spaceBetween: 20,
         loop: false,
         slidesPerView: 3,
+        watchSlidesVisibility: true,
+        slideClass: 'swiper-slide',
         breakpoints: {
           767: {
-            slidesOffsetAfter: 90
+            slidesOffsetAfter: 90,
+            slidesPerView: 1
           }
         }
       }
@@ -117,11 +120,6 @@ export default {
     position: relative;
   }
 
-  .swiper-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
   .image {
     position: relative;
     display: flex;
@@ -131,20 +129,10 @@ export default {
   .swiper-slide {
     flex: 1 0 auto;
     width: 25rem;
-    opacity: .3;
     transition: opacity .2s ease;
-    &.swiper-slide-active {
-      opacity: 1;
-      @include tablet_desktop {
-        & + .swiper-slide {
-          opacity: 1;
-          @include desktop {
-            & + .swiper-slide {
-              opacity: 1;
-            }
-          }
-        }
-      }
+    align-self: flex-start;
+    &:not(.swiper-slide-visible) {
+      opacity: 0.3;
     }
     .image {
       width: 100%;
