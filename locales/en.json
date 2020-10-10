@@ -184,9 +184,20 @@
         ]
       },
       {
-        "type": "text",
+        "type": "select",
         "label": "Subject of message",
         "name": "messageSubject",
+        "options": [
+          { "label": "Booking",
+            "id": "booking"
+          },
+          { "label": "Cooperation",
+            "id": "cooperation"
+          },
+          { "label": "Banquet/conference room",
+            "id": "events"
+          }
+        ],
         "validate": [
           {
             "rule": "required"

@@ -184,9 +184,20 @@
         ]
       },
       {
-        "type": "text",
+        "type": "select",
         "label": "Тема обращения",
         "name": "request",
+        "options": [
+          { "label": "Бронирование",
+            "id": "booking"
+          },
+          { "label": "Сотрудничество",
+            "id": "cooperation"
+          },
+          { "label": "Банкетный/конференц-зал",
+            "id": "events"
+          }
+        ],
         "validate": [
           {
             "rule": "required"

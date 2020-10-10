@@ -26,7 +26,7 @@
         <li
           v-for="item in options"
           :key="item.id"
-          :class="{ isActive: model.id === item.id }"
+          :class="{ isActive: model.id && model.id === item.id }"
           class="cities-item"
         >
           <button
@@ -144,7 +144,7 @@ export default {
     top: calc(100% + 2rem);
     left: 0;
     width: 100%;
-    padding: 3rem 0;
+    padding: 2rem 0;
     background: $white;
     box-shadow: 0px 10px 37px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
