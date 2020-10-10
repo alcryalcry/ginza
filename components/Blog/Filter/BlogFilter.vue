@@ -90,7 +90,7 @@ export default {
       return this.total > this.values.length
     },
     generatedFilters() {
-      return [...this.model.filterParams]
+      return [...new Set(this.model.filterParams)]
     }
   },
   created() {
