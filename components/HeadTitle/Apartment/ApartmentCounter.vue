@@ -62,10 +62,10 @@ export default {
         const wordForm = this.declOfNum(value, ['BED', 'OF_BED', 'BEDS'])
         return this.getTextProperty(wordForm)
       }
-      if (type === 'rooms') {
-        const wordForm = this.declOfNum(value, ['ROOM', 'OF_ROOM', 'ROOMS'])
-        return this.getTextProperty(wordForm)
-      }
+      // if (type === 'rooms') {
+      //   const wordForm = this.declOfNum(value, ['ROOM', 'OF_ROOM', 'ROOMS'])
+      //   return this.getTextProperty(wordForm)
+      // }
       if (type === 'seats') {
         const wordForm = this.declOfNum(value, ['SEAT', 'OF_SEAT', 'SEATS'])
         return this.getTextProperty(wordForm)

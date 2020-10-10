@@ -18,7 +18,7 @@
     </div>
     <div class="form-container" :class="{ isShowResult, isLoading }">
       <transition mode="out-in" name="list-fade">
-        <div v-if="!isShowResult" key="form" class="form-content">
+        <div v-if="!isShowResult" class="form-content">
           <FormGenerator
             :btn-label="$t('contacts.submit')"
             :btn-submit-class="'link link--brown link--tdu'"
