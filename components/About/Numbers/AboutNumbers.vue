@@ -105,10 +105,10 @@ export default {
   .item {
     display: flex;
     align-items: center;
-    padding: 6rem 8rem 6rem 0;
+    padding: 3.2rem 5rem 3.2rem 0;
     font-weight: $light;
     @include mobile {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     & + .item {
       border-top: 1px solid $border;
@@ -122,7 +122,7 @@ export default {
   }
   .value {
     margin-right: 2rem;
-    font-size: 12rem;
+    font-size: 10rem;
     line-height: 1;
     letter-spacing: 0.1rem;
     font-family: $fontBase;
