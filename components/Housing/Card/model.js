@@ -11,7 +11,8 @@ export default (info) => {
     images = [],
     preview = '',
     coords = [],
-    params = []
+    params = [],
+    url: urlInfo = ''
   } = info
 
   const {
@@ -42,7 +43,7 @@ export default (info) => {
     preview,
     coords,
     params: adaptedParams,
-    url,
+    url: url || urlInfo,
     title
   }
 }
