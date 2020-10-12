@@ -89,6 +89,7 @@ export default {
   .description {
     margin: 6rem auto 0;
     max-width: 46rem;
+    white-space: pre-line;
     @include mobile {
       margin-top: 4rem;
     }
