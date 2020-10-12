@@ -53,7 +53,7 @@ export default {
     return {
       customOptions: {
         spaceBetween: 20,
-        loop: true,
+        loop: false,
         breakpoints: {
           767: {
             slidesOffsetAfter: 90
