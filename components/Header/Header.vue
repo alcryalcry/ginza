@@ -25,9 +25,16 @@
           </client-only>
         </div>
         <div class="header-col center">
-          <nuxt-link class="logo" :to="localePath('/')">
-            <iconLogo />
-          </nuxt-link>
+          <template v-if="GET_MENU_STATUS">
+            <div class="logo" @click="CLOSE_MENU">
+              <iconLogo />
+            </div>
+          </template>
+          <template v-else>
+            <nuxt-link class="logo" :to="localePath('/')">
+              <iconLogo />
+            </nuxt-link>
+          </template>
         </div>
         <div class="header-col right">
           <!-- <div class="header-link">
