@@ -34,7 +34,7 @@
       </div>
     </div>
     <div v-if="model.description || model.features.values" class="description">
-      <p v-if="model.description" class="text--24" v-html="model.description" />
+      <p v-if="model.description" :class="bigTitle ? 'title title--h2' : 'text--24'" v-html="model.description" />
       <button
         v-if="model.popup && model.popup.content"
         class="popup-btn link link--brown link--tdu"
@@ -67,6 +67,10 @@ export default {
     info: {
       type: Object,
       default: () => ({})
+    },
+    bigTitle: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -208,9 +212,12 @@ export default {
   .description {
     flex: 0 0 auto;
     padding-top: 7rem;
-    max-width: 38rem;
+    max-width: 44rem;
+    .title {
+      margin-bottom: 0;
+    }
     @include tablet {
-      max-width: 34rem;
+      max-width: 38rem;
     }
     @include mobile {
       display: block;
