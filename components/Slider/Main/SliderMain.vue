@@ -6,9 +6,10 @@
       @active-index="activeIndex = $event"
     >
       <template v-slot:slides>
-        <div
+        <ExternalLink
           v-for="(slide, index) in generatedSlides"
           :key="index"
+          :to="slide.url"
           class="swiper-slide"
           :class="slide.type"
         >
@@ -29,7 +30,7 @@
               </div>
             </Section>
           </div>
-        </div>
+        </ExternalLink>
       </template>
     </Slider>
   </div>

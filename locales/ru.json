@@ -93,7 +93,7 @@
         {
           "id": "count",
           "type": "popup",
-          "label": "Гостей",
+          "label": "Гости",
           "popup": {
             "type": "popupBooking"
           }

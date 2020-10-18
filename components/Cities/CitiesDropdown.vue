@@ -150,7 +150,7 @@ export default {
   .cities-btn {
     white-space: nowrap;
     cursor: pointer;
-    color: $border;
+    color: $gray;
     transition: color .2s ease;
     &:active {
       color: $black17;

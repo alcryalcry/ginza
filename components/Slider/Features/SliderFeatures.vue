@@ -43,7 +43,7 @@
           </template>
         </Slider>
       </transition>
-      <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" />
+      <HeadTitle v-if="model.afterText" :info="{ description: model.afterText, url: false }" big-title />
     </Section>
     <Section v-if="model.services" class="section--no-p section--big">
       <ServicesList :info="model.services" />
