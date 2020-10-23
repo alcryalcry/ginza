@@ -1,5 +1,5 @@
 <template>
-  <Layout :footer="false">
+  <Layout :footer="false" show-travelline>
     <template v-slot:page-content>
       <HousingPage :key="pageType" :info="components" :type="pageType" />
     </template>

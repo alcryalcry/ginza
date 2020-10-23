@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout show-travelline>
     <template v-slot:page-content>
       <HousingSubheader :need-menu="false" />
       <component

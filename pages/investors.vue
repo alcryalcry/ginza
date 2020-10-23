@@ -1,5 +1,5 @@
 <template>
-  <Layout :footer="false">
+  <Layout show-travelline :footer="false">
     <template v-slot:page-content>
       <InvestorsForm />
     </template>
