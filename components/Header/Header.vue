@@ -3,16 +3,6 @@
     <Section class="header-top section--big section--no-p">
       <div class="header-row">
         <div class="header-col left">
-          <button class="burger" @keydown.esc="CLOSE_MENU" @click="TOGGLE_MENU">
-            <div class="burger-button">
-              <div class="line" />
-              <div class="line" />
-              <div class="line" />
-            </div>
-            <span class="text text--13">
-              {{ $t("header.menu_name") }}
-            </span>
-          </button>
           <client-only>
             <button v-if="hasPrevUrl" class="back" @click="goToPrevPage">
               <div class="back-link">
@@ -23,6 +13,16 @@
               </span>
             </button>
           </client-only>
+          <button class="burger" @keydown.esc="CLOSE_MENU" @click="TOGGLE_MENU">
+            <div class="burger-button">
+              <div class="line" />
+              <div class="line" />
+              <div class="line" />
+            </div>
+            <span class="text text--13">
+              {{ $t("header.menu_name") }}
+            </span>
+          </button>
         </div>
         <div class="header-col center">
           <template v-if="GET_MENU_STATUS">
@@ -305,10 +305,17 @@ export default {
   }
 
   .back {
+    position: absolute;
+    left: 0;
     display: flex;
     align-items: center;
     margin-left: 6rem;
     transition: color .2s ease;
+    @include hd {
+      position: relative;
+      margin-left: 0;
+      margin-right: 6rem;
+    }
     @include mobile {
       display: none;
     }

@@ -3,6 +3,7 @@
     <Header :is-main="isHeaderMain && header" />
 
     <main class="page-content">
+      <FixedActions v-if="showTravelline" :info="fixedData" />
       <slot name="page-content" :value="value">
         <Section class="section--min">
           <!-- <div class="title--h1">Something went wrong. <br>Please try again later</div> -->
@@ -19,13 +20,15 @@
 import Header from '~/components/Header/Header'
 import Footer from '~/components/Footer/Footer'
 import Section from '~/components/Utils/Section'
+import FixedActions from '~/components/FixedActions/FixedActions'
 
 export default {
   name: 'Layout',
   components: {
     Header,
     Footer,
-    Section
+    Section,
+    FixedActions
   },
   props: {
     header: {
@@ -43,10 +46,18 @@ export default {
     isHeaderMain: {
       type: Boolean,
       default: false
+    },
+    showTravelline: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
-    return {}
+    return {
+      fixedData: {
+        ...this.$t('fixedActions.travelline')
+      }
+    }
   },
   computed: {},
   mounted() {

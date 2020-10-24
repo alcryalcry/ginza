@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout show-travelline>
     <template v-slot:page-content>
       <component
         :is="item"
