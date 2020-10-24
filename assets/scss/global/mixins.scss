@@ -25,6 +25,12 @@ $widthDesktop: 1025px;
   }
 }
 
+@mixin hd {
+  @media (max-width: #{1440px}) {
+    @content;
+  }
+}
+
 @mixin mobile_tablet {
   @media (max-width: #{$widthDesktop - 1px}) {
     @content;
