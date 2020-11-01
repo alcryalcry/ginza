@@ -3,7 +3,6 @@
     <div v-if="model.title" class="title" :class="titleClassNames" v-html="model.title" />
     <div class="gallery-rows">
       <div v-for="(row, index) in model.imageRows" :key="row.type + index" class="gallery-row">
-        <div v-if="model.text && index === model.imageRows.length - 1" class="review-text text--24" v-html="model.text" />
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
           <template v-if="row.type === 'image'">
             <PictureLabels :info="col" />
@@ -15,6 +14,7 @@
             <VideoPreview :info="col" />
           </template>
         </div>
+        <div v-if="model.text && (model.imageRows.length === 1 || (model.imageRows.length > 1 && index === model.imageRows.length - 2))" class="review-text text--24" v-html="model.text" />
       </div>
       <div v-for="(row, index) in model.sliderRows" :key="row.type + index" class="gallery-row">
         <div v-for="(col, i) in row.cols" :key="col.image + i" class="gallery-col" :class="col.mode">
