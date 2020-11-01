@@ -2,23 +2,12 @@
   <Section class="housing filter-rooms">
     <div class="housing-content">
       <div class="row">
-        <div class="col-4 col-t-4 col-m-12 sidebar">
-          <div class="sidebar-content ">
-            <div class="sidebar-row sidebar-list housing-types-list">
-              <HousingTypes
-                :custom-list="$t('hotels.filters')"
-                :selected-item="selectedFilter"
-                @select-type="selectFilter"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="col-8 col-t-8 col-m-12">
+        <div class="col-12 col-t-12 col-m-12">
           <div ref="cards" class="housing-cards">
             <div class="housing-list">
               <transition name="list-fade" mode="out-in">
-                <div :key="selectedFilter.id" class="row">
-                  <div v-for="card in filteredItems" :key="card.id" class="col-6 col-t-6 housing-list-item">
+                <div class="row">
+                  <div v-for="card in model.values" :key="card.id" class="col-4 col-t-4 housing-list-item">
                     <HousingCard :info="card" />
                   </div>
                 </div>
@@ -52,50 +41,12 @@ export default {
   },
   data() {
     return {
-      selectedFilter: {},
       isOpen: false
     }
   },
   computed: {
     model() {
       return MODEL(this.info)
-    },
-    filteredItems() {
-      if (this.selectedFilter.id) {
-        let conditional = null
-        switch (this.selectedFilter.id) {
-          case 'double':
-            conditional = item => item === 2
-            break
-          case 'triple':
-            conditional = item => item === 3
-            break
-          case 'more_3':
-            conditional = item => item > 3
-            break
-          default:
-            conditional = () => true
-            break
-        }
-        return this.model.values.filter(item => conditional(Number(item.adult)))
-      }
-      return this.model.values
-    }
-  },
-  mounted() {
-    if (process.browser) {
-      this.selectedFilter = this.$t('hotels.filters')[0] || {}
-    }
-  },
-  methods: {
-    selectFilter(filter) {
-      if (this.selectedFilter !== filter) {
-        this.selectedFilter = filter
-        this.$el.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth'
-        })
-      }
     }
   }
 }
