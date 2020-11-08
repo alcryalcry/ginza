@@ -3,9 +3,9 @@
     <div class="menu-content">
       <div class="row">
         <div class="col-9 col-t-12 col-m-12">
-          <ul class="list">
+          <ul :key="GET_CURRENT_CITY ? GET_CURRENT_CITY.id : 'city'" class="list">
             <li
-              v-for="item in $t('menuList')"
+              v-for="item in menuLinks"
               :key="item.label"
               class="list-item"
             >
@@ -55,13 +55,27 @@ export default {
       isReady: false
     }
   },
+  watch: {
+    GET_CURRENT_CITY(val) {
+      console.log(val)
+    }
+  },
   computed: {
     model() {
       return MODEL(this.info)
     },
     ...mapGetters({
-      GET_SOCIAL: 'GET_SOCIAL'
-    })
+      GET_SOCIAL: 'GET_SOCIAL',
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
+    }),
+    menuLinks() {
+      return this.$t('menuList').map((item) => {
+        return {
+          label: item.label,
+          url: item.dependOnCity ? this.GET_CURRENT_CITY.en_name + item.url : item.url
+        }
+      })
+    }
   },
   mounted() {
     if (process.browser) {

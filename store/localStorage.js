@@ -24,8 +24,13 @@ export const actions = {
   },
   UPDATE_CITIES ({ commit, state, dispatch }, payload = []) {
     commit('SET_CITIES', payload)
+    const {
+      params: {
+        city = ''
+      } = {}
+    } = this.$router.currentRoute || {}
     if (!state.city.id) {
-      commit('SET_CURRENT_CITY', payload[0])
+      commit('SET_CURRENT_CITY', payload.find(item => item.en_name === city) || payload[0])
     }
   }
 }

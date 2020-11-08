@@ -25,17 +25,21 @@ import getAsyncData from '~/plugins/getAsyncData'
 import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
 
 export default {
-  name: 'HotelsOne',
+  name: 'HotelsOneRoom',
   mixins: [page],
   async asyncData(context) {
     try {
       const {
         components = {}
       } = await getAsyncData(context,
+        context.route.params.city + '/' +
         API_ROUTES_HOTELS_ROOT + '/' +
         context.route.params.slug + '/' +
+        'rooms' + '/' +
+        context.route.params.id + '/' +
         context.store.state.locale
       )
+
       return {
         components: components.components,
         page: components,

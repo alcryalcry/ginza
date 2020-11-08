@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <LayoutGallery>
     <template v-slot:page-content>
       <component
         :is="item"
@@ -8,39 +8,35 @@
         :data="components[index]"
       />
     </template>
-    <template v-slot:popup>
-      <Popup>
-        <PopupVideo />
-        <PopupBooking />
-        <PopupManager />
-        <PopupTravelLine />
-      </Popup>
-    </template>
-  </Layout>
+  </LayoutGallery>
 </template>
 
 <script>
+/* eslint-disable camelcase */
 import page from '~/mixins/page'
 import getAsyncData from '~/plugins/getAsyncData'
-import { API_ROUTES_HOTELS_ROOT } from '~/config/constants'
+import { API_ROUTES_APARTMENTS_ROOT } from '~/config/constants'
+
+import LayoutGallery from '~/components/Layout/LayoutGallery'
 
 export default {
-  name: 'HotelsOneHallsOne',
+  name: 'ApartmentsOneGallery',
+  components: {
+    LayoutGallery
+  },
   mixins: [page],
   async asyncData(context) {
     try {
       const {
         components = {}
       } = await getAsyncData(context,
-        API_ROUTES_HOTELS_ROOT + '/' +
+        context.route.params.city + '/' +
+        API_ROUTES_APARTMENTS_ROOT + '/' +
         context.route.params.slug + '/' +
-        'halls' + '/' +
-        context.route.params.id + '/' +
         context.store.state.locale
       )
-
       return {
-        components: components.components,
+        components: components.gallery_components,
         page: components,
         mode: components.mode || ''
       }
