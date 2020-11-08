@@ -34,11 +34,13 @@
     },
     {
       "label": "Apartments ",
-      "url": "/apartments"
+      "url": "/apartments",
+      "dependOnCity": true
     },
     {
       "label": "Hotels",
-      "url": "/hotels"
+      "url": "/hotels",
+      "dependOnCity": true
     },
     {
       "label": "Services",

@@ -34,11 +34,13 @@
     },
     {
       "label": "Апартаменты ",
-      "url": "/apartments"
+      "url": "/apartments",
+      "dependOnCity": true
     },
     {
       "label": "Отели",
-      "url": "/hotels"
+      "url": "/hotels",
+      "dependOnCity": true
     },
     {
       "label": "Сервис",
