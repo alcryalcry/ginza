@@ -32,6 +32,7 @@ export default {
       const {
         components = {}
       } = await getAsyncData(context,
+        context.route.params.city + '/' +
         API_ROUTES_HOTELS_ROOT + '/' +
         context.route.params.slug + '/' +
         'rooms' + '/' +
