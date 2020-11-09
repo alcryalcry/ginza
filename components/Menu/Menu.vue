@@ -9,7 +9,7 @@
               :key="item.label"
               class="list-item"
             >
-              <ExternalLink class="title--h1 link menu-link" :to="item.url">
+              <ExternalLink class="link menu-link" :to="item.url">
                 {{ item.label }}
               </ExternalLink>
             </li>
@@ -133,7 +133,23 @@ export default {
 .menu-link {
   position: relative;
   padding-left: 4rem;
+  font-size: 5rem;
+  line-height: 1.25;
+  font-family: $fontBase;
+  font-weight: $light;
+  @include desktop {
+    text-indent: -.2rem;
+  }
+  @include hd {
+    font-size: 4.2rem;
+  }
+  @include tablet {
+    text-indent: -.2rem;
+    font-size: 3.4rem;
+  }
   @include mobile {
+    text-indent: -.1rem;
+    font-size: 2.6rem;
     padding-left: 3rem;
   }
   &:active {
