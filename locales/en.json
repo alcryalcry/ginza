@@ -363,7 +363,7 @@
       {
         "type": "counter",
         "label": "Guests",
-        "name": "guests",
+        "name": "adults",
         "minValue": 1,
         "value": 2,
         "mode": "half",
@@ -376,7 +376,7 @@
       {
         "type": "counter",
         "label": "Child",
-        "name": "child",
+        "name": "children",
         "minValue": 0,
         "value": 0,
         "mode": "half",

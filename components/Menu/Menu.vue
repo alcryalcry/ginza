@@ -55,11 +55,6 @@ export default {
       isReady: false
     }
   },
-  watch: {
-    GET_CURRENT_CITY(val) {
-      console.log(val)
-    }
-  },
   computed: {
     model() {
       return MODEL(this.info)

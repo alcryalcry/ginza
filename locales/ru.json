@@ -89,7 +89,7 @@
           "type": "popup",
           "label": "Даты",
           "popup": {
-            "type": "popupBooking"
+            "type": "popupTravelLine"
           }
         },
         {
@@ -97,7 +97,7 @@
           "type": "popup",
           "label": "Гости",
           "popup": {
-            "type": "popupBooking"
+            "type": "popupTravelLine"
           }
         },
         {
@@ -107,7 +107,7 @@
           "label": "Бронировать",
           "arrow": true,
           "popup": {
-            "type": "popupBooking"
+            "type": "popupTravelLine"
           }
         }
       ]
@@ -363,7 +363,7 @@
       {
         "type": "counter",
         "label": "Взрослых",
-        "name": "guests",
+        "name": "adults",
         "minValue": 1,
         "value": 2,
         "mode": "half",
@@ -376,7 +376,7 @@
       {
         "type": "counter",
         "label": "Детей",
-        "name": "child",
+        "name": "children",
         "minValue": 0,
         "value": 0,
         "mode": "half",

@@ -23,7 +23,7 @@
               key="form"
               class="form-travelline"
               :is-loading="isLoading"
-              :info="$('travelline.fields')"
+              :info="$t('travelline.fields')"
               @formSubmit="formSubmit"
             />
 
@@ -33,8 +33,8 @@
                   <iconCheck />
                 </div>
               </div>
-              <h5 v-if="$('travelline.resultTitle')" class="result-title" v-html="$t('travelline.resultTitle')" />
-              <p v-if="$('travelline.resultDescription')" class="result-desc" v-html="$t('travelline.resultDescription')" />
+              <h5 v-if="$t('travelline.resultTitle')" class="result-title" v-html="$t('travelline.resultTitle')" />
+              <p v-if="$t('travelline.resultDescription')" class="result-desc" v-html="$t('travelline.resultDescription')" />
               <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
             </div>
           </transition>
@@ -64,8 +64,8 @@
 import { mapGetters, mapMutations } from 'vuex'
 import MODEL from './model'
 import iconLogo from '~/assets/svg/logo.svg'
-// import axios from '~/plugins/axios'
-// import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
+import axios from '~/plugins/axios'
+import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
 
 import FormGenerator from '~/components/FormGenerator/FormGenerator'
 import iconCheck from '~/assets/svg/check.svg'
@@ -95,19 +95,19 @@ export default {
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     })
   },
-  // watch: {
-  //   GET_POPUP_STATUS(isOpen) {
-  //     if (isOpen && this.GET_POPUP_TYPE === 'popupTravelLine') {
-  //       console.log('isOpen && popupType')
-  //       this.initWidget()
-  //     }
-  //   }
-  // },
+  watch: {
+    GET_POPUP_STATUS(isOpen) {
+      if (isOpen && this.GET_POPUP_TYPE === 'popupTravelLine') {
+        console.log('isOpen && popupType')
+        this.initWidget()
+      }
+    }
+  },
   methods: {
     ...mapMutations({
       CLOSE_POPUP: 'popup/CLOSE_POPUP'
     }),
-    aaa(e) {
+    test(e) {
       // 'bookingNumber', 'providerName', 'price', 'currency', 'roomTypes'
       // + tlhotelid
       console.log(e)
@@ -123,10 +123,10 @@ export default {
             // поля для onBookingSuccess:
             // TLHotelId, (bookingNumber, guests, id)
             //
-            ['setContext', 'TL-INT-ladoga-hotel', 'ru'],
+            ['setContext', 'TL-INT-ginza-new', 'ru'],
             ['embed', 'booking-form', {
               container: 'tl-booking-form',
-              onBookingSuccess: this.aaa,
+              onBookingSuccess: () => {},
               onBookingSuccessProps: ['bookingNumber', 'providerName', 'price', 'currency', 'roomTypes']
             }]
           ]
@@ -145,6 +145,7 @@ export default {
       initForm()
     },
     formSubmit(data) {
+      console.log(data)
       if (this.isLoading) {
         return
       }
@@ -158,7 +159,16 @@ export default {
       }
       formData.city = this.GET_CURRENT_CITY
 
-      console.log('go to travelline')
+      axios.post(API_ROUTES_BOOKING_FORM, formData)
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+        .finally(() => {
+          this.isLoading = false
+        })
       // axios.post(API_ROUTES_BOOKING_FORM, formData)
       //   .then(({ status }) => {
       //     if (status === 200 || status === 201) {
