@@ -159,16 +159,20 @@ export default {
       }
       formData.city = this.GET_CURRENT_CITY
 
-      axios.post(API_ROUTES_BOOKING_FORM, formData)
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-        .finally(() => {
-          this.isLoading = false
-        })
+      const query = this.$router.query
+      console.log(query)
+      this.$router.replace({ query: { ...query, ...formData } })
+
+      // axios.post(API_ROUTES_BOOKING_FORM, formData)
+      //   .then(function (response) {
+      //     console.log(response)
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error)
+      //   })
+      //   .finally(() => {
+      //     this.isLoading = false
+      //   })
       // axios.post(API_ROUTES_BOOKING_FORM, formData)
       //   .then(({ status }) => {
       //     if (status === 200 || status === 201) {

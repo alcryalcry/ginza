@@ -1,5 +1,9 @@
 {
   "COMMON": {
+    "SELECT_CITY": "Select a city",
+    "OF_ADULTS": "Adults",
+    "OF_CHILDREN": "Children",
+    "DATES": "Dates",
     "OF_PLACES": "places",
     "PROPERTIES": {
       "BED": "bed",

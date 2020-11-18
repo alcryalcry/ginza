@@ -1,6 +1,7 @@
 export const state = () => ({
   cities: [],
-  city: {}
+  city: {},
+  prevPage: ''
 })
 
 export const mutations = {
@@ -9,15 +10,22 @@ export const mutations = {
   },
   SET_CURRENT_CITY (state, payload = {}) {
     state.city = { ...payload }
+  },
+  SET_PREV_PAGE (state, payload = '') {
+    state.prevPage = payload
   }
 }
 
 export const getters = {
   GET_CITIES: state => state.cities,
-  GET_CURRENT_CITY: state => state.city
+  GET_CURRENT_CITY: state => state.city,
+  GET_PREV_PAGE: state => state.prevPage
 }
 
 export const actions = {
+  UPDATE_PREV_PAGE ({ commit, state, dispatch }, payload) {
+    commit('SET_PREV_PAGE', payload)
+  },
   UPDATE_CURRENT_CITY ({ commit, dispatch }, payload) {
     commit('SET_CURRENT_CITY', payload)
     // dispatch('housing/UPDATE_HOUSING_LIST', null, { root: true })

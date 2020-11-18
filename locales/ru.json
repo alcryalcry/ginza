@@ -1,5 +1,9 @@
 {
   "COMMON": {
+    "SELECT_CITY": "Выберите город",
+    "OF_ADULTS": "Взрослых",
+    "OF_CHILDREN": "Детей",
+    "DATES": "Даты",
     "OF_PLACES": "мест",
     "PROPERTIES": {
       "BED": "кровать",

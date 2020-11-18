@@ -6,7 +6,7 @@
           <span>{{ label }}</span>
         </span>
         <Datepicker
-          v-model="value"
+          v-model="dates"
           class="form-input__control"
           :class="{ isActiveDates }"
           :language="currentLocale"
@@ -26,11 +26,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import { ru, en } from 'vuejs-datepicker/dist/locale'
+import moment from 'moment'
 
 export default {
   name: 'FormDatepickerRange',
-  components: {
-  },
   props: {
     label: {
       type: String,
@@ -47,11 +46,15 @@ export default {
     info: {
       type: Object,
       default: () => ({})
+    },
+    value: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
-      value: '',
+      dates: '',
       ru: ru,
       en: en,
       isActiveDates: false,
@@ -67,6 +70,21 @@ export default {
     }),
     currentLocale() {
       return this[this.GET_LANG]
+    }
+  },
+  watch: {
+    value: {
+      handler(val) {
+        if (val && val[0] && val[1]) {
+          this.highlighted = {
+            from: new Date(val[0]),
+            to: new Date(val[1])
+          }
+          this.dates = new Date(val[1])
+          this.selectMonth(new Date(val[1]))
+        }
+      },
+      immediate: true
     }
   },
   methods: {
@@ -85,7 +103,9 @@ export default {
         this.highlighted.from = val
         this.highlighted.to = null
       }
-      this.$emit('input-change', +val)
+      const from = this.highlighted.from ? moment(this.highlighted.from).format('YYYY-MM-DD') : null
+      const to = this.highlighted.to ? moment(this.highlighted.to).format('YYYY-MM-DD') : null
+      this.$emit('input-change', { model: [from, to] })
     },
     selectMonth(payload) {
       const newDate = payload.timestamp ? payload.timestamp : payload
