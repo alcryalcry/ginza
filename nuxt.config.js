@@ -100,7 +100,8 @@ const config = {
     }
   ],
   buildModules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/moment'
   ],
   modules: [
     'nuxt-vuex-localstorage',

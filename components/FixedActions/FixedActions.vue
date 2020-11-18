@@ -22,7 +22,7 @@
           <button
             v-else-if="item.type === 'popup'"
             class="actions-button"
-            @click="openPopup(item.popup)"
+            @click="openPopupWithName(item.popup)"
           >
             <span v-html="item.label" />
             <span v-if="item.id === 'booking'" class="icon">
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import iconArrow from '~/assets/svg/arrow.svg'
@@ -96,6 +96,18 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      UPDATE_PREV_PAGE: 'localStorage/UPDATE_PREV_PAGE'
+    }),
+    openPopupWithName(popup) {
+      const { type } = popup
+      if (type === 'popupTravelLine') {
+        this.UPDATE_PREV_PAGE(this.$route.path)
+        this.$router.push({ path: '/booking' })
+      } else {
+        this.openPopup(popup)
+      }
+    },
     closeComponent() {
       this.activeComponent = null
     },

@@ -24,8 +24,8 @@
                 <iconCheck />
               </div>
             </div>
-            <h5 v-if="$('booking.resultTitle')" class="result-title" v-html="$t('booking.resultTitle')" />
-            <p v-if="$('booking.resultDescription')" class="result-desc" v-html="$t('booking.resultDescription')" />
+            <h5 v-if="$t('booking.resultTitle')" class="result-title" v-html="$t('booking.resultTitle')" />
+            <p v-if="$t('booking.resultDescription')" class="result-desc" v-html="$t('booking.resultDescription')" />
             <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
           </div>
         </transition>
