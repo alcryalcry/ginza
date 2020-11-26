@@ -1,50 +1,51 @@
 <template>
   <div v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-booking">
     <div class="popup-content">
-      <div class="popup-content-col">
-        <div class="popup-head-row">
-          <client-only>
-            <button class="back" @click="goToPrevPage">
-              <div class="back-link">
-                <iconBack />
-              </div>
-            </button>
-          </client-only>
-          <transition mode="out-in" name="fade-reversed">
-            <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" />
-          </transition>
-        </div>
-        <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
-          <transition mode="out-in" name="list-fade">
-            <FormGenerator
-              v-if="!isShowResult"
-              key="form"
-              class="form-travelline"
-              :is-loading="isLoading"
-              :info="formFields"
-              @formSubmit="formSubmit"
-            />
-
-            <div v-else key="result" class="result">
-              <div class="result-icon">
-                <div class="icon">
-                  <iconCheck />
+      <div class="popup-content-col-wrapper">
+        <div class="popup-content-col">
+          <div class="popup-head-row">
+            <client-only>
+              <button class="back" @click="goToPrevPage">
+                <div class="back-link">
+                  <iconBack />
                 </div>
+              </button>
+            </client-only>
+            <transition mode="out-in" name="fade-reversed">
+              <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" />
+            </transition>
+          </div>
+          <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
+            <transition mode="out-in" name="list-fade">
+              <FormGenerator
+                v-if="!isShowResult"
+                key="form"
+                class="form-travelline"
+                :is-loading="isLoading"
+                :info="formFields"
+                @formSubmit="formSubmit"
+              />
+              <div v-else key="result" class="result">
+                <div class="result-icon">
+                  <div class="icon">
+                    <iconCheck />
+                  </div>
+                </div>
+                <h5 v-if="$t('travelline.resultTitle')" class="result-title" v-html="$t('travelline.resultTitle')" />
+                <p
+                  v-if="$t('travelline.resultDescription')"
+                  class="result-desc"
+                  v-html="$t('travelline.resultDescription')"
+                />
+                <a
+                  v-if="GET_SOCIAL.phone"
+                  :href="`tel:${GET_SOCIAL.phone}`"
+                  class="result-link"
+                  v-html="GET_SOCIAL.phone"
+                />
               </div>
-              <h5 v-if="$t('travelline.resultTitle')" class="result-title" v-html="$t('travelline.resultTitle')" />
-              <p
-                v-if="$t('travelline.resultDescription')"
-                class="result-desc"
-                v-html="$t('travelline.resultDescription')"
-              />
-              <a
-                v-if="GET_SOCIAL.phone"
-                :href="`tel:${GET_SOCIAL.phone}`"
-                class="result-link"
-                v-html="GET_SOCIAL.phone"
-              />
-            </div>
-          </transition>
+            </transition>
+          </div>
         </div>
       </div>
       <div class="popup-content-col widget">
@@ -272,6 +273,7 @@ export default {
 
 <style lang="scss" scoped>
   .popup-booking {
+    max-height: 100vh;
     position: relative;
     display: flex;
     flex: 1;
@@ -327,17 +329,33 @@ export default {
       }
     }
 
+    .popup-content-col-wrapper {
+      max-width: 37.5rem;
+      padding: 0;
+      @include desktop {
+        max-height: 100vh;
+        overflow: hidden;
+      }
+    }
+
     .popup-content-col {
+      padding: 0;
       display: flex;
       flex-flow: column nowrap;
       flex: 1;
       max-width: 37.5rem;
-      padding: 0;
       @include tablet {
         max-width: 100%;
       }
       @include desktop {
+        height: 100%;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
         padding: 6rem 7.5rem 6rem 0;
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
 
       &.widget {

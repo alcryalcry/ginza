@@ -88,3 +88,5 @@ sw.*
 
 .now
 yarn.lock
+
+package-lock.json
