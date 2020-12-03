@@ -1,71 +1,33 @@
 <template>
-  <div v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="popup-booking">
-    <div class="popup-content">
-      <div class="popup-content-col-wrapper">
-        <div class="popup-content-col">
-          <div class="popup-head-row">
-            <client-only>
-              <button class="back" @click="goToPrevPage">
-                <div class="back-link">
-                  <iconBack />
-                </div>
-              </button>
-            </client-only>
-            <transition mode="out-in" name="fade-reversed">
-              <div v-if="!isShowResult" key="title" class="text--24 popup-head-title" v-html="$t('booking.title')" />
-            </transition>
-          </div>
-          <div class="popup-booking-container" :class="{ isShowResult, isLoading }">
-            <transition mode="out-in" name="list-fade">
-              <FormGenerator
-                v-if="!isShowResult"
-                key="form"
-                class="form-travelline"
-                :is-loading="isLoading"
-                :info="formFields"
-                @formSubmit="formSubmit"
-              />
-              <div v-else key="result" class="result">
-                <div class="result-icon">
-                  <div class="icon">
-                    <iconCheck />
+  <div v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="booking">
+    <div class="content-col">
+      <div class="section header-top section--big section--no-p">
+        <div class="container">
+          <div class="header-row">
+            <div class="header-col left">
+              <client-only>
+                <button class="back" @click="goToPrevPage">
+                  <div class="back-link">
+                    <iconBack />
                   </div>
-                </div>
-                <h5 v-if="$t('travelline.resultTitle')" class="result-title" v-html="$t('travelline.resultTitle')" />
-                <p
-                  v-if="$t('travelline.resultDescription')"
-                  class="result-desc"
-                  v-html="$t('travelline.resultDescription')"
-                />
-                <a
-                  v-if="GET_SOCIAL.phone"
-                  :href="`tel:${GET_SOCIAL.phone}`"
-                  class="result-link"
-                  v-html="GET_SOCIAL.phone"
-                />
+                  <span class="text text--13">
+                    {{ $t("header.back") }}
+                  </span>
+                </button>
+              </client-only>
+            </div>
+            <div class="header-col center">
+              <div class="logo">
+                <iconLogo />
               </div>
-            </transition>
+            </div>
+            <div class="header-col right" />
           </div>
         </div>
       </div>
-      <div class="popup-content-col widget">
-        <div class="popup-head-row">
-          <div class="logo">
-            <iconLogo />
-          </div>
-        </div>
-        <div class="popup-booking-container">
-          <div id="tl-booking-form" />
-        </div>
+      <div class="popup-booking-container">
+        <div id="tl-booking-form" />
       </div>
-    </div>
-    <div class="popup-image">
-      <picture v-if="GET_POPUP_EXTEND_CONTENT.image" class="image">
-        <app-image :src="GET_POPUP_EXTEND_CONTENT.image" alt="" />
-      </picture>
-      <picture v-if="GET_POPUP_EXTEND_CONTENT.logo" class="logo">
-        <app-image :src="GET_POPUP_EXTEND_CONTENT.logo" alt="" />
-      </picture>
     </div>
   </div>
 </template>
@@ -79,14 +41,14 @@ import iconBack from '~/assets/svg/back.svg'
 import axios from '~/plugins/axios'
 import { API_ROUTES_BOOKING_FORM } from '~/config/constants'
 
-import FormGenerator from '~/components/FormGenerator/FormGenerator'
-import iconCheck from '~/assets/svg/check.svg'
+// import FormGenerator from '~/components/FormGenerator/FormGenerator'
+// import iconCheck from '~/assets/svg/check.svg'
 
 export default {
   name: 'TravelLine',
   components: {
-    FormGenerator,
-    iconCheck,
+    // FormGenerator,
+    // iconCheck,
     iconLogo,
     iconBack
   },
@@ -272,7 +234,61 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .popup-booking {
+
+  .header-top {
+    position: relative;
+    padding: 2rem 0;
+    background: $white;
+    border-bottom: 1px solid $border;
+    z-index: $zLayerMenuOpenedBurgerBtn;
+    transition: transform .2s ease .2s, background-color .2s ease, border-color .2s ease;
+    @include mobile {
+      padding: 1.5rem 0;
+    }
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-col {
+    display: flex;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    &.left {
+      justify-content: flex-start;
+      align-items: center;
+      flex-basis: 35%;
+    }
+    &.center {
+      justify-content: center;
+      flex-basis: 30%;
+    }
+    &.right {
+      justify-content: flex-end;
+      flex-basis: 35%;
+    }
+    .logo {
+      display: block;
+      width: 13rem;
+      height: 5rem;
+      transition: color .2s ease;
+      @include desktop {
+        &:hover {
+          color: $brown;
+        }
+      }
+      @include mobile {
+        width: 9rem;
+        height: 3rem;
+      }
+    }
+  }
+
+  .booking {
     max-height: 100vh;
     position: relative;
     display: flex;
@@ -285,7 +301,7 @@ export default {
       align-items: stretch;
     }
 
-    .popup-booking-container {
+    .booking-container {
       transition: opacity .3s ease;
       @include mobile_tablet {
         padding-top: 4rem;
@@ -329,8 +345,8 @@ export default {
       }
     }
 
-    .popup-content-col-wrapper {
-      max-width: 37.5rem;
+    .content-col-wrapper {
+      max-width: 100%;
       padding: 0;
       @include desktop {
         max-height: 100vh;
@@ -338,12 +354,12 @@ export default {
       }
     }
 
-    .popup-content-col {
+    .content-col {
       padding: 0;
       display: flex;
       flex-flow: column nowrap;
       flex: 1;
-      max-width: 37.5rem;
+      max-width: 100%;
       @include tablet {
         max-width: 100%;
       }
@@ -352,39 +368,8 @@ export default {
         overflow-y: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        padding: 6rem 7.5rem 6rem 0;
         &::-webkit-scrollbar {
           display: none;
-        }
-      }
-
-      &.widget {
-        max-width: 48rem;
-        padding-top: 4rem;
-        @include tablet {
-          max-width: 100%;
-        }
-        @include desktop {
-          border-left: 1px solid $border;
-          padding-top: 0;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-        }
-
-        .logo {
-          display: none;
-          @include desktop {
-            display: flex;
-            width: 11.5rem;
-            height: 4rem;
-            margin: 0 auto 6rem;
-          }
-        }
-
-        .popup-head-row {
-          @include mobile_tablet {
-            display: none;
-          }
         }
       }
     }
