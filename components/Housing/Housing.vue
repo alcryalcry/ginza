@@ -94,7 +94,7 @@ export default {
     },
     filteredTypes() {
       const city = this.GET_CURRENT_CITY
-      return this.GET_HOUSING_TYPES.map((type) => {
+      const types = this.GET_HOUSING_TYPES.map((type) => {
         return {
           id: type.id,
           url: '/' + type.id,
@@ -102,6 +102,7 @@ export default {
           list: this.GET_HOUSING_LIST.filter(item => item.type === type.id && item.city.id === city.id).splice(0, 3)
         }
       })
+      return types.filter(item => item.list && item.list.length > 0)
     },
     mapMarkers() {
       const arr = []
