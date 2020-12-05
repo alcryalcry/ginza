@@ -104,6 +104,7 @@ export default {
 
 <style lang="scss" scoped>
 .services-page {
+  overflow-x: hidden;
   .link-block {
     position: relative;
     display: flex;
@@ -189,8 +190,8 @@ export default {
       position: absolute;
       top: 50%;
       right: 0;
-      width: 97rem;
-      height: 97rem;
+      width: 87rem;
+      height: 87rem;
       border-radius: 50%;
       background: currentColor;
       transform: translate3d(42%, -50%, 0);
