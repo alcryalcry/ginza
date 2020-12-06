@@ -95,14 +95,14 @@ export default {
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     })
   },
-  watch: {
-    GET_POPUP_STATUS(isOpen) {
-      if (isOpen && this.GET_POPUP_TYPE === 'popupTravelLine') {
-        console.log('isOpen && popupType')
-        this.initWidget()
-      }
-    }
-  },
+  // watch: {
+  //   GET_POPUP_STATUS(isOpen) {
+  //     if (isOpen && this.GET_POPUP_TYPE === 'popupTravelLine') {
+  //       console.log('isOpen && popupType')
+  //       this.initWidget()
+  //     }
+  //   }
+  // },
   methods: {
     ...mapMutations({
       CLOSE_POPUP: 'popup/CLOSE_POPUP'

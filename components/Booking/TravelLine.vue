@@ -1,5 +1,5 @@
 <template>
-  <div v-bsl:reserveScrollBarGap="GET_POPUP_STATUS" class="booking">
+  <div class="booking">
     <div class="content-col">
       <div class="section header-top section--big section--no-p">
         <div class="container">
@@ -60,7 +60,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_POPUP_STATUS: 'popup/GET_POPUP_STATUS',
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
       GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT',
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY',
