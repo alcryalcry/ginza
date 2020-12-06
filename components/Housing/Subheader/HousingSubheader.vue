@@ -5,7 +5,7 @@
     :class="{isScrolled: GET_HEADER_STATUS}"
   >
     <div class="cities">
-      <CitiesDropdown />
+      <CitiesDropdown :page="activeLink" />
     </div>
     <div v-if="needMenu" class="subheader-menu">
       <div ref="stickyMenuWrapper" class="subheader-top">

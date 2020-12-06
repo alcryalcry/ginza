@@ -1,6 +1,6 @@
 <template>
   <Section class="housing section--full section--no-p section--gray" :class="{ isLoading: GET_HOUSING_STATUS }">
-    <HousingSubheader />
+    <HousingSubheader :current-active-link="type" />
     <div class="housing-content">
       <div class="housing-filter">
         <div class="row">

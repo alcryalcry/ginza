@@ -1,7 +1,7 @@
 <template>
   <Layout :footer="false" show-travelline>
     <template v-slot:page-content>
-      <HousingPage :info="components" />
+      <HousingPage :info="components" :type="pageType" />
     </template>
     <template v-slot:popup>
       <Popup>
@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       components: [],
+      pageType: 'apartments',
       storeListener: null
     }
   },

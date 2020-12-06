@@ -49,6 +49,10 @@ export default {
     info: {
       type: Object,
       default: () => ({})
+    },
+    page: {
+      type: String,
+      default: null
     }
   },
   data() {
@@ -62,7 +66,12 @@ export default {
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     filteredCities() {
-      return this.GET_CITIES.filter(item => item.id !== this.GET_CURRENT_CITY.id)
+      const property = `${this.page}_count`
+      return this.GET_CITIES.filter((item) => {
+        const excludingCurrent = item.id !== this.GET_CURRENT_CITY.id
+        const hasPageAndProperty = this.page && (item[property] || item[property] === 0) ? item[property] > 0 : true
+        return excludingCurrent && hasPageAndProperty
+      })
     }
   },
   created() {
