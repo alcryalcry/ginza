@@ -64,12 +64,23 @@ export default {
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
     }),
     menuLinks() {
-      return this.$t('menuList').map((item) => {
-        return {
+      const links = []
+      this.$t('menuList').forEach((item) => {
+        if (item.url.match('/apartments') && !this.GET_CURRENT_CITY.apartments_count) {
+          return
+        }
+
+        if (item.url.match('/hotels') && !this.GET_CURRENT_CITY.hotels_count) {
+          return
+        }
+
+        links.push({
           label: item.label,
           url: item.dependOnCity ? this.GET_CURRENT_CITY.en_name + item.url : item.url
-        }
+        })
       })
+
+      return links
     }
   },
   mounted() {
