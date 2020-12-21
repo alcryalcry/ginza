@@ -139,7 +139,7 @@ export default {
   // background: rgba($white, .35);
   margin-left: auto;
   min-width: 63rem;
-  padding: 3rem $desktopOffset 3rem 8rem;
+  padding: 3rem $desktopOffset 10rem 8rem;
   @include backdrop;
 
   @include desktop {
