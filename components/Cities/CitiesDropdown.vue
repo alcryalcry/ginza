@@ -8,13 +8,14 @@
         <button
           type="button"
           class="cities-btn text--18"
+          :class="{ 'disabled-btn': filteredCities.length < 1 }"
           @click="toggleList"
           v-html="GET_CURRENT_CITY.name"
         />
       </div>
     </transition>
     <transition mode="out-in" name="list-fade-reversed">
-      <ul v-if="isOpen" :key="1" v-on-clickaway="closeList" class="dropdown-list">
+      <ul v-if="isOpen && filteredCities.length > 0" :key="1" v-on-clickaway="closeList" class="dropdown-list">
         <li
           v-for="city in filteredCities"
           :key="city.id"
@@ -134,6 +135,10 @@ export default {
     &.isActive {
       .cities-btn {
         color: $black17;
+      }
+      .disabled-btn {
+        cursor: default;
+        pointer-events: none;
       }
       .icon {
         color: $black17;
