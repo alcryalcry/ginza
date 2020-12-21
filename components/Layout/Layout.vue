@@ -3,7 +3,7 @@
     <Header :is-main="isHeaderMain && header" />
 
     <main class="page-content">
-      <FixedActions v-if="showTravelline" :info="fixedData" />
+      <FixedActions v-if="showTravelline" :id="travelLineId" :info="fixedData" />
       <slot name="page-content" :value="value">
         <Section class="section--min">
           <!-- <div class="title--h1">Something went wrong. <br>Please try again later</div> -->
@@ -50,6 +50,10 @@ export default {
     showTravelline: {
       type: Boolean,
       default: false
+    },
+    travelLineId: {
+      type: [Number, String],
+      default: null
     }
   },
   data() {

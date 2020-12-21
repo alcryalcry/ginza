@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <template v-slot:page-content>
-      <FixedActions :info="fixedData" />
+      <FixedActions :id="travelLineId" :info="fixedData" />
       <component
         :is="item"
         v-for="(item, index) in generatedComps"
@@ -35,7 +35,8 @@ export default {
   async asyncData(context) {
     try {
       const {
-        components = {}
+        components = {},
+        tl_id: travelLineId
       } = await getAsyncData(context,
         context.route.params.city + '/' +
         API_ROUTES_APARTMENTS_ROOT + '/' +
@@ -45,7 +46,8 @@ export default {
       return {
         components: components.components,
         page: components,
-        mode: components.mode || ''
+        mode: components.mode || '',
+        travelLineId
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)
@@ -53,6 +55,7 @@ export default {
   },
   data() {
     return {
+      travelLineId: null,
       fixedData: {
         ...this.$t('fixedActions.travelline')
       }

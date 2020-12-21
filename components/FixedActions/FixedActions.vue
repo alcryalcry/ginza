@@ -73,6 +73,10 @@ export default {
   },
   mixins: [popupMethods],
   props: {
+    id: {
+      type: [String, Number],
+      default: null
+    },
     info: {
       type: Object,
       default: () => ({})
@@ -103,7 +107,8 @@ export default {
       const { type } = popup
       if (type === 'popupTravelLine') {
         this.UPDATE_PREV_PAGE(this.$route.path)
-        this.$router.push({ path: '/booking' })
+        const query = this.id ? { hotel_id: this.id } : null
+        this.$router.push({ path: '/booking', query })
       } else {
         this.openPopup(popup)
       }

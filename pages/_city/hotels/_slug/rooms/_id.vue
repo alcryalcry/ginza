@@ -1,5 +1,5 @@
 <template>
-  <Layout show-travelline>
+  <Layout show-travelline :travel-line-id="travelLineId">
     <template v-slot:page-content>
       <component
         :is="item"
@@ -30,7 +30,8 @@ export default {
   async asyncData(context) {
     try {
       const {
-        components = {}
+        components = {},
+        tl_id: travelLineId
       } = await getAsyncData(context,
         context.route.params.city + '/' +
         API_ROUTES_HOTELS_ROOT + '/' +
@@ -43,10 +44,16 @@ export default {
       return {
         components: components.components,
         page: components,
-        mode: components.mode || ''
+        mode: components.mode || '',
+        travelLineId
       }
     } catch (e) {
       console.error('ERROR FROM page (asyncData)', e)
+    }
+  },
+  data() {
+    return {
+      travelLineId: null
     }
   }
 }
