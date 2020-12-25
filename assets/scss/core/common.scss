@@ -20,7 +20,7 @@ html {
     font-size: calc(10px + 4 * (100vw - 768px) / 256);
   }
 
-  @media (min-width: 1025px)  and (max-width: 1360px) {
+  @media (min-width: 1025px) and (max-width: 1360px) {
     font-size: calc(8px + 2 * (100vw - 1024px) / 335);
   }
 }
@@ -34,9 +34,7 @@ body {
   min-height: 100%;
 }
 
-main,
-#__nuxt,
-#__layout {
+#__nuxt #__layout main {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -57,12 +55,12 @@ main,
         color: $border;
       }
       .form-counter {
-        border-color: rgba($white, .3);
+        border-color: rgba($white, 0.3);
       }
       .counter-btn {
         color: $white;
         &::before {
-          border-color: rgba($white, .3);
+          border-color: rgba($white, 0.3);
         }
       }
       .form {
@@ -75,7 +73,7 @@ main,
     .input-label {
       .input {
         color: $white;
-        border-color: rgba($white, .3)
+        border-color: rgba($white, 0.3);
       }
       .input-placeholder {
         color: $white;
@@ -120,7 +118,7 @@ main,
       }
       button {
         &:not(:hover) {
-          color:$grayLight;
+          color: $grayLight;
         }
       }
       .header-top {
@@ -135,7 +133,7 @@ main,
       border-color: $gray5c;
     }
     .section--apartment {
-      >.container {
+      > .container {
         border-color: $gray5c;
       }
     }
@@ -154,16 +152,15 @@ main,
   }
 }
 
-
 .visually-hidden {
-  position: absolute!important;
-  width: 1px!important;
-  height: 1px!important;
-  margin: -1px!important;
-  padding: 0!important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
   clip: rect(0 0 0 0);
-  border: 0!important;
-  overflow: hidden!important;
+  border: 0 !important;
+  overflow: hidden !important;
 }
 
 a {
@@ -213,7 +210,7 @@ img {
   height: 100%;
   object-fit: cover;
   // opacity: 0;
-  transition: opacity .2s ease;
+  transition: opacity 0.2s ease;
   &[data-not-lazy] {
     opacity: 1;
   }
@@ -228,10 +225,9 @@ svg {
   height: 100%;
 }
 
-
 .list-fade-enter-active,
 .list-fade-leave-active {
-  transition: opacity .2s ease, transform .2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .list-fade-enter,
 .list-fade-leave-to {
@@ -240,10 +236,9 @@ svg {
   transition: none;
 }
 
-
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity $t
+  transition: opacity $t;
 }
 
 .fade-enter,
@@ -252,7 +247,6 @@ svg {
   // transition: none;
 }
 
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   appearance: none;
@@ -260,6 +254,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
-  -moz-appearance:textfield !important;
+input[type="number"] {
+  -moz-appearance: textfield !important;
 }
