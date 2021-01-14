@@ -58,10 +58,10 @@ export default {
       if (type === 'size') {
         return 'м²'
       }
-      if (type === 'beds') {
-        const wordForm = this.declOfNum(value, ['BED', 'OF_BED', 'BEDS'])
-        return this.getTextProperty(wordForm)
-      }
+      // if (type === 'beds') {
+      //   const wordForm = this.declOfNum(value, ['BED', 'OF_BED', 'BEDS'])
+      //   return this.getTextProperty(wordForm)
+      // }
       // if (type === 'rooms') {
       //   const wordForm = this.declOfNum(value, ['ROOM', 'OF_ROOM', 'ROOMS'])
       //   return this.getTextProperty(wordForm)
