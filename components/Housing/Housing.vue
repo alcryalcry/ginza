@@ -29,8 +29,8 @@
                     <div v-for="card in values.list" :key="card.id" class="col-6 col-t-6 housing-list-item">
                       <HousingCard :info="card" :is-nested="true" />
                     </div>
-                    <div class="col-6 col-t-6 housing-list-item">
-                      <HousingLink :url="values.url" :type="values.id" />
+                    <div :key="GET_CURRENT_CITY.en_name" class="col-6 col-t-6 housing-list-item">
+                      <HousingLink :url="GET_CURRENT_CITY.en_name + values.url" :type="values.id" />
                     </div>
                   </div>
                 </div>
