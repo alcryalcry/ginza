@@ -5,6 +5,7 @@
     </div>
     <div class="info">
       <div class="distance" v-html="info.distance" />
+      <div class="sign-text">{{ $t('COMMON.MIN') }}</div>
       <div class="icon">
         <component :is="info.type" v-if="$options.components[info.type]" />
       </div>
@@ -44,6 +45,9 @@ export default {
 .name {
   flex: 1 1 auto;
   padding-right: 2rem;
+}
+.sign-text {
+  margin-left: 0.5rem;
 }
 .icon {
   margin-left: 1rem;
