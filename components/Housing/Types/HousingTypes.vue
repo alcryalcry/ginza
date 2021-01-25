@@ -16,7 +16,7 @@
         v-if="type.id === curItem.id"
         :key="GET_CURRENT_HOUSING_TYPE.id"
         class="link link--brown"
-        :to="'/' + GET_CURRENT_CITY.en_name + GET_CURRENT_HOUSING_TYPE.id"
+        :to="'/' + GET_CURRENT_CITY.en_name  + '/' + GET_CURRENT_HOUSING_TYPE.id"
       >
         {{ $t('housing.all') }}
       </ExternalLink>
