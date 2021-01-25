@@ -53,7 +53,8 @@ export default {
   computed: {
     ...mapGetters({
       GET_HOUSING_TYPES: 'housing/GET_HOUSING_TYPES',
-      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE'
+      GET_CURRENT_HOUSING_TYPE: 'housing/GET_CURRENT_HOUSING_TYPE',
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY',
     }),
     isCustomList() {
       return (this.customList || []).length
