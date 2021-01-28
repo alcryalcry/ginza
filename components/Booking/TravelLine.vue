@@ -27,6 +27,7 @@
       </div>
       <div class="popup-booking-container">
         <div id="tl-booking-form" />
+        <div id="amk-booking-integration" />
       </div>
     </div>
   </div>
@@ -143,7 +144,24 @@ export default {
     initWidget() {
       /* eslint-disable eqeqeq */
 
-      function initForm() {
+      function initAMK() {
+        (function (w) {
+          const f = {}
+          const amkI = w.amkI = (w.amkI || {})
+          const ab = amkI.booking = (amkI.booking || {})
+          ab.params = (ab.params || f)
+          if (!ab.__loader) {
+            ab.__loader = true
+            const d = w.document; const s = d.createElement('script')
+            s.type = 'text/javascript'
+            s.async = true
+            s.src = 'https://booking.amk-web.com/iframe-integration/ru/1077/loader.js';
+            (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s)
+          }
+        })(window)
+      }
+
+      function initTL() {
         (function (w) {
           const q = [
             // TODO: прокинуть сюда TLHotelId
@@ -175,7 +193,11 @@ export default {
         })(window)
       }
 
-      initForm()
+      if (this.GET_CURRENT_CITY.booking_system === 'FD') {
+        initAMK()
+      } else {
+        initTL()
+      }
     },
     getNights(range) {
       if (range && range[0] && range[1]) {
