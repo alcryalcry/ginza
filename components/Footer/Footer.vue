@@ -16,8 +16,8 @@
           <div class="col-9 col-t-12 col-m-12 isNoGut">
             <div class="footer-menu">
               <div class="row isNoGut">
-                <div v-for="item in $t('menuList')" :key="item.url" class="isNoGut col-4 col-t-4 col-m-6">
-                  <ExternalLink :to="item.url" class="text--18 link footer-link" v-html="item.label" />
+                <div v-for="item in menu" :key="item.url" class="isNoGut col-4 col-t-4 col-m-6">
+                  <ExternalLink :to="item.url" class="text--18 link footer-link" v-html="$t(`menu.${item.label}`)" />
                 </div>
               </div>
             </div>
@@ -63,8 +63,47 @@ export default {
   },
   computed: {
     ...mapGetters({
-      GET_SOCIAL: 'GET_SOCIAL'
-    })
+      GET_SOCIAL: 'GET_SOCIAL',
+      GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY'
+    }),
+    menu() {
+      return [
+        {
+          'label': 'about',
+          'url': '/about'
+        },
+        {
+          'label': 'apartments',
+          'url': this.GET_CURRENT_CITY.en_name + '/apartments',
+          'dependOnCity': true
+        },
+        {
+          'label': 'hotels',
+          'url': this.GET_CURRENT_CITY.en_name + '/hotels',
+          'dependOnCity': true
+        },
+        {
+          'label': 'services',
+          'url': '/services'
+        },
+        {
+          'label': 'special',
+          'url': '/special'
+        },
+        {
+          'label': 'posts',
+          'url': '/posts'
+        },
+        {
+          'label': 'investors',
+          'url': '/investors'
+        },
+        {
+          'label': 'contacts',
+          'url': '/contacts'
+        }
+      ]
+    }
   }
 }
 </script>

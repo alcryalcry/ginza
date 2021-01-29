@@ -32,6 +32,16 @@
     "u_shape": "U-Shape",
     "stand_up_meal": "reception"
   },
+  "menu": {
+    "about": "About",
+    "apartments": "Apartments",
+    "hotels": "Hotels",
+    "services": "Services",
+    "special": "Special",
+    "posts": "Culture & Events",
+    "investors": "Investors",
+    "contacts": "Contacts"
+  },
   "menuList": [
     {
       "label": "About",

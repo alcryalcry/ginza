@@ -25,13 +25,23 @@
     "Business": "Отель"
   },
   "SEATING_PATTERN": {
-  "theater": "театр",
-  "banquet": "банкет",
-  "class": "класс",
-  "o_shape": "O-Shape",
-  "u_shape": "U-Shape",
-  "stand_up_meal": "Фуршет"
-},
+    "theater": "театр",
+    "banquet": "банкет",
+    "class": "класс",
+    "o_shape": "O-Shape",
+    "u_shape": "U-Shape",
+    "stand_up_meal": "Фуршет"
+  },
+  "menu": {
+    "about": "О нас",
+    "apartments": "Апартаменты",
+    "hotels": "Отели",
+    "services": "Сервис",
+    "special": "Спецпредложения",
+    "posts": "Культура & События",
+    "investors": "Инвесторам",
+    "contacts": "Контакты"
+  },
   "menuList": [
     {
       "label": "О нас",
