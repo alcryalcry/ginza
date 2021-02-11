@@ -149,6 +149,9 @@ export default {
   @include hd {
     font-size: 4.2rem;
   }
+  @include notebook {
+    font-size: 3.8rem;
+  }
   @include tablet {
     text-indent: -.2rem;
     font-size: 3.4rem;
