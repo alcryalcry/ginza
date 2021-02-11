@@ -199,7 +199,8 @@ export default {
   width: 100px;
   display: flex;
   flex-flow: column nowrap;
-  min-height: 90rem;
+  height: 90rem;
+  max-height: 100vh;
   overflow: hidden;
   @include tablet {
     min-height: 90vh
