@@ -117,6 +117,9 @@ export default {
   .cities-item {
     position: relative;
     transition: background-color .2s ease;
+    .cities-btn {
+      color: $gray;
+    }
     &:active {
       background-color: $brown;
       .cities-btn {
