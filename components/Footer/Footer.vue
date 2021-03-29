@@ -41,6 +41,16 @@
           </div>
         </div>
       </div>
+      <div class="footer-row isInfo">
+        <div class="credits">
+          <span>{{ $t('footer.SITE_MADE_BY') }}</span>
+          <ExternalLink
+            class="link"
+            :to="'https://interspace.studio/'"
+            v-html="'Interspace Studio'"
+          />
+        </div>
+      </div>
     </Section>
   </footer>
 </template>
@@ -206,6 +216,20 @@ export default {
   }
 
   .privacy {
+    @include mobile {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .credits {
+    color: $gray69;
+    font-size: 1.3rem;
+    a {
+      color: $gray69;
+      &:hover {
+        color: $brown;
+      }
+    }
     @include mobile {
       margin-bottom: 2rem;
     }

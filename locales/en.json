@@ -338,7 +338,8 @@
   },
   "footer": {
     "privacyUrl": "/privacy",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "SITE_MADE_BY": "Made by"
   },
   "popup": {
     "manager": "Send message",
