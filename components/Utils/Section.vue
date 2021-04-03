@@ -30,6 +30,9 @@ export default {
       @include mobile_tablet {
         display: flex;
       }
+      @include notebook {
+        padding: 3rem;
+      }
     }
   }
   &.section--big {

@@ -150,7 +150,7 @@ export default {
     font-size: 4.2rem;
   }
   @include notebook {
-    font-size: 3.8rem;
+    font-size: 3.0rem;
   }
   @include tablet {
     text-indent: -.2rem;
