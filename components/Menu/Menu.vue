@@ -150,7 +150,7 @@ export default {
     font-size: 4.2rem;
   }
   @include notebook {
-    font-size: 3.0rem;
+    font-size: 3.8rem;
   }
   @include tablet {
     text-indent: -.2rem;
@@ -160,6 +160,9 @@ export default {
     text-indent: -.1rem;
     font-size: 2.6rem;
     padding-left: 3rem;
+  }
+  @media (max-width: 1366px) and (max-height: 700px) {
+    font-size: 3.0rem;
   }
   &:active {
     color: $brown;
