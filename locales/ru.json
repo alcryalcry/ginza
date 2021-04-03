@@ -101,19 +101,13 @@
         },
         {
           "id": "date",
-          "type": "popup",
-          "label": "Даты",
-          "popup": {
-            "type": "popupTravelLine"
-          }
+          "type": "dates",
+          "label": "Даты"
         },
         {
           "id": "count",
-          "type": "popup",
-          "label": "Гости",
-          "popup": {
-            "type": "popupTravelLine"
-          }
+          "type": "guests",
+          "label": "Гости"
         },
         {
           "id": "booking",

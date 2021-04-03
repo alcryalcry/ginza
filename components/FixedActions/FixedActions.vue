@@ -35,6 +35,18 @@
           >
             <CitiesDropdown />
           </div>
+          <div
+            v-else-if="item.type === 'dates'"
+            class="actions-button"
+          >
+            <CalendarDropdown :label="item.label" />
+          </div>
+          <div
+            v-else-if="item.type === 'guests'"
+            class="actions-button"
+          >
+            <GuestsDropdown :label="item.label" />
+          </div>
           <!-- <button
             v-else-if="item.type === 'cities'"
             class="actions-button"
@@ -58,6 +70,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import CalendarDropdown from '@/components/Dropdowns/CalendarDropdown'
+import GuestsDropdown from '@/components/Dropdowns/GuestsDropdown'
 import MODEL from './model'
 import Section from '~/components/Utils/Section'
 import iconArrow from '~/assets/svg/arrow.svg'
@@ -69,7 +83,9 @@ export default {
   components: {
     Section,
     CitiesDropdown,
-    iconArrow
+    iconArrow,
+    CalendarDropdown,
+    GuestsDropdown
   },
   mixins: [popupMethods],
   props: {
@@ -84,6 +100,7 @@ export default {
   },
   data() {
     return {
+      showDate: false,
       activeComponent: null,
       fixedData: {
         ...this.$t('fixedActions.travelline')

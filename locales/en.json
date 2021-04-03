@@ -101,19 +101,13 @@
         },
         {
           "id": "date",
-          "type": "popup",
-          "label": "Dates",
-          "popup": {
-            "type": "popupBooking"
-          }
+          "type": "dates",
+          "label": "Dates"
         },
         {
           "id": "count",
-          "type": "popup",
-          "label": "Guests",
-          "popup": {
-            "type": "popupBooking"
-          }
+          "type": "guests",
+          "label": "Guests"
         },
         {
           "id": "booking",

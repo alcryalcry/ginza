@@ -64,7 +64,10 @@ export default {
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
       GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT',
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY',
-      GET_PREV_PAGE: 'localStorage/GET_PREV_PAGE'
+      GET_PREV_PAGE: 'localStorage/GET_PREV_PAGE',
+      GET_DATES: 'GET_DATES',
+      GET_ADULTS: 'GET_ADULTS',
+      GET_CHILDREN: 'GET_CHILDREN'
     }),
     model() {
       return MODEL(this.GET_POPUP_CONTENT)
@@ -130,9 +133,19 @@ export default {
     }
   },
   mounted() {
+    this.setQuery()
     this.initWidget()
   },
   methods: {
+    setQuery() {
+      const adults = this.GET_ADULTS
+      const dates = this.GET_DATES
+      const date = dates && dates[0] ? dates[0] : null
+      const nights = this.getNights(dates)
+      const checkIn = dates[0]
+      const checkOut = dates[1]
+      this.$router.replace({ query: { adults, date, nights, checkIn, checkOut } })
+    },
     goToPrevPage() {
       const prevPage = this.GET_PREV_PAGE
       if (prevPage) {
