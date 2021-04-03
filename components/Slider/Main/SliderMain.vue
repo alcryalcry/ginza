@@ -71,7 +71,9 @@ export default {
         loop: true,
         parallax: true,
         initialSlide: 0,
-        slidesPerView: 1
+        slidesPerView: 1,
+        breakpoints: {
+        }
       }
     }
   },

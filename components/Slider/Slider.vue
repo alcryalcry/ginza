@@ -5,10 +5,10 @@
     </div>
     <slot v-if="hasNavigation" class="nav" name="navigation">
       <div class="navigation d-show" :class="navigationMode">
-        <button type="button" class="navigation-btn swiper-button-prev">
+        <button type="button" class="navigation-btn swiper-button-prev" :class="{ looped }">
           <iconArrowCircle class="icon" />
         </button>
-        <button type="button" class="navigation-btn swiper-button-next">
+        <button type="button" class="navigation-btn swiper-button-next looped" :class="{ looped }">
           <iconArrowCircle class="icon" />
         </button>
       </div>
@@ -88,6 +88,9 @@ export default {
           clickable: true
         }
       } : {}
+    },
+    looped() {
+      return this.customOptions && this.customOptions.loop
     }
   }
 }
@@ -159,7 +162,7 @@ export default {
         color: $white;
         }
       }
-      &.swiper-button-disabled {
+      &.swiper-button-disabled:not(.looped) {
         opacity: 0.3;
         pointer-events: none;
       }
