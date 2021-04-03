@@ -3,6 +3,8 @@
     <Slider
       v-if="generatedSlides.length"
       :custom-options="customOptions"
+      :has-navigation="true"
+      navigation-mode="navigation--white navigation--basic"
       @active-index="activeIndex = $event"
     >
       <template v-slot:slides>
@@ -182,6 +184,7 @@ export default {
   }
 }
 .slider-main {
+  position: relative;
   overflow: hidden;
   &::v-deep {
     .swiper-wrapper {
