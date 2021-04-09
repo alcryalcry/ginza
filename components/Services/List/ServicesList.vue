@@ -22,7 +22,7 @@ import catering from '~/assets/svg/services/catering.svg'
 import delivery from '~/assets/svg/services/delivery.svg'
 import flower from '~/assets/svg/services/flower.svg'
 import fitness from '~/assets/svg/services/fitness.svg'
-import tour from '~/assets/svg/services/tour.svg'
+import forKids from '~/assets/svg/services/forkids.svg'
 import prime from '~/assets/svg/services/prime.svg'
 import sky from '~/assets/svg/services/sky.svg'
 
@@ -34,7 +34,7 @@ export default {
     delivery,
     flower,
     fitness,
-    tour,
+    forKids,
     prime,
     sky
   },
