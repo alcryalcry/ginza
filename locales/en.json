@@ -32,6 +32,16 @@
     "u_shape": "U-Shape",
     "stand_up_meal": "reception"
   },
+  "menu": {
+    "about": "About",
+    "apartments": "Apartments",
+    "hotels": "Hotels",
+    "services": "Services",
+    "special": "Special",
+    "posts": "Culture & Events",
+    "investors": "Investors",
+    "contacts": "Contacts"
+  },
   "menuList": [
     {
       "label": "About",
@@ -91,19 +101,13 @@
         },
         {
           "id": "date",
-          "type": "popup",
-          "label": "Dates",
-          "popup": {
-            "type": "popupBooking"
-          }
+          "type": "dates",
+          "label": "Dates"
         },
         {
           "id": "count",
-          "type": "popup",
-          "label": "Guests",
-          "popup": {
-            "type": "popupBooking"
-          }
+          "type": "guests",
+          "label": "Guests"
         },
         {
           "id": "booking",
@@ -328,7 +332,8 @@
   },
   "footer": {
     "privacyUrl": "/privacy",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "SITE_MADE_BY": "Made by"
   },
   "popup": {
     "manager": "Send message",

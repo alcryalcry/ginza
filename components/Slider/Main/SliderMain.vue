@@ -3,6 +3,8 @@
     <Slider
       v-if="generatedSlides.length"
       :custom-options="customOptions"
+      :has-navigation="true"
+      navigation-mode="navigation--white navigation--basic"
       @active-index="activeIndex = $event"
     >
       <template v-slot:slides>
@@ -69,7 +71,9 @@ export default {
         loop: true,
         parallax: true,
         initialSlide: 0,
-        slidesPerView: 1
+        slidesPerView: 1,
+        breakpoints: {
+        }
       }
     }
   },
@@ -182,6 +186,7 @@ export default {
   }
 }
 .slider-main {
+  position: relative;
   overflow: hidden;
   &::v-deep {
     .swiper-wrapper {
@@ -199,7 +204,8 @@ export default {
   width: 100px;
   display: flex;
   flex-flow: column nowrap;
-  min-height: 90rem;
+  height: 90rem;
+  max-height: 100vh;
   overflow: hidden;
   @include tablet {
     min-height: 90vh

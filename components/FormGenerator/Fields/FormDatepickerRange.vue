@@ -182,8 +182,8 @@ export default {
 
         header {
           display: flex;
-          width: 60%;
-          margin-left: auto;
+          width: 100%;
+          margin: 0 auto;
           .up,
           .prev,
           .next {
@@ -206,7 +206,7 @@ export default {
               @include absolute;
               margin: 0;
               border: none;
-              background-size: 40%;
+              background-size: 18%;
               background-repeat: no-repeat;
               background-position: 50% 50%;
               // black

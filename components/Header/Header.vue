@@ -4,7 +4,7 @@
       <div class="header-row">
         <div class="header-col left">
           <client-only>
-            <button v-if="hasPrevUrl" class="back" @click="goToPrevPage">
+            <button v-if="showBackButton" class="back" @click="goToPrevPage">
               <div class="back-link">
                 <iconBack />
               </div>
@@ -93,9 +93,12 @@ export default {
       GET_MENU_STATUS: 'header/GET_MENU_STATUS',
       GET_HEADER_STATUS: 'header/GET_HEADER_STATUS'
     }),
+    showBackButton() {
+      return this.$route.path !== '/'
+    },
     hasPrevUrl() {
       if (process.browser) {
-        return window.history.length > 2 && this.$route.path !== '/'
+        return window.history.length > 2
       }
       return false
     },
@@ -119,7 +122,7 @@ export default {
       CLOSE_MENU: 'header/CLOSE_MENU'
     }),
     goToPrevPage() {
-      this.$router.back()
+      this.hasPrevUrl ? this.$router.go(-1) : this.$router.push('/')
     },
     initEvents () {
       if (this.GET_MEDIA_QUERY !== 'mobile') {

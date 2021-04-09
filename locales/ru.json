@@ -25,13 +25,23 @@
     "Business": "Отель"
   },
   "SEATING_PATTERN": {
-  "theater": "театр",
-  "banquet": "банкет",
-  "class": "класс",
-  "o_shape": "O-Shape",
-  "u_shape": "U-Shape",
-  "stand_up_meal": "Фуршет"
-},
+    "theater": "театр",
+    "banquet": "банкет",
+    "class": "класс",
+    "o_shape": "O-Shape",
+    "u_shape": "U-Shape",
+    "stand_up_meal": "Фуршет"
+  },
+  "menu": {
+    "about": "О нас",
+    "apartments": "Апартаменты",
+    "hotels": "Отели",
+    "services": "Сервис",
+    "special": "Спецпредложения",
+    "posts": "Культура & События",
+    "investors": "Инвесторам",
+    "contacts": "Контакты"
+  },
   "menuList": [
     {
       "label": "О нас",
@@ -91,19 +101,13 @@
         },
         {
           "id": "date",
-          "type": "popup",
-          "label": "Даты",
-          "popup": {
-            "type": "popupTravelLine"
-          }
+          "type": "dates",
+          "label": "Даты"
         },
         {
           "id": "count",
-          "type": "popup",
-          "label": "Гости",
-          "popup": {
-            "type": "popupTravelLine"
-          }
+          "type": "guests",
+          "label": "Гости"
         },
         {
           "id": "booking",
@@ -328,7 +332,8 @@
   },
   "footer": {
     "privacyUrl": "/privacy",
-    "privacy": "Политика конфиденциальности"
+    "privacy": "Политика конфиденциальности",
+    "SITE_MADE_BY": "Сайт сделан в"
   },
   "popup": {
     "manager": "Отправить сообщение",

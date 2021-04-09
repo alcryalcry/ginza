@@ -27,6 +27,7 @@
       </div>
       <div class="popup-booking-container">
         <div id="tl-booking-form" />
+        <div id="amk-booking-integration" />
       </div>
     </div>
   </div>
@@ -63,7 +64,10 @@ export default {
       GET_POPUP_CONTENT: 'popup/GET_POPUP_CONTENT',
       GET_POPUP_EXTEND_CONTENT: 'popup/GET_POPUP_EXTEND_CONTENT',
       GET_CURRENT_CITY: 'localStorage/GET_CURRENT_CITY',
-      GET_PREV_PAGE: 'localStorage/GET_PREV_PAGE'
+      GET_PREV_PAGE: 'localStorage/GET_PREV_PAGE',
+      GET_DATES: 'GET_DATES',
+      GET_ADULTS: 'GET_ADULTS',
+      GET_CHILDREN: 'GET_CHILDREN'
     }),
     model() {
       return MODEL(this.GET_POPUP_CONTENT)
@@ -129,9 +133,19 @@ export default {
     }
   },
   mounted() {
+    this.setQuery()
     this.initWidget()
   },
   methods: {
+    setQuery() {
+      const adults = this.GET_ADULTS
+      const dates = this.GET_DATES
+      const date = dates && dates[0] ? dates[0] : null
+      const nights = this.getNights(dates)
+      const checkIn = dates[0]
+      const checkOut = dates[1]
+      this.$router.replace({ query: { adults, date, nights, checkIn, checkOut } })
+    },
     goToPrevPage() {
       const prevPage = this.GET_PREV_PAGE
       if (prevPage) {
@@ -143,7 +157,24 @@ export default {
     initWidget() {
       /* eslint-disable eqeqeq */
 
-      function initForm() {
+      function initAMK() {
+        (function (w) {
+          const f = {}
+          const amkI = w.amkI = (w.amkI || {})
+          const ab = amkI.booking = (amkI.booking || {})
+          ab.params = (ab.params || f)
+          if (!ab.__loader) {
+            ab.__loader = true
+            const d = w.document; const s = d.createElement('script')
+            s.type = 'text/javascript'
+            s.async = true
+            s.src = 'https://booking.amk-web.com/iframe-integration/ru/1077/loader.js';
+            (d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s)
+          }
+        })(window)
+      }
+
+      function initTL() {
         (function (w) {
           const q = [
             // TODO: прокинуть сюда TLHotelId
@@ -175,7 +206,11 @@ export default {
         })(window)
       }
 
-      initForm()
+      if (this.GET_CURRENT_CITY.booking_system === 'FD') {
+        initAMK()
+      } else {
+        initTL()
+      }
     },
     getNights(range) {
       if (range && range[0] && range[1]) {

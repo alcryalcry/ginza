@@ -25,6 +25,12 @@ $widthDesktop: 1025px;
   }
 }
 
+@mixin notebook {
+  @media (max-width: #{1366px}) {
+    @content;
+  }
+}
+
 @mixin hd {
   @media (max-width: #{1440px}) {
     @content;

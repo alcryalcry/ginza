@@ -4,15 +4,30 @@ import { API_ROUTES_SOCIAL, API_ROUTES_CITIES } from '~/config/constants'
 export const state = () => ({
   social: {},
   locales: ['ru', 'en'],
-  locale: 'ru'
+  locale: 'ru',
+  adults: 1,
+  children: 0,
+  dates: []
 })
 
 export const getters = {
   GET_LANG: state => state.locale,
-  GET_SOCIAL: state => state.social
+  GET_SOCIAL: state => state.social,
+  GET_ADULTS: state => state.adults,
+  GET_CHILDREN: state => state.children,
+  GET_DATES: state => state.dates
 }
 
 export const mutations = {
+  SET_ADULTS (state, payload = 1) {
+    state.adults = payload
+  },
+  SET_CHILDREN (state, payload = 0) {
+    state.children = payload
+  },
+  SET_DATES (state, payload = 0) {
+    state.dates = payload
+  },
   SET_SOCIAL (state, payload = {}) {
     state.social = JSON.parse(JSON.stringify(payload))
   },
