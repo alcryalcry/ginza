@@ -127,7 +127,7 @@ export default {
         const query = this.id ? { hotel_id: this.id } : null
         this.$router.push({ path: '/booking', query })
       } else {
-        this.openPopup(popup)
+        this.openPopup({ type: 'popupBooking' })
       }
     },
     closeComponent() {
