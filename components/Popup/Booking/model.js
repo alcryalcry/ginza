@@ -1,5 +1,7 @@
 export default (info) => {
   const {
+    id = '',
+    path = '',
     image = '',
     logo = '',
     resultTitle = '',
@@ -12,6 +14,8 @@ export default (info) => {
   } = info || {}
 
   return {
+    id,
+    path,
     image,
     logo,
     resultTitle,

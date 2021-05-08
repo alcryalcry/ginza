@@ -90,11 +90,13 @@ export default {
           formData[key] = data[key]
         }
       }
+      const { path, id } = this.model
       formData.city = this.GET_CURRENT_CITY
       formData.hotel = this.$route.params.slug
       formData.restaurant = this.$route.params.id
-      formData.pageId = this.$route.params.id
-      axios.post(API_ROUTES_BOOKING_FORM, formData)
+      formData.pageId = id
+      const URL = path || API_ROUTES_BOOKING_FORM
+      axios.post(URL, formData)
         .then(({ status }) => {
           if (status === 200 || status === 201) {
             this.isShowResult = true
