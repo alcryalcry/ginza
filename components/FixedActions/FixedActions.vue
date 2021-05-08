@@ -7,7 +7,6 @@
             v-if="item.type === 'link'"
             class="actions-button"
             :href="item.href"
-            :download="item.isDownload"
             target="_blank"
           >
             <span v-text="item.label" />
