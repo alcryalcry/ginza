@@ -32,7 +32,7 @@ export const {
         investors_form: API_ROUTES_INVESTORS_FORM = 'request_presentation/', // done TODO: (CORS ERROR)
         booking_form: API_ROUTES_BOOKING_FORM = 'bookings/', // done TODO: (CORS ERROR)
 
-        manager_form: API_ROUTES_MANAGER_FORM = 'form/manager'
+        manager_form: API_ROUTES_MANAGER_FORM = 'manager/'
       } = {}
     } = {}
   } = {}
