@@ -1,6 +1,7 @@
 export default (info) => {
   const {
     id = '',
+    phone = '',
     pageId = '',
     path = '',
     image = '',
@@ -16,6 +17,7 @@ export default (info) => {
 
   return {
     id,
+    phone,
     pageId,
     path,
     image,
