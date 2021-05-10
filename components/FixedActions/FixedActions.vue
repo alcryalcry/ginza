@@ -21,7 +21,7 @@
           <button
             v-else-if="item.type === 'popup'"
             class="actions-button"
-            @click="openPopupWithName(item.popup)"
+            @click="openPopupWithName(item.popup, item)"
           >
             <span v-html="item.label" />
             <span v-if="item.id === 'booking'" class="icon">
@@ -119,14 +119,14 @@ export default {
     ...mapActions({
       UPDATE_PREV_PAGE: 'localStorage/UPDATE_PREV_PAGE'
     }),
-    openPopupWithName(popup) {
+    openPopupWithName(popup, item) {
       const { type } = popup
       if (type === 'popupTravelLine') {
         this.UPDATE_PREV_PAGE(this.$route.path)
         const query = this.id ? { hotel_id: this.id } : null
         this.$router.push({ path: '/booking', query })
       } else {
-        this.openPopup({ type: 'popupBooking' })
+        this.openPopup({ type: 'popupBooking', content: item })
       }
     },
     closeComponent() {

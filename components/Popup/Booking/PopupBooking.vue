@@ -90,11 +90,11 @@ export default {
           formData[key] = data[key]
         }
       }
-      const { path, id } = this.model
+      const { path, pageId } = this.model
       formData.city = this.GET_CURRENT_CITY
       formData.hotel = this.$route.params.slug
       formData.restaurant = this.$route.params.id
-      formData.pageId = id
+      formData.pageId = pageId
       const URL = path || API_ROUTES_BOOKING_FORM
       axios.post(URL, formData)
         .then(({ status }) => {

@@ -6,6 +6,8 @@ export default (info) => {
   const adaptedValues = (values || []).map((item) => {
     const {
       id = '',
+      pageId = '',
+      path = '',
       type = '',
       href = '',
       isDownload = false,
@@ -19,6 +21,8 @@ export default (info) => {
 
     return {
       id,
+      pageId,
+      path,
       type,
       href,
       isDownload,

@@ -1,6 +1,7 @@
 export default (info) => {
   const {
     id = '',
+    pageId = '',
     path = '',
     image = '',
     logo = '',
@@ -15,6 +16,7 @@ export default (info) => {
 
   return {
     id,
+    pageId,
     path,
     image,
     logo,
