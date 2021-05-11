@@ -108,10 +108,23 @@ export default {
 
 <style lang="scss" scoped>
 .investors-form {
+  min-height: calc(100vh - #{$headerHeightBig});
   position: relative;
   flex: 1;
   display: flex;
   justify-content: flex-end;
+
+  @include desktop {
+    min-height: calc(100vh - #{$headerHeight});
+  }
+
+  @include tablet {
+    min-height: calc(100vh - #{$headerHeightTablet});
+  }
+
+  @include mobile {
+    min-height: calc(100vh - #{$headerHeightMobile});
+  }
 
     &::v-deep {
     .form {
@@ -211,6 +224,9 @@ export default {
       &:hover {
         color: $brown;
       }
+    }
+    @include mobile {
+      padding-bottom: 6rem;
     }
   }
   .result-description {
