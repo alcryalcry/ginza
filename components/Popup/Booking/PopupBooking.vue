@@ -26,7 +26,7 @@
             </div>
             <h5 v-if="$t('booking.resultTitle')" class="result-title" v-html="$t('booking.resultTitle')" />
             <p v-if="$t('booking.resultDescription')" class="result-desc" v-html="$t('booking.resultDescription')" />
-            <a v-if="GET_SOCIAL.phone" :href="`tel:${GET_SOCIAL.phone}`" class="result-link" v-html="GET_SOCIAL.phone" />
+            <a v-if="currentPhone" :href="`tel:${currentPhone}`" class="result-link" v-html="currentPhone" />
           </div>
         </transition>
       </div>
@@ -65,6 +65,11 @@ export default {
     model() {
       return MODEL(this.GET_POPUP_CONTENT)
     },
+
+    currentPhone() {
+      return this.model.phone || ''
+    },
+
     ...mapGetters({
       GET_SOCIAL: 'GET_SOCIAL',
       GET_POPUP_TYPE: 'popup/GET_POPUP_TYPE',

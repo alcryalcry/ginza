@@ -1,11 +1,10 @@
 export default (info) => {
-  const {
-    values = []
-  } = info || {}
+  const { values = [] } = info || {}
 
   const adaptedValues = (values || []).map((item) => {
     const {
       id = '',
+      phone = '',
       pageId = '',
       path = '',
       type = '',
@@ -21,6 +20,7 @@ export default (info) => {
 
     return {
       id,
+      phone,
       pageId,
       path,
       type,
