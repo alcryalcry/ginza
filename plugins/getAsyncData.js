@@ -9,6 +9,10 @@ export default async function get(context, route) {
       params = { locale, city }
     }
     const routeResp = await axios.get(route, { params })
+    
+    console.warn("CONTEXT", context);
+    console.warn("ROUTE", route);
+    console.warn("RESP", routeResp);
 
     if (!routeResp) {
       console.error('routeResp')
