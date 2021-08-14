@@ -32,6 +32,7 @@ export default {
       const {
         components = {}
       } = await getAsyncData(context, `${API_ROUTES_INDEX}/${context.store.state.locale || 'ru'}/`)
+      console.warn(components);
       return {
         components: components.components,
         page: components,
